@@ -1,0 +1,16 @@
+:root {
+  --primary: #f97316;
+  --primary-dark: #ea580c;
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+
+  --bg-light: #fffaf2;
+  --surface-light: #ffffff;
+  --text-dark: #2f2117;
+  --text-muted: #786451;
+  --border-light: #f1dfc7;
+
+  --shadow-soft: 0 8px 30px rgba(120, 70, 20, 0.08);
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}

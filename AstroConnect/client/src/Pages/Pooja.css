@@ -1,0 +1,227 @@
+.pooja-page {
+  min-height: 100vh;
+  background: var(--bg, #fffaf3);
+}
+
+.pooja-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.pooja-hero {
+  padding: 90px 0 70px;
+  text-align: center;
+}
+
+.pooja-hero h1 {
+  margin: 18px auto;
+  max-width: 850px;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+}
+
+.pooja-hero h1 span,
+.pooja-section-heading h2 span {
+  color: #d97706;
+}
+
+.pooja-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+/* SECTION */
+
+.pooja-records-section {
+  padding: 30px 0 100px;
+}
+
+.pooja-section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pooja-section-heading h2 {
+  font-size: clamp(30px, 4vw, 46px);
+  margin: 12px 0;
+}
+
+.pooja-section-heading p {
+  opacity: 0.7;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* GRID */
+
+.pooja-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* CARD */
+
+.pooja-card {
+  overflow: hidden;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(217, 119, 6, 0.15);
+  box-shadow: 0 14px 40px rgba(80, 45, 10, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.pooja-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(80, 45, 10, 0.14);
+}
+
+/* IMAGE */
+
+.pooja-card-image {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  background: #f5ead8;
+}
+
+.pooja-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pooja-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 55px;
+}
+
+/* BADGE */
+
+.pooja-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 13px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* CONTENT */
+
+.pooja-card-content {
+  padding: 24px;
+}
+
+.pooja-card-content h3 {
+  margin: 0 0 22px;
+  font-size: 22px;
+}
+
+/* DETAILS */
+
+.pooja-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.pooja-detail-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff4df;
+  flex-shrink: 0;
+}
+
+.pooja-detail div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pooja-detail small {
+  font-size: 11px;
+  opacity: 0.55;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pooja-detail strong {
+  font-size: 14px;
+}
+
+/* STATES */
+
+.pooja-state {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 22px;
+  border: 1px dashed rgba(217, 119, 6, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.pooja-state-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.pooja-state h3 {
+  margin: 0 0 8px;
+}
+
+.pooja-state p {
+  margin: 0;
+  opacity: 0.65;
+}
+
+.pooja-error-state {
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .pooja-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pooja-hero {
+    padding: 60px 0 45px;
+  }
+
+  .pooja-records-section {
+    padding-bottom: 70px;
+  }
+
+  .pooja-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pooja-card-image {
+    height: 230px;
+  }
+}

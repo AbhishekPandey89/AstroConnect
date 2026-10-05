@@ -1,0 +1,449 @@
+/* =====================================================
+   ADMIN VASTU PAGE
+===================================================== */
+
+.admin-vastu-page {
+  min-height: 100vh;
+  padding: 110px 20px 70px;
+  background: #f8f7f3;
+}
+
+.admin-vastu-container {
+  width: min(1250px, 100%);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.admin-vastu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.admin-vastu-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #c47b22;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.admin-vastu-header h1 {
+  margin: 0;
+  color: #252525;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+}
+
+.admin-vastu-header h1 span {
+  color: #c47b22;
+}
+
+.admin-vastu-header p {
+  margin: 12px 0 0;
+  color: #777;
+  font-size: 15px;
+}
+
+.admin-vastu-count {
+  padding: 9px 14px;
+  border-radius: 30px;
+  background: #fff5e8;
+  color: #a76618;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.admin-vastu-error {
+  margin-bottom: 25px;
+  padding: 14px 16px;
+  border: 1px solid #edcaca;
+  border-radius: 12px;
+  background: #fff2f2;
+  color: #c0392b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   REQUEST LIST
+===================================================== */
+
+.admin-vastu-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* =====================================================
+   REQUEST CARD
+===================================================== */
+
+.admin-vastu-card {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #eee5d9;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.045);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.admin-vastu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.07);
+}
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.admin-vastu-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eee9e2;
+}
+
+.admin-vastu-card-header span:first-child {
+  display: block;
+  margin-bottom: 5px;
+  color: #999;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.admin-vastu-card-header strong {
+  display: block;
+  max-width: 550px;
+  color: #333;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.admin-vastu-status {
+  padding: 7px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.admin-vastu-status-pending {
+  background: #fff5dc;
+  color: #a86b00;
+}
+
+.admin-vastu-status-contacted {
+  background: #edf4ff;
+  color: #2872c8;
+}
+
+.admin-vastu-status-completed {
+  background: #eaf8ef;
+  color: #198754;
+}
+
+.admin-vastu-status-cancelled {
+  background: #fff0f0;
+  color: #c0392b;
+}
+
+/* =====================================================
+   DETAILS GRID
+===================================================== */
+
+.admin-vastu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+}
+
+.admin-vastu-grid div {
+  min-width: 0;
+}
+
+.admin-vastu-grid div span,
+.admin-vastu-concern span {
+  display: block;
+  margin-bottom: 6px;
+  color: #999;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-vastu-grid div strong {
+  display: block;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* =====================================================
+   CONCERN
+===================================================== */
+
+.admin-vastu-concern {
+  padding: 17px 0;
+  border-top: 1px solid #eee9e2;
+  border-bottom: 1px solid #eee9e2;
+}
+
+.admin-vastu-concern p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* =====================================================
+   FOOTER / STATUS CONTROL
+===================================================== */
+
+.admin-vastu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 17px;
+}
+
+.admin-vastu-footer small {
+  margin-right: auto;
+  color: #999;
+  font-size: 11px;
+}
+
+.admin-vastu-footer select {
+  min-width: 145px;
+  padding: 9px 12px;
+  border: 1px solid #ddd3c7;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #333;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.admin-vastu-footer select:focus {
+  border-color: #c47b22;
+  box-shadow: 0 0 0 3px rgba(196, 123, 34, 0.08);
+}
+
+.admin-vastu-footer select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-vastu-footer > span {
+  color: #c47b22;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.admin-vastu-empty {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee5d9;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.admin-vastu-empty > div {
+  margin-bottom: 12px;
+  font-size: 48px;
+}
+
+.admin-vastu-empty h2 {
+  margin: 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.admin-vastu-empty p {
+  margin: 8px 0 0;
+  color: #888;
+  font-size: 13px;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.admin-vastu-loading {
+  min-height: 70vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.admin-vastu-loading > div {
+  margin-bottom: 15px;
+  font-size: 35px;
+}
+
+.admin-vastu-loading h2 {
+  margin: 0;
+  color: #333;
+}
+
+.admin-vastu-loading p {
+  color: #888;
+}
+
+/* =====================================================
+   ACCESS CARD
+===================================================== */
+
+.admin-vastu-access-card {
+  width: min(500px, 100%);
+  margin: 100px auto;
+  padding: 40px 25px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee5d9;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.admin-vastu-access-card > div {
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+
+.admin-vastu-access-card h2 {
+  margin: 0 0 10px;
+  color: #292929;
+}
+
+.admin-vastu-access-card p {
+  margin: 0 0 22px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.admin-vastu-access-card button {
+  border: 0;
+  padding: 11px 20px;
+  border-radius: 9px;
+  background: #c47b22;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-vastu-access-card button:hover {
+  background: #ad6817;
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+  .admin-vastu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+  .admin-vastu-page {
+    padding: 90px 14px 50px;
+  }
+
+  .admin-vastu-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-vastu-count {
+    align-self: flex-start;
+  }
+
+  .admin-vastu-card {
+    padding: 18px;
+  }
+
+  .admin-vastu-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-vastu-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .admin-vastu-footer {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .admin-vastu-footer small {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .admin-vastu-footer select {
+    flex: 1;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+  .admin-vastu-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .admin-vastu-card {
+    padding: 16px;
+  }
+
+  .admin-vastu-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-vastu-footer select {
+    width: 100%;
+  }
+}

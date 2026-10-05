@@ -1,0 +1,498 @@
+/* =====================================================
+   ADMIN POOJA PAGE
+===================================================== */
+
+.admin-pooja-page {
+  min-height: 100vh;
+  padding: 70px 24px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(225, 139, 0, 0.08),
+      transparent 35%
+    ),
+    #fffaf3;
+  color: #21180d;
+}
+
+.admin-pooja-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.admin-pooja-header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.admin-pooja-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #c97800;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.admin-pooja-header h1 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.admin-pooja-header h1 span {
+  color: #d17b00;
+}
+
+.admin-pooja-header p {
+  margin: 15px 0 0;
+  color: #766b60;
+  font-size: 17px;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.admin-pooja-add-btn {
+  border: 0 !important;
+  border-radius: 12px !important;
+  padding: 14px 22px !important;
+  background: #d98200 !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(217, 130, 0, 0.2);
+  transition: 0.2s ease;
+}
+
+.admin-pooja-add-btn:hover {
+  transform: translateY(-2px);
+  background: #bd6f00 !important;
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.admin-pooja-error {
+  margin-bottom: 25px;
+  padding: 15px 18px;
+  border: 1px solid #f2b8b8;
+  border-radius: 12px;
+  background: #fff0f0;
+  color: #c62828;
+  font-weight: 600;
+}
+
+.admin-pooja-success {
+  margin-bottom: 25px;
+  padding: 15px 18px;
+  border: 1px solid #b8dfc1;
+  border-radius: 12px;
+  background: #effaf1;
+  color: #237a35;
+  font-weight: 700;
+}
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.admin-pooja-form-card {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 0 35px 0 !important;
+  padding: 30px !important;
+  border: 1px solid #eadfce !important;
+  border-radius: 22px !important;
+  background: #ffffff !important;
+  box-shadow: 0 18px 50px rgba(66, 43, 15, 0.08) !important;
+}
+
+.admin-pooja-form-title {
+  margin: 0 0 25px 0 !important;
+  font-size: 25px !important;
+  color: #21180d;
+}
+
+/* =====================================================
+   FORM GRID — IMPORTANT
+===================================================== */
+
+.admin-pooja-form-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 22px 24px !important;
+  width: 100% !important;
+}
+
+/* =====================================================
+   FORM FIELD — IMPORTANT
+===================================================== */
+
+.admin-pooja-field {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  gap: 8px !important;
+}
+
+.admin-pooja-field.full {
+  grid-column: 1 / -1 !important;
+}
+
+.admin-pooja-field label {
+  display: block !important;
+  margin: 0 !important;
+  color: #493a2c !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.admin-pooja-field input,
+.admin-pooja-field textarea {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+
+  border: 1px solid #dfd3c3 !important;
+  border-radius: 11px !important;
+
+  padding: 13px 14px !important;
+
+  outline: none !important;
+  background: #fffdf9 !important;
+  color: #241a10 !important;
+
+  font-family: inherit !important;
+  font-size: 15px !important;
+
+  transition: 0.2s ease;
+}
+
+.admin-pooja-field input {
+  min-height: 48px !important;
+}
+
+.admin-pooja-field textarea {
+  min-height: 130px !important;
+  resize: vertical !important;
+  line-height: 1.5 !important;
+}
+
+.admin-pooja-field input:focus,
+.admin-pooja-field textarea:focus {
+  border-color: #d98200 !important;
+  box-shadow: 0 0 0 3px rgba(217, 130, 0, 0.1) !important;
+}
+
+.admin-pooja-help {
+  display: block;
+  color: #8b8176;
+  font-size: 12px;
+}
+
+/* =====================================================
+   FORM ACTIONS
+===================================================== */
+
+.admin-pooja-form-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 25px !important;
+}
+
+.admin-pooja-save-btn,
+.admin-pooja-cancel-btn {
+  border-radius: 10px !important;
+  padding: 12px 20px !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+}
+
+.admin-pooja-save-btn {
+  border: 0 !important;
+  background: #d98200 !important;
+  color: #fff !important;
+}
+
+.admin-pooja-save-btn:hover {
+  background: #bd6f00 !important;
+}
+
+.admin-pooja-save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.admin-pooja-cancel-btn {
+  border: 1px solid #d9cbbb !important;
+  background: #fff !important;
+  color: #4b4035 !important;
+}
+
+.admin-pooja-cancel-btn:hover {
+  background: #fff8ef !important;
+}
+
+/* =====================================================
+   LIST
+===================================================== */
+
+.admin-pooja-list {
+  width: 100%;
+}
+
+.admin-pooja-list-header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.admin-pooja-list-header h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.admin-pooja-count {
+  padding: 8px 13px;
+  border-radius: 50px;
+  background: #fff0d9;
+  color: #b96d00;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* =====================================================
+   POOJA GRID
+===================================================== */
+
+.admin-pooja-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  width: 100%;
+}
+
+/* =====================================================
+   POOJA CARD
+===================================================== */
+
+.admin-pooja-card {
+  overflow: hidden;
+  border: 1px solid #eadfce;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(55, 38, 18, 0.07);
+}
+
+.admin-pooja-image {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: #f4eadc;
+}
+
+.admin-pooja-image-placeholder {
+  height: 230px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    135deg,
+    #fff2d9,
+    #f7e4c5
+  );
+  color: #c87900;
+  font-size: 55px;
+}
+
+.admin-pooja-card-body {
+  padding: 23px;
+}
+
+.admin-pooja-type {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #c87900;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.admin-pooja-card h3 {
+  margin: 0 0 15px;
+  font-size: 24px;
+}
+
+.admin-pooja-details {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 13px !important;
+}
+
+.admin-pooja-detail {
+  padding: 12px;
+  border-radius: 10px;
+  background: #fffaf3;
+}
+
+.admin-pooja-detail span {
+  display: block;
+  margin-bottom: 4px;
+  color: #8c8174;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.admin-pooja-detail strong {
+  font-size: 14px;
+  color: #34291d;
+}
+
+/* =====================================================
+   CARD ACTIONS
+===================================================== */
+
+.admin-pooja-actions {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #eee3d5;
+}
+
+.admin-pooja-edit,
+.admin-pooja-delete {
+  border-radius: 9px !important;
+  padding: 9px 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+}
+
+.admin-pooja-edit {
+  border: 1px solid #d7c5aa !important;
+  background: #fffaf3 !important;
+  color: #9b5d00 !important;
+}
+
+.admin-pooja-delete {
+  border: 1px solid #efc1c1 !important;
+  background: #fff3f3 !important;
+  color: #c62828 !important;
+}
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.admin-pooja-empty {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 20px;
+  border: 1px dashed #dfcdb4;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.admin-pooja-empty-icon {
+  margin-bottom: 15px;
+  font-size: 55px;
+}
+
+.admin-pooja-empty h3 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.admin-pooja-empty p {
+  margin: 0;
+  color: #81776d;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.admin-pooja-loading {
+  padding: 80px;
+  text-align: center;
+  color: #74695d;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+  .admin-pooja-header {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .admin-pooja-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-pooja-field.full {
+    grid-column: auto !important;
+  }
+
+  .admin-pooja-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .admin-pooja-page {
+    padding: 40px 15px;
+  }
+
+  .admin-pooja-form-card {
+    padding: 20px !important;
+  }
+
+  .admin-pooja-details {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-pooja-form-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .admin-pooja-save-btn,
+  .admin-pooja-cancel-btn {
+    width: 100% !important;
+  }
+
+  .admin-pooja-list-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

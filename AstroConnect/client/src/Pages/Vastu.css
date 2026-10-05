@@ -1,0 +1,728 @@
+/* =====================================================
+   VASTU PAGE
+===================================================== */
+
+.vastu-page {
+  min-height: 100vh;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.vastu-container {
+  width: min(1250px, 92%);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.vastu-hero {
+  padding: 125px 0 90px;
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(249, 115, 22, 0.09),
+      transparent 32%
+    ),
+    var(--bg-light);
+}
+
+.vastu-hero .vastu-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.vastu-hero-content {
+  max-width: 700px;
+}
+
+.vastu-hero-content h1 {
+  margin: 14px 0 20px;
+  color: var(--text-dark);
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.vastu-hero-content h1 span {
+  color: var(--primary);
+}
+
+.vastu-hero-content > p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.vastu-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.vastu-primary-btn,
+.vastu-secondary-btn {
+  padding: 13px 20px;
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.vastu-primary-btn {
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--gold)
+  );
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.18);
+}
+
+.vastu-primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(249, 115, 22, 0.25);
+}
+
+.vastu-secondary-btn {
+  border: 1px solid var(--border-light);
+  background: #fff;
+  color: var(--text-dark);
+}
+
+.vastu-secondary-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* =====================================================
+   HERO CARD
+===================================================== */
+
+.vastu-hero-card {
+  position: relative;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 220, 160, 0.35),
+      transparent 55%
+    ),
+    #fff;
+  box-shadow: 0 25px 60px rgba(120, 70, 20, 0.09);
+  text-align: center;
+}
+
+.vastu-hero-card::before,
+.vastu-hero-card::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(196, 123, 34, 0.15);
+  border-radius: 50%;
+}
+
+.vastu-hero-card::before {
+  width: 300px;
+  height: 300px;
+}
+
+.vastu-hero-card::after {
+  width: 220px;
+  height: 220px;
+}
+
+.vastu-compass {
+  position: relative;
+  z-index: 2;
+  width: 145px;
+  height: 145px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #e7b85c;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #fff8e9,
+    #ffe8c4
+  );
+  font-size: 65px;
+  box-shadow:
+    0 15px 35px rgba(196, 123, 34, 0.15),
+    inset 0 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.vastu-hero-card > span {
+  position: relative;
+  z-index: 2;
+  margin-top: 25px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vastu-hero-card > strong {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+  color: var(--text-dark);
+  font-size: 20px;
+}
+
+.vastu-hero-card > p {
+  position: relative;
+  z-index: 2;
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.vastu-section-heading {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+
+.vastu-section-heading.center {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.vastu-section-heading h2 {
+  margin: 10px 0 12px;
+  color: var(--text-dark);
+  font-size: clamp(30px, 4vw, 45px);
+  line-height: 1.15;
+}
+
+.vastu-section-heading h2 span {
+  color: var(--primary);
+}
+
+.vastu-section-heading > p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.vastu-intro {
+  padding: 75px 0 35px;
+  background: #fff;
+}
+
+.vastu-intro .vastu-section-heading {
+  margin-bottom: 20px;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.vastu-services {
+  padding: 85px 0;
+  background: var(--bg-light);
+}
+
+.vastu-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.vastu-service-card {
+  padding: 25px;
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(120, 70, 20, 0.045);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.vastu-service-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 18px 40px rgba(120, 70, 20, 0.1);
+}
+
+.vastu-service-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    #fff3d9,
+    #ffe5bd
+  );
+  font-size: 27px;
+}
+
+.vastu-service-card h3 {
+  margin: 0 0 10px;
+  color: var(--text-dark);
+  font-size: 18px;
+}
+
+.vastu-service-card p {
+  min-height: 90px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.vastu-service-card button {
+  margin-top: 20px;
+  padding: 9px 0;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.vastu-service-card button:hover {
+  color: var(--primary-dark);
+}
+
+/* =====================================================
+   GUIDANCE
+===================================================== */
+
+.vastu-guidance {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.vastu-guidance-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.vastu-guidance-content h2 {
+  max-width: 600px;
+  margin: 12px 0 18px;
+  color: var(--text-dark);
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.15;
+}
+
+.vastu-guidance-content h2 span {
+  color: var(--primary);
+}
+
+.vastu-guidance-content > p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.vastu-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.vastu-points div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.vastu-points span {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff1dc;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.vastu-points p {
+  margin: 2px 0 0;
+  color: var(--text-dark);
+  font-size: 13px;
+}
+
+/* Highlight Card */
+
+.vastu-highlight-card {
+  position: relative;
+  padding: 45px 35px;
+  overflow: hidden;
+  border: 1px solid #f0dfc7;
+  border-radius: 25px;
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(249, 115, 22, 0.13),
+      transparent 35%
+    ),
+    #fffaf2;
+  box-shadow: 0 20px 50px rgba(120, 70, 20, 0.08);
+  text-align: center;
+}
+
+.vastu-highlight-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: -100px;
+  right: -100px;
+  border: 1px solid rgba(196, 123, 34, 0.15);
+  border-radius: 50%;
+}
+
+.vastu-highlight-symbol {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #fff0cf,
+    #ffd99b
+  );
+  color: var(--primary);
+  font-size: 30px;
+}
+
+.vastu-highlight-card h3 {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 23px;
+}
+
+.vastu-highlight-card > p {
+  max-width: 350px;
+  margin: 12px auto 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.vastu-highlight-line {
+  width: 55px;
+  height: 2px;
+  margin: 25px auto;
+  background: var(--primary);
+}
+
+.vastu-highlight-card small {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.vastu-process {
+  padding: 100px 0;
+  background: var(--bg-light);
+}
+
+.vastu-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.vastu-process-card {
+  position: relative;
+  padding: 30px;
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(120, 70, 20, 0.04);
+}
+
+.vastu-process-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 25px;
+  border-radius: 11px;
+  background: #fff0d8;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.vastu-process-card h3 {
+  margin: 0 0 10px;
+  color: var(--text-dark);
+  font-size: 19px;
+}
+
+.vastu-process-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.vastu-consultation {
+  padding: 85px 0;
+  background: #fff;
+}
+
+.vastu-cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 45px;
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      135deg,
+      #fff5e5,
+      #fffaf3
+    );
+  border: 1px solid #f0dfc7;
+  box-shadow: 0 15px 45px rgba(120, 70, 20, 0.07);
+}
+
+.vastu-cta-card h2 {
+  margin: 10px 0;
+  color: var(--text-dark);
+  font-size: clamp(27px, 4vw, 40px);
+}
+
+.vastu-cta-card p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.vastu-cta-card button {
+  flex-shrink: 0;
+  padding: 13px 21px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--gold)
+  );
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.18);
+  transition: 0.25s ease;
+}
+
+.vastu-cta-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(249, 115, 22, 0.25);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+  .vastu-hero .vastu-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .vastu-hero-content {
+    max-width: 800px;
+  }
+
+  .vastu-hero-card {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .vastu-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vastu-guidance-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .vastu-highlight-card {
+    max-width: 600px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+  .vastu-container {
+    width: min(94%, 1250px);
+  }
+
+  .vastu-hero {
+    padding: 100px 0 65px;
+  }
+
+  .vastu-hero-content h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .vastu-hero-content > p {
+    font-size: 14px;
+  }
+
+  .vastu-hero-actions {
+    flex-direction: column;
+  }
+
+  .vastu-primary-btn,
+  .vastu-secondary-btn {
+    width: 100%;
+  }
+
+  .vastu-hero-card {
+    min-height: 330px;
+    padding: 25px;
+  }
+
+  .vastu-compass {
+    width: 120px;
+    height: 120px;
+    font-size: 52px;
+  }
+
+  .vastu-intro,
+  .vastu-services,
+  .vastu-guidance,
+  .vastu-process,
+  .vastu-consultation {
+    padding: 70px 0;
+  }
+
+  .vastu-section-heading {
+    margin-bottom: 32px;
+  }
+
+  .vastu-section-heading h2 {
+    font-size: 31px;
+  }
+
+  .vastu-section-heading > p {
+    font-size: 13px;
+  }
+
+  .vastu-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vastu-service-card p {
+    min-height: auto;
+  }
+
+  .vastu-guidance-content h2 {
+    font-size: 32px;
+  }
+
+  .vastu-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vastu-cta-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 28px 22px;
+  }
+
+  .vastu-cta-card button {
+    width: 100%;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+  .vastu-container {
+    width: 92%;
+  }
+
+  .vastu-hero-content h1 {
+    font-size: 36px;
+  }
+
+  .vastu-hero-card {
+    min-height: 300px;
+    border-radius: 20px;
+  }
+
+  .vastu-service-card,
+  .vastu-process-card {
+    padding: 22px;
+  }
+
+  .vastu-highlight-card {
+    padding: 35px 22px;
+  }
+}

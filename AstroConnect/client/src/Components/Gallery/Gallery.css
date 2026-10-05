@@ -1,0 +1,285 @@
+.gallery-section {
+  padding: 110px 0;
+  background: var(--bg-light);
+}
+
+.gallery-container {
+  width: min(1400px, 92%);
+  margin: 0 auto;
+}
+
+.gallery-heading {
+  margin-bottom: 35px;
+}
+
+/* Filters */
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  margin-bottom: 35px;
+}
+
+.gallery-filters button {
+  padding: 9px 15px;
+
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+
+  background: white;
+
+  color: var(--text-muted);
+
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  color: white;
+}
+
+/* Gallery */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+
+  gap: 16px;
+}
+
+.gallery-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--border-light);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(120, 70, 20, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Different sizes */
+
+.gallery-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-4 {
+  grid-column: span 2;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 45px rgba(120, 70, 20, 0.14);
+}
+
+/* Placeholder */
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(245, 158, 11, 0.3),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(249, 115, 22, 0.22),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #fff5df,
+      #ffe8c5
+    );
+
+  transition: transform 0.5s ease;
+}
+
+.gallery-placeholder span {
+  font-size: 4rem;
+
+  filter:
+    drop-shadow(
+      0 10px 15px rgba(120, 70, 20, 0.15)
+    );
+}
+
+.gallery-card:hover .gallery-placeholder {
+  transform: scale(1.06);
+}
+
+/* Overlay */
+
+.gallery-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(45, 27, 12, 0.8)
+    );
+
+  color: white;
+}
+
+.gallery-overlay small {
+  font-size: 0.65rem;
+
+  color: #ffd27a;
+
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gallery-overlay h3 {
+  margin-top: 5px;
+
+  font-size: 1rem;
+}
+
+.gallery-overlay button {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.14);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.gallery-overlay button:hover {
+  background: var(--primary);
+
+  transform: rotate(8deg);
+}
+
+/* Bottom */
+
+.gallery-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.gallery-bottom p {
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+}
+
+.gallery-bottom button {
+  padding: 10px 16px;
+
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+
+  background: white;
+
+  color: var(--primary);
+
+  font-family: inherit;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.gallery-bottom button:hover {
+  border-color: var(--gold);
+
+  background: #fff8eb;
+
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-1 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-section {
+    padding: 75px 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 230px;
+  }
+
+  .gallery-1,
+  .gallery-4 {
+    grid-column: span 1;
+  }
+
+  .gallery-bottom {
+    flex-direction: column;
+  }
+}

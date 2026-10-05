@@ -1,0 +1,521 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 76px);
+
+  background:
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(245, 158, 11, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(249, 115, 22, 0.08),
+      transparent 30%
+    ),
+    var(--bg-light);
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  width: min(1400px, 92%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+  gap: 60px;
+
+  padding: 80px 0;
+}
+
+/* Content */
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 15px;
+
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  color: var(--primary-dark);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-badge span {
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 25px 0 20px;
+
+  max-width: 700px;
+
+  color: var(--text-dark);
+
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 850;
+}
+
+.hero h1 span {
+  display: block;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--gold)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  max-width: 620px;
+
+  color: var(--text-muted);
+
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+
+/* Buttons */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 32px;
+}
+
+.hero-actions button {
+  border: none;
+  cursor: pointer;
+
+  padding: 14px 21px;
+
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--gold)
+  );
+
+  box-shadow:
+    0 10px 25px rgba(249, 115, 22, 0.25);
+}
+
+.hero-primary-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(249, 115, 22, 0.35);
+}
+
+.hero-primary-btn span {
+  font-size: 1.2rem;
+}
+
+.hero-secondary-btn {
+  color: var(--text-dark);
+
+  background: white;
+
+  border: 1px solid var(--border-light) !important;
+}
+
+.hero-secondary-btn:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--gold) !important;
+}
+
+/* Trust */
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+
+  margin-top: 45px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.trust-item strong {
+  color: var(--text-dark);
+  font-size: 1.25rem;
+}
+
+.trust-item span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 35px;
+
+  margin: 0 25px;
+
+  background: var(--border-light);
+}
+
+/* Visual */
+
+.hero-visual {
+  position: relative;
+
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-glow {
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(245, 158, 11, 0.22),
+      rgba(249, 115, 22, 0.06),
+      transparent 70%
+    );
+
+  filter: blur(10px);
+}
+
+.astrology-card {
+  position: relative;
+  z-index: 2;
+
+  width: min(390px, 82%);
+
+  padding: 25px;
+
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #fff6e8
+    );
+
+  box-shadow:
+    0 30px 80px rgba(107, 61, 18, 0.16);
+
+  text-align: center;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--primary);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.card-top span:first-child {
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.mandala {
+  width: 220px;
+  height: 220px;
+
+  margin: 30px auto;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(245, 158, 11, 0.4);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(245, 158, 11, 0.2),
+      transparent 65%
+    );
+}
+
+.mandala::before {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px dashed var(--gold);
+
+  border-radius: 50%;
+}
+
+.mandala-circle {
+  width: 115px;
+  height: 115px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(249, 115, 22, 0.4);
+
+  border-radius: 50%;
+
+  background: #fffaf2;
+
+  font-size: 2.7rem;
+
+  box-shadow:
+    inset 0 0 30px rgba(245, 158, 11, 0.12);
+}
+
+.card-title h3 {
+  color: var(--text-dark);
+
+  font-size: 1.35rem;
+}
+
+.card-title p {
+  margin-top: 7px;
+
+  color: var(--text-muted);
+
+  font-size: 0.88rem;
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.card-details div {
+  padding: 12px 8px;
+
+  border: 1px solid var(--border-light);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.card-details span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--primary);
+
+  font-size: 1.15rem;
+}
+
+.card-details small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Floating Cards */
+
+.floating-card {
+  position: absolute;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 15px;
+
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow: 0 15px 35px rgba(75, 45, 20, 0.12);
+
+  backdrop-filter: blur(12px);
+}
+
+.floating-card > span {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: #fff2d8;
+
+  color: var(--primary);
+}
+
+.floating-card div {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-card strong {
+  color: var(--text-dark);
+  font-size: 0.8rem;
+}
+
+.floating-card small {
+  margin-top: 2px;
+
+  color: var(--text-muted);
+  font-size: 0.67rem;
+}
+
+.floating-card-one {
+  top: 115px;
+  left: 0;
+}
+
+.floating-card-two {
+  right: 0;
+  bottom: 110px;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: auto;
+  }
+
+  .hero-badge,
+  .hero-actions,
+  .hero-trust {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    width: 90%;
+    padding: 55px 0;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions button {
+    width: 100%;
+  }
+
+  .hero-trust {
+    gap: 15px;
+  }
+
+  .trust-divider {
+    margin: 0 5px;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .astrology-card {
+    width: 92%;
+  }
+
+  .floating-card-one {
+    left: -5px;
+    top: 50px;
+  }
+
+  .floating-card-two {
+    right: -5px;
+    bottom: 55px;
+  }
+}
