@@ -1,0 +1,382 @@
+
+/* =========================================
+   ASTROCONNECT — PREMIUM FOOTER
+   ========================================= */
+
+.astro-footer {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin-top: 60px;
+  overflow: hidden;
+  color: #fff8ed;
+  background:
+    radial-gradient(
+      ellipse at 12% 0%,
+      rgba(255, 157, 34, 0.12),
+      transparent 42%
+    ),
+    linear-gradient(135deg, #1c1008 0%, #241307 52%, #160d08 100%);
+  border-top: 1px solid rgba(255, 181, 46, 0.35);
+}
+
+.astro-footer-glow {
+  position: absolute;
+  z-index: -1;
+  top: -130px;
+  right: 10%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 159, 28, 0.08);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.astro-footer-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(130px, 1fr));
+  gap: 42px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 58px 25px 48px;
+}
+
+/* Brand */
+
+.astro-footer-brand {
+  max-width: 340px;
+}
+
+.astro-footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 20px;
+  color: #fff8ed;
+  text-decoration: none;
+}
+
+.astro-footer-logo-image {
+  display: block;
+  width: 53px;
+  height: 53px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 3px 10px rgba(255, 166, 35, 0.18));
+  transition: transform 0.3s ease;
+}
+
+.astro-footer-brand-link:hover .astro-footer-logo-image {
+  transform: rotate(-5deg) scale(1.06);
+}
+
+.astro-footer-brand-name {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.astro-footer-brand-name span {
+  color: #ffb52e;
+}
+
+.astro-footer-description {
+  max-width: 330px;
+  margin: 0;
+  color: #cfc1b2;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.astro-footer-trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 9px 13px;
+  color: #f7d9a0;
+  background: rgba(255, 181, 46, 0.07);
+  border: 1px solid rgba(255, 181, 46, 0.19);
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+.astro-footer-trust-icon {
+  color: #ffb52e;
+  font-size: 16px;
+}
+
+/* Footer Columns */
+
+.astro-footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.astro-footer-column h3 {
+  position: relative;
+  margin: 5px 0 12px;
+  padding-bottom: 12px;
+  color: #ffbd48;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+.astro-footer-column h3::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 34px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffb52e, #f47b20);
+  border-radius: 10px;
+  content: "";
+}
+
+.astro-footer-column > a:not(.astro-footer-contact-link) {
+  color: #cfc1b2;
+  text-decoration: none;
+  font-size: 13.5px;
+  line-height: 1.5;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.astro-footer-column > a:not(.astro-footer-contact-link):hover {
+  color: #ffbd48;
+  transform: translateX(4px);
+}
+
+/* Contact Column */
+
+.astro-footer-connect-text {
+  max-width: 230px;
+  margin: -3px 0 5px;
+  color: #cfc1b2;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+.astro-footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 100%;
+  padding: 11px 13px;
+  color: #211306;
+  background: linear-gradient(135deg, #ffd16c, #ff9d26);
+  border: 1px solid rgba(255, 214, 136, 0.55);
+  border-radius: 9px;
+  box-shadow: 0 5px 18px rgba(255, 145, 24, 0.12);
+  font-size: 12.5px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.astro-footer-contact-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 145, 24, 0.22);
+}
+
+.astro-footer-arrow {
+  margin-left: 2px;
+}
+
+.astro-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.astro-footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  color: #e8c99a;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 181, 46, 0.2);
+  border-radius: 50%;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.astro-footer-socials a:hover {
+  color: #211306;
+  background: #ffb52e;
+  border-color: #ffb52e;
+  transform: translateY(-3px);
+}
+
+.astro-footer-socials svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Bottom Bar */
+
+.astro-footer-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 21px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.astro-footer-bottom p {
+  margin: 0;
+  color: #a99a8a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.astro-footer-bottom strong {
+  color: #e7d6c3;
+  font-weight: 650;
+}
+
+.astro-footer-credit span {
+  color: #ff9d43;
+}
+
+.astro-footer-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  color: #e8c99a;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.astro-footer-back-top:hover {
+  color: #ffbd48;
+}
+
+.astro-footer-back-top span {
+  font-size: 16px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .astro-footer-container {
+    grid-template-columns: minmax(220px, 1.5fr) 1fr 1fr;
+    gap: 38px 30px;
+  }
+
+  .astro-footer-brand {
+    grid-row: span 2;
+  }
+
+  .astro-footer-connect {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .astro-footer {
+    margin-top: 45px;
+  }
+
+  .astro-footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 26px;
+    padding: 43px 24px 35px;
+  }
+
+  .astro-footer-brand {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    max-width: 100%;
+  }
+
+  .astro-footer-description {
+    max-width: 440px;
+  }
+
+  .astro-footer-connect {
+    grid-column: auto;
+  }
+
+  .astro-footer-bottom {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .astro-footer-container {
+    gap: 32px 18px;
+    padding: 38px 18px 30px;
+  }
+
+  .astro-footer-brand-name {
+    font-size: 23px;
+  }
+
+  .astro-footer-logo-image {
+    width: 46px;
+    height: 46px;
+  }
+
+  .astro-footer-column h3 {
+    font-size: 15px;
+  }
+
+  .astro-footer-column > a:not(.astro-footer-contact-link),
+  .astro-footer-connect-text {
+    font-size: 12.5px;
+  }
+
+  .astro-footer-contact-link {
+    gap: 6px;
+    padding: 10px;
+    font-size: 11.5px;
+  }
+
+  .astro-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astro-footer *,
+  .astro-footer *::before,
+  .astro-footer *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

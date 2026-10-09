@@ -346,3 +346,66 @@ export const deletePooja = async (
     },
   });
 };
+
+// =====================================================
+// CONTACT
+// =====================================================
+
+// Create Contact Message - Public
+export const createContactMessage = async (
+  contactData
+) => {
+  return apiRequest("/contact", {
+    method: "POST",
+    body: JSON.stringify(contactData),
+  });
+};
+
+
+// =====================================================
+// ADMIN CONTACT MESSAGES
+// =====================================================
+
+// Get all contact messages
+export const getAllContactMessages = async (token) => {
+  return apiRequest("/admin/contact-messages", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+// Update contact message status
+export const updateContactMessageStatus = async (
+  token,
+  messageId,
+  status
+) => {
+  return apiRequest(
+    `/admin/contact-messages/${messageId}/status`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ status }),
+    }
+  );
+};
+
+// Delete contact message
+export const deleteContactMessage = async (
+  token,
+  messageId
+) => {
+  return apiRequest(
+    `/admin/contact-messages/${messageId}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

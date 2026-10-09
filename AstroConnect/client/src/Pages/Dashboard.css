@@ -351,3 +351,833 @@
     width: 100%;
   }
 }
+
+/* =====================================================
+   DASHBOARD QUICK ACTION LINK FIX
+===================================================== */
+
+.dashboard-feature-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #d98200;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.25s ease;
+}
+
+.dashboard-feature-card:hover .dashboard-feature-link {
+  color: #ff9f1c;
+  transform: translateX(4px);
+}
+
+
+/* =====================================================
+   NO BOOKINGS SECTION
+===================================================== */
+
+.dashboard-no-bookings {
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.dashboard-no-bookings > div:first-child {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.dashboard-no-bookings h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #24170d;
+}
+
+.dashboard-no-bookings p {
+  margin: 0 0 22px;
+  font-size: 15px;
+  color: #7d7167;
+}
+
+
+/* =====================================================
+   FIRST CONSULTATION BUTTON
+===================================================== */
+
+.dashboard-no-bookings button {
+  border: none;
+  outline: none;
+  background: linear-gradient(
+    135deg,
+    #e28a00,
+    #f5a623
+  );
+  color: #ffffff;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(224, 137, 0, 0.22);
+  transition: all 0.25s ease;
+}
+
+.dashboard-no-bookings button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(224, 137, 0, 0.30);
+}
+
+
+/* =====================================================
+   QUICK ACTION CARD TEXT
+===================================================== */
+
+.dashboard-feature-card h3 {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  color: #24170d;
+}
+
+.dashboard-feature-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #7d7167;
+}
+
+/* =====================================================
+   MY KUNDALIS
+===================================================== */
+
+.dashboard-kundali-section {
+  margin-top: 30px;
+}
+
+.dashboard-kundali-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(260px, 1fr)
+  );
+  gap: 18px;
+}
+
+.dashboard-kundali-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background: #fffaf3;
+  border: 1px solid rgba(217, 130, 0, 0.14);
+  border-radius: 16px;
+  transition: 0.25s ease;
+}
+
+.dashboard-kundali-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 25px rgba(70, 40, 10, 0.08);
+}
+
+.dashboard-kundali-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff0d5;
+  color: #d98200;
+  font-size: 20px;
+}
+
+.dashboard-kundali-info {
+  flex: 1;
+}
+
+.dashboard-kundali-info h3 {
+  margin: 0 0 14px;
+  color: #352619;
+  font-size: 18px;
+}
+
+.dashboard-kundali-info > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 7px 0;
+  border-bottom: 1px solid #eee4d9;
+}
+
+.dashboard-kundali-info > div:last-child {
+  border-bottom: none;
+}
+
+.dashboard-kundali-info span {
+  color: #96877a;
+  font-size: 12px;
+}
+
+.dashboard-kundali-info strong {
+  color: #352619;
+  font-size: 12px;
+  text-align: right;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .dashboard-kundali-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-kundali-card {
+    padding: 16px;
+  }
+}
+
+/* =====================================================
+   DASHBOARD STATS
+===================================================== */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.dashboard-stat-card {
+  padding: 22px;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(70, 45, 20, 0.06);
+  transition: 0.25s ease;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(70, 45, 20, 0.1);
+}
+
+.dashboard-stat-card span {
+  display: block;
+  color: #897d71;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.dashboard-stat-card strong {
+  display: block;
+  color: #2b2118;
+  font-size: 28px;
+}
+
+
+/* =====================================================
+   RECENT BOOKINGS
+===================================================== */
+
+.dashboard-bookings-section {
+  margin-top: 30px;
+}
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.dashboard-section-header h2 {
+  margin: 0;
+  color: #2b2118;
+  font-size: 24px;
+}
+
+.dashboard-section-header p {
+  margin: 5px 0 0;
+  color: #85796e;
+  font-size: 14px;
+}
+
+.dashboard-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-booking-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 7px 22px rgba(70, 45, 20, 0.05);
+  transition: 0.25s ease;
+}
+
+.dashboard-booking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(70, 45, 20, 0.09);
+}
+
+.dashboard-booking-info {
+  flex: 1;
+}
+
+.dashboard-booking-info h3 {
+  margin: 0 0 8px;
+  color: #2b2118;
+  font-size: 17px;
+}
+
+.dashboard-booking-info p {
+  margin: 5px 0;
+  color: #75695e;
+  font-size: 14px;
+}
+
+.dashboard-booking-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.dashboard-booking-status.confirmed {
+  background: #e8f7ed;
+  color: #218642;
+}
+
+.dashboard-booking-status.pending {
+  background: #fff4d9;
+  color: #b66d00;
+}
+
+.dashboard-booking-status.cancelled {
+  background: #fdeaea;
+  color: #c43d3d;
+}
+
+
+/* =====================================================
+   BOOKING LOADING
+===================================================== */
+
+.dashboard-booking-loading {
+  padding: 35px 20px;
+  text-align: center;
+  color: #85796e;
+  background: #ffffff;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+}
+
+
+/* =====================================================
+   KUNDALI EMPTY / LOADING
+===================================================== */
+
+.dashboard-kundali-loading,
+.dashboard-kundali-empty {
+  padding: 35px 20px;
+  text-align: center;
+  color: #85796e;
+  background: #ffffff;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+}
+
+.dashboard-kundali-empty h3 {
+  margin: 0 0 8px;
+  color: #2b2118;
+}
+
+.dashboard-kundali-empty p {
+  margin: 0 0 18px;
+  color: #75695e;
+}
+
+
+/* =====================================================
+   KUNDALI SECTION HEADER
+===================================================== */
+
+.dashboard-kundali-section .dashboard-section-header {
+  margin-bottom: 18px;
+}
+
+.dashboard-kundali-section .dashboard-section-header h2 {
+  margin: 0;
+}
+
+
+/* =====================================================
+   DASHBOARD PRIMARY BUTTON
+===================================================== */
+
+.dashboard-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #d88900;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.dashboard-primary-btn:hover {
+  background: #b96f00;
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DASHBOARD MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-booking-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-booking-status {
+    align-self: flex-start;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .dashboard-page {
+    padding: 25px 12px;
+  }
+
+  .dashboard-container {
+    max-width: 100%;
+  }
+
+  .dashboard-header {
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 25px;
+  }
+
+  .dashboard-subtitle {
+    font-size: 14px;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .dashboard-card-heading {
+    align-items: flex-start;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .dashboard-stat-card {
+    padding: 16px;
+  }
+
+  .dashboard-stat-card strong {
+    font-size: 23px;
+  }
+
+  .dashboard-features {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-feature-card {
+    padding: 20px;
+  }
+
+  .dashboard-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-section-header h2 {
+    font-size: 21px;
+  }
+
+  .dashboard-booking-card {
+    padding: 16px;
+  }
+
+  .dashboard-kundali-info > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .dashboard-kundali-info strong {
+    text-align: left;
+  }
+}
+
+
+/* =====================================================
+   ASTROLOGY RECORDS / MY KUNDALIS
+===================================================== */
+
+.dashboard-kundali-section {
+  margin-top: 32px;
+  padding: 28px;
+  border: 1px solid #eadfce;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(70, 45, 20, 0.07);
+}
+
+/* Section heading */
+
+.dashboard-kundali-section .dashboard-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.dashboard-kundali-section .dashboard-label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c47a00;
+}
+
+.dashboard-kundali-section .dashboard-section-header h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #2b2118;
+}
+
+/* Create New button/link */
+
+.dashboard-kundali-section .dashboard-feature-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 17px;
+  margin: 0;
+  border-radius: 9px;
+  background: #fff4df;
+  color: #c87500;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.dashboard-kundali-section .dashboard-feature-link:hover {
+  background: #d88900;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+/* Kundali cards */
+
+.dashboard-kundali-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+  gap: 18px;
+}
+
+.dashboard-kundali-card {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 22px;
+  background: linear-gradient(
+    145deg,
+    #fffaf3,
+    #ffffff
+  );
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dashboard-kundali-card:hover {
+  transform: translateY(-4px);
+  border-color: #e3bd7d;
+  box-shadow:
+    0 12px 30px rgba(70, 40, 10, 0.10);
+}
+
+
+/* Astrology icon */
+
+.dashboard-kundali-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #fff0d5,
+    #ffe2b0
+  );
+  color: #d98200;
+  font-size: 23px;
+  box-shadow:
+    0 5px 14px rgba(216, 137, 0, 0.12);
+}
+
+
+/* Kundali information */
+
+.dashboard-kundali-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-kundali-info h3 {
+  margin: 0 0 15px;
+  color: #302219;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.dashboard-kundali-info > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee4d9;
+}
+
+.dashboard-kundali-info > div:last-child {
+  border-bottom: none;
+}
+
+.dashboard-kundali-info span {
+  color: #938579;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dashboard-kundali-info strong {
+  color: #352619;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  word-break: break-word;
+}
+
+
+/* Empty / loading state */
+
+.dashboard-kundali-loading,
+.dashboard-kundali-empty {
+  padding: 35px 20px;
+  text-align: center;
+  border: 1px dashed #e3d4c0;
+  border-radius: 14px;
+  background: #fffaf3;
+  color: #817469;
+}
+
+.dashboard-kundali-empty h3 {
+  margin: 0 0 8px;
+  color: #302219;
+}
+
+.dashboard-kundali-empty p {
+  margin: 0 0 18px;
+  color: #817469;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .dashboard-kundali-section {
+    padding: 20px;
+  }
+
+  .dashboard-kundali-section
+  .dashboard-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-kundali-section
+  .dashboard-feature-link {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dashboard-kundali-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-kundali-card {
+    padding: 18px;
+  }
+
+  .dashboard-kundali-info > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .dashboard-kundali-info strong {
+    text-align: left;
+  }
+}
+
+/* Create New button */
+.dashboard-view-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 10px 18px;
+  border: 1px solid #d88900;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #d88900, #f2a51a);
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow: 0 5px 14px rgba(216, 137, 0, 0.20);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.dashboard-view-all:hover {
+  background: linear-gradient(135deg, #c47700, #e9970b);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(216, 137, 0, 0.30);
+}
+
+.dashboard-view-all:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(216, 137, 0, 0.18);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .dashboard-view-all {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+}
+
+/* ================================
+   KUNDALI VIEW BUTTON
+================================ */
+
+.dashboard-kundali-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  margin-top: 14px;
+  padding: 9px 15px;
+
+  border: 1px solid #d88900;
+  border-radius: 9px;
+
+  background: transparent;
+  color: #c47700;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dashboard-kundali-view-btn:hover {
+  background: #d88900;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(216, 137, 0, 0.22);
+}
+
+.dashboard-kundali-view-btn:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 3px 8px rgba(216, 137, 0, 0.15);
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .dashboard-kundali-view-btn {
+    width: 100%;
+  }
+
+}

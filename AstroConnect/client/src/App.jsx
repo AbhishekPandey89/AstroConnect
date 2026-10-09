@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
+// Footer
+import Footer from "./Components/Footer/Footer";
+
 // Public Pages
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -17,6 +20,8 @@ import TarotPage from "./Pages/TarotPage";
 import ReviewsPage from "./Pages/ReviewsPage";
 import GalleryPage from "./Pages/GalleryPage";
 import CitiesPage from "./Pages/CitiesPage";
+import Contact from "./Pages/Contact";
+import Career from "./Pages/Career";
 
 // Auth
 import Login from "./Pages/Login";
@@ -26,6 +31,7 @@ import Register from "./Pages/Register";
 import BookingPage from "./Pages/BookingPage";
 import MyBookings from "./Pages/MyBookings";
 import Dashboard from "./Pages/Dashboard";
+import KundaliDetails from "./Pages/KundaliDetails";
 
 // Admin
 import AdminDashboard from "./Pages/AdminDashboard";
@@ -36,128 +42,266 @@ import AdminPoojas from "./Pages/AdminPoojas";
 // Route Protection
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
+// =====================================================
+// PAGE WITH FOOTER
+// =====================================================
+// Footer normal website/user pages ke liye hai.
+// Admin pages me Footer nahi lagega.
+
+const WithFooter = ({ children }) => {
+  return (
+    <>
+      {children}
+      <Footer />
+    </>
+  );
+};
+
 function App() {
   return (
     <Routes>
 
       {/* =====================================================
           PUBLIC ROUTES
-      ===================================================== */}
+          ===================================================== */}
 
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={
+          <WithFooter>
+            <Home />
+          </WithFooter>
+        }
+      />
 
-      <Route path="/about" element={<About />} />
+      <Route
+        path="/about"
+        element={
+          <WithFooter>
+            <About />
+          </WithFooter>
+        }
+      />
 
-      <Route path="/services" element={<Services />} />
+      <Route
+        path="/services"
+        element={
+          <WithFooter>
+            <Services />
+          </WithFooter>
+        }
+      />
 
       <Route
         path="/acharyas"
-        element={<AcharyasPage />}
+        element={
+          <WithFooter>
+            <AcharyasPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/ai-help"
-        element={<AIHelpPage />}
+        element={
+          <WithFooter>
+            <AIHelpPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/kundali"
-        element={<Kundali />}
+        element={
+          <WithFooter>
+            <Kundali />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/vastu"
-        element={<Vastu />}
+        element={
+          <WithFooter>
+            <Vastu />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/pooja"
-        element={<Pooja />}
+        element={
+          <WithFooter>
+            <Pooja />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/jyotish"
-        element={<JyotishPage />}
+        element={
+          <WithFooter>
+            <JyotishPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/lagna"
-        element={<LagnaPage />}
+        element={
+          <WithFooter>
+            <LagnaPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/muhurat"
-        element={<Muhurat />}
+        element={
+          <WithFooter>
+            <Muhurat />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/numerology"
-        element={<NumerologyPage />}
+        element={
+          <WithFooter>
+            <NumerologyPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/tarot"
-        element={<TarotPage />}
+        element={
+          <WithFooter>
+            <TarotPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/reviews"
-        element={<ReviewsPage />}
+        element={
+          <WithFooter>
+            <ReviewsPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/gallery"
-        element={<GalleryPage />}
+        element={
+          <WithFooter>
+            <GalleryPage />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/cities"
-        element={<CitiesPage />}
+        element={
+          <WithFooter>
+            <CitiesPage />
+          </WithFooter>
+        }
+      />
+
+      {/* =====================================================
+          CONTACT
+          ===================================================== */}
+
+      <Route
+        path="/contact"
+        element={
+          <WithFooter>
+            <Contact />
+          </WithFooter>
+        }
       />
 
 
+      <Route
+        path="/career"
+        element={
+          <WithFooter>
+            <Career />
+          </WithFooter>
+        }
+      />
+
       {/* =====================================================
           AUTH ROUTES
-      ===================================================== */}
+          ===================================================== */}
 
       <Route
         path="/login"
-        element={<Login />}
+        element={
+          <WithFooter>
+            <Login />
+          </WithFooter>
+        }
       />
 
       <Route
         path="/register"
-        element={<Register />}
+        element={
+          <WithFooter>
+            <Register />
+          </WithFooter>
+        }
       />
-
 
       {/* =====================================================
           PROTECTED USER ROUTES
-      ===================================================== */}
+          ===================================================== */}
 
       <Route element={<ProtectedRoute />}>
 
         <Route
           path="/booking"
-          element={<BookingPage />}
+          element={
+            <WithFooter>
+              <BookingPage />
+            </WithFooter>
+          }
         />
 
         <Route
           path="/my-bookings"
-          element={<MyBookings />}
+          element={
+            <WithFooter>
+              <MyBookings />
+            </WithFooter>
+          }
         />
 
         <Route
           path="/dashboard"
-          element={<Dashboard />}
+          element={
+            <WithFooter>
+              <Dashboard />
+            </WithFooter>
+          }
+        />
+
+        {/* KUNDALI DETAILS - NORMAL LOGGED-IN USER */}
+
+        <Route
+          path="/kundali/:id"
+          element={<KundaliDetails />}
         />
 
       </Route>
 
-
       {/* =====================================================
           ADMIN ROUTES
-      ===================================================== */}
+          =====================================================
+          Admin pages intentionally Footer ke bahar hain.
+          Inka apna Admin design rahega.
+          ===================================================== */}
 
       <Route element={<ProtectedRoute adminOnly />}>
 

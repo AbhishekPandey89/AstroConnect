@@ -138,14 +138,13 @@ function Navbar() {
           className="navbar-logo"
           onClick={() => goTo("/")}
           type="button"
+          aria-label="AstroConnect Home"
         >
-          <span className="logo-symbol">
-            ✦
-          </span>
-
-          <span>
-            Astro<span>Connect</span>
-          </span>
+          <img
+            src="/astroconnect-logo.png"
+            alt="AstroConnect"
+            className="navbar-logo-image"
+          />
         </button>
 
 
@@ -207,13 +206,6 @@ function Navbar() {
 
           {/* VASTU */}
 
-          <button
-            type="button"
-            onClick={() => goTo("/vastu")}
-          >
-            {t("nav", "vastu")}
-          </button>
-
 
           {/* MUHURAT */}
 
@@ -232,6 +224,15 @@ function Navbar() {
             onClick={() => goTo("/gallery")}
           >
             Gallery
+          </button>
+
+          {/* CONTACT */}
+
+          <button
+            type="button"
+            onClick={() => goTo("/contact")}
+          >
+            Contact
           </button>
 
         </nav>
@@ -484,12 +485,6 @@ function Navbar() {
 
           {/* VASTU */}
 
-          <button
-            type="button"
-            onClick={() => goTo("/vastu")}
-          >
-            {t("nav", "vastu")}
-          </button>
 
 
           {/* MUHURAT */}
@@ -518,6 +513,15 @@ function Navbar() {
             onClick={() => goTo("/gallery")}
           >
             Gallery
+          </button>
+
+          {/* CONTACT */}
+
+          <button
+            type="button"
+            onClick={() => goTo("/contact")}
+          >
+            Contact
           </button>
 
 

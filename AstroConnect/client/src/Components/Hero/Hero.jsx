@@ -2,7 +2,7 @@ import "./Hero.css";
 import { useLanguage } from "../../context/LanguageContext";
 function Hero() {
   const { t } = useLanguage();
-  
+
 
   return (
     <section className="hero" id="home">
@@ -69,7 +69,7 @@ function Hero() {
             </div>
 
             <div className="mandala">
-              <div className="mandala-circle">✨</div>
+              <img src="/images/ganeshji.png" alt="Lord Ganesha" className="hero-ganesh-image" />
             </div>
 
             <div className="card-title">

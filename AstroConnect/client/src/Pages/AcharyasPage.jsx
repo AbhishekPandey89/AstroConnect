@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar/Navbar";
 import "./AcharyasPage.css";
 
 const API_URL = "http://localhost:5000/api";
@@ -73,6 +74,8 @@ const AcharyasPage = () => {
 
   if (loading) {
     return (
+        <>
+        <Navbar />
       <main className="acharyas-page">
 
         <section className="acharyas-hero">
@@ -112,6 +115,7 @@ const AcharyasPage = () => {
         </section>
 
       </main>
+      </>
     );
   }
 
@@ -121,6 +125,8 @@ const AcharyasPage = () => {
 
   if (error) {
     return (
+      <>
+       <Navbar />
       <main className="acharyas-page">
 
         <section className="acharyas-hero">
@@ -172,6 +178,7 @@ const AcharyasPage = () => {
         </section>
 
       </main>
+      </>
     );
   }
 
@@ -180,7 +187,10 @@ const AcharyasPage = () => {
   // =====================================================
 
   return (
-    <main className="acharyas-page">
+    <>
+      <Navbar />
+
+      <main className="acharyas-page">
 
       {/* =================================================
           HERO
@@ -558,6 +568,7 @@ const AcharyasPage = () => {
       </section>
 
     </main>
+    </>
   );
 };
 

@@ -639,3 +639,34 @@
     display: none;
   }
 }
+
+/* ===============================
+   ASTROCONNECT LOGO
+================================ */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navbar-logo-image {
+  width: 150px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.navbar-logo:hover .navbar-logo-image {
+  transform: scale(1.04);
+}
+@media (max-width: 768px) {
+  .navbar-logo-image {
+    width: 125px;
+  }
+}

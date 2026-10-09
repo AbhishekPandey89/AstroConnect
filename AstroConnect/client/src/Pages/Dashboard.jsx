@@ -4,6 +4,7 @@ import {
   updateProfile,
   getMyBookings,
 } from "../services/api";
+import Navbar from "../Components/Navbar/Navbar";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -24,6 +25,9 @@ const Dashboard = () => {
 
   const [bookings, setBookings] = useState([]);
   const [bookingLoading, setBookingLoading] = useState(true);
+
+  const [kundalis, setKundalis] = useState([]);
+  const [kundaliLoading, setKundaliLoading] = useState(true);
 
   // =====================================================
   // LOAD BOOKINGS
@@ -59,19 +63,70 @@ const Dashboard = () => {
     loadBookings();
   }, [user, token, authLoading]);
 
+
+  // =====================================================
+// LOAD KUNDALIS
+// =====================================================
+
+useEffect(() => {
+  const loadKundalis = async () => {
+    if (authLoading) return;
+
+    if (!user || !token) {
+      setKundaliLoading(false);
+      return;
+    }
+
+    try {
+      setKundaliLoading(true);
+
+      const response = await fetch(
+        "http://localhost:5000/api/kundali/my",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setKundalis(data.data || []);
+      }
+    } catch (error) {
+      console.error(
+        "Dashboard Kundali error:",
+        error
+      );
+    } finally {
+      setKundaliLoading(false);
+    }
+  };
+
+  loadKundalis();
+}, [user, token, authLoading]);
+
   // =====================================================
   // LOADING
   // =====================================================
 
   if (authLoading) {
     return (
-      <div className="dashboard-loading">
-        <div className="dashboard-loading-card">
-          <div className="dashboard-spinner"></div>
-          <h2>Loading Dashboard...</h2>
-          <p>Please wait a moment.</p>
+      <>
+        <Navbar />
+
+        <div className="dashboard-loading">
+          <div className="dashboard-loading-card">
+            <div className="dashboard-spinner"></div>
+
+            <h2>Loading Dashboard...</h2>
+
+            <p>Please wait a moment.</p>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -81,28 +136,32 @@ const Dashboard = () => {
 
   if (!user || !token) {
     return (
-      <div className="dashboard-auth-required">
-        <div className="dashboard-auth-card">
-          <div className="dashboard-auth-icon">
-            🔐
+      <>
+        <Navbar />
+
+        <div className="dashboard-auth-required">
+          <div className="dashboard-auth-card">
+            <div className="dashboard-auth-icon">
+              🔐
+            </div>
+
+            <h2>Please Login First</h2>
+
+            <p>
+              You need to login to access your
+              AstroConnect dashboard.
+            </p>
+
+            <button
+              onClick={() =>
+                (window.location.href = "/login")
+              }
+            >
+              Go to Login
+            </button>
           </div>
-
-          <h2>Please Login First</h2>
-
-          <p>
-            You need to login to access your
-            AstroConnect dashboard.
-          </p>
-
-          <button
-            onClick={() =>
-              (window.location.href = "/login")
-            }
-          >
-            Go to Login
-          </button>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -187,7 +246,7 @@ const Dashboard = () => {
       } else {
         setMessage(
           response.message ||
-            "Unable to update profile."
+          "Unable to update profile."
         );
       }
     } catch (error) {
@@ -198,7 +257,7 @@ const Dashboard = () => {
 
       setMessage(
         error.message ||
-          "Unable to update profile."
+        "Unable to update profile."
       );
     } finally {
       setSaving(false);
@@ -230,567 +289,734 @@ const Dashboard = () => {
     window.location.href = "/ai-help";
   };
 
+  // =====================================================
+  // MAIN DASHBOARD
+  // =====================================================
+
   return (
-    <div className="dashboard-page">
+    <>
+      <Navbar />
 
-      <div className="dashboard-container">
+      <div className="dashboard-page">
 
-        {/* =================================================
-            HEADER
-        ================================================= */}
+        <div className="dashboard-container">
 
-        <div className="dashboard-header">
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
-          <div>
-            <p className="dashboard-label">
-              ASTROCONNECT
-            </p>
-
-            <h1>
-              Welcome,{" "}
-              <span>{user.name}</span> 👋
-            </h1>
-
-            <p className="dashboard-subtitle">
-              Your personal AstroConnect dashboard
-            </p>
-          </div>
-
-          <button
-            className="dashboard-logout-btn"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
-
-        </div>
-
-
-        {/* =================================================
-            STATISTICS
-        ================================================= */}
-
-        <div className="dashboard-stats">
-
-          <div className="dashboard-stat-card">
-
-            <div className="dashboard-stat-icon">
-              📅
-            </div>
+          <div className="dashboard-header">
 
             <div>
-              <span>Total Bookings</span>
+              <p className="dashboard-label">
+                ASTROCONNECT
+              </p>
 
-              <strong>
-                {bookingLoading
-                  ? "..."
-                  : totalBookings}
-              </strong>
-            </div>
+              <h1>
+                Welcome,{" "}
+                <span>{user.name}</span> 👋
+              </h1>
 
-          </div>
-
-
-          <div className="dashboard-stat-card">
-
-            <div className="dashboard-stat-icon">
-              ⏳
-            </div>
-
-            <div>
-              <span>Pending</span>
-
-              <strong>
-                {bookingLoading
-                  ? "..."
-                  : pendingBookings}
-              </strong>
-            </div>
-
-          </div>
-
-
-          <div className="dashboard-stat-card">
-
-            <div className="dashboard-stat-icon">
-              ✅
-            </div>
-
-            <div>
-              <span>Confirmed</span>
-
-              <strong>
-                {bookingLoading
-                  ? "..."
-                  : confirmedBookings}
-              </strong>
-            </div>
-
-          </div>
-
-
-          <div className="dashboard-stat-card">
-
-            <div className="dashboard-stat-icon">
-              ✨
-            </div>
-
-            <div>
-              <span>Completed</span>
-
-              <strong>
-                {bookingLoading
-                  ? "..."
-                  : completedBookings}
-              </strong>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* =================================================
-            PROFILE CARD
-        ================================================= */}
-
-        <div className="dashboard-card">
-
-          <div className="dashboard-card-heading">
-
-            <div className="dashboard-avatar">
-              {user.name
-                ?.charAt(0)
-                .toUpperCase()}
-            </div>
-
-            <div>
-              <h2>My Profile</h2>
-
-              <p>
-                Manage your account information
+              <p className="dashboard-subtitle">
+                Your personal AstroConnect dashboard
               </p>
             </div>
 
+            <button
+              className="dashboard-logout-btn"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+
           </div>
 
 
-          {!isEditing ? (
+          {/* =================================================
+              STATISTICS
+          ================================================= */}
 
-            <>
-              {/* PROFILE INFORMATION */}
+          <div className="dashboard-stats">
 
-              <div className="dashboard-info-grid">
+            <div className="dashboard-stat-card">
 
-                <div className="dashboard-info-item">
-                  <span>Name</span>
+              <div className="dashboard-stat-icon">
+                📅
+              </div>
 
-                  <strong>
-                    {user.name || "-"}
-                  </strong>
-                </div>
+              <div>
+                <span>Total Bookings</span>
 
+                <strong>
+                  {bookingLoading
+                    ? "..."
+                    : totalBookings}
+                </strong>
+              </div>
 
-                <div className="dashboard-info-item">
-                  <span>Email</span>
-
-                  <strong>
-                    {user.email || "-"}
-                  </strong>
-                </div>
-
-
-                <div className="dashboard-info-item">
-                  <span>Phone</span>
-
-                  <strong>
-                    {user.phone || "-"}
-                  </strong>
-                </div>
+            </div>
 
 
-                <div className="dashboard-info-item">
-                  <span>Account Type</span>
+            <div className="dashboard-stat-card">
 
-                  <strong>
-                    {user.role
-                      ? user.role
+              <div className="dashboard-stat-icon">
+                ⏳
+              </div>
+
+              <div>
+                <span>Pending</span>
+
+                <strong>
+                  {bookingLoading
+                    ? "..."
+                    : pendingBookings}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div className="dashboard-stat-card">
+
+              <div className="dashboard-stat-icon">
+                ✅
+              </div>
+
+              <div>
+                <span>Confirmed</span>
+
+                <strong>
+                  {bookingLoading
+                    ? "..."
+                    : confirmedBookings}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div className="dashboard-stat-card">
+
+              <div className="dashboard-stat-icon">
+                ✨
+              </div>
+
+              <div>
+                <span>Completed</span>
+
+                <strong>
+                  {bookingLoading
+                    ? "..."
+                    : completedBookings}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* =================================================
+              PROFILE CARD
+          ================================================= */}
+
+          <div className="dashboard-card">
+
+            <div className="dashboard-card-heading">
+
+              <div className="dashboard-avatar">
+                {user.name
+                  ?.charAt(0)
+                  .toUpperCase()}
+              </div>
+
+              <div>
+                <h2>My Profile</h2>
+
+                <p>
+                  Manage your account information
+                </p>
+              </div>
+
+            </div>
+
+
+            {!isEditing ? (
+
+              <>
+                {/* PROFILE INFORMATION */}
+
+                <div className="dashboard-info-grid">
+
+                  <div className="dashboard-info-item">
+                    <span>Name</span>
+
+                    <strong>
+                      {user.name || "-"}
+                    </strong>
+                  </div>
+
+
+                  <div className="dashboard-info-item">
+                    <span>Email</span>
+
+                    <strong>
+                      {user.email || "-"}
+                    </strong>
+                  </div>
+
+
+                  <div className="dashboard-info-item">
+                    <span>Phone</span>
+
+                    <strong>
+                      {user.phone || "-"}
+                    </strong>
+                  </div>
+
+
+                  <div className="dashboard-info-item">
+                    <span>Account Type</span>
+
+                    <strong>
+                      {user.role
+                        ? user.role
                           .charAt(0)
                           .toUpperCase() +
                         user.role.slice(1)
-                      : "User"}
-                  </strong>
+                        : "User"}
+                    </strong>
+                  </div>
+
                 </div>
 
-              </div>
 
-
-              {/* EDIT BUTTON */}
-
-              <button
-                className="dashboard-edit-btn"
-                onClick={startEditing}
-              >
-                ✏️ Edit Profile
-              </button>
-
-            </>
-
-          ) : (
-
-            /* =================================================
-               EDIT FORM
-            ================================================= */
-
-            <form
-              className="dashboard-edit-form"
-              onSubmit={
-                handleUpdateProfile
-              }
-            >
-
-              {/* NAME */}
-
-              <div className="dashboard-form-group">
-
-                <label>
-                  Name
-                </label>
-
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) =>
-                    setName(
-                      e.target.value
-                    )
-                  }
-                  placeholder="Enter your name"
-                />
-
-              </div>
-
-
-              {/* EMAIL */}
-
-              <div className="dashboard-form-group">
-
-                <label>
-                  Email
-                </label>
-
-                <input
-                  type="email"
-                  value={user.email}
-                  disabled
-                />
-
-                <small>
-                  Email cannot be changed
-                  from profile settings.
-                </small>
-
-              </div>
-
-
-              {/* PHONE */}
-
-              <div className="dashboard-form-group">
-
-                <label>
-                  Phone
-                </label>
-
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) =>
-                    setPhone(
-                      e.target.value
-                    )
-                  }
-                  placeholder="Enter your phone number"
-                />
-
-              </div>
-
-
-              {/* MESSAGE */}
-
-              {message && (
-                <p className="dashboard-message">
-                  {message}
-                </p>
-              )}
-
-
-              {/* FORM BUTTONS */}
-
-              <div className="dashboard-form-actions">
+                {/* EDIT BUTTON */}
 
                 <button
-                  type="button"
-                  className="dashboard-cancel-btn"
-                  onClick={() => {
-                    setIsEditing(false);
-                    setMessage("");
-                  }}
-                  disabled={saving}
+                  className="dashboard-edit-btn"
+                  onClick={startEditing}
                 >
-                  Cancel
+                  ✏️ Edit Profile
                 </button>
 
+              </>
 
-                <button
-                  type="submit"
-                  className="dashboard-save-btn"
-                  disabled={saving}
-                >
-                  {saving
-                    ? "Saving..."
-                    : "Save Changes"}
-                </button>
+            ) : (
 
-              </div>
+              /* =================================================
+                 EDIT FORM
+              ================================================= */
 
-            </form>
-
-          )}
-
-        </div>
-
-
-        {/* =================================================
-            QUICK ACTIONS
-        ================================================= */}
-
-        <div className="dashboard-section-title">
-
-          <span>
-            QUICK ACTIONS
-          </span>
-
-          <h2>
-            Manage Your{" "}
-            <span>AstroConnect</span>
-          </h2>
-
-        </div>
-
-
-        <div className="dashboard-features">
-
-          {/* BOOKINGS */}
-
-          <button
-            className="dashboard-feature-card"
-            onClick={goToBookings}
-          >
-
-            <span className="dashboard-feature-icon">
-              🕉️
-            </span>
-
-            <h3>
-              My Bookings
-            </h3>
-
-            <p>
-              View and manage your
-              consultation bookings.
-            </p>
-
-            <span className="dashboard-feature-link">
-              View Bookings →
-            </span>
-
-          </button>
-
-
-          {/* NEW BOOKING */}
-
-          <button
-            className="dashboard-feature-card"
-            onClick={goToBooking}
-          >
-
-            <span className="dashboard-feature-icon">
-              🔮
-            </span>
-
-            <h3>
-              Book Consultation
-            </h3>
-
-            <p>
-              Choose a service, Acharya
-              and your preferred time.
-            </p>
-
-            <span className="dashboard-feature-link">
-              Book Now →
-            </span>
-
-          </button>
-
-
-          {/* AI HELP */}
-
-          <button
-            className="dashboard-feature-card"
-            onClick={goToAI}
-          >
-
-            <span className="dashboard-feature-icon">
-              ✨
-            </span>
-
-            <h3>
-              AI Help
-            </h3>
-
-            <p>
-              Get assistance from
-              AstroConnect AI.
-            </p>
-
-            <span className="dashboard-feature-link">
-              Open AI Help →
-            </span>
-
-          </button>
-
-        </div>
-
-
-        {/* =================================================
-            RECENT BOOKINGS
-        ================================================= */}
-
-        <div className="dashboard-recent">
-
-          <div className="dashboard-recent-header">
-
-            <div>
-              <span>
-                RECENT ACTIVITY
-              </span>
-
-              <h2>
-                Recent Bookings
-              </h2>
-            </div>
-
-            {bookings.length > 0 && (
-              <button
-                onClick={goToBookings}
-                className="dashboard-view-all"
+              <form
+                className="dashboard-edit-form"
+                onSubmit={
+                  handleUpdateProfile
+                }
               >
-                View All →
-              </button>
+
+                {/* NAME */}
+
+                <div className="dashboard-form-group">
+
+                  <label>
+                    Name
+                  </label>
+
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) =>
+                      setName(
+                        e.target.value
+                      )
+                    }
+                    placeholder="Enter your name"
+                  />
+
+                </div>
+
+
+                {/* EMAIL */}
+
+                <div className="dashboard-form-group">
+
+                  <label>
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    value={user.email}
+                    disabled
+                  />
+
+                  <small>
+                    Email cannot be changed
+                    from profile settings.
+                  </small>
+
+                </div>
+
+
+                {/* PHONE */}
+
+                <div className="dashboard-form-group">
+
+                  <label>
+                    Phone
+                  </label>
+
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) =>
+                      setPhone(
+                        e.target.value
+                      )
+                    }
+                    placeholder="Enter your phone number"
+                  />
+
+                </div>
+
+
+                {/* MESSAGE */}
+
+                {message && (
+                  <p className="dashboard-message">
+                    {message}
+                  </p>
+                )}
+
+
+                {/* FORM BUTTONS */}
+
+                <div className="dashboard-form-actions">
+
+                  <button
+                    type="button"
+                    className="dashboard-cancel-btn"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setMessage("");
+                    }}
+                    disabled={saving}
+                  >
+                    Cancel
+                  </button>
+
+
+                  <button
+                    type="submit"
+                    className="dashboard-save-btn"
+                    disabled={saving}
+                  >
+                    {saving
+                      ? "Saving..."
+                      : "Save Changes"}
+                  </button>
+
+                </div>
+
+              </form>
+
             )}
 
           </div>
 
 
-          {bookingLoading ? (
+          {/* =================================================
+              QUICK ACTIONS
+          ================================================= */}
 
-            <div className="dashboard-booking-loading">
-              Loading bookings...
-            </div>
+          <div className="dashboard-section-title">
 
-          ) : bookings.length === 0 ? (
+            <span>
+              QUICK ACTIONS
+            </span>
 
-            <div className="dashboard-no-bookings">
+            <h2>
+              Manage Your{" "}
+              <span>AstroConnect</span>
+            </h2>
 
-              <div>
-                📅
-              </div>
+          </div>
+
+
+          <div className="dashboard-features">
+
+            {/* BOOKINGS */}
+
+            <button
+              className="dashboard-feature-card"
+              onClick={goToBookings}
+            >
+
+              <span className="dashboard-feature-icon">
+                🕉️
+              </span>
 
               <h3>
-                No bookings yet
+                My Bookings
               </h3>
 
               <p>
-                Your consultation bookings
-                will appear here.
+                View and manage your
+                consultation bookings.
               </p>
 
-              <button
-                onClick={goToBooking}
-              >
-                Book Your First Consultation
-              </button>
+              <span className="dashboard-feature-link">
+                View Bookings →
+              </span>
+
+            </button>
+
+
+            {/* NEW BOOKING */}
+
+            <button
+              className="dashboard-feature-card"
+              onClick={goToBooking}
+            >
+
+              <span className="dashboard-feature-icon">
+                🔮
+              </span>
+
+              <h3>
+                Book Consultation
+              </h3>
+
+              <p>
+                Choose a service, Acharya
+                and your preferred time.
+              </p>
+
+              <span className="dashboard-feature-link">
+                Book Now →
+              </span>
+
+            </button>
+
+
+            {/* AI HELP */}
+
+            <button
+              className="dashboard-feature-card"
+              onClick={goToAI}
+            >
+
+              <span className="dashboard-feature-icon">
+                ✨
+              </span>
+
+              <h3>
+                AI Help
+              </h3>
+
+              <p>
+                Get assistance from
+                AstroConnect AI.
+              </p>
+
+              <span className="dashboard-feature-link">
+                Open AI Help →
+              </span>
+
+            </button>
+
+          </div>
+
+
+          {/* =================================================
+              RECENT BOOKINGS
+          ================================================= */}
+
+          <div className="dashboard-recent">
+
+            <div className="dashboard-recent-header">
+
+              <div>
+                <span>
+                  RECENT ACTIVITY
+                </span>
+
+                <h2>
+                  Recent Bookings
+                </h2>
+              </div>
+
+              {bookings.length > 0 && (
+                <button
+                  onClick={goToBookings}
+                  className="dashboard-view-all"
+                >
+                  View All →
+                </button>
+              )}
 
             </div>
 
-          ) : (
 
-            <div className="dashboard-recent-list">
+            {bookingLoading ? (
 
-              {bookings
-                .slice(0, 3)
-                .map((booking) => (
+              <div className="dashboard-booking-loading">
+                Loading bookings...
+              </div>
 
-                  <div
-                    className="dashboard-recent-item"
-                    key={booking._id}
-                  >
+            ) : bookings.length === 0 ? (
 
-                    <div className="dashboard-recent-icon">
-                      🔮
-                    </div>
+              <div className="dashboard-no-bookings">
 
-                    <div className="dashboard-recent-info">
+                <div>
+                  📅
+                </div>
 
-                      <strong>
-                        {booking.service}
-                      </strong>
+                <h3>
+                  No bookings yet
+                </h3>
 
-                      <span>
-                        {booking.acharya}
-                      </span>
+                <p>
+                  Your consultation bookings
+                  will appear here.
+                </p>
 
-                      <small>
-                        {booking.date}
-                        {" • "}
-                        {booking.time}
-                      </small>
+                <button
+                  onClick={goToBooking}
+                >
+                  Book Your First Consultation
+                </button>
 
-                    </div>
+              </div>
 
-                    <div className="dashboard-recent-right">
+            ) : (
 
-                      <strong>
-                        ₹{booking.fee}
-                      </strong>
+              <div className="dashboard-recent-list">
 
-                      <span
-                        className={`dashboard-booking-status dashboard-status-${booking.status}`}
-                      >
-                        {booking.status
-                          ? booking.status
+                {bookings
+                  .slice(0, 3)
+                  .map((booking) => (
+
+                    <div
+                      className="dashboard-recent-item"
+                      key={booking._id}
+                    >
+
+                      <div className="dashboard-recent-icon">
+                        🔮
+                      </div>
+
+                      <div className="dashboard-recent-info">
+
+                        <strong>
+                          {booking.service}
+                        </strong>
+
+                        <span>
+                          {booking.acharya}
+                        </span>
+
+                        <small>
+                          {booking.date}
+                          {" • "}
+                          {booking.time}
+                        </small>
+
+                      </div>
+
+                      <div className="dashboard-recent-right">
+
+                        <strong>
+                          ₹{booking.fee}
+                        </strong>
+
+                        <span
+                          className={`dashboard-booking-status dashboard-status-${booking.status}`}
+                        >
+                          {booking.status
+                            ? booking.status
                               .charAt(0)
                               .toUpperCase() +
                             booking.status.slice(1)
-                          : "Pending"}
-                      </span>
+                            : "Pending"}
+                        </span>
+
+                      </div>
 
                     </div>
 
-                  </div>
+                  ))}
 
-                ))}
+              </div>
 
+            )}
+
+
+            {/* =================================================
+    MY KUNDALIS
+================================================= */}
+
+<div className="dashboard-recent dashboard-kundali-section">
+
+  {/* Header */}
+  <div className="dashboard-recent-header">
+
+    <div>
+      <span>
+        ASTROLOGY RECORDS
+      </span>
+
+      <h2>
+        My Kundalis
+      </h2>
+    </div>
+
+    {kundalis.length > 0 && (
+      <button
+        type="button"
+        onClick={() =>
+          (window.location.href = "/kundali")
+        }
+        className="dashboard-view-all"
+      >
+        Create New →
+      </button>
+    )}
+
+  </div>
+
+
+  {/* Loading */}
+  {kundaliLoading ? (
+
+    <div className="dashboard-booking-loading">
+      Loading your Kundalis...
+    </div>
+
+  ) : kundalis.length === 0 ? (
+
+    /* Empty State */
+    <div className="dashboard-no-bookings">
+
+      <div>
+        ✦
+      </div>
+
+      <h3>
+        No Kundali saved yet
+      </h3>
+
+      <p>
+        Save your birth details to create
+        your Kundali profile.
+      </p>
+
+      <button
+        type="button"
+        onClick={() =>
+          (window.location.href = "/kundali")
+        }
+      >
+        Create Your Kundali
+      </button>
+
+    </div>
+
+  ) : (
+
+    /* Kundali Cards */
+    <div className="dashboard-kundali-grid">
+
+      {kundalis.slice(0, 3).map((kundali) => (
+
+        <div
+          className="dashboard-kundali-card"
+          key={kundali._id}
+        >
+
+          {/* Icon */}
+          <div className="dashboard-kundali-icon">
+            ✦
+          </div>
+
+
+          {/* Details */}
+          <div className="dashboard-kundali-info">
+
+            <h3>
+              {kundali.name}
+            </h3>
+
+
+            <div>
+              <span>
+                Date of Birth
+              </span>
+
+              <strong>
+                {new Date(
+                  kundali.dateOfBirth
+                ).toLocaleDateString("en-IN", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </strong>
             </div>
 
-          )}
+
+            <div>
+              <span>
+                Birth Time
+              </span>
+
+              <strong>
+                {kundali.birthTime}
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                Birth Place
+              </span>
+
+              <strong>
+                {kundali.birthPlace}
+              </strong>
+            </div>
+
+
+            {/* View Details Button */}
+            <button
+              type="button"
+              className="dashboard-kundali-view-btn"
+              onClick={() =>
+                (window.location.href = `/kundali/${kundali._id}`)
+              }
+            >
+              View Details →
+            </button>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
+
+          </div>
 
         </div>
 
       </div>
-
-    </div>
+    </>
   );
 };
 

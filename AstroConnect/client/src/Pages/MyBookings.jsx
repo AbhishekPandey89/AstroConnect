@@ -2,6 +2,7 @@ import "./MyBookings.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { getMyBookings, cancelBooking } from "../services/api";
+import Navbar from "../Components/Navbar/Navbar";
 
 function MyBookings() {
   const { user, token, loading: authLoading } = useAuth();
@@ -30,11 +31,15 @@ function MyBookings() {
         if (response.success) {
           setBookings(response.bookings || []);
         } else {
-          setError(response.message || "Unable to load bookings.");
+          setError(
+            response.message || "Unable to load bookings."
+          );
         }
       } catch (err) {
         console.error("My bookings error:", err);
-        setError(err.message || "Unable to load your bookings.");
+        setError(
+          err.message || "Unable to load your bookings."
+        );
       } finally {
         setLoading(false);
       }
@@ -107,194 +112,218 @@ function MyBookings() {
     );
   };
 
+  // ==============================
+  // LOADING
+  // ==============================
+
   if (authLoading || loading) {
     return (
-      <section className="my-bookings-page">
-        <div className="my-bookings-container">
-          <div className="my-bookings-loading">
-            Loading your bookings...
+      <>
+        <Navbar />
+
+        <section className="my-bookings-page">
+          <div className="my-bookings-container">
+            <div className="my-bookings-loading">
+              Loading your bookings...
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </>
     );
   }
+
+  // ==============================
+  // NOT LOGGED IN
+  // ==============================
 
   if (!user || !token) {
     return (
-      <section className="my-bookings-page">
-        <div className="my-bookings-container">
-          <div className="my-bookings-empty">
-            <h2>Please Login</h2>
+      <>
+        <Navbar />
 
-            <p>
-              Login to view your consultation bookings.
-            </p>
+        <section className="my-bookings-page">
+          <div className="my-bookings-container">
+            <div className="my-bookings-empty">
+              <h2>Please Login</h2>
+
+              <p>
+                Login to view your consultation bookings.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </>
     );
   }
 
+  // ==============================
+  // MAIN
+  // ==============================
+
   return (
-    <section className="my-bookings-page">
-      <div className="my-bookings-container">
+    <>
+      <Navbar />
 
-        {/* Header */}
-        <div className="my-bookings-header">
-          <span className="my-bookings-label">
-            ✦ MY CONSULTATIONS
-          </span>
+      <section className="my-bookings-page">
+        <div className="my-bookings-container">
 
-          <h1>
-            My <span>Bookings</span>
-          </h1>
+          {/* Header */}
+          <div className="my-bookings-header">
+            <span className="my-bookings-label">
+              ✦ MY CONSULTATIONS
+            </span>
 
-          <p>
-            View and manage your AstroConnect
-            consultation bookings.
-          </p>
-        </div>
-
-        {/* Error */}
-        {error && (
-          <div className="my-bookings-error">
-            {error}
-          </div>
-        )}
-
-        {/* Empty */}
-        {!error && bookings.length === 0 && (
-          <div className="my-bookings-empty">
-            <div className="empty-icon">📅</div>
-
-            <h2>No Bookings Yet</h2>
+            <h1>
+              My <span>Bookings</span>
+            </h1>
 
             <p>
-              You haven't booked a consultation yet.
+              View and manage your AstroConnect
+              consultation bookings.
             </p>
           </div>
-        )}
 
-        {/* Bookings */}
-        {bookings.length > 0 && (
-          <div className="bookings-list">
+          {/* Error */}
+          {error && (
+            <div className="my-bookings-error">
+              {error}
+            </div>
+          )}
 
-            {bookings.map((booking) => (
-              <div
-                className="booking-card"
-                key={booking._id}
-              >
+          {/* Empty */}
+          {!error && bookings.length === 0 && (
+            <div className="my-bookings-empty">
+              <div className="empty-icon">📅</div>
 
-                {/* Card Header */}
-                <div className="booking-card-header">
+              <h2>No Bookings Yet</h2>
 
-                  <div>
-                    <span className="booking-card-label">
-                      BOOKING ID
+              <p>
+                You haven't booked a consultation yet.
+              </p>
+            </div>
+          )}
+
+          {/* Bookings */}
+          {bookings.length > 0 && (
+            <div className="bookings-list">
+
+              {bookings.map((booking) => (
+                <div
+                  className="booking-card"
+                  key={booking._id}
+                >
+
+                  {/* Card Header */}
+                  <div className="booking-card-header">
+
+                    <div>
+                      <span className="booking-card-label">
+                        BOOKING ID
+                      </span>
+
+                      <strong>
+                        {booking._id}
+                      </strong>
+                    </div>
+
+                    <span
+                      className={`booking-status ${getStatusClass(
+                        booking.status
+                      )}`}
+                    >
+                      {formatStatus(booking.status)}
                     </span>
 
-                    <strong>
-                      {booking._id}
-                    </strong>
                   </div>
 
-                  <span
-                    className={`booking-status ${getStatusClass(
-                      booking.status
-                    )}`}
-                  >
-                    {formatStatus(booking.status)}
-                  </span>
+                  {/* Details */}
+                  <div className="booking-card-details">
+
+                    <div className="booking-detail">
+                      <span>Service</span>
+                      <strong>
+                        {booking.service}
+                      </strong>
+                    </div>
+
+                    <div className="booking-detail">
+                      <span>Acharya</span>
+                      <strong>
+                        {booking.acharya}
+                      </strong>
+                    </div>
+
+                    <div className="booking-detail">
+                      <span>Date</span>
+                      <strong>
+                        {booking.date}
+                      </strong>
+                    </div>
+
+                    <div className="booking-detail">
+                      <span>Time</span>
+                      <strong>
+                        {booking.time}
+                      </strong>
+                    </div>
+
+                    <div className="booking-detail">
+                      <span>Mode</span>
+                      <strong>
+                        {booking.mode}
+                      </strong>
+                    </div>
+
+                    <div className="booking-detail">
+                      <span>Fee</span>
+                      <strong>
+                        ₹{booking.fee}
+                      </strong>
+                    </div>
+
+                  </div>
+
+                  {/* Footer */}
+                  <div className="booking-card-footer">
+
+                    <small>
+                      Booked on{" "}
+                      {booking.createdAt
+                        ? new Date(
+                            booking.createdAt
+                          ).toLocaleDateString("en-IN")
+                        : "-"}
+                    </small>
+
+                    {booking.status !== "cancelled" &&
+                      booking.status !== "completed" && (
+                        <button
+                          type="button"
+                          className="cancel-booking-btn"
+                          disabled={
+                            cancelLoading === booking._id
+                          }
+                          onClick={() =>
+                            handleCancel(booking._id)
+                          }
+                        >
+                          {cancelLoading === booking._id
+                            ? "Cancelling..."
+                            : "Cancel Booking"}
+                        </button>
+                      )}
+
+                  </div>
 
                 </div>
+              ))}
 
-                {/* Details */}
-                <div className="booking-card-details">
+            </div>
+          )}
 
-                  <div className="booking-detail">
-                    <span>Service</span>
-                    <strong>
-                      {booking.service}
-                    </strong>
-                  </div>
-
-                  <div className="booking-detail">
-                    <span>Acharya</span>
-                    <strong>
-                      {booking.acharya}
-                    </strong>
-                  </div>
-
-                  <div className="booking-detail">
-                    <span>Date</span>
-                    <strong>
-                      {booking.date}
-                    </strong>
-                  </div>
-
-                  <div className="booking-detail">
-                    <span>Time</span>
-                    <strong>
-                      {booking.time}
-                    </strong>
-                  </div>
-
-                  <div className="booking-detail">
-                    <span>Mode</span>
-                    <strong>
-                      {booking.mode}
-                    </strong>
-                  </div>
-
-                  <div className="booking-detail">
-                    <span>Fee</span>
-                    <strong>
-                      ₹{booking.fee}
-                    </strong>
-                  </div>
-
-                </div>
-
-                {/* Footer */}
-                <div className="booking-card-footer">
-
-                  <small>
-                    Booked on{" "}
-                    {booking.createdAt
-                      ? new Date(
-                          booking.createdAt
-                        ).toLocaleDateString("en-IN")
-                      : "-"}
-                  </small>
-
-                  {booking.status !== "cancelled" &&
-                    booking.status !== "completed" && (
-                      <button
-                        type="button"
-                        className="cancel-booking-btn"
-                        disabled={
-                          cancelLoading === booking._id
-                        }
-                        onClick={() =>
-                          handleCancel(booking._id)
-                        }
-                      >
-                        {cancelLoading === booking._id
-                          ? "Cancelling..."
-                          : "Cancel Booking"}
-                      </button>
-                    )}
-
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-        )}
-
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 
