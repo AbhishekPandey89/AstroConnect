@@ -119,6 +119,40 @@ const translations = {
       viewAll: "View All Acharyas",
       reviews: "reviews",
       willBeAvailable: "will be available soon.",
+      loading: "Loading Acharyas...",
+      noAvailable: "No Acharyas available right now.",
+      loadError: "Unable to load Acharyas.",
+
+      trustedGuidance: "Trusted Astrology Guidance",
+      meetOur: "Meet Our",
+      acharyasTitle: "Acharyas",
+      heroDescription: "Experienced astrologers dedicated to helping you understand your stars, make informed decisions and find clarity in life's journey.",
+      expertAcharyas: "Expert Acharyas",
+      astrologyServices: "Astrology Services",
+      guidance: "Guidance",
+      ourExperts: "OUR EXPERTS",
+      chooseYour: "Choose Your",
+      sectionDescription: "Find the right astrology expert based on their experience, specialty and languages.",
+      acharyaSingular: "Acharya",
+      acharyaPlural: "Acharyas",
+      findingAcharyas: "Finding Our Acharyas...",
+      loading: "Loading Acharyas...",
+      loadError: "Unable to load Acharyas. Please try again.",
+      tryAgain: "Try Again",
+      comingSoonTitle: "Our Acharyas Are Coming Soon",
+      comingSoonDescription: "We are preparing our expert astrologer profiles. Please check back shortly.",
+      backHome: "Back to Home",
+      available: "Available",
+      experience: "Experience",
+      years: "Years",
+      consultation: "Consultation",
+      consultationFrom: "Consultation from",
+      bookConsultation: "Book Consultation",
+      needGuidance: "NEED GUIDANCE?",
+      ctaTitle: "Not sure which Acharya to choose?",
+      ctaDescription: "Let AstroConnect help you find the right astrology service for your needs.",
+      askAI: "Ask AstroConnect AI",
+      noAvailable: "No Acharyas available right now.",
 
       acharyaShiv: {
         name: "Acharya Shiv",
@@ -492,277 +526,277 @@ const translations = {
 
 
     numerology: {
-  label: "NUMEROLOGY",
+      label: "NUMEROLOGY",
 
-  heroTitle: "Discover the meaning",
-  heroTitleHighlight: "behind your numbers.",
-  heroDescription:
-    "Explore traditional numerology guidance to understand the symbolic influence of numbers connected with your name and date of birth.",
+      heroTitle: "Discover the meaning",
+      heroTitleHighlight: "behind your numbers.",
+      heroDescription:
+        "Explore traditional numerology guidance to understand the symbolic influence of numbers connected with your name and date of birth.",
 
-  consultButton: "Book a Consultation",
-  exploreButton: "Explore Numbers",
+      consultButton: "Book a Consultation",
+      exploreButton: "Explore Numbers",
 
-  trustedTitle: "Personalized Guidance",
-  trustedText: "Traditional insights presented through a modern experience.",
-  coreNumber: "CORE NUMBER",
+      trustedTitle: "Personalized Guidance",
+      trustedText: "Traditional insights presented through a modern experience.",
+      coreNumber: "CORE NUMBER",
 
-  introLabel: "UNDERSTANDING NUMEROLOGY",
-  introTitle: "Numbers can offer",
-  introTitleHighlight: "a different perspective.",
+      introLabel: "UNDERSTANDING NUMEROLOGY",
+      introTitle: "Numbers can offer",
+      introTitleHighlight: "a different perspective.",
 
-  introText1:
-    "Numerology is a traditional practice that explores symbolic meanings associated with numbers and their relationship with names and dates of birth.",
+      introText1:
+        "Numerology is a traditional practice that explores symbolic meanings associated with numbers and their relationship with names and dates of birth.",
 
-  introText2:
-    "AstroConnect helps you connect with experienced practitioners for personalized numerology guidance across important areas of life.",
+      introText2:
+        "AstroConnect helps you connect with experienced practitioners for personalized numerology guidance across important areas of life.",
 
-  numbersLabel: "THE NUMBERS",
-  numbersTitle: "Explore the energy",
-  numbersTitleHighlight: "of numbers.",
-  numbersDescription:
-    "Each number is traditionally associated with different qualities and symbolic interpretations.",
+      numbersLabel: "THE NUMBERS",
+      numbersTitle: "Explore the energy",
+      numbersTitleHighlight: "of numbers.",
+      numbersDescription:
+        "Each number is traditionally associated with different qualities and symbolic interpretations.",
 
-  numbers: {
-    one: {
-      title: "Leadership",
-      description: "Traditionally associated with independence, initiative and leadership.",
+      numbers: {
+        one: {
+          title: "Leadership",
+          description: "Traditionally associated with independence, initiative and leadership.",
+        },
+        two: {
+          title: "Balance",
+          description: "Associated with cooperation, sensitivity and harmony.",
+        },
+        three: {
+          title: "Expression",
+          description: "Connected with creativity, communication and optimism.",
+        },
+        four: {
+          title: "Stability",
+          description: "Traditionally linked with discipline, structure and reliability.",
+        },
+        five: {
+          title: "Freedom",
+          description: "Associated with change, curiosity and adaptability.",
+        },
+        six: {
+          title: "Harmony",
+          description: "Connected with responsibility, care and relationships.",
+        },
+        seven: {
+          title: "Wisdom",
+          description: "Traditionally associated with reflection, learning and intuition.",
+        },
+        eight: {
+          title: "Ambition",
+          description: "Linked with achievement, organization and material goals.",
+        },
+        nine: {
+          title: "Compassion",
+          description: "Associated with completion, generosity and humanitarian values.",
+        },
+      },
+
+      guidanceLabel: "AREAS OF GUIDANCE",
+      guidanceTitle: "Explore guidance for",
+      guidanceTitleHighlight: "important areas.",
+
+      guidanceDescription:
+        "Discuss the areas that matter most to you with an experienced practitioner.",
+
+      guidance: {
+        career: {
+          title: "Career",
+          description:
+            "Explore traditional numerology perspectives related to career choices and professional direction.",
+        },
+
+        relationships: {
+          title: "Relationships",
+          description:
+            "Understand traditional number interpretations related to compatibility and relationships.",
+        },
+
+        finance: {
+          title: "Finance",
+          description:
+            "Explore symbolic numerology perspectives related to financial goals and planning.",
+        },
+
+        personal: {
+          title: "Personal Growth",
+          description:
+            "Reflect on personal qualities, strengths and areas of development through numerology.",
+        },
+      },
+
+      processLabel: "HOW IT WORKS",
+      processTitle: "A simple path to",
+      processTitleHighlight: "personalized guidance.",
+
+      process: {
+        stepOneTitle: "Share Your Details",
+        stepOneText:
+          "Provide basic information such as your name and date of birth.",
+
+        stepTwoTitle: "Explore Your Numbers",
+        stepTwoText:
+          "An experienced practitioner interprets the relevant numbers and their traditional meanings.",
+
+        stepThreeTitle: "Receive Guidance",
+        stepThreeText:
+          "Discuss your questions and receive personalized traditional guidance.",
+      },
+
+      ctaLabel: "BEGIN YOUR JOURNEY",
+      ctaTitle: "Ready to explore",
+      ctaTitleHighlight: "your numbers?",
+      ctaDescription:
+        "Connect with an experienced practitioner and discover a personalized numerology consultation.",
+      ctaButton: "Book Consultation",
     },
-    two: {
-      title: "Balance",
-      description: "Associated with cooperation, sensitivity and harmony.",
+
+    lagna: {
+      label: "Lagna & Marriage",
+      heroTitle: "Understand Your",
+      heroHighlight: "Marriage Journey",
+      heroDescription:
+        "Explore traditional astrology-based guidance for marriage, compatibility, timing and important relationship decisions.",
+      bookButton: "Book Consultation",
+      kundaliButton: "Explore Kundali",
+
+      introLabel: "Marriage Guidance",
+      introTitle: "Clarity for Important",
+      introHighlight: "Life Decisions",
+      introText1:
+        "Marriage and relationships are important milestones in life. AstroConnect connects you with experienced Acharyas for personalized guidance.",
+      introText2:
+        "Based on your birth details and traditional astrology practices, consultations can help you understand compatibility, timing and other relationship-related questions.",
+
+      chartLabel: "ASTROLOGY INSIGHT",
+      chartTitle: "Personalized Guidance",
+      chartDescription:
+        "Your birth details help create a personalized consultation experience.",
+
+      guidanceLabel: "What We Explore",
+      guidanceTitle: "Marriage Guidance",
+      guidanceHighlight: "Tailored to You",
+      guidanceDescription:
+        "Discuss important relationship questions with an experienced Acharya.",
+
+      compatibility: "Compatibility",
+      compatibilityDesc:
+        "Understand traditional compatibility factors between partners.",
+
+      marriageTiming: "Marriage Timing",
+      marriageTimingDesc:
+        "Explore traditional astrological perspectives on suitable periods.",
+
+      kundaliMatching: "Kundali Matching",
+      kundaliMatchingDesc:
+        "Review important aspects of two birth charts for compatibility guidance.",
+
+      doshaGuidance: "Dosha Guidance",
+      doshaGuidanceDesc:
+        "Discuss commonly considered doshas and traditional remedies with an Acharya.",
+
+      processLabel: "Simple Process",
+      processTitle: "Begin Your",
+      processHighlight: "Consultation",
+
+      stepOneTitle: "Share Your Details",
+      stepOneText:
+        "Provide the birth and basic information needed for your consultation.",
+
+      stepTwoTitle: "Connect With an Acharya",
+      stepTwoText:
+        "Choose an experienced Acharya and select a suitable consultation time.",
+
+      stepThreeTitle: "Receive Guidance",
+      stepThreeText:
+        "Discuss your questions and receive personalized traditional guidance.",
+
+      ctaLabel: "Start Your Journey",
+      ctaTitle: "Looking for Marriage",
+      ctaHighlight: "Guidance?",
+      ctaDescription:
+        "Connect with an experienced Acharya and discuss your questions with clarity.",
+      ctaButton: "Book a Consultation",
     },
-    three: {
-      title: "Expression",
-      description: "Connected with creativity, communication and optimism.",
+
+    //muhurt========================
+
+    muhurat: {
+      label: "Muhurat",
+      heroTitle: "Choose the Right",
+      heroHighlight: "Auspicious Time",
+      heroDescription:
+        "Explore traditional guidance for selecting auspicious timings for important occasions and life events.",
+      bookButton: "Book Consultation",
+      jyotishButton: "Explore Jyotish",
+
+      introLabel: "Auspicious Timing",
+      introTitle: "Plan Important Moments with",
+      introHighlight: "Greater Clarity",
+      introText1:
+        "Muhurat refers to traditionally selected auspicious periods for beginning important activities and ceremonies.",
+      introText2:
+        "Connect with an experienced Acharya to discuss suitable timings based on your occasion and personal details.",
+
+      calendarLabel: "TRADITIONAL GUIDANCE",
+      auspicious: "Auspicious Timing",
+
+      occasionsLabel: "Occasions",
+      occasionsTitle: "Find Guidance for",
+      occasionsHighlight: "Important Moments",
+      occasionsDescription:
+        "Explore traditional Muhurat guidance for different ceremonies, milestones and important beginnings.",
+
+      marriage: "Marriage",
+      marriageDesc:
+        "Explore traditional auspicious timings for wedding ceremonies and related rituals.",
+
+      house: "Housewarming",
+      houseDesc:
+        "Discuss suitable timings for entering a new home and beginning a new chapter.",
+
+      vehicle: "Vehicle Purchase",
+      vehicleDesc:
+        "Explore traditional timings associated with purchasing or starting to use a vehicle.",
+
+      business: "Business & Work",
+      businessDesc:
+        "Find traditional guidance for starting a business, opening a workplace or beginning a new venture.",
+
+      puja: "Pooja & Ceremony",
+      pujaDesc:
+        "Discuss suitable timings for religious ceremonies, poojas and spiritual occasions.",
+
+      importantEvents: "Important Events",
+      importantEventsDesc:
+        "Explore traditional timing guidance for other significant personal and family occasions.",
+
+      processLabel: "Simple Process",
+      processTitle: "How Your Muhurat",
+      processHighlight: "Consultation Works",
+
+      stepOneTitle: "Share Your Occasion",
+      stepOneText:
+        "Tell us about the ceremony, event or activity for which you need timing guidance.",
+
+      stepTwoTitle: "Connect With an Acharya",
+      stepTwoText:
+        "Choose an experienced Acharya and discuss the relevant details of your occasion.",
+
+      stepThreeTitle: "Explore Suitable Timings",
+      stepThreeText:
+        "Receive traditional guidance on suitable Muhurat options for your occasion.",
+
+      ctaLabel: "Plan With Tradition",
+      ctaTitle: "Looking for an",
+      ctaHighlight: "Auspicious Muhurat?",
+      ctaDescription:
+        "Connect with an Acharya and explore traditional timing guidance for your important occasion.",
+      ctaButton: "Book a Consultation",
     },
-    four: {
-      title: "Stability",
-      description: "Traditionally linked with discipline, structure and reliability.",
-    },
-    five: {
-      title: "Freedom",
-      description: "Associated with change, curiosity and adaptability.",
-    },
-    six: {
-      title: "Harmony",
-      description: "Connected with responsibility, care and relationships.",
-    },
-    seven: {
-      title: "Wisdom",
-      description: "Traditionally associated with reflection, learning and intuition.",
-    },
-    eight: {
-      title: "Ambition",
-      description: "Linked with achievement, organization and material goals.",
-    },
-    nine: {
-      title: "Compassion",
-      description: "Associated with completion, generosity and humanitarian values.",
-    },
-  },
-
-  guidanceLabel: "AREAS OF GUIDANCE",
-  guidanceTitle: "Explore guidance for",
-  guidanceTitleHighlight: "important areas.",
-
-  guidanceDescription:
-    "Discuss the areas that matter most to you with an experienced practitioner.",
-
-  guidance: {
-    career: {
-      title: "Career",
-      description:
-        "Explore traditional numerology perspectives related to career choices and professional direction.",
-    },
-
-    relationships: {
-      title: "Relationships",
-      description:
-        "Understand traditional number interpretations related to compatibility and relationships.",
-    },
-
-    finance: {
-      title: "Finance",
-      description:
-        "Explore symbolic numerology perspectives related to financial goals and planning.",
-    },
-
-    personal: {
-      title: "Personal Growth",
-      description:
-        "Reflect on personal qualities, strengths and areas of development through numerology.",
-    },
-  },
-
-  processLabel: "HOW IT WORKS",
-  processTitle: "A simple path to",
-  processTitleHighlight: "personalized guidance.",
-
-  process: {
-    stepOneTitle: "Share Your Details",
-    stepOneText:
-      "Provide basic information such as your name and date of birth.",
-
-    stepTwoTitle: "Explore Your Numbers",
-    stepTwoText:
-      "An experienced practitioner interprets the relevant numbers and their traditional meanings.",
-
-    stepThreeTitle: "Receive Guidance",
-    stepThreeText:
-      "Discuss your questions and receive personalized traditional guidance.",
-  },
-
-  ctaLabel: "BEGIN YOUR JOURNEY",
-  ctaTitle: "Ready to explore",
-  ctaTitleHighlight: "your numbers?",
-  ctaDescription:
-    "Connect with an experienced practitioner and discover a personalized numerology consultation.",
-  ctaButton: "Book Consultation",
-},
-
-lagna: {
-  label: "Lagna & Marriage",
-  heroTitle: "Understand Your",
-  heroHighlight: "Marriage Journey",
-  heroDescription:
-    "Explore traditional astrology-based guidance for marriage, compatibility, timing and important relationship decisions.",
-  bookButton: "Book Consultation",
-  kundaliButton: "Explore Kundali",
-
-  introLabel: "Marriage Guidance",
-  introTitle: "Clarity for Important",
-  introHighlight: "Life Decisions",
-  introText1:
-    "Marriage and relationships are important milestones in life. AstroConnect connects you with experienced Acharyas for personalized guidance.",
-  introText2:
-    "Based on your birth details and traditional astrology practices, consultations can help you understand compatibility, timing and other relationship-related questions.",
-
-  chartLabel: "ASTROLOGY INSIGHT",
-  chartTitle: "Personalized Guidance",
-  chartDescription:
-    "Your birth details help create a personalized consultation experience.",
-
-  guidanceLabel: "What We Explore",
-  guidanceTitle: "Marriage Guidance",
-  guidanceHighlight: "Tailored to You",
-  guidanceDescription:
-    "Discuss important relationship questions with an experienced Acharya.",
-
-  compatibility: "Compatibility",
-  compatibilityDesc:
-    "Understand traditional compatibility factors between partners.",
-
-  marriageTiming: "Marriage Timing",
-  marriageTimingDesc:
-    "Explore traditional astrological perspectives on suitable periods.",
-
-  kundaliMatching: "Kundali Matching",
-  kundaliMatchingDesc:
-    "Review important aspects of two birth charts for compatibility guidance.",
-
-  doshaGuidance: "Dosha Guidance",
-  doshaGuidanceDesc:
-    "Discuss commonly considered doshas and traditional remedies with an Acharya.",
-
-  processLabel: "Simple Process",
-  processTitle: "Begin Your",
-  processHighlight: "Consultation",
-
-  stepOneTitle: "Share Your Details",
-  stepOneText:
-    "Provide the birth and basic information needed for your consultation.",
-
-  stepTwoTitle: "Connect With an Acharya",
-  stepTwoText:
-    "Choose an experienced Acharya and select a suitable consultation time.",
-
-  stepThreeTitle: "Receive Guidance",
-  stepThreeText:
-    "Discuss your questions and receive personalized traditional guidance.",
-
-  ctaLabel: "Start Your Journey",
-  ctaTitle: "Looking for Marriage",
-  ctaHighlight: "Guidance?",
-  ctaDescription:
-    "Connect with an experienced Acharya and discuss your questions with clarity.",
-  ctaButton: "Book a Consultation",
-},
-
-//muhurt========================
-
-muhurat: {
-  label: "Muhurat",
-  heroTitle: "Choose the Right",
-  heroHighlight: "Auspicious Time",
-  heroDescription:
-    "Explore traditional guidance for selecting auspicious timings for important occasions and life events.",
-  bookButton: "Book Consultation",
-  jyotishButton: "Explore Jyotish",
-
-  introLabel: "Auspicious Timing",
-  introTitle: "Plan Important Moments with",
-  introHighlight: "Greater Clarity",
-  introText1:
-    "Muhurat refers to traditionally selected auspicious periods for beginning important activities and ceremonies.",
-  introText2:
-    "Connect with an experienced Acharya to discuss suitable timings based on your occasion and personal details.",
-
-  calendarLabel: "TRADITIONAL GUIDANCE",
-  auspicious: "Auspicious Timing",
-
-  occasionsLabel: "Occasions",
-  occasionsTitle: "Find Guidance for",
-  occasionsHighlight: "Important Moments",
-  occasionsDescription:
-    "Explore traditional Muhurat guidance for different ceremonies, milestones and important beginnings.",
-
-  marriage: "Marriage",
-  marriageDesc:
-    "Explore traditional auspicious timings for wedding ceremonies and related rituals.",
-
-  house: "Housewarming",
-  houseDesc:
-    "Discuss suitable timings for entering a new home and beginning a new chapter.",
-
-  vehicle: "Vehicle Purchase",
-  vehicleDesc:
-    "Explore traditional timings associated with purchasing or starting to use a vehicle.",
-
-  business: "Business & Work",
-  businessDesc:
-    "Find traditional guidance for starting a business, opening a workplace or beginning a new venture.",
-
-  puja: "Pooja & Ceremony",
-  pujaDesc:
-    "Discuss suitable timings for religious ceremonies, poojas and spiritual occasions.",
-
-  importantEvents: "Important Events",
-  importantEventsDesc:
-    "Explore traditional timing guidance for other significant personal and family occasions.",
-
-  processLabel: "Simple Process",
-  processTitle: "How Your Muhurat",
-  processHighlight: "Consultation Works",
-
-  stepOneTitle: "Share Your Occasion",
-  stepOneText:
-    "Tell us about the ceremony, event or activity for which you need timing guidance.",
-
-  stepTwoTitle: "Connect With an Acharya",
-  stepTwoText:
-    "Choose an experienced Acharya and discuss the relevant details of your occasion.",
-
-  stepThreeTitle: "Explore Suitable Timings",
-  stepThreeText:
-    "Receive traditional guidance on suitable Muhurat options for your occasion.",
-
-  ctaLabel: "Plan With Tradition",
-  ctaTitle: "Looking for an",
-  ctaHighlight: "Auspicious Muhurat?",
-  ctaDescription:
-    "Connect with an Acharya and explore traditional timing guidance for your important occasion.",
-  ctaButton: "Book a Consultation",
-},
 
 
     // =====================================================
@@ -800,6 +834,37 @@ muhurat: {
       dashboard: "डैशबोर्ड",
       bookConsultation: "परामर्श बुक करें",
       chooseLanguage: "भाषा चुनें",
+
+      trustedGuidance: "विश्वसनीय ज्योतिष मार्गदर्शन",
+      meetOur: "हमारे",
+      acharyasTitle: "आचार्य",
+      heroDescription: "अनुभवी ज्योतिषियों से मार्गदर्शन प्राप्त करें, अपने सितारों को समझें और जीवन के महत्वपूर्ण निर्णयों में स्पष्टता पाएं।",
+      expertAcharyas: "विशेषज्ञ आचार्य",
+      astrologyServices: "ज्योतिष सेवाएँ",
+      guidance: "मार्गदर्शन",
+      ourExperts: "हमारे विशेषज्ञ",
+      chooseYour: "अपने",
+      sectionDescription: "अनुभव, विशेषज्ञता और भाषाओं के आधार पर अपने लिए सही ज्योतिष विशेषज्ञ चुनें।",
+      acharyaSingular: "आचार्य",
+      acharyaPlural: "आचार्य",
+      findingAcharyas: "हमारे आचार्यों को खोजा जा रहा है...",
+      loading: "आचार्यों की जानकारी लोड हो रही है...",
+      loadError: "आचार्यों की जानकारी लोड नहीं हो सकी। कृपया फिर से प्रयास करें।",
+      tryAgain: "फिर से प्रयास करें",
+      comingSoonTitle: "हमारे आचार्य जल्द उपलब्ध होंगे",
+      comingSoonDescription: "हम अपने विशेषज्ञ ज्योतिषियों की प्रोफाइल तैयार कर रहे हैं। कृपया थोड़ी देर बाद देखें।",
+      backHome: "होम पर वापस जाएँ",
+      available: "उपलब्ध",
+      experience: "अनुभव",
+      years: "वर्ष",
+      consultation: "परामर्श",
+      consultationFrom: "परामर्श शुल्क",
+      bookConsultation: "परामर्श बुक करें",
+      needGuidance: "मार्गदर्शन चाहिए?",
+      ctaTitle: "समझ नहीं आ रहा कि कौन-से आचार्य चुनें?",
+      ctaDescription: "AstroConnect आपकी ज़रूरत के अनुसार सही ज्योतिष सेवा चुनने में मदद करेगा।",
+      askAI: "AstroConnect AI से पूछें",
+      noAvailable: "अभी कोई आचार्य उपलब्ध नहीं है।",
     },
 
     hero: {
@@ -901,6 +966,9 @@ muhurat: {
       viewAll: "सभी आचार्य देखें",
       reviews: "रिव्यू",
       willBeAvailable: "जल्द ही उपलब्ध होंगे।",
+      loading: "आचार्यों की जानकारी लोड हो रही है...",
+      noAvailable: "अभी कोई आचार्य उपलब्ध नहीं है।",
+      loadError: "आचार्यों की जानकारी लोड नहीं हो सकी।",
 
       acharyaShiv: {
         name: "आचार्य शिव",
@@ -1282,148 +1350,148 @@ muhurat: {
 
       ctaButton: "आचार्यों को देखें",
     },
-    
+
     lagna: {
-  label: "विवाह एवं लग्न",
-  heroTitle: "अपनी",
-  heroHighlight: "विवाह यात्रा को समझें",
-  heroDescription:
-    "विवाह, अनुकूलता, समय और रिश्तों से जुड़े महत्वपूर्ण निर्णयों के लिए पारंपरिक ज्योतिषीय मार्गदर्शन प्राप्त करें।",
-  bookButton: "परामर्श बुक करें",
-  kundaliButton: "कुंडली देखें",
+      label: "विवाह एवं लग्न",
+      heroTitle: "अपनी",
+      heroHighlight: "विवाह यात्रा को समझें",
+      heroDescription:
+        "विवाह, अनुकूलता, समय और रिश्तों से जुड़े महत्वपूर्ण निर्णयों के लिए पारंपरिक ज्योतिषीय मार्गदर्शन प्राप्त करें।",
+      bookButton: "परामर्श बुक करें",
+      kundaliButton: "कुंडली देखें",
 
-  introLabel: "विवाह मार्गदर्शन",
-  introTitle: "महत्वपूर्ण जीवन निर्णयों के लिए",
-  introHighlight: "स्पष्टता",
-  introText1:
-    "विवाह और रिश्ते जीवन के महत्वपूर्ण पड़ाव होते हैं। AstroConnect आपको व्यक्तिगत मार्गदर्शन के लिए अनुभवी आचार्यों से जोड़ता है।",
-  introText2:
-    "जन्म विवरण और पारंपरिक ज्योतिषीय पद्धतियों के आधार पर परामर्श आपको अनुकूलता, समय और रिश्तों से जुड़े प्रश्नों को समझने में सहायता कर सकता है।",
+      introLabel: "विवाह मार्गदर्शन",
+      introTitle: "महत्वपूर्ण जीवन निर्णयों के लिए",
+      introHighlight: "स्पष्टता",
+      introText1:
+        "विवाह और रिश्ते जीवन के महत्वपूर्ण पड़ाव होते हैं। AstroConnect आपको व्यक्तिगत मार्गदर्शन के लिए अनुभवी आचार्यों से जोड़ता है।",
+      introText2:
+        "जन्म विवरण और पारंपरिक ज्योतिषीय पद्धतियों के आधार पर परामर्श आपको अनुकूलता, समय और रिश्तों से जुड़े प्रश्नों को समझने में सहायता कर सकता है।",
 
-  chartLabel: "ज्योतिषीय मार्गदर्शन",
-  chartTitle: "व्यक्तिगत मार्गदर्शन",
-  chartDescription:
-    "आपके जन्म विवरण के आधार पर परामर्श को व्यक्तिगत बनाया जाता है।",
+      chartLabel: "ज्योतिषीय मार्गदर्शन",
+      chartTitle: "व्यक्तिगत मार्गदर्शन",
+      chartDescription:
+        "आपके जन्म विवरण के आधार पर परामर्श को व्यक्तिगत बनाया जाता है।",
 
-  guidanceLabel: "हम क्या देखते हैं",
-  guidanceTitle: "विवाह मार्गदर्शन",
-  guidanceHighlight: "आपके अनुसार",
-  guidanceDescription:
-    "अनुभवी आचार्य के साथ रिश्तों से जुड़े महत्वपूर्ण प्रश्नों पर चर्चा करें।",
+      guidanceLabel: "हम क्या देखते हैं",
+      guidanceTitle: "विवाह मार्गदर्शन",
+      guidanceHighlight: "आपके अनुसार",
+      guidanceDescription:
+        "अनुभवी आचार्य के साथ रिश्तों से जुड़े महत्वपूर्ण प्रश्नों पर चर्चा करें।",
 
-  compatibility: "अनुकूलता",
-  compatibilityDesc:
-    "जीवनसाथियों के बीच पारंपरिक ज्योतिषीय अनुकूलता को समझें।",
+      compatibility: "अनुकूलता",
+      compatibilityDesc:
+        "जीवनसाथियों के बीच पारंपरिक ज्योतिषीय अनुकूलता को समझें।",
 
-  marriageTiming: "विवाह का समय",
-  marriageTimingDesc:
-    "उपयुक्त समय को लेकर पारंपरिक ज्योतिषीय दृष्टिकोण को समझें।",
+      marriageTiming: "विवाह का समय",
+      marriageTimingDesc:
+        "उपयुक्त समय को लेकर पारंपरिक ज्योतिषीय दृष्टिकोण को समझें।",
 
-  kundaliMatching: "कुंडली मिलान",
-  kundaliMatchingDesc:
-    "अनुकूलता से जुड़े महत्वपूर्ण पहलुओं के लिए दोनों जन्म कुंडलियों का अध्ययन करें।",
+      kundaliMatching: "कुंडली मिलान",
+      kundaliMatchingDesc:
+        "अनुकूलता से जुड़े महत्वपूर्ण पहलुओं के लिए दोनों जन्म कुंडलियों का अध्ययन करें।",
 
-  doshaGuidance: "दोष मार्गदर्शन",
-  doshaGuidanceDesc:
-    "आचार्य के साथ प्रचलित दोषों और पारंपरिक उपायों पर चर्चा करें।",
+      doshaGuidance: "दोष मार्गदर्शन",
+      doshaGuidanceDesc:
+        "आचार्य के साथ प्रचलित दोषों और पारंपरिक उपायों पर चर्चा करें।",
 
-  processLabel: "सरल प्रक्रिया",
-  processTitle: "अपना",
-  processHighlight: "परामर्श शुरू करें",
+      processLabel: "सरल प्रक्रिया",
+      processTitle: "अपना",
+      processHighlight: "परामर्श शुरू करें",
 
-  stepOneTitle: "अपनी जानकारी दें",
-  stepOneText:
-    "परामर्श के लिए आवश्यक जन्म और मूल जानकारी साझा करें।",
+      stepOneTitle: "अपनी जानकारी दें",
+      stepOneText:
+        "परामर्श के लिए आवश्यक जन्म और मूल जानकारी साझा करें।",
 
-  stepTwoTitle: "आचार्य से जुड़ें",
-  stepTwoText:
-    "अनुभवी आचार्य चुनें और अपनी सुविधानुसार परामर्श का समय निर्धारित करें।",
+      stepTwoTitle: "आचार्य से जुड़ें",
+      stepTwoText:
+        "अनुभवी आचार्य चुनें और अपनी सुविधानुसार परामर्श का समय निर्धारित करें।",
 
-  stepThreeTitle: "मार्गदर्शन प्राप्त करें",
-  stepThreeText:
-    "अपने प्रश्नों पर चर्चा करें और व्यक्तिगत पारंपरिक मार्गदर्शन प्राप्त करें।",
+      stepThreeTitle: "मार्गदर्शन प्राप्त करें",
+      stepThreeText:
+        "अपने प्रश्नों पर चर्चा करें और व्यक्तिगत पारंपरिक मार्गदर्शन प्राप्त करें।",
 
-  ctaLabel: "अपनी यात्रा शुरू करें",
-  ctaTitle: "क्या आपको विवाह से जुड़ा",
-  ctaHighlight: "मार्गदर्शन चाहिए?",
-  ctaDescription:
-    "अनुभवी आचार्य से जुड़ें और अपने प्रश्नों पर स्पष्टता के साथ चर्चा करें।",
-  ctaButton: "परामर्श बुक करें",
-},
+      ctaLabel: "अपनी यात्रा शुरू करें",
+      ctaTitle: "क्या आपको विवाह से जुड़ा",
+      ctaHighlight: "मार्गदर्शन चाहिए?",
+      ctaDescription:
+        "अनुभवी आचार्य से जुड़ें और अपने प्रश्नों पर स्पष्टता के साथ चर्चा करें।",
+      ctaButton: "परामर्श बुक करें",
+    },
 
-muhurat: {
-  label: "मुहूर्त",
-  heroTitle: "चुनें सही",
-  heroHighlight: "शुभ समय",
-  heroDescription:
-    "महत्वपूर्ण अवसरों और जीवन की घटनाओं के लिए पारंपरिक शुभ समय से जुड़ा मार्गदर्शन प्राप्त करें।",
-  bookButton: "परामर्श बुक करें",
-  jyotishButton: "ज्योतिष देखें",
+    muhurat: {
+      label: "मुहूर्त",
+      heroTitle: "चुनें सही",
+      heroHighlight: "शुभ समय",
+      heroDescription:
+        "महत्वपूर्ण अवसरों और जीवन की घटनाओं के लिए पारंपरिक शुभ समय से जुड़ा मार्गदर्शन प्राप्त करें।",
+      bookButton: "परामर्श बुक करें",
+      jyotishButton: "ज्योतिष देखें",
 
-  introLabel: "शुभ समय",
-  introTitle: "महत्वपूर्ण अवसरों की योजना बनाएं",
-  introHighlight: "बेहतर स्पष्टता के साथ",
-  introText1:
-    "मुहूर्त किसी महत्वपूर्ण कार्य या समारोह को शुरू करने के लिए पारंपरिक रूप से चुना गया शुभ समय होता है।",
-  introText2:
-    "अपने अवसर और व्यक्तिगत विवरण के आधार पर उपयुक्त समय पर चर्चा करने के लिए अनुभवी आचार्य से जुड़ें।",
+      introLabel: "शुभ समय",
+      introTitle: "महत्वपूर्ण अवसरों की योजना बनाएं",
+      introHighlight: "बेहतर स्पष्टता के साथ",
+      introText1:
+        "मुहूर्त किसी महत्वपूर्ण कार्य या समारोह को शुरू करने के लिए पारंपरिक रूप से चुना गया शुभ समय होता है।",
+      introText2:
+        "अपने अवसर और व्यक्तिगत विवरण के आधार पर उपयुक्त समय पर चर्चा करने के लिए अनुभवी आचार्य से जुड़ें।",
 
-  calendarLabel: "पारंपरिक मार्गदर्शन",
-  auspicious: "शुभ समय",
+      calendarLabel: "पारंपरिक मार्गदर्शन",
+      auspicious: "शुभ समय",
 
-  occasionsLabel: "अवसर",
-  occasionsTitle: "महत्वपूर्ण अवसरों के लिए",
-  occasionsHighlight: "मार्गदर्शन",
-  occasionsDescription:
-    "विभिन्न समारोहों, जीवन के पड़ावों और महत्वपूर्ण शुरुआतों के लिए पारंपरिक मुहूर्त मार्गदर्शन प्राप्त करें।",
+      occasionsLabel: "अवसर",
+      occasionsTitle: "महत्वपूर्ण अवसरों के लिए",
+      occasionsHighlight: "मार्गदर्शन",
+      occasionsDescription:
+        "विभिन्न समारोहों, जीवन के पड़ावों और महत्वपूर्ण शुरुआतों के लिए पारंपरिक मुहूर्त मार्गदर्शन प्राप्त करें।",
 
-  marriage: "विवाह",
-  marriageDesc:
-    "विवाह समारोह और संबंधित रीति-रिवाजों के लिए पारंपरिक शुभ समय जानें।",
+      marriage: "विवाह",
+      marriageDesc:
+        "विवाह समारोह और संबंधित रीति-रिवाजों के लिए पारंपरिक शुभ समय जानें।",
 
-  house: "गृह प्रवेश",
-  houseDesc:
-    "नए घर में प्रवेश और नए अध्याय की शुरुआत के लिए उपयुक्त समय पर चर्चा करें।",
+      house: "गृह प्रवेश",
+      houseDesc:
+        "नए घर में प्रवेश और नए अध्याय की शुरुआत के लिए उपयुक्त समय पर चर्चा करें।",
 
-  vehicle: "वाहन खरीद",
-  vehicleDesc:
-    "वाहन खरीदने या उसका उपयोग शुरू करने से जुड़े पारंपरिक शुभ समय को समझें।",
+      vehicle: "वाहन खरीद",
+      vehicleDesc:
+        "वाहन खरीदने या उसका उपयोग शुरू करने से जुड़े पारंपरिक शुभ समय को समझें।",
 
-  business: "व्यवसाय एवं कार्य",
-  businessDesc:
-    "व्यवसाय शुरू करने, कार्यस्थल खोलने या नए कार्य की शुरुआत के लिए पारंपरिक मार्गदर्शन प्राप्त करें।",
+      business: "व्यवसाय एवं कार्य",
+      businessDesc:
+        "व्यवसाय शुरू करने, कार्यस्थल खोलने या नए कार्य की शुरुआत के लिए पारंपरिक मार्गदर्शन प्राप्त करें।",
 
-  puja: "पूजा एवं समारोह",
-  pujaDesc:
-    "धार्मिक समारोहों, पूजाओं और आध्यात्मिक अवसरों के लिए उपयुक्त समय पर चर्चा करें।",
+      puja: "पूजा एवं समारोह",
+      pujaDesc:
+        "धार्मिक समारोहों, पूजाओं और आध्यात्मिक अवसरों के लिए उपयुक्त समय पर चर्चा करें।",
 
-  importantEvents: "महत्वपूर्ण अवसर",
-  importantEventsDesc:
-    "अन्य महत्वपूर्ण व्यक्तिगत और पारिवारिक अवसरों के लिए पारंपरिक समय संबंधी मार्गदर्शन प्राप्त करें।",
+      importantEvents: "महत्वपूर्ण अवसर",
+      importantEventsDesc:
+        "अन्य महत्वपूर्ण व्यक्तिगत और पारिवारिक अवसरों के लिए पारंपरिक समय संबंधी मार्गदर्शन प्राप्त करें।",
 
-  processLabel: "सरल प्रक्रिया",
-  processTitle: "आपका मुहूर्त",
-  processHighlight: "परामर्श कैसे काम करता है",
+      processLabel: "सरल प्रक्रिया",
+      processTitle: "आपका मुहूर्त",
+      processHighlight: "परामर्श कैसे काम करता है",
 
-  stepOneTitle: "अपना अवसर बताएं",
-  stepOneText:
-    "बताएं कि किस समारोह, कार्यक्रम या कार्य के लिए आपको समय संबंधी मार्गदर्शन चाहिए।",
+      stepOneTitle: "अपना अवसर बताएं",
+      stepOneText:
+        "बताएं कि किस समारोह, कार्यक्रम या कार्य के लिए आपको समय संबंधी मार्गदर्शन चाहिए।",
 
-  stepTwoTitle: "आचार्य से जुड़ें",
-  stepTwoText:
-    "अनुभवी आचार्य चुनें और अपने अवसर से जुड़ी आवश्यक जानकारी साझा करें।",
+      stepTwoTitle: "आचार्य से जुड़ें",
+      stepTwoText:
+        "अनुभवी आचार्य चुनें और अपने अवसर से जुड़ी आवश्यक जानकारी साझा करें।",
 
-  stepThreeTitle: "उपयुक्त समय जानें",
-  stepThreeText:
-    "अपने अवसर के लिए उपयुक्त मुहूर्त विकल्पों पर पारंपरिक मार्गदर्शन प्राप्त करें।",
+      stepThreeTitle: "उपयुक्त समय जानें",
+      stepThreeText:
+        "अपने अवसर के लिए उपयुक्त मुहूर्त विकल्पों पर पारंपरिक मार्गदर्शन प्राप्त करें।",
 
-  ctaLabel: "परंपरा के साथ योजना बनाएं",
-  ctaTitle: "क्या आप",
-  ctaHighlight: "शुभ मुहूर्त चाहते हैं?",
-  ctaDescription:
-    "आचार्य से जुड़ें और अपने महत्वपूर्ण अवसर के लिए पारंपरिक समय संबंधी मार्गदर्शन प्राप्त करें।",
-  ctaButton: "परामर्श बुक करें",
-},
+      ctaLabel: "परंपरा के साथ योजना बनाएं",
+      ctaTitle: "क्या आप",
+      ctaHighlight: "शुभ मुहूर्त चाहते हैं?",
+      ctaDescription:
+        "आचार्य से जुड़ें और अपने महत्वपूर्ण अवसर के लिए पारंपरिक समय संबंधी मार्गदर्शन प्राप्त करें।",
+      ctaButton: "परामर्श बुक करें",
+    },
 
     // =====================================================
     // COMMON
@@ -1460,6 +1528,40 @@ muhurat: {
       dashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
       bookConsultation: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
       chooseLanguage: "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      loading: "ಆಚಾರ್ಯರ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      noAvailable: "ಪ್ರಸ್ತುತ ಯಾವುದೇ ಆಚಾರ್ಯರು ಲಭ್ಯವಿಲ್ಲ.",
+      loadError: "ಆಚಾರ್ಯರ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+
+      trustedGuidance: "ವಿಶ್ವಾಸಾರ್ಹ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ",
+      meetOur: "ನಮ್ಮ",
+      acharyasTitle: "ಆಚಾರ್ಯರು",
+      heroDescription: "ನಿಮ್ಮ ನಕ್ಷತ್ರಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು, ಸೂಕ್ತ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಮತ್ತು ಜೀವನದಲ್ಲಿ ಸ್ಪಷ್ಟತೆ ಪಡೆಯಲು ಅನುಭವಿ ಜ್ಯೋತಿಷಿಗಳ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      expertAcharyas: "ತಜ್ಞ ಆಚಾರ್ಯರು",
+      astrologyServices: "ಜ್ಯೋತಿಷ್ಯ ಸೇವೆಗಳು",
+      guidance: "ಮಾರ್ಗದರ್ಶನ",
+      ourExperts: "ನಮ್ಮ ತಜ್ಞರು",
+      chooseYour: "ನಿಮ್ಮ",
+      sectionDescription: "ಅನುಭವ, ಪರಿಣತಿ ಮತ್ತು ಭಾಷೆಗಳ ಆಧಾರದ ಮೇಲೆ ಸರಿಯಾದ ಜ್ಯೋತಿಷ್ಯ ತಜ್ಞರನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      acharyaSingular: "ಆಚಾರ್ಯರು",
+      acharyaPlural: "ಆಚಾರ್ಯರು",
+      findingAcharyas: "ಆಚಾರ್ಯರನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ...",
+      loading: "ಆಚಾರ್ಯರ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      loadError: "ಆಚಾರ್ಯರ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+      tryAgain: "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+      comingSoonTitle: "ನಮ್ಮ ಆಚಾರ್ಯರು ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯರಾಗುತ್ತಾರೆ",
+      comingSoonDescription: "ನಮ್ಮ ಜ್ಯೋತಿಷ್ಯ ತಜ್ಞರ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ. ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪರಿಶೀಲಿಸಿ.",
+      backHome: "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+      available: "ಲಭ್ಯವಿದ್ದಾರೆ",
+      experience: "ಅನುಭವ",
+      years: "ವರ್ಷಗಳು",
+      consultation: "ಸಮಾಲೋಚನೆ",
+      consultationFrom: "ಸಮಾಲೋಚನೆ ಶುಲ್ಕ",
+      bookConsultation: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      needGuidance: "ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ?",
+      ctaTitle: "ಯಾವ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಬೇಕೆಂದು ತಿಳಿಯುತ್ತಿಲ್ಲವೇ?",
+      ctaDescription: "ನಿಮ್ಮ ಅಗತ್ಯಗಳಿಗೆ ಸರಿಯಾದ ಜ್ಯೋತಿಷ್ಯ ಸೇವೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಲು AstroConnect ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+      askAI: "AstroConnect AI ಅನ್ನು ಕೇಳಿ",
+      noAvailable: "ಪ್ರಸ್ತುತ ಯಾವುದೇ ಆಚಾರ್ಯರು ಲಭ್ಯವಿಲ್ಲ.",
     },
 
     hero: {
@@ -1944,147 +2046,147 @@ muhurat: {
     },
 
     lagna: {
-  label: "ವಿವಾಹ ಮತ್ತು ಲಗ್ನ",
-  heroTitle: "ನಿಮ್ಮ",
-  heroHighlight: "ವಿವಾಹ ಜೀವನವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ",
-  heroDescription:
-    "ವಿವಾಹ, ಹೊಂದಾಣಿಕೆ, ಸಮಯ ಮತ್ತು ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಮುಖ ನಿರ್ಧಾರಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
-  bookButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
-  kundaliButton: "ಕುಂಡಲಿ ನೋಡಿ",
+      label: "ವಿವಾಹ ಮತ್ತು ಲಗ್ನ",
+      heroTitle: "ನಿಮ್ಮ",
+      heroHighlight: "ವಿವಾಹ ಜೀವನವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ",
+      heroDescription:
+        "ವಿವಾಹ, ಹೊಂದಾಣಿಕೆ, ಸಮಯ ಮತ್ತು ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಮುಖ ನಿರ್ಧಾರಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      bookButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      kundaliButton: "ಕುಂಡಲಿ ನೋಡಿ",
 
-  introLabel: "ವಿವಾಹ ಮಾರ್ಗದರ್ಶನ",
-  introTitle: "ಪ್ರಮುಖ ಜೀವನ ನಿರ್ಧಾರಗಳಿಗೆ",
-  introHighlight: "ಸ್ಪಷ್ಟತೆ",
-  introText1:
-    "ವಿವಾಹ ಮತ್ತು ಸಂಬಂಧಗಳು ಜೀವನದ ಪ್ರಮುಖ ಹಂತಗಳಾಗಿವೆ. ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ AstroConnect ನಿಮ್ಮನ್ನು ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
-  introText2:
-    "ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ವಿಧಾನಗಳ ಆಧಾರದ ಮೇಲೆ ಹೊಂದಾಣಿಕೆ, ಸಮಯ ಮತ್ತು ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಶ್ನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಮಾಲೋಚನೆ ಸಹಾಯ ಮಾಡಬಹುದು.",
+      introLabel: "ವಿವಾಹ ಮಾರ್ಗದರ್ಶನ",
+      introTitle: "ಪ್ರಮುಖ ಜೀವನ ನಿರ್ಧಾರಗಳಿಗೆ",
+      introHighlight: "ಸ್ಪಷ್ಟತೆ",
+      introText1:
+        "ವಿವಾಹ ಮತ್ತು ಸಂಬಂಧಗಳು ಜೀವನದ ಪ್ರಮುಖ ಹಂತಗಳಾಗಿವೆ. ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ AstroConnect ನಿಮ್ಮನ್ನು ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
+      introText2:
+        "ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ವಿಧಾನಗಳ ಆಧಾರದ ಮೇಲೆ ಹೊಂದಾಣಿಕೆ, ಸಮಯ ಮತ್ತು ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಶ್ನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಮಾಲೋಚನೆ ಸಹಾಯ ಮಾಡಬಹುದು.",
 
-  chartLabel: "ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ",
-  chartTitle: "ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ",
-  chartDescription:
-    "ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳ ಆಧಾರದ ಮೇಲೆ ಸಮಾಲೋಚನೆಯನ್ನು ವೈಯಕ್ತಿಕಗೊಳಿಸಲಾಗುತ್ತದೆ.",
+      chartLabel: "ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ",
+      chartTitle: "ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ",
+      chartDescription:
+        "ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳ ಆಧಾರದ ಮೇಲೆ ಸಮಾಲೋಚನೆಯನ್ನು ವೈಯಕ್ತಿಕಗೊಳಿಸಲಾಗುತ್ತದೆ.",
 
-  guidanceLabel: "ನಾವು ಏನು ಪರಿಶೀಲಿಸುತ್ತೇವೆ",
-  guidanceTitle: "ವಿವಾಹ ಮಾರ್ಗದರ್ಶನ",
-  guidanceHighlight: "ನಿಮಗಾಗಿ",
-  guidanceDescription:
-    "ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳನ್ನು ಚರ್ಚಿಸಿ.",
+      guidanceLabel: "ನಾವು ಏನು ಪರಿಶೀಲಿಸುತ್ತೇವೆ",
+      guidanceTitle: "ವಿವಾಹ ಮಾರ್ಗದರ್ಶನ",
+      guidanceHighlight: "ನಿಮಗಾಗಿ",
+      guidanceDescription:
+        "ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಬಂಧಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳನ್ನು ಚರ್ಚಿಸಿ.",
 
-  compatibility: "ಹೊಂದಾಣಿಕೆ",
-  compatibilityDesc:
-    "ಜೀವನ ಸಂಗಾತಿಗಳ ನಡುವಿನ ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ಹೊಂದಾಣಿಕೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+      compatibility: "ಹೊಂದಾಣಿಕೆ",
+      compatibilityDesc:
+        "ಜೀವನ ಸಂಗಾತಿಗಳ ನಡುವಿನ ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ಹೊಂದಾಣಿಕೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
 
-  marriageTiming: "ವಿವಾಹದ ಸಮಯ",
-  marriageTimingDesc:
-    "ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ದೃಷ್ಟಿಕೋನವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+      marriageTiming: "ವಿವಾಹದ ಸಮಯ",
+      marriageTimingDesc:
+        "ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಜ್ಯೋತಿಷ್ಯ ದೃಷ್ಟಿಕೋನವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
 
-  kundaliMatching: "ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ",
-  kundaliMatchingDesc:
-    "ಹೊಂದಾಣಿಕೆಗಾಗಿ ಎರಡು ಜನ್ಮ ಕುಂಡಲಿಗಳ ಪ್ರಮುಖ ಅಂಶಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+      kundaliMatching: "ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ",
+      kundaliMatchingDesc:
+        "ಹೊಂದಾಣಿಕೆಗಾಗಿ ಎರಡು ಜನ್ಮ ಕುಂಡಲಿಗಳ ಪ್ರಮುಖ ಅಂಶಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
 
-  doshaGuidance: "ದೋಷ ಮಾರ್ಗದರ್ಶನ",
-  doshaGuidanceDesc:
-    "ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಾಮಾನ್ಯವಾಗಿ ಪರಿಗಣಿಸುವ ದೋಷಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಪರಿಹಾರಗಳ ಕುರಿತು ಚರ್ಚಿಸಿ.",
+      doshaGuidance: "ದೋಷ ಮಾರ್ಗದರ್ಶನ",
+      doshaGuidanceDesc:
+        "ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಾಮಾನ್ಯವಾಗಿ ಪರಿಗಣಿಸುವ ದೋಷಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಪರಿಹಾರಗಳ ಕುರಿತು ಚರ್ಚಿಸಿ.",
 
-  processLabel: "ಸರಳ ಪ್ರಕ್ರಿಯೆ",
-  processTitle: "ನಿಮ್ಮ",
-  processHighlight: "ಸಮಾಲೋಚನೆ ಪ್ರಾರಂಭಿಸಿ",
+      processLabel: "ಸರಳ ಪ್ರಕ್ರಿಯೆ",
+      processTitle: "ನಿಮ್ಮ",
+      processHighlight: "ಸಮಾಲೋಚನೆ ಪ್ರಾರಂಭಿಸಿ",
 
-  stepOneTitle: "ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನೀಡಿ",
-  stepOneText:
-    "ಸಮಾಲೋಚನೆಗಾಗಿ ಅಗತ್ಯವಿರುವ ಜನ್ಮ ಮತ್ತು ಮೂಲ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
+      stepOneTitle: "ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನೀಡಿ",
+      stepOneText:
+        "ಸಮಾಲೋಚನೆಗಾಗಿ ಅಗತ್ಯವಿರುವ ಜನ್ಮ ಮತ್ತು ಮೂಲ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
 
-  stepTwoTitle: "ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ",
-  stepTwoText:
-    "ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ಸೂಕ್ತ ಸಮಯವನ್ನು ನಿಗದಿಪಡಿಸಿ.",
+      stepTwoTitle: "ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ",
+      stepTwoText:
+        "ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ಸೂಕ್ತ ಸಮಯವನ್ನು ನಿಗದಿಪಡಿಸಿ.",
 
-  stepThreeTitle: "ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ",
-  stepThreeText:
-    "ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ಚರ್ಚಿಸಿ ಮತ್ತು ವೈಯಕ್ತಿಕ ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      stepThreeTitle: "ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ",
+      stepThreeText:
+        "ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ಚರ್ಚಿಸಿ ಮತ್ತು ವೈಯಕ್ತಿಕ ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
 
-  ctaLabel: "ನಿಮ್ಮ ಪ್ರಯಾಣ ಪ್ರಾರಂಭಿಸಿ",
-  ctaTitle: "ನಿಮಗೆ ವಿವಾಹದ ಕುರಿತು",
-  ctaHighlight: "ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ?",
-  ctaDescription:
-    "ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ಚರ್ಚಿಸಿ.",
-  ctaButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
-},
+      ctaLabel: "ನಿಮ್ಮ ಪ್ರಯಾಣ ಪ್ರಾರಂಭಿಸಿ",
+      ctaTitle: "ನಿಮಗೆ ವಿವಾಹದ ಕುರಿತು",
+      ctaHighlight: "ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ?",
+      ctaDescription:
+        "ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ಚರ್ಚಿಸಿ.",
+      ctaButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+    },
 
 
-muhurat: {
-  label: "ಮುಹೂರ್ತ",
-  heroTitle: "ಸರಿಯಾದ",
-  heroHighlight: "ಶುಭ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
-  heroDescription:
-    "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳು ಮತ್ತು ಜೀವನದ ಘಟನೆಗಳಿಗೆ ಸೂಕ್ತವಾದ ಶುಭ ಸಮಯದ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
-  bookButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
-  jyotishButton: "ಜ್ಯೋತಿಷ್ಯ ನೋಡಿ",
+    muhurat: {
+      label: "ಮುಹೂರ್ತ",
+      heroTitle: "ಸರಿಯಾದ",
+      heroHighlight: "ಶುಭ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      heroDescription:
+        "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳು ಮತ್ತು ಜೀವನದ ಘಟನೆಗಳಿಗೆ ಸೂಕ್ತವಾದ ಶುಭ ಸಮಯದ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      bookButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      jyotishButton: "ಜ್ಯೋತಿಷ್ಯ ನೋಡಿ",
 
-  introLabel: "ಶುಭ ಸಮಯ",
-  introTitle: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳನ್ನು",
-  introHighlight: "ಸ್ಪಷ್ಟತೆಯೊಂದಿಗೆ ಯೋಜಿಸಿ",
-  introText1:
-    "ಮುಹೂರ್ತವು ಪ್ರಮುಖ ಕಾರ್ಯಗಳು ಮತ್ತು ಸಮಾರಂಭಗಳನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಆಯ್ಕೆಮಾಡುವ ಶುಭ ಸಮಯವಾಗಿದೆ.",
-  introText2:
-    "ನಿಮ್ಮ ಸಂದರ್ಭ ಮತ್ತು ವೈಯಕ್ತಿಕ ವಿವರಗಳ ಆಧಾರದ ಮೇಲೆ ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಲು ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      introLabel: "ಶುಭ ಸಮಯ",
+      introTitle: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳನ್ನು",
+      introHighlight: "ಸ್ಪಷ್ಟತೆಯೊಂದಿಗೆ ಯೋಜಿಸಿ",
+      introText1:
+        "ಮುಹೂರ್ತವು ಪ್ರಮುಖ ಕಾರ್ಯಗಳು ಮತ್ತು ಸಮಾರಂಭಗಳನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಆಯ್ಕೆಮಾಡುವ ಶುಭ ಸಮಯವಾಗಿದೆ.",
+      introText2:
+        "ನಿಮ್ಮ ಸಂದರ್ಭ ಮತ್ತು ವೈಯಕ್ತಿಕ ವಿವರಗಳ ಆಧಾರದ ಮೇಲೆ ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಲು ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
 
-  calendarLabel: "ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ",
-  auspicious: "ಶುಭ ಸಮಯ",
+      calendarLabel: "ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ",
+      auspicious: "ಶುಭ ಸಮಯ",
 
-  occasionsLabel: "ಸಂದರ್ಭಗಳು",
-  occasionsTitle: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳಿಗೆ",
-  occasionsHighlight: "ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ",
-  occasionsDescription:
-    "ವಿವಿಧ ಸಮಾರಂಭಗಳು, ಜೀವನದ ಪ್ರಮುಖ ಹಂತಗಳು ಮತ್ತು ಹೊಸ ಆರಂಭಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಮುಹೂರ್ತ ಮಾರ್ಗದರ್ಶನವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+      occasionsLabel: "ಸಂದರ್ಭಗಳು",
+      occasionsTitle: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳಿಗೆ",
+      occasionsHighlight: "ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ",
+      occasionsDescription:
+        "ವಿವಿಧ ಸಮಾರಂಭಗಳು, ಜೀವನದ ಪ್ರಮುಖ ಹಂತಗಳು ಮತ್ತು ಹೊಸ ಆರಂಭಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಮುಹೂರ್ತ ಮಾರ್ಗದರ್ಶನವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
 
-  marriage: "ವಿವಾಹ",
-  marriageDesc:
-    "ವಿವಾಹ ಸಮಾರಂಭಗಳು ಮತ್ತು ಸಂಬಂಧಿತ ಆಚರಣೆಗಳಿಗೆ ಸಾಂಪ್ರದಾಯಿಕ ಶುಭ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+      marriage: "ವಿವಾಹ",
+      marriageDesc:
+        "ವಿವಾಹ ಸಮಾರಂಭಗಳು ಮತ್ತು ಸಂಬಂಧಿತ ಆಚರಣೆಗಳಿಗೆ ಸಾಂಪ್ರದಾಯಿಕ ಶುಭ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
 
-  house: "ಗೃಹ ಪ್ರವೇಶ",
-  houseDesc:
-    "ಹೊಸ ಮನೆಗೆ ಪ್ರವೇಶಿಸಲು ಮತ್ತು ಹೊಸ ಜೀವನ ಅಧ್ಯಾಯವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಿ.",
+      house: "ಗೃಹ ಪ್ರವೇಶ",
+      houseDesc:
+        "ಹೊಸ ಮನೆಗೆ ಪ್ರವೇಶಿಸಲು ಮತ್ತು ಹೊಸ ಜೀವನ ಅಧ್ಯಾಯವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಿ.",
 
-  vehicle: "ವಾಹನ ಖರೀದಿ",
-  vehicleDesc:
-    "ವಾಹನ ಖರೀದಿ ಅಥವಾ ಬಳಕೆ ಪ್ರಾರಂಭಿಸುವುದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸಾಂಪ್ರದಾಯಿಕ ಶುಭ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+      vehicle: "ವಾಹನ ಖರೀದಿ",
+      vehicleDesc:
+        "ವಾಹನ ಖರೀದಿ ಅಥವಾ ಬಳಕೆ ಪ್ರಾರಂಭಿಸುವುದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸಾಂಪ್ರದಾಯಿಕ ಶುಭ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
 
-  business: "ವ್ಯವಹಾರ ಮತ್ತು ಕೆಲಸ",
-  businessDesc:
-    "ವ್ಯವಹಾರ ಪ್ರಾರಂಭಿಸಲು, ಕಚೇರಿ ತೆರೆಯಲು ಅಥವಾ ಹೊಸ ಕಾರ್ಯವನ್ನು ಆರಂಭಿಸಲು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      business: "ವ್ಯವಹಾರ ಮತ್ತು ಕೆಲಸ",
+      businessDesc:
+        "ವ್ಯವಹಾರ ಪ್ರಾರಂಭಿಸಲು, ಕಚೇರಿ ತೆರೆಯಲು ಅಥವಾ ಹೊಸ ಕಾರ್ಯವನ್ನು ಆರಂಭಿಸಲು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
 
-  puja: "ಪೂಜೆ ಮತ್ತು ಸಮಾರಂಭ",
-  pujaDesc:
-    "ಧಾರ್ಮಿಕ ಸಮಾರಂಭಗಳು, ಪೂಜೆಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂದರ್ಭಗಳಿಗೆ ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಿ.",
+      puja: "ಪೂಜೆ ಮತ್ತು ಸಮಾರಂಭ",
+      pujaDesc:
+        "ಧಾರ್ಮಿಕ ಸಮಾರಂಭಗಳು, ಪೂಜೆಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂದರ್ಭಗಳಿಗೆ ಸೂಕ್ತ ಸಮಯದ ಕುರಿತು ಚರ್ಚಿಸಿ.",
 
-  importantEvents: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳು",
-  importantEventsDesc:
-    "ಇತರ ಪ್ರಮುಖ ವೈಯಕ್ತಿಕ ಮತ್ತು ಕುಟುಂಬದ ಸಂದರ್ಭಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      importantEvents: "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳು",
+      importantEventsDesc:
+        "ಇತರ ಪ್ರಮುಖ ವೈಯಕ್ತಿಕ ಮತ್ತು ಕುಟುಂಬದ ಸಂದರ್ಭಗಳಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
 
-  processLabel: "ಸರಳ ಪ್ರಕ್ರಿಯೆ",
-  processTitle: "ನಿಮ್ಮ ಮುಹೂರ್ತ",
-  processHighlight: "ಸಮಾಲೋಚನೆ ಹೇಗೆ ನಡೆಯುತ್ತದೆ",
+      processLabel: "ಸರಳ ಪ್ರಕ್ರಿಯೆ",
+      processTitle: "ನಿಮ್ಮ ಮುಹೂರ್ತ",
+      processHighlight: "ಸಮಾಲೋಚನೆ ಹೇಗೆ ನಡೆಯುತ್ತದೆ",
 
-  stepOneTitle: "ನಿಮ್ಮ ಸಂದರ್ಭವನ್ನು ತಿಳಿಸಿ",
-  stepOneText:
-    "ಯಾವ ಸಮಾರಂಭ, ಕಾರ್ಯಕ್ರಮ ಅಥವಾ ಕಾರ್ಯಕ್ಕಾಗಿ ನಿಮಗೆ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಬೇಕು ಎಂಬುದನ್ನು ತಿಳಿಸಿ.",
+      stepOneTitle: "ನಿಮ್ಮ ಸಂದರ್ಭವನ್ನು ತಿಳಿಸಿ",
+      stepOneText:
+        "ಯಾವ ಸಮಾರಂಭ, ಕಾರ್ಯಕ್ರಮ ಅಥವಾ ಕಾರ್ಯಕ್ಕಾಗಿ ನಿಮಗೆ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಬೇಕು ಎಂಬುದನ್ನು ತಿಳಿಸಿ.",
 
-  stepTwoTitle: "ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ",
-  stepTwoText:
-    "ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ಸಂದರ್ಭಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
+      stepTwoTitle: "ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      stepTwoText:
+        "ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ಸಂದರ್ಭಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
 
-  stepThreeTitle: "ಸೂಕ್ತ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ",
-  stepThreeText:
-    "ನಿಮ್ಮ ಸಂದರ್ಭಕ್ಕೆ ಸೂಕ್ತವಾದ ಮುಹೂರ್ತ ಆಯ್ಕೆಗಳ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      stepThreeTitle: "ಸೂಕ್ತ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ",
+      stepThreeText:
+        "ನಿಮ್ಮ ಸಂದರ್ಭಕ್ಕೆ ಸೂಕ್ತವಾದ ಮುಹೂರ್ತ ಆಯ್ಕೆಗಳ ಕುರಿತು ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
 
-  ctaLabel: "ಸಂಪ್ರದಾಯದೊಂದಿಗೆ ಯೋಜಿಸಿ",
-  ctaTitle: "ನಿಮಗೆ",
-  ctaHighlight: "ಶುಭ ಮುಹೂರ್ತ ಬೇಕೇ?",
-  ctaDescription:
-    "ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಪ್ರಮುಖ ಸಂದರ್ಭಕ್ಕಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
-  ctaButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
-},
+      ctaLabel: "ಸಂಪ್ರದಾಯದೊಂದಿಗೆ ಯೋಜಿಸಿ",
+      ctaTitle: "ನಿಮಗೆ",
+      ctaHighlight: "ಶುಭ ಮುಹೂರ್ತ ಬೇಕೇ?",
+      ctaDescription:
+        "ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಪ್ರಮುಖ ಸಂದರ್ಭಕ್ಕಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಸಮಯದ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      ctaButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+    },
 
     // =====================================================
     // COMMON

@@ -24,32 +24,25 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // =========================
   // LOGIN VALIDATION
-  // =========================
   const validateForm = () => {
     const email = formData.email.trim();
     const password = formData.password;
 
-    // Email required
     if (!email) {
       return "Please enter your email address.";
     }
 
-    // Email format
-    const emailRegex =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
       return "Please enter a valid email address.";
     }
 
-    // Password required
     if (!password) {
       return "Please enter your password.";
     }
 
-    // Minimum password length
     if (password.length < 8) {
       return "Password must be at least 8 characters.";
     }
@@ -57,9 +50,7 @@ const Login = () => {
     return "";
   };
 
-  // =========================
   // INPUT CHANGE
-  // =========================
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -71,9 +62,7 @@ const Login = () => {
     }
   };
 
-  // =========================
   // LOGIN SUBMIT
-  // =========================
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -97,11 +86,9 @@ const Login = () => {
       if (data.success && data.token) {
         saveLogin(data);
 
-        // Admin
         if (data.user?.role === "admin") {
           navigate("/admin", { replace: true });
         } else {
-          // Normal user
           const redirectTo =
             location.state?.from?.pathname || "/";
 
@@ -149,12 +136,14 @@ const Login = () => {
             onSubmit={handleSubmit}
             noValidate
           >
-
             {/* EMAIL */}
             <div className="auth-field">
-              <label>Email Address</label>
+              <label htmlFor="login-email">
+                Email Address
+              </label>
 
               <input
+                id="login-email"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -166,9 +155,12 @@ const Login = () => {
 
             {/* PASSWORD */}
             <div className="auth-field">
-              <label>Password</label>
+              <label htmlFor="login-password">
+                Password
+              </label>
 
               <input
+                id="login-password"
                 type="password"
                 name="password"
                 placeholder="Enter your password"
@@ -176,6 +168,16 @@ const Login = () => {
                 onChange={handleChange}
                 autoComplete="current-password"
               />
+
+              <div className="forgot-password-row">
+                <Link
+                  to="/forgot-password"
+                  className="forgot-password-link"
+                  state={{ email: formData.email }}
+                >
+                  Forgot Password?
+                </Link>
+              </div>
             </div>
 
             {/* ERROR */}
@@ -185,16 +187,14 @@ const Login = () => {
               </p>
             )}
 
+            {/* LOGIN BUTTON */}
             <button
               className="auth-submit-btn"
               type="submit"
               disabled={loading}
             >
-              {loading
-                ? "Logging in..."
-                : "Login"}
+              {loading ? "Logging in..." : "Login"}
             </button>
-
           </form>
 
           <p className="auth-footer-text">

@@ -220,3 +220,28 @@
     font-size: 22px;
   }
 }
+
+.forgot-password-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.forgot-password-link {
+  color: #d97706;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: #b45309;
+  text-decoration: underline;
+}
+
+.forgot-password-link:focus-visible {
+  outline: 2px solid #d97706;
+  outline-offset: 3px;
+  border-radius: 2px;
+}

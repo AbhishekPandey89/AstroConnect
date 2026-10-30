@@ -12,7 +12,9 @@ const connectDB = async () => {
     });
 
     console.log("✅ MongoDB connected successfully");
-  } catch (error) {
+  }
+  
+  catch (error) {
     console.error("❌ MongoDB connection failed:");
     console.error(error.message);
   }

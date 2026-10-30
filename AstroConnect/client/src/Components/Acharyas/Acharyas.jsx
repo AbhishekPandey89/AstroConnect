@@ -28,7 +28,7 @@ function Acharyas() {
         } else {
           setError(
             response.message ||
-              "Unable to load Acharyas."
+              t("acharyas", "loadError")
           );
         }
       } catch (err) {
@@ -36,7 +36,7 @@ function Acharyas() {
 
         setError(
           err.message ||
-            "Unable to connect to AstroConnect server."
+            t("acharyas", "loadError")
         );
       } finally {
         setLoading(false);
@@ -44,7 +44,7 @@ function Acharyas() {
     };
 
     loadAcharyas();
-  }, []);
+  }, [t]);
 
   // =====================================================
   // BOOK NOW
@@ -53,7 +53,7 @@ function Acharyas() {
   const handleBookNow = (acharya) => {
     const name =
       acharya.name ||
-      t("acharyas", "acharya");
+      t("acharyas", "acharyaSingular");
 
     alert(
       `${name}\n\n${t(
@@ -110,9 +110,9 @@ function Acharyas() {
             </p>
           </div>
 
-          <div className="acharyas-grid">
-            <p>Loading Acharyas...</p>
-          </div>
+         <div className="acharyas-grid">
+  <p>{t("acharyas", "loading")}</p>
+</div>
 
         </div>
       </section>
@@ -203,7 +203,7 @@ function Acharyas() {
         {acharyas.length === 0 ? (
 
           <div className="acharyas-error">
-            No Acharyas available right now.
+           {t("acharyas", "noAvailable")}
           </div>
 
         ) : (
@@ -312,7 +312,7 @@ function Acharyas() {
                           ", "
                         )
                       : acharya.languages ||
-                        "Hindi, English"}
+                        t("acharyas", "languages.hindiEnglish")}
                   </span>
 
                 </div>

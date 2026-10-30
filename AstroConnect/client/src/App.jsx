@@ -26,6 +26,8 @@ import Career from "./Pages/Career";
 // Auth
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import ForgotPassword from "./Pages/ForgotPassword";
+import ResetPassword from "./Pages/ResetPassword";
 
 // Protected Pages
 import BookingPage from "./Pages/BookingPage";
@@ -250,6 +252,24 @@ function App() {
         element={
           <WithFooter>
             <Register />
+          </WithFooter>
+        }
+      />
+
+      <Route
+        path="/forgot-password"
+        element={
+          <WithFooter>
+            <ForgotPassword />
+          </WithFooter>
+        }
+      />
+
+      <Route
+        path="/reset-password/:token"
+        element={
+          <WithFooter>
+            <ResetPassword />
           </WithFooter>
         }
       />

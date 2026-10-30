@@ -392,3 +392,62 @@
   }
 
 }
+
+/* Services page hero fixes */
+.services-page-hero .services-page-container {
+  max-width: 850px;
+  margin-inline: auto;
+}
+
+.services-page-hero h1 {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.services-page-hero h1 span {
+  display: inline;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.services-page-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 16px 30px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.services-page-hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22);
+}
+
+.services-page-hero-button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .services-page-hero {
+    padding: 80px 0 64px;
+  }
+
+  .services-page-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.15;
+  }
+}

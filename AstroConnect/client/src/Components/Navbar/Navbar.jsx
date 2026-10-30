@@ -223,7 +223,11 @@ function Navbar() {
             type="button"
             onClick={() => goTo("/gallery")}
           >
-            Gallery
+            {language === "hi"
+              ? "गैलरी"
+              : language === "kn"
+                ? "ಗ್ಯಾಲರಿ"
+                : "Gallery"}
           </button>
 
           {/* CONTACT */}
@@ -232,7 +236,11 @@ function Navbar() {
             type="button"
             onClick={() => goTo("/contact")}
           >
-            Contact
+            {language === "hi"
+              ? "संपर्क"
+              : language === "kn"
+                ? "ಸಂಪರ್ಕ"
+                : "Contact"}
           </button>
 
         </nav>
@@ -507,12 +515,15 @@ function Navbar() {
           </button>
 
           {/* GALLERY */}
-
           <button
             type="button"
             onClick={() => goTo("/gallery")}
           >
-            Gallery
+            {language === "hi"
+              ? "गैलरी"
+              : language === "kn"
+                ? "ಗ್ಯಾಲರಿ"
+                : "Gallery"}
           </button>
 
           {/* CONTACT */}
@@ -521,7 +532,11 @@ function Navbar() {
             type="button"
             onClick={() => goTo("/contact")}
           >
-            Contact
+            {language === "hi"
+              ? "संपर्क"
+              : language === "kn"
+                ? "ಸಂಪರ್ಕ"
+                : "Contact"}
           </button>
 
 
