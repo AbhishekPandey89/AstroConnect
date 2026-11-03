@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../Components/Navbar/Navbar";
+import { useLanguage } from "../context/LanguageContext";
 import "./KundaliDetails.css";
 
 const API_URL = "http://localhost:5000";
@@ -92,7 +93,7 @@ const getNavamsaSign = (sign, degree) => {
   }
 
   return ZODIAC_SIGNS[
-    (startOffset + navamsaPart) % 12
+    (signIndex + startOffset + navamsaPart) % 12
   ];
 };
 
@@ -128,6 +129,29 @@ const HOUSE_NAMES = {
   12: "Vyaya / Foreign & Expenses",
 };
 
+const HOUSE_NAME_KEYS = {
+  1: "houseLagna",
+  2: "houseDhana",
+  3: "houseSahaj",
+  4: "houseSukha",
+  5: "housePutra",
+  6: "houseRipu",
+  7: "houseKalatra",
+  8: "houseAyush",
+  9: "houseDharma",
+  10: "houseKarma",
+  11: "houseLabha",
+  12: "houseVyaya",
+};
+
+const translateHouseName = (houseNumber, t) => {
+  const key = HOUSE_NAME_KEYS[houseNumber];
+
+  return key
+    ? t("kundaliDetails", key)
+    : HOUSE_NAMES[houseNumber] || "";
+};
+
 const HOUSE_THEMES = {
   1: "Personality, body, confidence and overall life direction.",
   2: "Family, wealth, speech, savings and food habits.",
@@ -141,6 +165,29 @@ const HOUSE_THEMES = {
   10: "Career, profession, reputation, authority and achievements.",
   11: "Income, gains, networking, fulfilment and elder siblings.",
   12: "Expenses, foreign connections, isolation, spirituality and sleep.",
+};
+
+const HOUSE_THEME_KEYS = {
+  1: "themeLagna",
+  2: "themeDhana",
+  3: "themeSahaj",
+  4: "themeSukha",
+  5: "themePutra",
+  6: "themeRipu",
+  7: "themeKalatra",
+  8: "themeAyush",
+  9: "themeDharma",
+  10: "themeKarma",
+  11: "themeLabha",
+  12: "themeVyaya",
+};
+
+const translateHouseTheme = (houseNumber, t) => {
+  const key = HOUSE_THEME_KEYS[houseNumber];
+
+  return key
+    ? t("kundaliDetails", key)
+    : HOUSE_THEMES[houseNumber] || "";
 };
 
 const getHouseStrength = (
@@ -158,15 +205,16 @@ const getHouseStrength = (
     return "Unoccupied";
   }
 
-  return `${planetsInHouse.length} planet${
-    planetsInHouse.length > 1 ? "s" : ""
-  } placed`;
+  return `${planetsInHouse.length} planet${planetsInHouse.length > 1 ? "s" : ""
+    } placed`;
 };
 
 const getHouseInterpretation = (
   houseNumber,
   planets,
-  ascendantSign
+  ascendantSign,
+  t,
+  translatePlanetName
 ) => {
   const planetsInHouse = getPlanetsForHouse(
     planets,
@@ -184,8 +232,10 @@ const getHouseInterpretation = (
     return {
       title: houseName,
       theme,
-      interpretation:
-        "This house has no planet placed directly in it. Its results should also be judged through its sign lord and planetary aspects.",
+      interpretation: t(
+        "kundaliDetails",
+        "emptyHouseInterpretation"
+      ),
       planets: [],
     };
   }
@@ -197,13 +247,17 @@ const getHouseInterpretation = (
   return {
     title: houseName,
     theme,
-    interpretation:
-      `${planetNames} ${
-        planetsInHouse.length > 1
-          ? "are"
-          : "is"
-      } placed in this house. This makes the house an important area of life in the birth chart.`,
-    planets: planetsInHouse,
+    interpretation: t(
+      "kundaliDetails",
+      planetsInHouse.length > 1
+        ? "occupiedHousePlural"
+        : "occupiedHouseSingular"
+    ).replace(
+      "{planetNames}",
+      planetsInHouse
+        .map((planet) => translatePlanetName(planet.name))
+        .join(", ")
+    ),
   };
 };
 
@@ -418,10 +472,28 @@ const addYears = (date, years) => {
   return result;
 };
 
+
 const formatTimelineDate = (date) => {
   if (!date) return "—";
-  return new Date(date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+
+  const selectedLanguage =
+    localStorage.getItem("astroconnect_language") || "en";
+
+  const localeMap = {
+    en: "en-IN",
+    hi: "hi-IN",
+    kn: "kn-IN",
+  };
+
+  const locale = localeMap[selectedLanguage] || "en-IN";
+
+  return new Date(date).toLocaleDateString(locale, {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 };
+
 
 const getVimshottariDasha = (moon) => {
   const moonDegree = Number(moon?.fullDegree);
@@ -493,14 +565,27 @@ const formatDegree = (degree) => {
 const formatDate = (date) => {
   if (!date) return "—";
 
-  return new Date(date).toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  const language =
+    localStorage.getItem("astroconnect_language") || "en";
+
+  const localeMap = {
+    en: "en-IN",
+    hi: "hi-IN",
+    kn: "kn-IN",
+  };
+
+  return new Date(date).toLocaleDateString(
+    localeMap[language] || "en-IN",
+    {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }
+  );
 };
 
 const KundaliDetails = () => {
+  const { t } = useLanguage();
   const { id } = useParams();
 
   const [kundali, setKundali] = useState(null);
@@ -509,6 +594,195 @@ const KundaliDetails = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+
+  // ==========================================
+  // ZODIAC SIGN TRANSLATION
+  // ==========================================
+
+  const translateZodiacSign = (sign) => {
+    if (!sign) return "—";
+
+    const zodiacKeys = {
+      Aries: "aries",
+      Taurus: "taurus",
+      Gemini: "gemini",
+      Cancer: "cancer",
+      Leo: "leo",
+      Virgo: "virgo",
+      Libra: "libra",
+      Scorpio: "scorpio",
+      Sagittarius: "sagittarius",
+      Capricorn: "capricorn",
+      Aquarius: "aquarius",
+      Pisces: "pisces",
+    };
+
+    const key = zodiacKeys[sign.trim()];
+
+    return key ? t("kundaliDetails", key) : sign;
+  };
+
+
+  // ==========================================
+  // PLANET NAME TRANSLATION
+  // ==========================================
+
+  const translatePlanetName = (planet) => {
+    if (!planet) return "—";
+
+    const planetKeys = {
+      Sun: "sunPlanet",
+      Moon: "moonPlanet",
+      Mars: "marsPlanet",
+      Mercury: "mercuryPlanet",
+      Jupiter: "jupiterPlanet",
+      Venus: "venusPlanet",
+      Saturn: "saturnPlanet",
+      Rahu: "rahuPlanet",
+      Ketu: "ketuPlanet",
+      Ascendant: "ascendantPlanet",
+    };
+
+    const key = planetKeys[planet.trim()];
+
+    console.log("Translation Test:", {
+      planet,
+      key,
+      translated: key ? t("kundaliDetails", key) : planet,
+    });
+
+    return key ? t("kundaliDetails", key) : planet;
+  };
+
+
+  
+const translatePlanetAwastha = (awastha) => {
+  if (!awastha) return "—";
+
+  const language =
+    localStorage.getItem("astroconnect_language") || "en";
+
+  const translations = {
+    Kumara: {
+      hi: "कुमार",
+      kn: "ಕುಮಾರ",
+    },
+    Bala: {
+      hi: "बाल",
+      kn: "ಬಾಲ",
+    },
+    Yuva: {
+      hi: "युवा",
+      kn: "ಯುವ",
+    },
+    Vriddha: {
+      hi: "वृद्ध",
+      kn: "ವೃದ್ಧ",
+    },
+    Mrita: {
+      hi: "मृत",
+      kn: "ಮೃತ",
+    },
+  };
+
+  const key = Object.keys(translations).find(
+    (item) => item.toLowerCase() === awastha.trim().toLowerCase()
+  );
+
+  return key ? translations[key][language] || key : awastha;
+};
+
+
+
+  const translateSignName = (sign) => {
+    if (!sign) return "—";
+
+    const key = sign.trim().toLowerCase();
+
+    const signKeys = [
+      "aries",
+      "taurus",
+      "gemini",
+      "cancer",
+      "leo",
+      "virgo",
+      "libra",
+      "scorpio",
+      "sagittarius",
+      "capricorn",
+      "aquarius",
+      "pisces",
+    ];
+
+    return signKeys.includes(key)
+      ? t("kundaliDetails", key)
+      : sign;
+  };
+
+
+  const translateNakshatraName = (nakshatra) => {
+    if (!nakshatra) return "—";
+
+    const key = nakshatra
+      .trim()
+      .replace(/\s+/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase())
+      .replace(/\s/g, "");
+
+    return t("kundaliDetails", `${key.charAt(0).toLowerCase()}${key.slice(1)}Nakshatra`);
+  };
+
+
+
+
+
+
+
+  // ==========================================
+  // NAKSHATRA NAME TRANSLATION
+  // ==========================================
+
+  const translateNakshatra = (nakshatra) => {
+    if (!nakshatra) return "—";
+
+    const nakshatraKeys = {
+      Ashwini: "ashwiniNakshatra",
+      Bharani: "bharaniNakshatra",
+      Krittika: "krittikaNakshatra",
+      Rohini: "rohiniNakshatra",
+      Mrigashira: "mrigashiraNakshatra",
+      Ardra: "ardraNakshatra",
+      Punarvasu: "punarvasuNakshatra",
+      Pushya: "pushyaNakshatra",
+      Ashlesha: "ashleshaNakshatra",
+      Magha: "maghaNakshatra",
+      "Purva Phalguni": "purvaPhalguniNakshatra",
+      "Uttara Phalguni": "uttaraPhalguniNakshatra",
+      Hasta: "hastaNakshatra",
+      Chitra: "chitraNakshatra",
+      Swati: "swatiNakshatra",
+      Vishakha: "vishakhaNakshatra",
+      Anuradha: "anuradhaNakshatra",
+      Jyeshtha: "jyeshthaNakshatra",
+      Mula: "mulaNakshatra",
+      "Purva Ashadha": "purvaAshadhaNakshatra",
+      "Uttara Ashadha": "uttaraAshadhaNakshatra",
+      Shravana: "shravanaNakshatra",
+      Dhanishta: "dhanishtaNakshatra",
+      Shatabhisha: "shatabhishaNakshatra",
+      "Purva Bhadrapada": "purvaBhadrapadaNakshatra",
+      "Uttara Bhadrapada": "uttaraBhadrapadaNakshatra",
+      Revati: "revatiNakshatra",
+    };
+
+    const key = nakshatraKeys[nakshatra.trim()];
+
+    return key
+      ? t("kundaliDetails", key)
+      : nakshatra;
+  };
+
 
   useEffect(() => {
     const fetchKundali = async () => {
@@ -522,7 +796,7 @@ const KundaliDetails = () => {
 
         if (!token) {
           setError(
-            "Please login to view your Kundali."
+            t("kundaliDetails", "loginRequired")
           );
           return;
         }
@@ -542,7 +816,7 @@ const KundaliDetails = () => {
         if (!response.ok || !data.success) {
           throw new Error(
             data.message ||
-              "Unable to load Kundali."
+            t("kundaliDetails", "loadError")
           );
         }
 
@@ -561,7 +835,7 @@ const KundaliDetails = () => {
 
         setError(
           err.message ||
-            "Failed to load Kundali."
+          t("kundaliDetails", "failedToLoad")
         );
       } finally {
         setLoading(false);
@@ -571,7 +845,7 @@ const KundaliDetails = () => {
     if (id) {
       fetchKundali();
     }
-  }, [id]);
+  }, [id, t]);
 
   // ==========================================
   // LOADING
@@ -588,12 +862,11 @@ const KundaliDetails = () => {
           </div>
 
           <h2>
-            Calculating Your Kundali
+            {t("kundaliDetails", "loadingTitle")}
           </h2>
 
           <p>
-            Fetching your Vedic planetary
-            positions...
+            {t("kundaliDetails", "loadingDescription")}
           </p>
         </div>
       </>
@@ -615,7 +888,7 @@ const KundaliDetails = () => {
           </div>
 
           <h2>
-            Unable to Load Kundali
+            {t("kundaliDetails", "unableToLoadTitle")}
           </h2>
 
           <p>{error}</p>
@@ -623,11 +896,10 @@ const KundaliDetails = () => {
           <button
             type="button"
             onClick={() =>
-              (window.location.href =
-                "/dashboard")
+              (window.location.href = "/dashboard")
             }
           >
-            ← Back to Dashboard
+            ← {t("kundaliDetails", "backToDashboard")}
           </button>
         </div>
       </>
@@ -677,64 +949,68 @@ const KundaliDetails = () => {
   );
 
   // =====================================================
-// NAVAMSA CALCULATION
-// =====================================================
+  // NAVAMSA CALCULATION
+  // =====================================================
 
-const navamsaAscendantSign = ascendant
-  ? getNavamsaSign(
+  const navamsaAscendantSign = ascendant
+    ? getNavamsaSign(
       ascendant.sign,
       ascendant.normDegree
     )
-  : "—";
+    : "—";
 
-const navamsaPlanets = planets.map((planet) => {
-  const navamsaSign = getNavamsaSign(
-    planet.sign,
-    planet.normDegree
-  );
 
-  return {
-    ...planet,
-    navamsaSign,
-    navamsaHouse: getNavamsaHouse(
-      navamsaAscendantSign,
-      navamsaSign
-    ),
-  };
-});
-
-const navamsaHouses = Array.from(
-  { length: 12 },
-  (_, index) => {
-    const houseNumber = index + 1;
+  const navamsaPlanets = planets.map((planet) => {
+    const navamsaSign = getNavamsaSign(
+      planet.sign,
+      planet.normDegree
+    );
 
     return {
-      number: houseNumber,
-      sign: getHouseSign(
+      ...planet,
+      navamsaSign,
+      navamsaHouse: getNavamsaHouse(
         navamsaAscendantSign,
-        houseNumber
-      ),
-      planets: navamsaPlanets.filter(
-        (planet) =>
-          planet.navamsaHouse === houseNumber
+        navamsaSign
       ),
     };
-  }
-);
+  });
 
-// =====================================================
-// 12 BHAV ANALYSIS
-// =====================================================
 
-const bhavAnalysis = Array.from(
-  { length: 12 },
-  (_, index) =>
-    getHouseInterpretation(
-      index + 1,
-      planets,
-      ascendantSign
-    )
-);
+  const navamsaHouses = Array.from(
+    { length: 12 },
+    (_, index) => {
+      const houseNumber = index + 1;
+
+      return {
+        number: houseNumber,
+        sign: getHouseSign(
+          navamsaAscendantSign,
+          houseNumber
+        ),
+        planets: navamsaPlanets.filter(
+          (planet) =>
+            planet.navamsaHouse === houseNumber
+        ),
+      };
+    }
+  );
+
+  // =====================================================
+  // 12 BHAV ANALYSIS
+  // =====================================================
+
+  const bhavAnalysis = Array.from(
+    { length: 12 },
+    (_, index) =>
+      getHouseInterpretation(
+        index + 1,
+        planets,
+        ascendantSign,
+        t,
+        translatePlanetName
+      )
+  );
 
   const mangalDosha = getMangalDoshaAnalysis(
     planets,
@@ -768,17 +1044,15 @@ const bhavAnalysis = Array.from(
           <div className="kundali-hero-content">
 
             <div className="kundali-hero-badge">
-              ✦ VEDIC ASTROLOGY
+              ✦ {t("kundaliDetails", "heroBadge")}
             </div>
 
             <h1>
-              Your Janam Kundali
+              {t("kundaliDetails", "heroTitle")}
             </h1>
 
             <p>
-              A personalized Vedic astrology
-              profile based on your exact
-              birth details.
+              {t("kundaliDetails", "heroDescription")}
             </p>
 
           </div>
@@ -794,7 +1068,7 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                BIRTH PROFILE
+                {t("kundaliDetails", "birthProfile")}
               </span>
 
               <h2>
@@ -806,19 +1080,17 @@ const bhavAnalysis = Array.from(
 
               <div className="birth-profile-item">
                 <span>
-                  📅 Date of Birth
+                  📅 {t("kundaliDetails", "dateOfBirth")}
                 </span>
 
                 <strong>
-                  {formatDate(
-                    kundali?.dateOfBirth
-                  )}
+                  {formatDate(kundali?.dateOfBirth)}
                 </strong>
               </div>
 
               <div className="birth-profile-item">
                 <span>
-                  🕐 Birth Time
+                  🕐 {t("kundaliDetails", "birthTime")}
                 </span>
 
                 <strong>
@@ -828,7 +1100,7 @@ const bhavAnalysis = Array.from(
 
               <div className="birth-profile-item">
                 <span>
-                  📍 Birth Place
+                  📍 {t("kundaliDetails", "birthPlace")}
                 </span>
 
                 <strong>
@@ -839,17 +1111,13 @@ const bhavAnalysis = Array.from(
               {location && (
                 <div className="birth-profile-item">
                   <span>
-                    🌐 Coordinates
+                    🌐 {t("kundaliDetails", "coordinates")}
                   </span>
 
                   <strong>
-                    {location.latitude.toFixed(
-                      4
-                    )}
+                    {location.latitude.toFixed(4)}
                     {" , "}
-                    {location.longitude.toFixed(
-                      4
-                    )}
+                    {location.longitude.toFixed(4)}
                   </strong>
                 </div>
               )}
@@ -865,11 +1133,11 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                ASTROLOGY OVERVIEW
+                {t("kundaliDetails", "astrologyOverview")}
               </span>
 
               <h2>
-                Your Cosmic Profile
+                {t("kundaliDetails", "cosmicProfile")}
               </h2>
             </div>
 
@@ -884,19 +1152,16 @@ const bhavAnalysis = Array.from(
 
                 <div>
                   <span>
-                    Ascendant / Lagna
+                    {t("kundaliDetails", "ascendantLagna")}
                   </span>
 
                   <strong>
-                    {ascendant?.sign ||
-                      "—"}
+                    {translateZodiacSign(ascendant?.sign)}
                   </strong>
 
                   {ascendant && (
                     <small>
-                      {formatDegree(
-                        ascendant.normDegree
-                      )}
+                      {formatDegree(ascendant.normDegree)}
                     </small>
                   )}
                 </div>
@@ -911,17 +1176,16 @@ const bhavAnalysis = Array.from(
 
                 <div>
                   <span>
-                    Moon Sign
+                    {t("kundaliDetails", "moonSign")}
                   </span>
 
                   <strong>
-                    {moon?.sign ||
-                      "—"}
+                    {translateZodiacSign(moon?.sign)}
                   </strong>
 
                   {moon && (
                     <small>
-                      {moon.nakshatra}
+                      {translateNakshatra(moon.nakshatra)}
                     </small>
                   )}
                 </div>
@@ -936,17 +1200,16 @@ const bhavAnalysis = Array.from(
 
                 <div>
                   <span>
-                    Birth Nakshatra
+                    {t("kundaliDetails", "birthNakshatra")}
                   </span>
 
                   <strong>
-                    {moon?.nakshatra ||
-                      "—"}
+                    {translateNakshatra(moon?.nakshatra)}
                   </strong>
 
                   {moon && (
                     <small>
-                      Pada{" "}
+                      {t("kundaliDetails", "padaLabel")}{" "}
                       {moon.nakshatra_pad}
                     </small>
                   )}
@@ -962,19 +1225,16 @@ const bhavAnalysis = Array.from(
 
                 <div>
                   <span>
-                    Sun Sign
+                    {t("kundaliDetails", "sunSign")}
                   </span>
 
                   <strong>
-                    {sun?.sign ||
-                      "—"}
+                    {translateZodiacSign(sun?.sign)}
                   </strong>
 
                   {sun && (
                     <small>
-                      {formatDegree(
-                        sun.normDegree
-                      )}
+                      {formatDegree(sun.normDegree)}
                     </small>
                   )}
                 </div>
@@ -991,16 +1251,15 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                BIRTH CHART
+                {t("kundaliDetails", "birthChart")}
               </span>
 
               <h2>
-                Janam Kundali
+                {t("kundaliDetails", "janamKundali")}
               </h2>
 
               <p>
-                Vedic planetary positions at
-                the time of birth.
+                {t("kundaliDetails", "planetaryPositionsDescription")}
               </p>
             </div>
 
@@ -1011,15 +1270,15 @@ const bhavAnalysis = Array.from(
                 <div className="chart-diamond">
                   <div className="chart-center">
                     <span>
-                      LAGNA
+                      {t("kundaliDetails", "lagnaLabel")}
                     </span>
 
                     <strong>
-                      {ascendant?.sign || "—"}
+                      {translateZodiacSign(ascendant?.sign)}
                     </strong>
 
                     <small>
-                      House 1
+                      {t("kundaliDetails", "houseNumberLabel")} 1
                     </small>
                   </div>
 
@@ -1033,7 +1292,7 @@ const bhavAnalysis = Array.from(
                       </div>
 
                       <div className="chart-house-sign">
-                        {house.sign}
+                        {translateZodiacSign(house.sign)}
                       </div>
 
                       <div className="chart-house-planets">
@@ -1046,13 +1305,11 @@ const bhavAnalysis = Array.from(
                         {house.planets.map((planet) => (
                           <span
                             key={`${planet.name}-${planet.id}`}
-                            className={`chart-planet ${
-                              planetColors[planet.name] || ""
-                            }`}
-                            title={`${planet.name} • ${planet.sign} • House ${house.number}`}
+                            className={`chart-planet ${planetColors[planet.name] || ""}`}
+                            title={`${planet.name} • ${translateZodiacSign(planet.sign)} • ${t("kundaliDetails", "houseNumberLabel")} ${house.number}`}
                           >
                             {planetIcons[planet.name] || "✦"}{" "}
-                            {planet.name}
+                            {translatePlanetName(planet.name)}
                           </span>
                         ))}
                       </div>
@@ -1066,34 +1323,31 @@ const bhavAnalysis = Array.from(
 
                 <div>
                   <span>
-                    Ascendant
+                    {t("kundaliDetails", "ascendantLagna")}
                   </span>
 
                   <strong>
-                    {ascendant?.sign ||
-                      "—"}
+                    {translateZodiacSign(ascendant?.sign)}
                   </strong>
                 </div>
 
                 <div>
                   <span>
-                    Nakshatra
+                    {t("kundaliDetails", "birthNakshatra")}
                   </span>
 
                   <strong>
-                    {ascendant?.nakshatra ||
-                      "—"}
+                   {translateNakshatra(ascendant?.nakshatra)}
                   </strong>
                 </div>
 
                 <div>
                   <span>
-                    Pada
+                    {t("kundaliDetails", "padaLabel")}
                   </span>
 
                   <strong>
-                    {ascendant?.nakshatra_pad ||
-                      "—"}
+                    {ascendant?.nakshatra_pad || "—"}
                   </strong>
                 </div>
 
@@ -1109,16 +1363,15 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                NAVAGRAHA
+                {t("kundaliDetails", "navagraha")}
               </span>
 
               <h2>
-                Planetary Positions
+                {t("kundaliDetails", "planetaryPositions")}
               </h2>
 
               <p>
-                Exact sidereal positions of
-                the nine Grahas at birth.
+                {t("kundaliDetails", "exactSiderealPositions")}
               </p>
             </div>
 
@@ -1126,31 +1379,23 @@ const bhavAnalysis = Array.from(
 
               {planets.map((planet) => (
                 <div
-                  className={`planet-card ${
-                    planetColors[
-                      planet.name
-                    ] || ""
-                  }`}
+                  className={`planet-card ${planetColors[planet.name] || ""}`}
                   key={planet.id}
                 >
 
                   <div className="planet-card-top">
 
                     <div className="planet-icon">
-                      {
-                        planetIcons[
-                          planet.name
-                        ] || "✦"
-                      }
+                      {planetIcons[planet.name] || "✦"}
                     </div>
 
                     <div>
                       <h3>
-                        {planet.name}
+                        {translatePlanetName(planet.name)}
                       </h3>
 
                       <span>
-                        {planet.sign}
+                        {translateZodiacSign(planet.sign)}
                       </span>
                     </div>
 
@@ -1160,66 +1405,59 @@ const bhavAnalysis = Array.from(
 
                     <div>
                       <span>
-                        House
+                        {t("kundaliDetails", "houseLabel")}
                       </span>
 
                       <strong>
-                        {getPlanetHouse(
-                          planet,
-                          ascendantSign
-                        ) || "—"}
+                        {getPlanetHouse(planet, ascendantSign) || "—"}
                       </strong>
                     </div>
 
                     <div>
                       <span>
-                        Degree
+                        {t("kundaliDetails", "degreeLabel")}
                       </span>
 
                       <strong>
-                        {formatDegree(
-                          planet.normDegree
-                        )}
+                        {formatDegree(planet.normDegree)}
                       </strong>
                     </div>
 
                     <div>
                       <span>
-                        Nakshatra
+                        {t("kundaliDetails", "nakshatraLabel")}
                       </span>
 
                       <strong>
-                        {planet.nakshatra}
+                        {translateNakshatra(planet.nakshatra)}
                       </strong>
                     </div>
 
                     <div>
                       <span>
-                        Pada
+                        {t("kundaliDetails", "padaLabel")}
                       </span>
 
                       <strong>
-                        {planet.nakshatra_pad}
+                        {planet.nakshatra_pad || "—"}
                       </strong>
                     </div>
 
                     <div>
                       <span>
-                        Status
+                        {t("kundaliDetails", "statusLabel")}
                       </span>
 
                       <strong
                         className={
-                          planet.isRetro ===
-                          "true"
+                          planet.isRetro === "true"
                             ? "retrograde"
                             : "direct"
                         }
                       >
-                        {planet.isRetro ===
-                        "true"
-                          ? "Retrograde"
-                          : "Direct"}
+                        {planet.isRetro === "true"
+                          ? t("kundaliDetails", "retrograde")
+                          : t("kundaliDetails", "direct")}
                       </strong>
                     </div>
 
@@ -1227,11 +1465,9 @@ const bhavAnalysis = Array.from(
 
                   {planet.planet_awastha && (
                     <div className="planet-awastha">
-                      Awastha:{" "}
+                      {t("kundaliDetails", "awasthaLabel")}:{" "}
                       <strong>
-                        {
-                          planet.planet_awastha
-                        }
+                       {translatePlanetAwastha(planet.planet_awastha)}
                       </strong>
                     </div>
                   )}
@@ -1240,7 +1476,9 @@ const bhavAnalysis = Array.from(
               ))}
 
             </div>
+
           </section>
+
 
           {/* =====================================
               DETAILED TABLE
@@ -1250,11 +1488,11 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                PLANETARY DETAILS
+                {t("kundaliDetails", "navagraha")}
               </span>
 
               <h2>
-                Graha Position Table
+                {t("kundaliDetails", "planetaryPositions")}
               </h2>
             </div>
 
@@ -1264,113 +1502,68 @@ const bhavAnalysis = Array.from(
 
                 <thead>
                   <tr>
-                    <th>
-                      Planet
-                    </th>
-
-                    <th>
-                      Sign
-                    </th>
-
-                    <th>
-                      House
-                    </th>
-
-                    <th>
-                      Degree
-                    </th>
-
-                    <th>
-                      Nakshatra
-                    </th>
-
-                    <th>
-                      Pada
-                    </th>
-
-                    <th>
-                      Status
-                    </th>
+                    <th>{t("kundaliDetails", "planetLabel")}</th>
+                    <th>{t("kundaliDetails", "d1SignLabel")}</th>
+                    <th>{t("kundaliDetails", "houseLabel")}</th>
+                    <th>{t("kundaliDetails", "degreeLabel")}</th>
+                    <th>{t("kundaliDetails", "nakshatraLabel")}</th>
+                    <th>{t("kundaliDetails", "padaLabel")}</th>
+                    <th>{t("kundaliDetails", "statusLabel")}</th>
                   </tr>
                 </thead>
 
                 <tbody>
+                  {planets.map((planet) => (
+                    <tr key={planet.id}>
 
-                  {planets.map(
-                    (planet) => (
-                      <tr
-                        key={
-                          planet.id
-                        }
-                      >
-
-                        <td>
-                          <div className="table-planet-name">
-                            <span>
-                              {
-                                planetIcons[
-                                  planet.name
-                                ] || "✦"
-                              }
-                            </span>
-
-                            <strong>
-                              {
-                                planet.name
-                              }
-                            </strong>
-                          </div>
-                        </td>
-
-                        <td>
-                          {planet.sign}
-                        </td>
-
-                        <td>
-                          {getPlanetHouse(
-                            planet,
-                            ascendantSign
-                          ) || "—"}
-                        </td>
-
-                        <td>
-                          {formatDegree(
-                            planet.normDegree
-                          )}
-                        </td>
-
-                        <td>
-                          {
-                            planet.nakshatra
-                          }
-                        </td>
-
-                        <td>
-                          {
-                            planet.nakshatra_pad
-                          }
-                        </td>
-
-                        <td>
-                          <span
-                            className={
-                              planet.isRetro ===
-                              "true"
-                                ? "table-status retrograde"
-                                : "table-status direct"
-                            }
-                          >
-                            {planet.isRetro ===
-                            "true"
-                              ? "Retrograde"
-                              : "Direct"}
+                      <td>
+                        <div className="table-planet-name">
+                          <span>
+                            {planetIcons[planet.name] || "✦"}
                           </span>
-                        </td>
 
-                      </tr>
-                    )
-                  )}
+                          <strong>
+                            {translatePlanetName(planet.name)}
+                          </strong>
+                        </div>
+                      </td>
 
+                      <td>
+                        {translateZodiacSign(planet.sign)}
+                      </td>
+
+                      <td>
+                        {getPlanetHouse(planet, ascendantSign) || "—"}
+                      </td>
+
+                      <td>
+                        {formatDegree(planet.normDegree)}
+                      </td>
+
+                      <td>
+                        {translateNakshatra(planet.nakshatra)}
+                      </td>
+
+                      <td>
+                        {planet.nakshatra_pad || "—"}
+                      </td>
+
+                      <td>
+                        <span
+                          className={
+                            planet.isRetro === "true"
+                              ? "table-status retrograde"
+                              : "table-status direct"
+                          }
+                        >
+                          {planet.isRetro === "true"
+                            ? t("kundaliDetails", "retrograde")
+                            : t("kundaliDetails", "direct")}
+                        </span>
+                      </td>
+
+                    </tr>
+                  ))}
                 </tbody>
 
               </table>
@@ -1386,11 +1579,11 @@ const bhavAnalysis = Array.from(
 
             <div className="section-heading">
               <span>
-                DOSHA ANALYSIS
+                {t("kundaliDetails", "doshaAnalysisLabel")}
               </span>
 
               <h2>
-                Manglik / Mangal Dosha
+                {t("kundaliDetails", "manglikTitle")}
               </h2>
             </div>
 
@@ -1403,36 +1596,51 @@ const bhavAnalysis = Array.from(
               <div className="analysis-content">
 
                 <h3>
-                  {mangalDosha.primaryResult}
+                  {mangalDosha.primaryResult === "Manglik"
+                    ? t("kundaliDetails", "manglik")
+                    : mangalDosha.primaryResult === "Non-Manglik"
+                      ? t("kundaliDetails", "notManglik")
+                      : mangalDosha.primaryResult}
                 </h3>
 
                 <p>
-                  Mars is placed in house {mangalDosha.marsHouse ?? "—"}
-                  from the Ascendant. Under the common Vedic
-                  Lagna-based Manglik rule, Mars in houses
-                  1, 2, 4, 7, 8 or 12 is considered Manglik.
+                  {t("kundaliDetails", "marsHouseDescription").replace(
+                    "{house}",
+                    mangalDosha.marsHouse ?? "—"
+                  )}
                 </p>
 
                 <div className="analysis-status">
-                  <strong>From Ascendant:</strong>{" "}
+                  <strong>
+                    {t("kundaliDetails", "fromAscendantLabel")}
+                  </strong>{" "}
                   {mangalDosha.fromAscendant
-                    ? "Manglik"
-                    : "Not Manglik"}
+                    ? t("kundaliDetails", "manglik")
+                    : t("kundaliDetails", "notManglik")}
+
                   <br />
-                  <strong>From Moon:</strong>{" "}
+
+                  <strong>
+                    {t("kundaliDetails", "fromMoonLabel")}
+                  </strong>{" "}
                   {mangalDosha.fromMoon
-                    ? "Dosha indicated"
-                    : "Not indicated"}
+                    ? t("kundaliDetails", "doshaIndicated")
+                    : t("kundaliDetails", "notIndicated")}
+
                   <br />
-                  <strong>From Venus:</strong>{" "}
+
+                  <strong>
+                    {t("kundaliDetails", "fromVenusLabel")}
+                  </strong>{" "}
                   {mangalDosha.fromVenus
-                    ? "Dosha indicated"
-                    : "Not indicated"}
+                    ? t("kundaliDetails", "doshaIndicated")
+                    : t("kundaliDetails", "notIndicated")}
                 </div>
 
               </div>
 
             </div>
+
           </section>
 
           {/* =====================================
@@ -1441,27 +1649,69 @@ const bhavAnalysis = Array.from(
 
           <section className="kundali-analysis-section">
             <div className="kundali-section-heading">
-              <span>☊ DOSHA ANALYSIS</span>
-              <h2>Kaal Sarp Dosha</h2>
+              <span>☊ {t("kundaliDetails", "doshaAnalysisLabel")}</span>
+              <h2>{t("kundaliDetails", "kaalSarpTitle")}</h2>
             </div>
 
             <div className="kundali-analysis-card">
               <div className="kundali-analysis-result">
-                <strong>{kaalSarp.result}</strong>
+                <strong>
+                  {kaalSarp.result === "Kaal Sarp Dosha indicated"
+                    ? t("kundaliDetails", "doshaIndicated")
+                    : kaalSarp.result === "Kaal Sarp Dosha not indicated"
+                      ? t("kundaliDetails", "notIndicated")
+                      : kaalSarp.result}
+                </strong>
+
                 {kaalSarp.available && (
-                  <span>All 7 classical planets checked against the Rahu-Ketu axis.</span>
+                  <span>
+                    {t("kundaliDetails", "kaalSarpPlanetCheck")}
+                  </span>
                 )}
               </div>
 
               {kaalSarp.available ? (
                 <div className="kundali-analysis-grid">
-                  <div><span>Rahu</span><strong>{formatDegree(kaalSarp.rahuDegree)}</strong></div>
-                  <div><span>Ketu</span><strong>{formatDegree(kaalSarp.ketuDegree)}</strong></div>
-                  <div><span>Axis status</span><strong>{kaalSarp.side}</strong></div>
-                  <div><span>Planets on axis</span><strong>{kaalSarp.onAxis.length ? kaalSarp.onAxis.join(", ") : "None"}</strong></div>
+                  <div>
+                    <span>{t("kundaliDetails", "rahuLabel")}</span>
+                    <strong>{formatDegree(kaalSarp.rahuDegree)}</strong>
+                  </div>
+
+                  <div>
+                    <span>{t("kundaliDetails", "ketuLabel")}</span>
+                    <strong>{formatDegree(kaalSarp.ketuDegree)}</strong>
+                  </div>
+
+                  <div>
+                    <span>{t("kundaliDetails", "axisStatusLabel")}</span>
+                    <strong>
+                      {kaalSarp.side === "Rahu → Ketu side"
+                        ? t("kundaliDetails", "rahuToKetuSide")
+                        : kaalSarp.side === "Ketu → Rahu side"
+                          ? t("kundaliDetails", "ketuToRahuSide")
+                          : t("kundaliDetails", "mixedSide")}
+                    </strong>
+                  </div>
+
+                  <div>
+                    <span>{t("kundaliDetails", "planetsOnAxisLabel")}</span>
+                    <strong>
+                      {kaalSarp.onAxis.length
+                        ? kaalSarp.onAxis.join(", ")
+                        : t("kundaliDetails", "noneLabel")}
+                    </strong>
+                  </div>
                 </div>
               ) : (
-                <p>{kaalSarp.reason}</p>
+                <p>
+                  {kaalSarp.reason === "Rahu or Ketu position is missing."
+                    ? t("kundaliDetails", "rahuKetuMissing")
+                    : kaalSarp.reason === "Rahu/Ketu degree data is invalid."
+                      ? t("kundaliDetails", "rahuKetuInvalid")
+                      : kaalSarp.reason?.startsWith("Missing position:")
+                        ? `${t("kundaliDetails", "missingPosition")}: ${kaalSarp.reason.replace("Missing position:", "").replace(/\.$/, "")}`
+                        : kaalSarp.reason}
+                </p>
               )}
             </div>
           </section>
@@ -1470,34 +1720,85 @@ const bhavAnalysis = Array.from(
               VIMSHOTTARI DASHA
           ====================================== */}
 
+
           <section className="kundali-analysis-section">
             <div className="kundali-section-heading">
-              <span>🕉️ DASHĀ</span>
-              <h2>Vimshottari Dasha</h2>
+              <span>🕉️ {t("kundaliDetails", "dashaHeading")}</span>
+              <h2>{t("kundaliDetails", "vimshottariTitle")}</h2>
             </div>
 
             <div className="kundali-analysis-card">
               {dashaInfo.available ? (
                 <>
                   <div className="kundali-analysis-result">
-                    <strong>Starting Dasha: {dashaInfo.nakshatraLord}</strong>
-                    <span>Moon Nakshatra: {dashaInfo.nakshatraName} • Moon: {formatDegree(dashaInfo.moonDegree)}</span>
+                    <strong>
+                      {t("kundaliDetails", "startingDasha")}:{" "}
+                      {translatePlanetName(dashaInfo.nakshatraLord)}
+                    </strong>
+                    <span>
+                      {t("kundaliDetails", "moonNakshatra")}:{" "}
+                      {translateNakshatra(dashaInfo.nakshatraName)} •{" "}
+                      {t("kundaliDetails", "moonLabel")}:{" "}
+                      {formatDegree(dashaInfo.moonDegree)}
+                    </span>
                   </div>
 
                   <div className="kundali-analysis-grid">
-                    <div><span>Nakshatra Lord</span><strong>{dashaInfo.nakshatraLord}</strong></div>
-                    <div><span>Starting balance</span><strong>{dashaInfo.remainingYears.toFixed(2)} years</strong></div>
-                    <div><span>Current Mahadasha</span><strong>{currentMahadasha?.lord || "Not in generated range"}</strong></div>
-                    <div><span>Current period</span><strong>{currentMahadasha ? `${formatTimelineDate(currentMahadasha.start)} – ${formatTimelineDate(currentMahadasha.end)}` : "—"}</strong></div>
+                    <div>
+                      <span>{t("kundaliDetails", "nakshatraLord")}</span>
+                      <strong>
+                        {translatePlanetName(dashaInfo.nakshatraLord)}
+                      </strong>
+                    </div>
+
+                    <div>
+                      <span>{t("kundaliDetails", "startingBalance")}</span>
+                      <strong>
+                        {dashaInfo.remainingYears.toFixed(2)}{" "}
+                        {t("kundaliDetails", "yearsUnit")}
+                      </strong>
+                    </div>
+
+                    <div>
+                      <span>{t("kundaliDetails", "currentMahadasha")}</span>
+                      <strong>
+                        {currentMahadasha
+                          ? translatePlanetName(currentMahadasha.lord)
+                          : t("kundaliDetails", "notInGeneratedRange")}
+                      </strong>
+                    </div>
+
+                    <div>
+                      <span>{t("kundaliDetails", "currentPeriod")}</span>
+                      <strong>
+                        {currentMahadasha
+                          ? `${formatTimelineDate(currentMahadasha.start)} – ${formatTimelineDate(currentMahadasha.end)}`
+                          : "—"}
+                      </strong>
+                    </div>
                   </div>
 
                   <div className="kundali-dasha-table-wrap">
                     <table className="kundali-dasha-table">
-                      <thead><tr><th>Mahadasha</th><th>Start</th><th>End</th><th>Duration</th></tr></thead>
+                      <thead>
+                        <tr>
+                          <th>{t("kundaliDetails", "mahadasha")}</th>
+                          <th>{t("kundaliDetails", "start")}</th>
+                          <th>{t("kundaliDetails", "end")}</th>
+                          <th>{t("kundaliDetails", "duration")}</th>
+                        </tr>
+                      </thead>
+
                       <tbody>
                         {dashaTimeline.slice(0, 9).map((item) => (
                           <tr key={`${item.lord}-${item.start.toISOString()}`}>
-                            <td>{item.lord}</td><td>{formatTimelineDate(item.start)}</td><td>{formatTimelineDate(item.end)}</td><td>{item.durationYears.toFixed(2)} yrs</td>
+                            <td>{translatePlanetName(item.lord)}</td>
+                            <td>{formatTimelineDate(item.start)}</td>
+                            <td>{formatTimelineDate(item.end)}</td>
+                            <td>
+                              {item.durationYears.toFixed(2)}{" "}
+                              {t("kundaliDetails", "yearsShort")}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -1506,14 +1807,36 @@ const bhavAnalysis = Array.from(
 
                   {currentMahadasha && (
                     <>
-                      <h3 className="kundali-dasha-subtitle">Current Antardasha Timeline</h3>
+                      <h3 className="kundali-dasha-subtitle">
+                        {t("kundaliDetails", "currentAntardashaTimeline")}
+                      </h3>
+
                       <div className="kundali-dasha-table-wrap">
                         <table className="kundali-dasha-table">
-                          <thead><tr><th>Antardasha</th><th>Start</th><th>End</th><th>Duration</th></tr></thead>
+                          <thead>
+                            <tr>
+                              <th>{t("kundaliDetails", "antardasha")}</th>
+                              <th>{t("kundaliDetails", "start")}</th>
+                              <th>{t("kundaliDetails", "end")}</th>
+                              <th>{t("kundaliDetails", "duration")}</th>
+                            </tr>
+                          </thead>
+
                           <tbody>
                             {antardashaTimeline.map((item) => (
-                              <tr key={`${currentMahadasha.lord}-${item.lord}-${item.start.toISOString()}`}>
-                                <td>{currentMahadasha.lord} / {item.lord}</td><td>{formatTimelineDate(item.start)}</td><td>{formatTimelineDate(item.end)}</td><td>{item.durationYears.toFixed(2)} yrs</td>
+                              <tr
+                                key={`${currentMahadasha.lord}-${item.lord}-${item.start.toISOString()}`}
+                              >
+                                <td>
+                                  {translatePlanetName(currentMahadasha.lord)} /{" "}
+                                  {translatePlanetName(item.lord)}
+                                </td>
+                                <td>{formatTimelineDate(item.start)}</td>
+                                <td>{formatTimelineDate(item.end)}</td>
+                                <td>
+                                  {item.durationYears.toFixed(2)}{" "}
+                                  {t("kundaliDetails", "yearsShort")}
+                                </td>
                               </tr>
                             ))}
                           </tbody>
@@ -1528,249 +1851,231 @@ const bhavAnalysis = Array.from(
             </div>
           </section>
 
+
           {/* =====================================
     NAVAMSA / D9
 ====================================== */}
 
-<section className="kundali-analysis-section">
 
-  <div className="kundali-section-heading">
-    <span>🔱 DIVISIONAL CHART</span>
+          <section className="kundali-analysis-section">
 
-    <h2>
-      Navamsa Kundali — D9
-    </h2>
+            <div className="kundali-section-heading">
+              <span>
+                🔱 {t("kundaliDetails", "divisionalChart")}
+              </span>
 
-    <p>
-      Navamsa is commonly used in Vedic astrology
-      for deeper assessment of marriage, dharma
-      and planetary strength.
-    </p>
-  </div>
+              <h2>
+                {t("kundaliDetails", "navamsaTitle")}
+              </h2>
 
-  <div className="kundali-analysis-card">
+              <p>
+                {t("kundaliDetails", "navamsaDescription")}
+              </p>
+            </div>
 
-    <div className="kundali-analysis-result">
+            <div className="kundali-analysis-card">
 
-      <strong>
-        D9 Ascendant: {navamsaAscendantSign}
-      </strong>
+              <div className="kundali-analysis-result">
 
-      <span>
-        Navamsa positions are calculated from each
-        planet's sidereal sign and degree.
-      </span>
+                <strong>
+                  {t("kundaliDetails", "d9AscendantLabel")}:{" "}
+                  {translateSignName(navamsaAscendantSign)}
+                </strong>
 
-    </div>
+                <span>
+                  {t("kundaliDetails", "navamsaPositionsDescription")}
+                </span>
 
-    <div className="kundali-analysis-grid">
+              </div>
 
-      {navamsaPlanets.map((planet) => (
+              <div className="kundali-analysis-grid">
 
-        <div
-          className="kundali-analysis-result"
-          key={`d9-${planet.name}`}
-        >
+                {navamsaPlanets.map((planet) => (
 
-          <strong>
-            {planetIcons[planet.name] || "✦"}{" "}
-            {planet.name}
-          </strong>
+                  <div
+                    className="kundali-analysis-result"
+                    key={`d9-${planet.name}`}
+                  >
 
-          <small>
-            D9 Sign:{" "}
-            <b>
-              {planet.navamsaSign}
-            </b>
-          </small>
+                    <strong>
+                      {planetIcons[planet.name] || "✦"}{" "}
+                      {translatePlanetName(planet.name)}
+                    </strong>
 
-          <small>
-            D9 House:{" "}
-            <b>
-              {planet.navamsaHouse || "—"}
-            </b>
-          </small>
+                    <small>
+                      {t("kundaliDetails", "d9SignLabel")}:{" "}
+                      <b>
+                        {translateSignName(planet.navamsaSign)}
+                      </b>
+                    </small>
 
-        </div>
+                    <small>
+                      {t("kundaliDetails", "d9HouseLabel")}:{" "}
+                      <b>{planet.navamsaHouse || "—"}</b>
+                    </small>
 
-      ))}
+                  </div>
 
-    </div>
+                ))}
 
-    <div className="kundali-dasha-table-wrap">
+              </div>
 
-      <table className="kundali-dasha-table">
+              <div className="kundali-dasha-table-wrap">
 
-        <thead>
-          <tr>
-            <th>Planet</th>
-            <th>D1 Sign</th>
-            <th>D1 House</th>
-            <th>D9 Sign</th>
-            <th>D9 House</th>
-          </tr>
-        </thead>
+                <table className="kundali-dasha-table">
 
-        <tbody>
+                  <thead>
+                    <tr>
+                      <th>
+                        {t("kundaliDetails", "planetLabel")}
+                      </th>
 
-          {navamsaPlanets.map((planet) => (
+                      <th>
+                        {t("kundaliDetails", "d1SignLabel")}
+                      </th>
 
-            <tr key={`d9-table-${planet.name}`}>
+                      <th>
+                        {t("kundaliDetails", "d1HouseLabel")}
+                      </th>
 
-              <td>
-                {planetIcons[planet.name] || "✦"}{" "}
-                {planet.name}
-              </td>
+                      <th>
+                        {t("kundaliDetails", "d9SignLabel")}
+                      </th>
 
-              <td>
-                {planet.sign}
-              </td>
+                      <th>
+                        {t("kundaliDetails", "d9HouseLabel")}
+                      </th>
+                    </tr>
+                  </thead>
 
-              <td>
-                {getPlanetHouse(
-                  planet,
-                  ascendantSign
-                ) || "—"}
-              </td>
+                  <tbody>
 
-              <td>
-                {planet.navamsaSign}
-              </td>
+                    {navamsaPlanets.map((planet) => (
 
-              <td>
-                {planet.navamsaHouse || "—"}
-              </td>
+                      <tr key={`d9-table-${planet.name}`}>
 
-            </tr>
+                        <td>
+                          {planetIcons[planet.name] || "✦"}{" "}
+                          {translatePlanetName(planet.name)}
+                        </td>
 
-          ))}
+                        <td>
+                          {translateSignName(planet.sign)}
+                        </td>
 
-        </tbody>
+                        <td>
+                          {getPlanetHouse(
+                            planet,
+                            ascendantSign
+                          ) || "—"}
+                        </td>
 
-      </table>
+                        <td>
+                          {translateSignName(planet.navamsaSign)}
+                        </td>
 
-    </div>
+                        <td>
+                          {planet.navamsaHouse || "—"}
+                        </td>
 
-  </div>
+                      </tr>
 
-</section>
+                    ))}
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+          </section>
 
 
-{/* =====================================
+          {/* =====================================
     12 BHAV ANALYSIS
 ====================================== */}
 
-<section className="kundali-analysis-section">
 
-  <div className="kundali-section-heading">
-
-    <span>
-      🏠 HOUSE ANALYSIS
-    </span>
-
-    <h2>
-      12 Bhav Analysis
-    </h2>
-
-    <p>
-      Each house represents a different area
-      of life in the Vedic birth chart.
-    </p>
-
-  </div>
-
-  <div className="kundali-analysis-grid">
-
-    {bhavAnalysis.map((bhav) => (
-
-      <div
-        className="kundali-analysis-card"
-        key={`bhav-${bhav.title}`}
-      >
-
-        <div className="kundali-analysis-result">
-
-          <strong>
-            {bhav.title}
-          </strong>
-
-          <small>
-            House {bhavAnalysis.indexOf(bhav) + 1}
-          </small>
-
-        </div>
-
-        <p>
-          {bhav.theme}
-        </p>
-
-        <div className="kundali-analysis-result">
-
-          <strong>
-            Planets
-          </strong>
-
-          <small>
-            {bhav.planets.length
-              ? bhav.planets
-                  .map(
-                    (planet) =>
-                      `${planetIcons[planet.name] || "✦"} ${planet.name}`
-                  )
-                  .join(" • ")
-              : "No planet directly placed"}
-          </small>
-
-        </div>
-
-        <p>
-          {bhav.interpretation}
-        </p>
-
-      </div>
-
-    ))}
-
-  </div>
-
-</section>
 
           {/* =====================================
               AI ASTROLOGY
           ====================================== */}
 
-          <section className="kundali-ai-section">
+          <section className="kundali-analysis-section">
 
-            <div className="ai-card">
+            <div className="kundali-section-heading">
 
-              <div className="ai-card-icon">
-                ✨
-              </div>
+              <span>
+                🏠 {t("kundaliDetails", "houseAnalysisLabel")}
+              </span>
 
-              <div className="ai-card-content">
+              <h2>
+                {t("kundaliDetails", "bhavAnalysisTitle")}
+              </h2>
 
-                <span>
-                  ASTROCONNECT AI
-                </span>
-
-                <h2>
-                  Personal Astrology Analysis
-                </h2>
-
-                <p>
-                  AI-powered interpretation of
-                  your planetary combinations,
-                  personality, career, relationships
-                  and life patterns is coming soon.
-                </p>
-
-              </div>
-
-              <div className="ai-coming-soon">
-                Coming Soon
-              </div>
+              <p>
+                {t("kundaliDetails", "bhavDescription")}
+              </p>
 
             </div>
+
+            <div className="kundali-analysis-grid">
+
+              {bhavAnalysis.map((bhav) => (
+
+                <div
+                  className="kundali-analysis-card"
+                  key={`bhav-${translateHouseName(bhavAnalysis.indexOf(bhav) + 1, t)}`}
+                >
+
+                  <div className="kundali-analysis-result">
+
+                    <strong>
+                      {translateHouseName(bhavAnalysis.indexOf(bhav) + 1, t)}
+                    </strong>
+
+                    <small>
+                      {t("kundaliDetails", "houseLabel")}{" "}
+                      {bhavAnalysis.indexOf(bhav) + 1}
+                    </small>
+
+                  </div>
+
+                  <p>
+                    {translateHouseTheme(bhavAnalysis.indexOf(bhav) + 1, t)}
+                  </p>
+
+                  <div className="kundali-analysis-result">
+
+                    <strong>
+                      {t("kundaliDetails", "planetsLabel")}
+                    </strong>
+
+                    <small>
+                      {bhav.planets?.length
+                        ? bhav.planets
+                          .map(
+                            (planet) =>
+                              `${planetIcons[planet.name] || "✦"} ${translatePlanetName(planet.name)}`
+                          )
+                          .join(" • ")
+                        : t("kundaliDetails", "noPlanetPlaced")}
+                    </small>
+
+                  </div>
+
+                  <p>
+                    {bhav.interpretation}
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
           </section>
 
           {/* =====================================
@@ -1782,8 +2087,8 @@ const bhavAnalysis = Array.from(
             <button
               type="button"
               onClick={() =>
-                (window.location.href =
-                  "/kundali")
+              (window.location.href =
+                "/kundali")
               }
             >
               + Create New Kundali
@@ -1793,8 +2098,8 @@ const bhavAnalysis = Array.from(
               type="button"
               className="secondary"
               onClick={() =>
-                (window.location.href =
-                  "/dashboard")
+              (window.location.href =
+                "/dashboard")
               }
             >
               ← Dashboard
