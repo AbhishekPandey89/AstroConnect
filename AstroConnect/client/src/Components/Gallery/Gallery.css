@@ -184,12 +184,10 @@
 
   padding: 25px;
 
-  background: linear-gradient(
-    to top,
-    rgba(20, 10, 3, 0.85),
-    rgba(20, 10, 3, 0.25),
-    transparent
-  );
+  background: linear-gradient(to top,
+      rgba(20, 10, 3, 0.85),
+      rgba(20, 10, 3, 0.25),
+      transparent);
 
   color: #ffffff;
 }
@@ -502,4 +500,28 @@
   .gallery-lightbox-content img {
     max-height: 70vh;
   }
+}
+
+.gallery-home-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.gallery-home-btn button {
+  background: transparent;
+  color: #d97706;
+  border: 1px solid #d97706;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-home-btn button:hover {
+  background: #d97706;
+  color: #ffffff;
+  transform: translateY(-2px);
 }

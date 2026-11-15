@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
+import { useLanguage } from "../context/LanguageContext";
 
 const API_URL = "http://localhost:5000/api/kundali";
 
 function Kundali() {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: "",
     dateOfBirth: "",
@@ -30,14 +33,10 @@ function Kundali() {
   // ==========================================
   const fetchMyKundalis = async () => {
     const token = getToken();
-
-    if (!token) {
-      return;
-    }
+    if (!token) return;
 
     try {
       setLoadingKundalis(true);
-
       const response = await fetch(`${API_URL}/my`, {
         method: "GET",
         headers: {
@@ -46,11 +45,8 @@ function Kundali() {
       });
 
       const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(
-          data.message || "Unable to fetch Kundalis."
-        );
+        throw new Error(data.message || "Unable to fetch Kundalis.");
       }
 
       setSavedKundalis(data.data || []);
@@ -70,17 +66,8 @@ function Kundali() {
   // ==========================================
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
-
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
     setApiError("");
     setSubmitted(false);
   };
@@ -92,26 +79,19 @@ function Kundali() {
     const newErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Please enter your name.";
+      newErrors.name = t("kundali", "nameRequired") || "Name is required";
     }
-
     if (!formData.dateOfBirth) {
-      newErrors.dateOfBirth =
-        "Please select your date of birth.";
+      newErrors.dateOfBirth = t("kundali", "dateRequired") || "Date of birth is required";
     }
-
     if (!formData.timeOfBirth) {
-      newErrors.timeOfBirth =
-        "Please select your birth time.";
+      newErrors.timeOfBirth = t("kundali", "timeRequired") || "Time of birth is required";
     }
-
     if (!formData.birthPlace.trim()) {
-      newErrors.birthPlace =
-        "Please enter your birth place.";
+      newErrors.birthPlace = t("kundali", "placeRequired") || "Birth place is required";
     }
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
@@ -120,26 +100,19 @@ function Kundali() {
   // ==========================================
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setApiError("");
     setSubmitted(false);
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     const token = getToken();
-
     if (!token) {
-      setApiError(
-        "Please login first before saving your Kundali."
-      );
+      setApiError(t("kundaliDetails", "loginRequired") || "Please login first before saving your Kundali.");
       return;
     }
 
     try {
       setSaving(true);
-
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -155,25 +128,15 @@ function Kundali() {
       });
 
       const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(
-          data.message || "Unable to save Kundali."
-        );
+        throw new Error(data.message || "Unable to save Kundali.");
       }
 
-      // Successfully saved
       setSubmitted(true);
-
-      // Refresh saved Kundalis
       fetchMyKundalis();
     } catch (error) {
       console.error("Save Kundali Error:", error);
-
-      setApiError(
-        error.message ||
-          "Something went wrong while saving Kundali."
-      );
+      setApiError(error.message || "Something went wrong while saving Kundali.");
     } finally {
       setSaving(false);
     }
@@ -182,27 +145,25 @@ function Kundali() {
   // ==========================================
   // FORMAT DATE
   // ==========================================
+  const getLocale = () => {
+    const lang = localStorage.getItem("astroconnect_language") || "en";
+    const localeMap = { en: "en-IN", hi: "hi-IN", kn: "kn-IN" };
+    return localeMap[lang] || "en-IN";
+  };
+
   const formatDate = (date) => {
     if (!date) return "";
-
-    const selectedDate = new Date(
-      `${date}T00:00:00`
-    );
-
-    return selectedDate.toLocaleDateString("en-IN", {
+    const selectedDate = new Date(`${date}T00:00:00`);
+    return selectedDate.toLocaleDateString(getLocale(), {
       day: "2-digit",
       month: "long",
       year: "numeric",
     });
   };
 
-  // ==========================================
-  // FORMAT SAVED DATE
-  // ==========================================
   const formatSavedDate = (date) => {
     if (!date) return "";
-
-    return new Date(date).toLocaleDateString("en-IN", {
+    return new Date(date).toLocaleDateString(getLocale(), {
       day: "2-digit",
       month: "short",
       year: "numeric",
@@ -216,24 +177,13 @@ function Kundali() {
       <main
         style={{
           minHeight: "calc(100vh - 80px)",
-          background:
-            "linear-gradient(180deg, #fffaf3 0%, #fff7ec 45%, #ffffff 100%)",
+          background: "linear-gradient(180deg, #fffaf3 0%, #fff7ec 45%, #ffffff 100%)",
           paddingBottom: "80px",
         }}
       >
         {/* HERO */}
-        <section
-          style={{
-            padding: "75px 20px 45px",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "850px",
-              margin: "0 auto",
-            }}
-          >
+        <section style={{ padding: "75px 20px 45px", textAlign: "center" }}>
+          <div style={{ maxWidth: "850px", margin: "0 auto" }}>
             <span
               style={{
                 display: "inline-block",
@@ -244,7 +194,7 @@ function Kundali() {
                 marginBottom: "15px",
               }}
             >
-              ✦ KUNDALI
+              ✦ {t("nav", "kundali") || "KUNDALI"}
             </span>
 
             <h1
@@ -256,7 +206,7 @@ function Kundali() {
                 fontWeight: "800",
               }}
             >
-              Discover Your
+              {t("kundaliDetails", "heroTitle") || "Discover Your"}
               <span
                 style={{
                   color: "#d98200",
@@ -264,7 +214,7 @@ function Kundali() {
                   marginLeft: "12px",
                 }}
               >
-                Kundali
+                {t("kundaliDetails", "heroTitleHighlight") || "Kundali"}
               </span>
             </h1>
 
@@ -277,19 +227,14 @@ function Kundali() {
                 lineHeight: "1.8",
               }}
             >
-              Enter your birth details to prepare your
-              Kundali profile and explore traditional Vedic
-              astrology guidance.
+              {t("kundaliDetails", "heroDescription") ||
+                "Enter your birth details to prepare your Kundali profile and explore traditional Vedic astrology guidance."}
             </p>
           </div>
         </section>
 
         {/* FORM + INFO */}
-        <section
-          style={{
-            padding: "15px 20px 40px",
-          }}
-        >
+        <section style={{ padding: "15px 20px 40px" }}>
           <div
             style={{
               maxWidth: "1100px",
@@ -304,12 +249,10 @@ function Kundali() {
             <div
               style={{
                 background: "#ffffff",
-                border:
-                  "1px solid rgba(217, 130, 0, 0.15)",
+                border: "1px solid rgba(217, 130, 0, 0.15)",
                 borderRadius: "22px",
                 padding: "32px",
-                boxShadow:
-                  "0 15px 45px rgba(70, 40, 10, 0.08)",
+                boxShadow: "0 15px 45px rgba(70, 40, 10, 0.08)",
               }}
             >
               <div style={{ marginBottom: "25px" }}>
@@ -321,28 +264,16 @@ function Kundali() {
                     letterSpacing: "1.5px",
                   }}
                 >
-                  BIRTH DETAILS
+                  {t("kundaliDetails", "birthProfile") || "BIRTH DETAILS"}
                 </span>
 
-                <h2
-                  style={{
-                    margin: "8px 0 5px",
-                    color: "#24170d",
-                    fontSize: "28px",
-                  }}
-                >
-                  Create Your Kundali
+                <h2 style={{ margin: "8px 0 5px", color: "#24170d", fontSize: "28px" }}>
+                  {t("kundaliDetails", "janamKundali") || "Create Your Kundali"}
                 </h2>
 
-                <p
-                  style={{
-                    margin: 0,
-                    color: "#81756b",
-                    fontSize: "14px",
-                  }}
-                >
-                  Enter accurate birth information for better
-                  astrological guidance.
+                <p style={{ margin: 0, color: "#81756b", fontSize: "14px" }}>
+                  {t("kundaliDetails", "planetaryPositionsDescription") ||
+                    "Enter accurate birth information for better astrological guidance."}
                 </p>
               </div>
 
@@ -376,7 +307,7 @@ function Kundali() {
                       fontSize: "14px",
                     }}
                   >
-                    Full Name
+                    {t("auth", "name") || "Full Name"}
                   </label>
 
                   <input
@@ -384,15 +315,11 @@ function Kundali() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your full name"
+                    placeholder={t("kundaliDetails", "enterName") || "Enter your full name"}
                     style={inputStyle(errors.name)}
                   />
 
-                  {errors.name && (
-                    <small style={errorStyle}>
-                      {errors.name}
-                    </small>
-                  )}
+                  {errors.name && <small style={errorStyle}>{errors.name}</small>}
                 </div>
 
                 {/* DATE + TIME */}
@@ -414,7 +341,7 @@ function Kundali() {
                         fontSize: "14px",
                       }}
                     >
-                      Date of Birth
+                      {t("kundaliDetails", "dateOfBirth") || "Date of Birth"}
                     </label>
 
                     <input
@@ -422,16 +349,10 @@ function Kundali() {
                       name="dateOfBirth"
                       value={formData.dateOfBirth}
                       onChange={handleChange}
-                      style={inputStyle(
-                        errors.dateOfBirth
-                      )}
+                      style={inputStyle(errors.dateOfBirth)}
                     />
 
-                    {errors.dateOfBirth && (
-                      <small style={errorStyle}>
-                        {errors.dateOfBirth}
-                      </small>
-                    )}
+                    {errors.dateOfBirth && <small style={errorStyle}>{errors.dateOfBirth}</small>}
                   </div>
 
                   <div>
@@ -444,7 +365,7 @@ function Kundali() {
                         fontSize: "14px",
                       }}
                     >
-                      Birth Time
+                      {t("kundaliDetails", "birthTime") || "Birth Time"}
                     </label>
 
                     <input
@@ -452,16 +373,10 @@ function Kundali() {
                       name="timeOfBirth"
                       value={formData.timeOfBirth}
                       onChange={handleChange}
-                      style={inputStyle(
-                        errors.timeOfBirth
-                      )}
+                      style={inputStyle(errors.timeOfBirth)}
                     />
 
-                    {errors.timeOfBirth && (
-                      <small style={errorStyle}>
-                        {errors.timeOfBirth}
-                      </small>
-                    )}
+                    {errors.timeOfBirth && <small style={errorStyle}>{errors.timeOfBirth}</small>}
                   </div>
                 </div>
 
@@ -476,7 +391,7 @@ function Kundali() {
                       fontSize: "14px",
                     }}
                   >
-                    Birth Place
+                    {t("kundaliDetails", "birthPlace") || "Birth Place"}
                   </label>
 
                   <input
@@ -484,15 +399,11 @@ function Kundali() {
                     name="birthPlace"
                     value={formData.birthPlace}
                     onChange={handleChange}
-                    placeholder="City, State, Country"
+                    placeholder={t("kundaliDetails", "placePlaceholder") || "City, State, Country"}
                     style={inputStyle(errors.birthPlace)}
                   />
 
-                  {errors.birthPlace && (
-                    <small style={errorStyle}>
-                      {errors.birthPlace}
-                    </small>
-                  )}
+                  {errors.birthPlace && <small style={errorStyle}>{errors.birthPlace}</small>}
                 </div>
 
                 {/* SUBMIT */}
@@ -510,16 +421,13 @@ function Kundali() {
                     color: "#ffffff",
                     fontSize: "15px",
                     fontWeight: "800",
-                    cursor: saving
-                      ? "not-allowed"
-                      : "pointer",
-                    boxShadow:
-                      "0 8px 20px rgba(217, 130, 0, 0.22)",
+                    cursor: saving ? "not-allowed" : "pointer",
+                    boxShadow: "0 8px 20px rgba(217, 130, 0, 0.22)",
                   }}
                 >
                   {saving
-                    ? "⏳ Saving Kundali..."
-                    : "✦ Prepare Kundali"}
+                    ? t("kundaliDetails", "savingKundali") || "⏳ Saving Kundali..."
+                    : t("kundaliDetails", "prepareKundali") || "✦ Prepare Kundali"}
                 </button>
               </form>
             </div>
@@ -527,32 +435,17 @@ function Kundali() {
             {/* INFO CARD */}
             <div
               style={{
-                background:
-                  "linear-gradient(145deg, #2a1809 0%, #44250c 100%)",
+                background: "linear-gradient(145deg, #2a1809 0%, #44250c 100%)",
                 borderRadius: "22px",
                 padding: "30px",
                 color: "#ffffff",
-                boxShadow:
-                  "0 15px 40px rgba(50, 25, 5, 0.18)",
+                boxShadow: "0 15px 40px rgba(50, 25, 5, 0.18)",
               }}
             >
-              <div
-                style={{
-                  fontSize: "32px",
-                  marginBottom: "20px",
-                }}
-              >
-                ✦
-              </div>
+              <div style={{ fontSize: "32px", marginBottom: "20px" }}>✦</div>
 
-              <h2
-                style={{
-                  margin: "0 0 12px",
-                  fontSize: "25px",
-                  color: "#ffb52e",
-                }}
-              >
-                Why Birth Details Matter
+              <h2 style={{ margin: "0 0 12px", fontSize: "25px", color: "#ffb52e" }}>
+                {t("kundaliDetails", "whyDetailsMatterTitle") || "Why Birth Details Matter"}
               </h2>
 
               <p
@@ -563,32 +456,26 @@ function Kundali() {
                   marginBottom: "25px",
                 }}
               >
-                In Vedic astrology, the exact date, time and
-                place of birth are important for preparing an
-                accurate birth chart.
+                {t("kundaliDetails", "whyDetailsMatterDesc") ||
+                  "In Vedic astrology, the exact date, time and place of birth are important for preparing an accurate birth chart."}
               </p>
 
-              <div
-                style={{
-                  display: "grid",
-                  gap: "14px",
-                }}
-              >
+              <div style={{ display: "grid", gap: "14px" }}>
                 {[
                   [
                     "01",
-                    "Birth Date",
-                    "Determines planetary positions.",
+                    t("kundaliDetails", "birthDateCardTitle") || "Birth Date",
+                    t("kundaliDetails", "birthDateCardDesc") || "Determines planetary positions.",
                   ],
                   [
                     "02",
-                    "Birth Time",
-                    "Helps determine Lagna and houses.",
+                    t("kundaliDetails", "birthTimeCardTitle") || "Birth Time",
+                    t("kundaliDetails", "birthTimeCardDesc") || "Helps determine Lagna and houses.",
                   ],
                   [
                     "03",
-                    "Birth Place",
-                    "Helps calculate the local sky position.",
+                    t("kundaliDetails", "birthPlaceCardTitle") || "Birth Place",
+                    t("kundaliDetails", "birthPlaceCardDesc") || "Helps calculate the local sky position.",
                   ],
                 ].map(([number, title, text]) => (
                   <div
@@ -598,37 +485,13 @@ function Kundali() {
                       gap: "14px",
                       alignItems: "flex-start",
                       padding: "14px 0",
-                      borderBottom:
-                        "1px solid rgba(255,255,255,0.1)",
+                      borderBottom: "1px solid rgba(255,255,255,0.1)",
                     }}
                   >
-                    <strong
-                      style={{
-                        color: "#ffb52e",
-                        fontSize: "13px",
-                      }}
-                    >
-                      {number}
-                    </strong>
-
+                    <strong style={{ color: "#ffb52e", fontSize: "13px" }}>{number}</strong>
                     <div>
-                      <h3
-                        style={{
-                          margin: "0 0 4px",
-                          fontSize: "15px",
-                        }}
-                      >
-                        {title}
-                      </h3>
-
-                      <p
-                        style={{
-                          margin: 0,
-                          color: "#c9bbae",
-                          fontSize: "12px",
-                          lineHeight: "1.5",
-                        }}
-                      >
+                      <h3 style={{ margin: "0 0 4px", fontSize: "15px" }}>{title}</h3>
+                      <p style={{ margin: 0, color: "#c9bbae", fontSize: "12px", lineHeight: "1.5" }}>
                         {text}
                       </p>
                     </div>
@@ -641,31 +504,19 @@ function Kundali() {
 
         {/* SUCCESS RESULT */}
         {submitted && (
-          <section
-            style={{
-              padding: "10px 20px 30px",
-            }}
-          >
+          <section style={{ padding: "10px 20px 30px" }}>
             <div
               style={{
                 maxWidth: "1100px",
                 margin: "0 auto",
                 background: "#fff",
-                border:
-                  "1px solid rgba(38, 150, 80, 0.2)",
+                border: "1px solid rgba(38, 150, 80, 0.2)",
                 borderRadius: "20px",
                 padding: "28px",
-                boxShadow:
-                  "0 10px 35px rgba(30, 80, 40, 0.07)",
+                boxShadow: "0 10px 35px rgba(30, 80, 40, 0.07)",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  gap: "15px",
-                  alignItems: "flex-start",
-                }}
-              >
+              <div style={{ display: "flex", gap: "15px", alignItems: "flex-start" }}>
                 <div
                   style={{
                     width: "42px",
@@ -683,60 +534,29 @@ function Kundali() {
                 </div>
 
                 <div style={{ width: "100%" }}>
-                  <h2
-                    style={{
-                      margin: "0 0 8px",
-                      color: "#246b3b",
-                      fontSize: "23px",
-                    }}
-                  >
-                    Birth Details Saved
+                  <h2 style={{ margin: "0 0 8px", color: "#246b3b", fontSize: "23px" }}>
+                    {t("kundaliDetails", "detailsSavedTitle") || "Birth Details Saved"}
                   </h2>
 
-                  <p
-                    style={{
-                      margin: "0 0 18px",
-                      color: "#6c766e",
-                      fontSize: "14px",
-                      lineHeight: "1.6",
-                    }}
-                  >
-                    Your birth information has been saved
-                    successfully in your AstroConnect account.
-                    The actual Vedic Kundali chart requires an
-                    astrology calculation engine to calculate
-                    planetary positions.
+                  <p style={{ margin: "0 0 18px", color: "#6c766e", fontSize: "14px", lineHeight: "1.6" }}>
+                    {t("kundaliDetails", "detailsSavedDesc") ||
+                      "Your birth information has been saved successfully in your AstroConnect account."}
                   </p>
 
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns:
-                        "repeat(4, minmax(0, 1fr))",
+                      gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
                       gap: "12px",
                     }}
                   >
+                    <ResultItem label={t("auth", "name") || "Name"} value={formData.name} />
                     <ResultItem
-                      label="Name"
-                      value={formData.name}
+                      label={t("kundaliDetails", "dateOfBirth") || "Date"}
+                      value={formatDate(formData.dateOfBirth)}
                     />
-
-                    <ResultItem
-                      label="Date"
-                      value={formatDate(
-                        formData.dateOfBirth
-                      )}
-                    />
-
-                    <ResultItem
-                      label="Time"
-                      value={formData.timeOfBirth}
-                    />
-
-                    <ResultItem
-                      label="Place"
-                      value={formData.birthPlace}
-                    />
+                    <ResultItem label={t("kundaliDetails", "birthTime") || "Time"} value={formData.timeOfBirth} />
+                    <ResultItem label={t("kundaliDetails", "birthPlace") || "Place"} value={formData.birthPlace} />
                   </div>
                 </div>
               </div>
@@ -745,17 +565,8 @@ function Kundali() {
         )}
 
         {/* SAVED KUNDALIS */}
-        <section
-          style={{
-            padding: "10px 20px 30px",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "1100px",
-              margin: "0 auto",
-            }}
-          >
+        <section style={{ padding: "10px 20px 30px" }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
             <div style={{ marginBottom: "20px" }}>
               <span
                 style={{
@@ -765,27 +576,15 @@ function Kundali() {
                   letterSpacing: "1.5px",
                 }}
               >
-                YOUR RECORDS
+                {t("kundaliDetails", "yourRecordsLabel") || "YOUR RECORDS"}
               </span>
 
-              <h2
-                style={{
-                  margin: "7px 0 5px",
-                  color: "#24170d",
-                  fontSize: "28px",
-                }}
-              >
-                Saved Kundalis
+              <h2 style={{ margin: "7px 0 5px", color: "#24170d", fontSize: "28px" }}>
+                {t("kundaliDetails", "savedKundalisTitle") || "Saved Kundalis"}
               </h2>
 
-              <p
-                style={{
-                  margin: 0,
-                  color: "#81756b",
-                  fontSize: "14px",
-                }}
-              >
-                Your saved birth details from MongoDB.
+              <p style={{ margin: 0, color: "#81756b", fontSize: "14px" }}>
+                {t("kundaliDetails", "savedKundalisDesc") || "Your saved birth details from MongoDB."}
               </p>
             </div>
 
@@ -799,28 +598,26 @@ function Kundali() {
                   color: "#81756b",
                 }}
               >
-                Loading your Kundalis...
+                {t("kundaliDetails", "loadingKundalisText") || "Loading your Kundalis..."}
               </div>
             ) : savedKundalis.length === 0 ? (
               <div
                 style={{
                   background: "#ffffff",
-                  border:
-                    "1px solid rgba(217, 130, 0, 0.12)",
+                  border: "1px solid rgba(217, 130, 0, 0.12)",
                   borderRadius: "16px",
                   padding: "25px",
                   color: "#81756b",
                   fontSize: "14px",
                 }}
               >
-                No saved Kundali found yet.
+                {t("kundaliDetails", "noSavedKundaliText") || "No saved Kundali found yet."}
               </div>
             ) : (
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns:
-                    "repeat(auto-fit, minmax(260px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
                   gap: "16px",
                 }}
               >
@@ -829,38 +626,28 @@ function Kundali() {
                     key={kundali._id}
                     style={{
                       background: "#ffffff",
-                      border:
-                        "1px solid rgba(217, 130, 0, 0.14)",
+                      border: "1px solid rgba(217, 130, 0, 0.14)",
                       borderRadius: "16px",
                       padding: "20px",
-                      boxShadow:
-                        "0 8px 25px rgba(70, 40, 10, 0.06)",
+                      boxShadow: "0 8px 25px rgba(70, 40, 10, 0.06)",
                     }}
                   >
-                    <h3
-                      style={{
-                        margin: "0 0 15px",
-                        color: "#352619",
-                        fontSize: "18px",
-                      }}
-                    >
+                    <h3 style={{ margin: "0 0 15px", color: "#352619", fontSize: "18px" }}>
                       ✦ {kundali.name}
                     </h3>
 
                     <SavedItem
-                      label="Date of Birth"
-                      value={formatSavedDate(
-                        kundali.dateOfBirth
-                      )}
+                      label={t("kundaliDetails", "dateOfBirth") || "Date of Birth"}
+                      value={formatSavedDate(kundali.dateOfBirth)}
                     />
 
                     <SavedItem
-                      label="Birth Time"
+                      label={t("kundaliDetails", "birthTime") || "Birth Time"}
                       value={kundali.birthTime}
                     />
 
                     <SavedItem
-                      label="Birth Place"
+                      label={t("kundaliDetails", "birthPlace") || "Birth Place"}
                       value={kundali.birthPlace}
                     />
 
@@ -868,16 +655,13 @@ function Kundali() {
                       style={{
                         marginTop: "15px",
                         paddingTop: "12px",
-                        borderTop:
-                          "1px solid #eee4d9",
+                        borderTop: "1px solid #eee4d9",
                         color: "#a09286",
                         fontSize: "11px",
                       }}
                     >
-                      Saved on{" "}
-                      {formatSavedDate(
-                        kundali.createdAt
-                      )}
+                      {t("kundaliDetails", "savedOnText") || "Saved on"}{" "}
+                      {formatSavedDate(kundali.createdAt)}
                     </div>
                   </div>
                 ))}
@@ -895,13 +679,7 @@ function Kundali() {
 // ==========================================
 function ResultItem({ label, value }) {
   return (
-    <div
-      style={{
-        background: "#fff9f0",
-        borderRadius: "10px",
-        padding: "13px",
-      }}
-    >
+    <div style={{ background: "#fff9f0", borderRadius: "10px", padding: "13px" }}>
       <small
         style={{
           display: "block",
@@ -914,14 +692,7 @@ function ResultItem({ label, value }) {
       >
         {label}
       </small>
-
-      <strong
-        style={{
-          color: "#352619",
-          fontSize: "13px",
-          wordBreak: "break-word",
-        }}
-      >
+      <strong style={{ color: "#352619", fontSize: "13px", wordBreak: "break-word" }}>
         {value}
       </strong>
     </div>
@@ -942,24 +713,8 @@ function SavedItem({ label, value }) {
         borderBottom: "1px solid #f2ebe3",
       }}
     >
-      <span
-        style={{
-          color: "#96877a",
-          fontSize: "12px",
-        }}
-      >
-        {label}
-      </span>
-
-      <strong
-        style={{
-          color: "#352619",
-          fontSize: "12px",
-          textAlign: "right",
-        }}
-      >
-        {value}
-      </strong>
+      <span style={{ color: "#96877a", fontSize: "12px" }}>{label}</span>
+      <strong style={{ color: "#352619", fontSize: "12px", textAlign: "right" }}>{value}</strong>
     </div>
   );
 }
@@ -973,9 +728,7 @@ function inputStyle(hasError) {
     boxSizing: "border-box",
     padding: "13px 14px",
     borderRadius: "10px",
-    border: hasError
-      ? "1px solid #d9534f"
-      : "1px solid #e5ddd4",
+    border: hasError ? "1px solid #d9534f" : "1px solid #e5ddd4",
     background: "#fffdf9",
     color: "#2d2118",
     fontSize: "14px",

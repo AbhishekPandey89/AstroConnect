@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 import "./Gallery.css";
 
@@ -16,6 +17,7 @@ const categories = ["All", "Astrology", "Pooja", "Vastu", "Ceremony", "Muhurat"]
 
 const galleryText = {
   en: {
+    home: "← Back to Home",
     label: "OUR GALLERY",
     heading: "Moments of",
     subheading: "Faith & Tradition",
@@ -35,6 +37,7 @@ const galleryText = {
     ],
   },
   hi: {
+    home: "← होम पेज पर जाएँ",
     label: "हमारी गैलरी",
     heading: "आस्था के",
     subheading: "पावन पल",
@@ -54,6 +57,7 @@ const galleryText = {
     ],
   },
   kn: {
+    home: "← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
     label: "ನಮ್ಮ ಗ್ಯಾಲರಿ",
     heading: "ನಂಬಿಕೆಯ",
     subheading: "ಪವಿತ್ರ ಕ್ಷಣಗಳು",
@@ -75,8 +79,11 @@ const galleryText = {
 };
 
 function Gallery() {
+  const navigate = useNavigate();
   const { language } = useLanguage();
   const text = galleryText[language] || galleryText.en;
+
+  console.log("Gallery language:", language, "Home text:", text.home);
 
   // Store the original category key so filtering works in every language.
   const [activeCategory, setActiveCategory] = useState("All");
@@ -99,6 +106,11 @@ function Gallery() {
     <main className="gallery-page">
       <section className="gallery-section" id="gallery">
         <div className="gallery-container">
+          <div className="gallery-home-btn">
+            <button type="button" onClick={() => navigate("/")}>
+              {text.home}
+            </button>
+          </div>
           <div className="section-heading gallery-heading">
             <span className="section-label">✦ {text.label}</span>
 

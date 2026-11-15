@@ -262,68 +262,55 @@ function getLocalDateString(date = new Date()) {
 
 
 
-function formatDisplayDate(dateString) {
-
+function formatDisplayDate(dateString, language = "en") {
   if (!dateString) return "";
-
-
 
   const [year, month, day] = dateString.split("-");
 
-
-
   if (!year || !month || !day) return dateString;
 
+  const locale =
+    language === "hi"
+      ? "hi-IN"
+      : language === "kn"
+        ? "kn-IN"
+        : "en-IN";
 
-
-  return `${day} ${new Date(
-
+  const monthName = new Date(
     Number(year),
-
     Number(month) - 1,
-
     Number(day)
-
-  ).toLocaleDateString("en-IN", {
-
+  ).toLocaleDateString(locale, {
     month: "short",
+  });
 
-  })} ${year}`;
-
+  return `${day} ${monthName} ${year}`;
 }
 
 
 
-function formatLongDate(dateString) {
-
+function formatLongDate(dateString, language = "en") {
   if (!dateString) return "";
-
-
 
   const date = new Date(`${dateString}T12:00:00`);
 
-
-
   if (Number.isNaN(date.getTime())) {
-
     return dateString;
-
   }
 
+  const locale =
+    language === "hi"
+      ? "hi-IN"
+      : language === "kn"
+        ? "kn-IN"
+        : "en-IN";
 
-
-  return date.toLocaleDateString("en-IN", {
-
+  return date.toLocaleDateString(locale, {
     weekday: "long",
-
     day: "2-digit",
-
     month: "long",
-
     year: "numeric",
-
   });
-
 }
 
 
@@ -946,11 +933,9 @@ function Muhurat() {
 
                   type="button"
 
-                  className={`muhurat-activity ${
+                  className={`muhurat-activity ${activity === item.key ? "active" : ""
 
-                    activity === item.key ? "active" : ""
-
-                  }`}
+                    }`}
 
                   onClick={() => {
 
@@ -1225,17 +1210,9 @@ function Muhurat() {
                     {ui.auspiciousDates}
 
                   </span>
-
-
-
                   <h2>
-
                     {selectedActivityName} Muhurat
-
                   </h2>
-
-
-
                   <p>
 
                     {ui.recommendedBetween}{" "}
@@ -1298,13 +1275,13 @@ function Muhurat() {
 
                             {resultDate
 
-                              ? formatLongDate(resultDate)
+                              ? formatLongDate(resultDate, language)
 
                               : item.date ||
 
-                                item.day ||
+                              item.day ||
 
-                                ui.auspiciousDate}
+                              ui.auspiciousDate}
 
                           </h3>
 
@@ -1378,15 +1355,10 @@ function Muhurat() {
 
             <span>{ui.hinduCalendar}</span>
 
-
-
             <h1>{ui.panchang}</h1>
-
-
-
             <p>
 
-              {formatLongDate(selectedDate)}
+              {formatLongDate(selectedDate, language)}
 
             </p>
 
@@ -1554,9 +1526,9 @@ function Muhurat() {
 
                         ? `${ui.ends} ${formatTime(
 
-                            panchang.tithi.endsAt
+                          panchang.tithi.endsAt
 
-                          )}`
+                        )}`
 
                         : ""}
 
@@ -1590,7 +1562,7 @@ function Muhurat() {
 
                       {panchang.tithi?.paksha ===
 
-                      "Krishna"
+                        "Krishna"
 
                         ? ui.krishnaPaksha
 
@@ -1598,9 +1570,9 @@ function Muhurat() {
 
                           "Shukla"
 
-                        ? ui.shuklaPaksha
+                          ? ui.shuklaPaksha
 
-                        : getTextValue(
+                          : getTextValue(
 
                             panchang.tithi?.paksha,
 
@@ -1662,9 +1634,9 @@ function Muhurat() {
 
                         ? ` • ${ui.ends} ${formatTime(
 
-                            panchang.nakshatra.endsAt
+                          panchang.nakshatra.endsAt
 
-                          )}`
+                        )}`
 
                         : ""}
 
@@ -1714,9 +1686,9 @@ function Muhurat() {
 
                         ? `${ui.ends} ${formatTime(
 
-                            panchang.yoga.endsAt
+                          panchang.yoga.endsAt
 
-                          )}`
+                        )}`
 
                         : ""}
 
@@ -1838,9 +1810,9 @@ function Muhurat() {
 
                         ? `${ui.ends} ${formatTime(
 
-                            panchang.karana.endsAt
+                          panchang.karana.endsAt
 
-                          )}`
+                        )}`
 
                         : ""}
 
@@ -2061,15 +2033,7 @@ function Muhurat() {
 
 
                     <div className="special-muhurat-heading">
-
-                      <span>
-
-                        AUSPICIOUS TIME WINDOWS
-
-                      </span>
-
-
-
+                      <span>{ui.auspiciousWindows}</span>
                       <h2>{ui.specialMuhurat}</h2>
 
                     </div>

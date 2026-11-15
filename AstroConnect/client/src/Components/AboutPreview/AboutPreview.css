@@ -1,0 +1,127 @@
+
+.home-about-section {
+  padding: 90px 0;
+  background: #fffaf3;
+}
+
+.home-about-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.home-about-label {
+  display: inline-block;
+  color: #d97706;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.home-about-content h2 {
+  color: #29221c;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.25;
+  margin: 0 0 22px;
+}
+
+.home-about-content h2 span {
+  color: #df851e;
+}
+
+.home-about-content p {
+  color: #665c52;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.home-about-button {
+  margin-top: 18px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #f59e0b, #e87920);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-about-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.22);
+}
+
+.home-about-button span {
+  margin-left: 8px;
+}
+
+.home-about-vision {
+  padding: 35px;
+  background: #fff;
+  border: 1px solid #f3e4d0;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(80, 50, 20, 0.07);
+}
+
+.home-about-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: #fff1d9;
+  color: #d97706;
+  border-radius: 16px;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.home-about-vision h3 {
+  color: #29221c;
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+
+.home-about-vision p {
+  color: #665c52;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.home-about-highlights {
+  display: grid;
+  gap: 14px;
+}
+
+.home-about-highlights div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #44382d;
+  font-size: 14px;
+}
+
+.home-about-highlights span {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .home-about-section {
+    padding: 65px 0;
+  }
+
+  .home-about-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .home-about-vision {
+    padding: 25px;
+  }
+}

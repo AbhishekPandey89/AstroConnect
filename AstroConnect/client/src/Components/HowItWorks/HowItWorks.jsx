@@ -1,6 +1,7 @@
 
 import "./HowItWorks.css";
 import { useLanguage } from "../../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 const steps = [
   {
@@ -26,16 +27,12 @@ const steps = [
 ];
 
 function HowItWorks() {
+  const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const handleBookAcharya = () => {
-    alert(
-      `${t("howItWorks", "bookAcharya")} - ${t(
-        "howItWorks",
-        "journey"
-      )}`
-    );
-  };
+ const handleBookAcharya = () => {
+  navigate("/booking");
+};
 
   return (
     <section className="how-section" id="how-it-works">

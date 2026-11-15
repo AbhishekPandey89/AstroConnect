@@ -8,3 +8,6 @@ coverage/
 .vite/
 npm-debug.log*
 .DS_Store
+atlas-backup/
+atlas-backup/
+**/checkEmailConfig.js

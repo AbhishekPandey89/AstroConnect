@@ -1,10 +1,13 @@
+import { transliterateName } from "../../utils/transliterateName";
 import { useEffect, useState } from "react";
 import "./Acharyas.css";
 
 import { useLanguage } from "../../context/LanguageContext";
 import { getAcharyas } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Acharyas() {
+  const navigate = useNavigate();
   const { t } = useLanguage();
 
   const [acharyas, setAcharyas] = useState([]);
@@ -28,7 +31,7 @@ function Acharyas() {
         } else {
           setError(
             response.message ||
-              t("acharyas", "loadError")
+            t("acharyas", "loadError")
           );
         }
       } catch (err) {
@@ -36,7 +39,7 @@ function Acharyas() {
 
         setError(
           err.message ||
-            t("acharyas", "loadError")
+          t("acharyas", "loadError")
         );
       } finally {
         setLoading(false);
@@ -51,32 +54,15 @@ function Acharyas() {
   // =====================================================
 
   const handleBookNow = (acharya) => {
-    const name =
-      acharya.name ||
-      t("acharyas", "acharyaSingular");
-
-    alert(
-      `${name}\n\n${t(
-        "acharyas",
-        "willBeAvailable"
-      )}\n\n${t(
-        "acharyas",
-        "startingFrom"
-      )}: ₹${acharya.fee || 0} ${t(
-        "acharyas",
-        "session"
-      )}`
-    );
+    navigate("/booking");
   };
-
   // =====================================================
   // VIEW ALL
   // =====================================================
 
   const handleViewAll = () => {
-    alert(t("acharyas", "viewAll"));
+    navigate("/acharyas");
   };
-
   // =====================================================
   // LOADING
   // =====================================================
@@ -110,9 +96,9 @@ function Acharyas() {
             </p>
           </div>
 
-         <div className="acharyas-grid">
-  <p>{t("acharyas", "loading")}</p>
-</div>
+          <div className="acharyas-grid">
+            <p>{t("acharyas", "loading")}</p>
+          </div>
 
         </div>
       </section>
@@ -203,7 +189,7 @@ function Acharyas() {
         {acharyas.length === 0 ? (
 
           <div className="acharyas-error">
-           {t("acharyas", "noAvailable")}
+            {t("acharyas", "noAvailable")}
           </div>
 
         ) : (
@@ -226,7 +212,10 @@ function Acharyas() {
                     {acharya.image ? (
                       <img
                         src={acharya.image}
-                        alt={acharya.name}
+                        alt={transliterateName(
+                          acharya.name,
+                          localStorage.getItem("astroconnect_language") || "en"
+                        )}
                       />
                     ) : (
                       acharya.name
@@ -260,7 +249,10 @@ function Acharyas() {
                 <div className="acharya-info">
 
                   <h3>
-                    {acharya.name}
+                    {transliterateName(
+                      acharya.name,
+                      localStorage.getItem("astroconnect_language") || "en"
+                    )}
                   </h3>
 
                   <p className="acharya-specialty">
@@ -268,7 +260,8 @@ function Acharyas() {
                   </p>
 
                   <p className="acharya-experience">
-                    {acharya.experience}
+                    {acharya.experience}{" "}
+                    {t("acharyas", "years")}
                   </p>
 
                 </div>
@@ -309,10 +302,10 @@ function Acharyas() {
                       acharya.languages
                     )
                       ? acharya.languages.join(
-                          ", "
-                        )
+                        ", "
+                      )
                       : acharya.languages ||
-                        t("acharyas", "languages.hindiEnglish")}
+                      t("acharyas", "languages.hindiEnglish")}
                   </span>
 
                 </div>

@@ -2,59 +2,11 @@ import "./ReviewsPage.css";
 import Navbar from "../Components/Navbar/Navbar";
 import { useLanguage } from "../context/LanguageContext";
 
-const reviews = [
-  {
-    initials: "RS",
-    name: "Rahul Sharma",
-    location: "Delhi",
-    service: "Kundali Consultation",
-    rating: 5,
-    text: "The consultation was detailed and easy to understand. The Acharya patiently explained everything and answered all my questions.",
-  },
-  {
-    initials: "PK",
-    name: "Priya Kapoor",
-    location: "Noida",
-    service: "Vastu Consultation",
-    rating: 5,
-    text: "I received practical Vastu guidance for my home. The overall consultation experience was smooth and professional.",
-  },
-  {
-    initials: "AM",
-    name: "Ananya Mishra",
-    location: "Bengaluru",
-    service: "Marriage Guidance",
-    rating: 5,
-    text: "The consultation gave me a much clearer understanding of my kundali and compatibility. Very helpful experience.",
-  },
-  {
-    initials: "VK",
-    name: "Vikas Kumar",
-    location: "Lucknow",
-    service: "Pooja Service",
-    rating: 4,
-    text: "The booking process was simple and the service was well coordinated. I really liked the overall experience.",
-  },
-  {
-    initials: "SK",
-    name: "Sneha Kapoor",
-    location: "Mumbai",
-    service: "Jyotish Consultation",
-    rating: 5,
-    text: "The guidance was explained in a very simple and practical way. I had a really positive consultation experience.",
-  },
-  {
-    initials: "AR",
-    name: "Amit Raj",
-    location: "Jaipur",
-    service: "Numerology",
-    rating: 5,
-    text: "The session helped me understand my numbers and personality patterns in a much clearer way.",
-  },
-];
-
 function ReviewsPage() {
   const { t } = useLanguage();
+
+  // Translation file se reviews list fetch kar rahe hain
+  const reviewsList = t("reviews", "reviewsList") || [];
 
   const handleBooking = () => {
     window.location.href = "/booking";
@@ -123,10 +75,10 @@ function ReviewsPage() {
             </div>
 
             <div className="reviews-grid">
-              {reviews.map((review) => (
+              {reviewsList.map((review, index) => (
                 <article
                   className="review-card"
-                  key={review.name}
+                  key={index}
                 >
                   <div className="review-top">
                     <div className="review-user">

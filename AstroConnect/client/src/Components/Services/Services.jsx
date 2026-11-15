@@ -1,3 +1,4 @@
+
 import "./Services.css";
 import { useLanguage } from "../../context/LanguageContext";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ const services = [
   {
     icon: "🔮",
     key: "jyotish",
-    path: "/services",
+    path: "/jyotish",
   },
   {
     icon: "📜",
@@ -26,7 +27,7 @@ const services = [
   {
     icon: "💍",
     key: "lagna",
-    path: "/services",
+    path: "/lagna",
   },
   {
     icon: "📅",
@@ -36,12 +37,12 @@ const services = [
   {
     icon: "🔢",
     key: "numerology",
-    path: "/services",
+    path: "/numerology",
   },
   {
     icon: "🃏",
     key: "tarot",
-    path: "/services",
+    path: "/tarot",
   },
 ];
 
@@ -83,7 +84,6 @@ function Services() {
 
         </div>
 
-
         {/* ================= SERVICES ================= */}
 
         <div className="services-grid">
@@ -112,20 +112,17 @@ function Services() {
                   {service.icon}
                 </div>
 
-
                 {/* Title */}
 
                 <h3>
                   {title}
                 </h3>
 
-
                 {/* Description */}
 
                 <p>
                   {description}
                 </p>
-
 
                 {/* Explore */}
 
@@ -148,7 +145,6 @@ function Services() {
           })}
 
         </div>
-
 
         {/* ================= BOTTOM CTA ================= */}
 

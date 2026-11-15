@@ -421,7 +421,9 @@ astrologyWithHouses.forEach((planet) => {
      astrology:
   astrologyWithHouses,
     });
-  } catch (error) {
+  } 
+  
+  catch (error) {
     console.error(
       "\n================================="
     );

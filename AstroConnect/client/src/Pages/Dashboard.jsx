@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 import {
   updateProfile,
   getMyBookings,
@@ -14,6 +15,8 @@ const Dashboard = () => {
     loading: authLoading,
     logout,
   } = useAuth();
+
+  const { t } = useLanguage();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -65,48 +68,48 @@ const Dashboard = () => {
 
 
   // =====================================================
-// LOAD KUNDALIS
-// =====================================================
+  // LOAD KUNDALIS
+  // =====================================================
 
-useEffect(() => {
-  const loadKundalis = async () => {
-    if (authLoading) return;
+  useEffect(() => {
+    const loadKundalis = async () => {
+      if (authLoading) return;
 
-    if (!user || !token) {
-      setKundaliLoading(false);
-      return;
-    }
-
-    try {
-      setKundaliLoading(true);
-
-      const response = await fetch(
-        "http://localhost:5000/api/kundali/my",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setKundalis(data.data || []);
+      if (!user || !token) {
+        setKundaliLoading(false);
+        return;
       }
-    } catch (error) {
-      console.error(
-        "Dashboard Kundali error:",
-        error
-      );
-    } finally {
-      setKundaliLoading(false);
-    }
-  };
 
-  loadKundalis();
-}, [user, token, authLoading]);
+      try {
+        setKundaliLoading(true);
+
+        const response = await fetch(
+          "http://localhost:5000/api/kundali/my",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          setKundalis(data.data || []);
+        }
+      } catch (error) {
+        console.error(
+          "Dashboard Kundali error:",
+          error
+        );
+      } finally {
+        setKundaliLoading(false);
+      }
+    };
+
+    loadKundalis();
+  }, [user, token, authLoading]);
 
   // =====================================================
   // LOADING
@@ -121,9 +124,9 @@ useEffect(() => {
           <div className="dashboard-loading-card">
             <div className="dashboard-spinner"></div>
 
-            <h2>Loading Dashboard...</h2>
+            <h2>{t("dashboard", "loadingDashboard") || "Loading Dashboard..."}</h2>
 
-            <p>Please wait a moment.</p>
+            <p>{t("dashboard", "pleaseWait") || "Please wait a moment."}</p>
           </div>
         </div>
       </>
@@ -145,11 +148,11 @@ useEffect(() => {
               🔐
             </div>
 
-            <h2>Please Login First</h2>
+            <h2>{t("dashboard", "pleaseLoginFirst") || "Please Login First"}</h2>
 
             <p>
-              You need to login to access your
-              AstroConnect dashboard.
+              {t("dashboard", "loginPrompt") ||
+                "You need to login to access your AstroConnect dashboard."}
             </p>
 
             <button
@@ -157,7 +160,7 @@ useEffect(() => {
                 (window.location.href = "/login")
               }
             >
-              Go to Login
+              {t("dashboard", "goToLogin") || "Go to Login"}
             </button>
           </div>
         </div>
@@ -313,12 +316,12 @@ useEffect(() => {
               </p>
 
               <h1>
-                Welcome,{" "}
+                {t("dashboard", "welcome") || "Welcome"},{" "}
                 <span>{user.name}</span> 👋
               </h1>
 
               <p className="dashboard-subtitle">
-                Your personal AstroConnect dashboard
+                {t("dashboard", "title") || "Your personal AstroConnect dashboard"}
               </p>
             </div>
 
@@ -326,7 +329,7 @@ useEffect(() => {
               className="dashboard-logout-btn"
               onClick={handleLogout}
             >
-              Logout
+              {t("dashboard", "logout") || "Logout"}
             </button>
 
           </div>
@@ -345,7 +348,7 @@ useEffect(() => {
               </div>
 
               <div>
-                <span>Total Bookings</span>
+                <span>{t("dashboard", "totalBookings") || "Total Bookings"}</span>
 
                 <strong>
                   {bookingLoading
@@ -364,7 +367,7 @@ useEffect(() => {
               </div>
 
               <div>
-                <span>Pending</span>
+                <span>{t("dashboard", "pending") || "Pending"}</span>
 
                 <strong>
                   {bookingLoading
@@ -383,7 +386,7 @@ useEffect(() => {
               </div>
 
               <div>
-                <span>Confirmed</span>
+                <span>{t("dashboard", "confirmed") || "Confirmed"}</span>
 
                 <strong>
                   {bookingLoading
@@ -402,7 +405,7 @@ useEffect(() => {
               </div>
 
               <div>
-                <span>Completed</span>
+                <span>{t("dashboard", "completed") || "Completed"}</span>
 
                 <strong>
                   {bookingLoading
@@ -431,10 +434,10 @@ useEffect(() => {
               </div>
 
               <div>
-                <h2>My Profile</h2>
+                <h2>{t("dashboard", "profile") || "My Profile"}</h2>
 
                 <p>
-                  Manage your account information
+                  {t("dashboard", "manageProfile") || "Manage your account information"}
                 </p>
               </div>
 
@@ -449,7 +452,7 @@ useEffect(() => {
                 <div className="dashboard-info-grid">
 
                   <div className="dashboard-info-item">
-                    <span>Name</span>
+                    <span>{t("dashboard", "nameLabel") || "Name"}</span>
 
                     <strong>
                       {user.name || "-"}
@@ -458,7 +461,7 @@ useEffect(() => {
 
 
                   <div className="dashboard-info-item">
-                    <span>Email</span>
+                    <span>{t("dashboard", "emailLabel") || "Email"}</span>
 
                     <strong>
                       {user.email || "-"}
@@ -467,7 +470,7 @@ useEffect(() => {
 
 
                   <div className="dashboard-info-item">
-                    <span>Phone</span>
+                    <span>{t("dashboard", "phoneLabel") || "Phone"}</span>
 
                     <strong>
                       {user.phone || "-"}
@@ -476,7 +479,7 @@ useEffect(() => {
 
 
                   <div className="dashboard-info-item">
-                    <span>Account Type</span>
+                    <span>{t("dashboard", "accountType") || "Account Type"}</span>
 
                     <strong>
                       {user.role
@@ -497,7 +500,7 @@ useEffect(() => {
                   className="dashboard-edit-btn"
                   onClick={startEditing}
                 >
-                  ✏️ Edit Profile
+                  {t("dashboard", "editProfile") || "✏️ Edit Profile"}
                 </button>
 
               </>
@@ -520,7 +523,7 @@ useEffect(() => {
                 <div className="dashboard-form-group">
 
                   <label>
-                    Name
+                    {t("dashboard", "nameLabel") || "Name"}
                   </label>
 
                   <input
@@ -531,7 +534,7 @@ useEffect(() => {
                         e.target.value
                       )
                     }
-                    placeholder="Enter your name"
+                    placeholder={t("dashboard", "enterName") || "Enter your name"}
                   />
 
                 </div>
@@ -542,7 +545,7 @@ useEffect(() => {
                 <div className="dashboard-form-group">
 
                   <label>
-                    Email
+                    {t("dashboard", "emailLabel") || "Email"}
                   </label>
 
                   <input
@@ -552,8 +555,8 @@ useEffect(() => {
                   />
 
                   <small>
-                    Email cannot be changed
-                    from profile settings.
+                    {t("dashboard", "emailCannotBeChanged") ||
+                      "Email cannot be changed from profile settings."}
                   </small>
 
                 </div>
@@ -564,7 +567,7 @@ useEffect(() => {
                 <div className="dashboard-form-group">
 
                   <label>
-                    Phone
+                    {t("dashboard", "phoneLabel") || "Phone"}
                   </label>
 
                   <input
@@ -575,7 +578,7 @@ useEffect(() => {
                         e.target.value
                       )
                     }
-                    placeholder="Enter your phone number"
+                    placeholder={t("dashboard", "enterPhone") || "Enter your phone number"}
                   />
 
                 </div>
@@ -603,7 +606,7 @@ useEffect(() => {
                     }}
                     disabled={saving}
                   >
-                    Cancel
+                    {t("dashboard", "cancel") || "Cancel"}
                   </button>
 
 
@@ -613,8 +616,8 @@ useEffect(() => {
                     disabled={saving}
                   >
                     {saving
-                      ? "Saving..."
-                      : "Save Changes"}
+                      ? t("dashboard", "saving") || "Saving..."
+                      : t("dashboard", "saveChanges") || "Save Changes"}
                   </button>
 
                 </div>
@@ -633,12 +636,11 @@ useEffect(() => {
           <div className="dashboard-section-title">
 
             <span>
-              QUICK ACTIONS
+              {t("dashboard", "quickActions") || "QUICK ACTIONS"}
             </span>
 
             <h2>
-              Manage Your{" "}
-              <span>AstroConnect</span>
+              {t("dashboard", "manageAstro") || "Manage Your AstroConnect"}
             </h2>
 
           </div>
@@ -658,16 +660,16 @@ useEffect(() => {
               </span>
 
               <h3>
-                My Bookings
+                {t("dashboard", "myBookings") || "My Bookings"}
               </h3>
 
               <p>
-                View and manage your
-                consultation bookings.
+                {t("dashboard", "myBookingsDesc") ||
+                  "View and manage your consultation bookings."}
               </p>
 
               <span className="dashboard-feature-link">
-                View Bookings →
+                {t("dashboard", "viewBookings") || "View Bookings →"}
               </span>
 
             </button>
@@ -685,16 +687,16 @@ useEffect(() => {
               </span>
 
               <h3>
-                Book Consultation
+                {t("dashboard", "bookConsultation") || "Book Consultation"}
               </h3>
 
               <p>
-                Choose a service, Acharya
-                and your preferred time.
+                {t("dashboard", "bookConsultationDesc") ||
+                  "Choose a service, Acharya and your preferred time."}
               </p>
 
               <span className="dashboard-feature-link">
-                Book Now →
+                {t("dashboard", "bookNow") || "Book Now →"}
               </span>
 
             </button>
@@ -712,16 +714,16 @@ useEffect(() => {
               </span>
 
               <h3>
-                AI Help
+                {t("dashboard", "aiHelp") || "AI Help"}
               </h3>
 
               <p>
-                Get assistance from
-                AstroConnect AI.
+                {t("dashboard", "aiHelpDesc") ||
+                  "Get assistance from AstroConnect AI."}
               </p>
 
               <span className="dashboard-feature-link">
-                Open AI Help →
+                {t("dashboard", "openAIHelp") || "Open AI Help →"}
               </span>
 
             </button>
@@ -739,11 +741,11 @@ useEffect(() => {
 
               <div>
                 <span>
-                  RECENT ACTIVITY
+                  {t("dashboard", "recentActivity") || "RECENT ACTIVITY"}
                 </span>
 
                 <h2>
-                  Recent Bookings
+                  {t("dashboard", "recentBookings") || "Recent Bookings"}
                 </h2>
               </div>
 
@@ -752,7 +754,7 @@ useEffect(() => {
                   onClick={goToBookings}
                   className="dashboard-view-all"
                 >
-                  View All →
+                  {t("dashboard", "viewAll") || "View All →"}
                 </button>
               )}
 
@@ -762,7 +764,7 @@ useEffect(() => {
             {bookingLoading ? (
 
               <div className="dashboard-booking-loading">
-                Loading bookings...
+                {t("dashboard", "loadingBookings") || "Loading bookings..."}
               </div>
 
             ) : bookings.length === 0 ? (
@@ -774,18 +776,18 @@ useEffect(() => {
                 </div>
 
                 <h3>
-                  No bookings yet
+                  {t("dashboard", "noBookingsYet") || "No bookings yet"}
                 </h3>
 
                 <p>
-                  Your consultation bookings
-                  will appear here.
+                  {t("dashboard", "noBookingsDesc") ||
+                    "Your consultation bookings will appear here."}
                 </p>
 
                 <button
                   onClick={goToBooking}
                 >
-                  Book Your First Consultation
+                  {t("dashboard", "bookFirstConsultation") || "Book Your First Consultation"}
                 </button>
 
               </div>
@@ -854,162 +856,162 @@ useEffect(() => {
 
 
             {/* =================================================
-    MY KUNDALIS
-================================================= */}
+                MY KUNDALIS
+            ================================================= */}
 
-<div className="dashboard-recent dashboard-kundali-section">
+            <div className="dashboard-recent dashboard-kundali-section">
 
-  {/* Header */}
-  <div className="dashboard-recent-header">
+              {/* Header */}
+              <div className="dashboard-recent-header">
 
-    <div>
-      <span>
-        ASTROLOGY RECORDS
-      </span>
+                <div>
+                  <span>
+                    {t("dashboard", "astrologyRecords") || "ASTROLOGY RECORDS"}
+                  </span>
 
-      <h2>
-        My Kundalis
-      </h2>
-    </div>
+                  <h2>
+                    {t("dashboard", "myKundalis") || "My Kundalis"}
+                  </h2>
+                </div>
 
-    {kundalis.length > 0 && (
-      <button
-        type="button"
-        onClick={() =>
-          (window.location.href = "/kundali")
-        }
-        className="dashboard-view-all"
-      >
-        Create New →
-      </button>
-    )}
+                {kundalis.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      (window.location.href = "/kundali")
+                    }
+                    className="dashboard-view-all"
+                  >
+                    {t("dashboard", "createNew") || "Create New →"}
+                  </button>
+                )}
 
-  </div>
-
-
-  {/* Loading */}
-  {kundaliLoading ? (
-
-    <div className="dashboard-booking-loading">
-      Loading your Kundalis...
-    </div>
-
-  ) : kundalis.length === 0 ? (
-
-    /* Empty State */
-    <div className="dashboard-no-bookings">
-
-      <div>
-        ✦
-      </div>
-
-      <h3>
-        No Kundali saved yet
-      </h3>
-
-      <p>
-        Save your birth details to create
-        your Kundali profile.
-      </p>
-
-      <button
-        type="button"
-        onClick={() =>
-          (window.location.href = "/kundali")
-        }
-      >
-        Create Your Kundali
-      </button>
-
-    </div>
-
-  ) : (
-
-    /* Kundali Cards */
-    <div className="dashboard-kundali-grid">
-
-      {kundalis.slice(0, 3).map((kundali) => (
-
-        <div
-          className="dashboard-kundali-card"
-          key={kundali._id}
-        >
-
-          {/* Icon */}
-          <div className="dashboard-kundali-icon">
-            ✦
-          </div>
+              </div>
 
 
-          {/* Details */}
-          <div className="dashboard-kundali-info">
+              {/* Loading */}
+              {kundaliLoading ? (
 
-            <h3>
-              {kundali.name}
-            </h3>
+                <div className="dashboard-booking-loading">
+                  {t("dashboard", "loadingKundalis") || "Loading your Kundalis..."}
+                </div>
+
+              ) : kundalis.length === 0 ? (
+
+                /* Empty State */
+                <div className="dashboard-no-bookings">
+
+                  <div>
+                    ✦
+                  </div>
+
+                  <h3>
+                    {t("dashboard", "noKundaliSaved") || "No Kundali saved yet"}
+                  </h3>
+
+                  <p>
+                    {t("dashboard", "noKundaliDesc") ||
+                      "Save your birth details to create your Kundali profile."}
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      (window.location.href = "/kundali")
+                    }
+                  >
+                    {t("dashboard", "createYourKundali") || "Create Your Kundali"}
+                  </button>
+
+                </div>
+
+              ) : (
+
+                /* Kundali Cards */
+                <div className="dashboard-kundali-grid">
+
+                  {kundalis.slice(0, 3).map((kundali) => (
+
+                    <div
+                      className="dashboard-kundali-card"
+                      key={kundali._id}
+                    >
+
+                      {/* Icon */}
+                      <div className="dashboard-kundali-icon">
+                        ✦
+                      </div>
 
 
-            <div>
-              <span>
-                Date of Birth
-              </span>
+                      {/* Details */}
+                      <div className="dashboard-kundali-info">
 
-              <strong>
-                {new Date(
-                  kundali.dateOfBirth
-                ).toLocaleDateString("en-IN", {
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </strong>
+                        <h3>
+                          {kundali.name}
+                        </h3>
+
+
+                        <div>
+                          <span>
+                            {t("dashboard", "dateOfBirth") || "Date of Birth"}
+                          </span>
+
+                          <strong>
+                            {new Date(
+                              kundali.dateOfBirth
+                            ).toLocaleDateString("en-IN", {
+                              day: "2-digit",
+                              month: "short",
+                              year: "numeric",
+                            })}
+                          </strong>
+                        </div>
+
+
+                        <div>
+                          <span>
+                            {t("dashboard", "birthTime") || "Birth Time"}
+                          </span>
+
+                          <strong>
+                            {kundali.birthTime}
+                          </strong>
+                        </div>
+
+
+                        <div>
+                          <span>
+                            {t("dashboard", "birthPlace") || "Birth Place"}
+                          </span>
+
+                          <strong>
+                            {kundali.birthPlace}
+                          </strong>
+                        </div>
+
+
+                        {/* View Details Button */}
+                        <button
+                          type="button"
+                          className="dashboard-kundali-view-btn"
+                          onClick={() =>
+                            (window.location.href = `/kundali/${kundali._id}`)
+                          }
+                        >
+                          {t("dashboard", "viewDetails") || "View Details →"}
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+              )}
+
             </div>
-
-
-            <div>
-              <span>
-                Birth Time
-              </span>
-
-              <strong>
-                {kundali.birthTime}
-              </strong>
-            </div>
-
-
-            <div>
-              <span>
-                Birth Place
-              </span>
-
-              <strong>
-                {kundali.birthPlace}
-              </strong>
-            </div>
-
-
-            {/* View Details Button */}
-            <button
-              type="button"
-              className="dashboard-kundali-view-btn"
-              onClick={() =>
-                (window.location.href = `/kundali/${kundali._id}`)
-              }
-            >
-              View Details →
-            </button>
-
-          </div>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  )}
-
-</div>
 
           </div>
 

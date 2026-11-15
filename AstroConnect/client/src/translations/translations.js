@@ -42,64 +42,111 @@ const translations = {
       clientExperience: "Client Experience",
     },
 
+
     services: {
-      label: "OUR SERVICES",
+      label: "Our Services",
       title: "Guidance for Every",
       titleHighlight: "Important Moment",
       description:
-        "Explore our spiritual and astrology services and connect with experienced Acharyas for personalized guidance.",
+        "Explore astrology, Kundali, Vastu and other spiritual services. Connect with experienced Acharyas for personalized guidance and consultations.",
 
       jyotish: {
         title: "Jyotish",
         description:
-          "Get personalized guidance based on Vedic astrology.",
+          "Get personalized Vedic astrology guidance based on planetary positions for questions about your career, relationships and life.",
       },
 
       kundali: {
         title: "Kundali",
         description:
-          "Understand your birth chart and planetary influences.",
+          "Understand your birth chart, planetary positions and astrological combinations through personalized Kundali analysis and consultation.",
       },
 
       vastu: {
         title: "Vastu",
         description:
-          "Bring balance and positive energy to your space.",
+          "Get Vastu consultation for your home, office and workplace, with guidance on directions and space arrangements.",
       },
 
       pooja: {
         title: "Pooja",
         description:
-          "Book traditional poojas and spiritual ceremonies.",
+          "Explore traditional Pooja services, religious rituals and spiritual ceremonies with guidance for your requirements.",
       },
 
       lagna: {
-        title: "Lagna",
+        title: "Marriage",
         description:
-          "Find suitable marriage guidance and compatibility.",
+          "Get astrological guidance for marriage, Kundali matching and compatibility-related questions.",
       },
 
       muhurat: {
         title: "Muhurat",
         description:
-          "Choose an auspicious time for important occasions.",
+          "Explore traditional auspicious timings for weddings, housewarming ceremonies and other important occasions.",
       },
 
       numerology: {
         title: "Numerology",
         description:
-          "Explore the meaning behind numbers in your life.",
+          "Learn about numerology and the traditional significance of numbers based on your date of birth.",
       },
 
       tarot: {
         title: "Tarot",
         description:
-          "Discover insights through intuitive tarot readings.",
+          "Explore tarot readings for new perspectives and guidance on questions related to your career, relationships and personal life.",
       },
 
       explore: "Explore",
       lookingFor: "Looking for something specific?",
       viewAll: "View All Services",
+    },
+
+
+    //=====================================================
+    // CONTACT
+    //=====================================================
+
+    contact: {
+      getInTouch: "Get In Touch",
+      connectWith: "Connect With",
+      heroDescription:
+        "Have a question, need guidance, or want to know more about our astrology services? We are here to help.",
+      contactUs: "CONTACT US",
+      heading: "We'd Love To Hear From You",
+      contactDescription:
+        "Reach out to us for any queries regarding Acharya consultations, Kundali, Pooja, Vastu, Muhurat or other services.",
+      ourLocation: "Our Location",
+      openMaps: "Open in Google Maps →",
+      callUs: "Call Us",
+      callNow: "Call Now →",
+      whatsappUs: "WhatsApp Us",
+      chatTeam: "Chat with our team",
+      chatWhatsapp: "Chat on WhatsApp →",
+      emailUs: "Email Us",
+      sendEmail: "Send Email →",
+      workingHours: "Working Hours",
+      sendMessage: "Send Us A Message",
+      formDescription: "Fill out the form and our team will get back to you.",
+      fullName: "Full Name",
+      enterName: "Enter your name",
+      emailAddress: "Email Address",
+      enterEmail: "Enter your email",
+      phoneNumber: "Phone Number",
+      enterPhone: "Enter your phone number",
+      subject: "Subject",
+      query: "What is your query?",
+      yourMessage: "Your Message",
+      messagePlaceholder: "Write your message here...",
+      send: "Send Message",
+      requiredError: "Please fill all required fields.",
+      invalidEmail: "Please enter a valid email address.",
+      submitError: "Unable to submit message.",
+      success: "Thank you! Your message has been submitted successfully.",
+      generalError: "Something went wrong. Please try again.",
+      locationName: "New Delhi, India",
+      workingDays: "Monday – Sunday",
     },
 
     // =====================================================
@@ -185,6 +232,30 @@ const translations = {
       },
     },
 
+    //=====================================================
+    //POOJA
+    //=====================================================
+
+    pooja: {
+      label: "POOJA",
+      title: "Sacred Poojas",
+      titleHighlight: "Performed by AstroConnect",
+      description: "Explore the sacred poojas and spiritual ceremonies performed by our Acharyas across different cities.",
+      ourWork: "OUR WORK",
+      performed: "Poojas We Have Performed",
+      sectionDescription: "A glimpse of the spiritual ceremonies conducted by our experienced Acharyas.",
+      loading: "Loading Poojas...",
+      loadingDescription: "Please wait while we load our completed pooja records.",
+      loadError: "Unable to Load Poojas",
+      comingSoon: "Pooja Records Coming Soon",
+      comingSoonDescription: "Our completed pooja ceremonies will appear here.",
+      completed: "Completed",
+      city: "City",
+      date: "Date",
+      acharya: "Acharya",
+      yajman: "Yajman"
+    },
+
     // =====================================================
     // HOW IT WORKS
     // =====================================================
@@ -228,19 +299,89 @@ const translations = {
     // REVIEWS
     // =====================================================
     reviews: {
-      label: "CLIENT EXPERIENCES",
-      title: "Trusted by People Seeking",
-      titleHighlight: "Guidance",
-      description:
-        "Discover what our clients have experienced through consultations with AstroConnect experts.",
-
-      verified: "Verified",
-      consultedFor: "Consulted for",
-      basedOn: "Based on client experiences",
+      label: "TESTIMONIALS",
+      heroTitle: "Loved by",
+      heroHighlight: "Thousands",
+      heroDescription: "Read genuine feedback from users who found spiritual clarity and accurate guidance through AstroConnect.",
+      overallRating: "Overall Rating",
       consultations: "Consultations",
       expertAcharyas: "Expert Acharyas",
-      bookConsultation: "Book Your Consultation",
+      storiesLabel: "SUCCESS STORIES",
+      storiesTitle: "What Our",
+      storiesHighlight: "Users Say",
+      storiesDescription: "Real experiences from people who trusted our guidance.",
+      verified: "Verified User",
+      consultedFor: "Consulted for:",
+      title: "Client",
+      titleHighlight: "Testimonials",
+      description: "Read real stories from people who experienced profound astrological guidance.",
+      basedOn: "Based on 2,500+ reviews",
+      trustedBy: "Trusted by seekers",
+      trustedDescription: "Providing authentic guidance worldwide.",
+      happyClients: "Happy Clients",
+      verifiedExperts: "Verified Experts",
+      languages: "Languages Supported",
+      ctaLabel: "START YOUR JOURNEY",
+      ctaTitle: "Ready for Your",
+      ctaHighlight: "Consultation?",
+      ctaDescription: "Connect with verified Acharyas and get personalized guidance today.",
+      ctaButton: "Book Consultation",
+      bookConsultation: "Book Consultation"
     },
+
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "Rahul Sharma",
+        location: "Delhi",
+        service: "Kundali Consultation",
+        rating: 5,
+        text: "The consultation was detailed and easy to understand. The Acharya patiently explained everything and answered all my questions.",
+      },
+      {
+        initials: "PK",
+        name: "Priya Kapoor",
+        location: "Noida",
+        service: "Vastu Consultation",
+        rating: 5,
+        text: "I received practical Vastu guidance for my home. The overall consultation experience was smooth and professional.",
+      },
+      {
+        initials: "AM",
+        name: "Ananya Mishra",
+        location: "Bengaluru",
+        service: "Marriage Guidance",
+        rating: 5,
+        text: "The consultation gave me a much clearer understanding of my kundali and compatibility. Very helpful experience.",
+      },
+      {
+        initials: "VK",
+        name: "Vikas Kumar",
+        location: "Lucknow",
+        service: "Pooja Service",
+        rating: 4,
+        text: "The booking process was simple and the service was well coordinated. I really liked the overall experience.",
+      }
+
+    ],
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "Rahul Sharma",
+        location: "Delhi",
+        service: "Kundali Consultation",
+        rating: 5,
+        text: "The consultation was detailed and easy to understand. The Acharya patiently explained everything and answered all my questions.",
+      },
+      {
+        initials: "PK",
+        name: "Priya Kapoor",
+        location: "Noida",
+        service: "Vastu Consultation",
+        rating: 5,
+        text: "I received practical Vastu guidance for my home. The overall consultation experience was smooth and professional.",
+      }
+    ],
 
     // =====================================================
     // CITIES
@@ -249,13 +390,26 @@ const translations = {
       label: "OUR PRESENCE",
       title: "Spiritual Guidance,",
       titleHighlight: "Wherever You Are",
-      description:
-        "Connect with experienced Acharyas from different cities and access astrology and spiritual services online.",
-
-      serving: "Serving clients across India",
-      onlineAvailable:
-        "Online consultations available from anywhere.",
-      findAcharya: "Find an Acharya",
+      description: "Connect with experienced Acharyas and explore astrology, Vastu, Kundali, Pooja and spiritual services from different cities across India.",
+      stat1: "Major Cities",
+      stat2: "Acharyas",
+      stat3: "Consultations",
+      stat4: "Online Access",
+      exploreBtn: "Explore Acharyas",
+      bottomLabel: "ASTROCONNECT INDIA",
+      bottomTitle: "Your city isn't listed?",
+      bottomDesc: "No problem. Online consultations are available from anywhere in India.",
+      bottomBtn: "Find an Acharya",
+      citiesList: [
+        { icon: "🏛️", city: "Delhi", state: "Delhi", services: "Jyotish · Kundali · Pooja" },
+        { icon: "🏙️", city: "Noida", state: "Uttar Pradesh", services: "Vastu · Jyotish · Muhurat" },
+        { icon: "🌆", city: "Bengaluru", state: "Karnataka", services: "Kundali · Pooja · Astrology" },
+        { icon: "🌇", city: "Mumbai", state: "Maharashtra", services: "Jyotish · Vastu · Marriage" },
+        { icon: "🏰", city: "Lucknow", state: "Uttar Pradesh", services: "Pooja · Kundali · Muhurat" },
+        { icon: "🌃", city: "Hyderabad", state: "Telangana", services: "Vastu · Jyotish · Pooja" },
+        { icon: "🏯", city: "Jaipur", state: "Rajasthan", services: "Kundali · Jyotish · Vastu" },
+        { icon: "🌉", city: "Chandigarh", state: "Chandigarh", services: "Astrology · Muhurat · Pooja" }
+      ]
     },
 
     // =====================================================
@@ -290,45 +444,25 @@ const translations = {
     // AI HELP
     // =====================================================
     aiHelp: {
-      label: "ASTROCONNECT AI",
-      title: "Your Personal",
-      titleHighlight: "Spiritual Guide",
-      description:
-        "Get quick guidance about our services, consultations, bookings and spiritual assistance.",
-
-      quickGuidance: "Quick Guidance",
-      privateSecure: "Private & Secure",
-      multilingual: "Multilingual",
-
-      online: "Online",
-      placeholder: "Ask AstroConnect AI...",
-
-      welcome:
-        "Namaste! 🙏 I’m AstroConnect AI Guide. How can I help you today?",
-
-      suggestions: {
-        service: "Which service is right for me?",
-        kundali: "I want a Kundali consultation",
-        vastu: "I need help with Vastu",
-        booking: "How can I book an Acharya?",
-      },
-
-      responses: {
-        kundali:
-          "Sure! 🔮 You can book a Kundali consultation with one of our experienced Acharyas. I can also help you find the right expert.",
-
-        vastu:
-          "For Vastu guidance 🏠, you can choose our Vastu Consultation service and connect with an experienced Acharya.",
-
-        booking:
-          "Absolutely! 📅 Choose a service, select an Acharya, pick an available slot and confirm your booking.",
-
-        service:
-          "AstroConnect offers Jyotish, Kundali, Vastu, Pooja, Muhurat and other spiritual guidance services. ✨",
-
-        default:
-          "I’d be happy to help. 🙏 You can ask me about Kundali, Jyotish, Vastu, Pooja, Muhurat or booking an Acharya.",
-      },
+      label: "AI ASSISTANT",
+      title: "Ask Anything To",
+      titleHighlight: "AstroConnect AI",
+      description: "Get quick guidance about our services, consultations, bookings and spiritual assistance.",
+      quickGuidance: "Instant Spiritual Guidance",
+      privateSecure: "Private & Secure Chats",
+      multilingual: "Multi-language Support",
+      online: "Online & Ready",
+      inputPlaceholder: "Ask AstroConnect AI...",
+      welcomeMessage: "Namaste! 🙏 I’m AstroConnect AI Guide. How can I help you today?",
+      suggestion1: "Which service is right for me?",
+      suggestion2: "I want a Kundali consultation",
+      suggestion3: "I need help with Vastu",
+      suggestion4: "How can I book an Acharya?",
+      resKundali: "Sure! 🔮 You can book a Kundali consultation with one of our experienced Acharyas. I can also help you find the right expert.",
+      resVastu: "For Vastu guidance 🏠, you can choose our Vastu Consultation service and connect with an experienced Acharya.",
+      resBooking: "Absolutely! 📅 Choose a service, select an Acharya and pick an available consultation slot. Booking and payment features will be available soon.",
+      resService: "AstroConnect offers Jyotish, Kundali, Vastu, Pooja, Muhurat and other spiritual guidance services. ✨",
+      resDefault: "I’d be happy to help. 🙏 You can ask me about Kundali, Jyotish, Vastu, Pooja, Muhurat or booking an Acharya."
     },
 
     // =====================================================
@@ -410,17 +544,70 @@ const translations = {
     // DASHBOARD
     // =====================================================
     dashboard: {
-      title: "Dashboard",
+      title: "Your personal AstroConnect dashboard",
       welcome: "Welcome",
-      profile: "Profile",
+      profile: "My Profile",
       bookings: "My Bookings",
       history: "Booking History",
       logout: "Logout",
+      manageProfile: "Manage your account information",
+      email: "Email",
+      phone: "Phone",
+      accountType: "Account Type",
+      editProfile: "✏️ Edit Profile",
+      cancel: "Cancel",
+      saveChanges: "Save Changes",
+      saving: "Saving...",
+      emailCannotBeChanged: "Email cannot be changed from profile settings.",
+      nameLabel: "Name",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      enterName: "Enter your name",
+      enterPhone: "Enter your phone number",
+      totalBookings: "Total Bookings",
+      pending: "Pending",
+      confirmed: "Confirmed",
+      completed: "Completed",
+      quickActions: "QUICK ACTIONS",
+      manageAstro: "Manage Your AstroConnect",
+      myBookings: "My Bookings",
+      myBookingsDesc: "View and manage your consultation bookings.",
+      viewBookings: "View Bookings →",
+      bookConsultation: "Book Consultation",
+      bookConsultationDesc: "Choose a service, Acharya and your preferred time.",
+      bookNow: "Book Now →",
+      aiHelp: "AI Help",
+      aiHelpDesc: "Get assistance from AstroConnect AI.",
+      openAIHelp: "Open AI Help →",
+      recentActivity: "RECENT ACTIVITY",
+      recentBookings: "Recent Bookings",
+      viewAll: "View All →",
+      loadingBookings: "Loading bookings...",
+      noBookingsYet: "No bookings yet",
+      noBookingsDesc: "Your consultation bookings will appear here.",
+      bookFirstConsultation: "Book Your First Consultation",
+      astrologyRecords: "ASTROLOGY RECORDS",
+      myKundalis: "My Kundalis",
+      createNew: "Create New →",
+      loadingKundalis: "Loading your Kundalis...",
+      noKundaliSaved: "No Kundali saved yet",
+      noKundaliDesc: "Save your birth details to create your Kundali profile.",
+      createYourKundali: "Create Your Kundali",
+      dateOfBirth: "Date of Birth",
+      birthTime: "Birth Time",
+      birthPlace: "Birth Place",
+      viewDetails: "View Details →",
+      pleaseLoginFirst: "Please Login First",
+      loginPrompt: "You need to login to access your AstroConnect dashboard.",
+      goToLogin: "Go to Login",
+      loadingDashboard: "Loading Dashboard...",
+      pleaseWait: "Please wait a moment."
     },
 
 
     about: {
       label: "ABOUT ASTROCONNECT",
+      knowMore: "Know More",
 
       heroTitle: "Ancient Wisdom.",
       heroTitleHighlight: "Modern Connection.",
@@ -1011,9 +1198,78 @@ const translations = {
 
       occupiedHousePlural:
         "{planetNames} are placed in this house. This makes the house an important area of life in the birth chart.",
+      createNewKundali: "Create New Kundali",
+      dashboard: "Dashboard",
+
+      // translation.js -> en -> kundaliDetails ke andar add karein:
+      heroTitle: "Discover Your",
+      heroTitleHighlight: "Kundali",
+      enterName: "Enter your full name",
+      placePlaceholder: "City, State, Country",
+      savingKundali: "⏳ Saving Kundali...",
+      prepareKundali: "✦ Prepare Kundali",
+
+      whyDetailsMatterTitle: "Why Birth Details Matter",
+      whyDetailsMatterDesc: "In Vedic astrology, the exact date, time and place of birth are important for preparing an accurate birth chart.",
+      birthDateCardTitle: "Birth Date",
+      birthDateCardDesc: "Determines planetary positions.",
+      birthTimeCardTitle: "Birth Time",
+      birthTimeCardDesc: "Helps determine Lagna and houses.",
+      birthPlaceCardTitle: "Birth Place",
+      birthPlaceCardDesc: "Helps calculate the local sky position.",
+
+      detailsSavedTitle: "Birth Details Saved",
+      detailsSavedDesc: "Your birth information has been saved successfully in your AstroConnect account.",
+
+      yourRecordsLabel: "YOUR RECORDS",
+      savedKundalisTitle: "Saved Kundalis",
+      savedKundalisDesc: "Your saved birth details from MongoDB.",
+      loadingKundalisText: "Loading your Kundalis...",
+      noSavedKundaliText: "No saved Kundali found yet.",
+      savedOnText: "Saved on",
 
 
     },
+
+    //======================================================
+    // FOOTER
+    //======================================================
+
+
+    footer: {
+      description: "Connect with trusted astrologers and discover meaningful guidance for your life's journey. Find clarity, positivity, and direction with AstroConnect.",
+      trust: "Guidance for your journey",
+      quickLinksTitle: "Quick Links",
+      servicesTitle: "Our Services",
+      connectTitle: "Connect With Us",
+      connectDescription: "Have questions or need assistance? We are here to help.",
+      contactTeam: "Contact our team",
+      rights: "All rights reserved.",
+      craftedWith: "Crafted with",
+      by: "by",
+      backToTop: "Back to top",
+
+      quickLinks: {
+        home: "Home",
+        aboutUs: "About Us",
+        services: "Services",
+        ourAcharyas: "Our Acharyas",
+        gallery: "Gallery",
+        contactUs: "Contact Us",
+        careers: "Careers"
+      },
+
+      services: {
+        kundali: "Kundali",
+        pooja: "Pooja",
+        vastu: "Vastu",
+        jyotish: "Jyotish",
+        muhurat: "Muhurat",
+        numerology: "Numerology",
+        tarotReading: "Tarot Reading"
+      }
+    },
+
 
     // =====================================================
     // COMMON
@@ -1104,64 +1360,111 @@ const translations = {
       clientExperience: "ग्राहक अनुभव",
     },
 
+
     services: {
       label: "हमारी सेवाएँ",
       title: "हर महत्वपूर्ण",
       titleHighlight: "पल के लिए मार्गदर्शन",
       description:
-        "हमारी ज्योतिष और आध्यात्मिक सेवाओं को देखें और व्यक्तिगत मार्गदर्शन के लिए अनुभवी आचार्यों से जुड़ें।",
+        "ज्योतिष, कुंडली, वास्तु और अन्य आध्यात्मिक सेवाओं के लिए अनुभवी आचार्यों से जुड़ें और व्यक्तिगत परामर्श प्राप्त करें।",
 
       jyotish: {
         title: "ज्योतिष",
         description:
-          "वैदिक ज्योतिष के आधार पर व्यक्तिगत मार्गदर्शन प्राप्त करें।",
+          "वैदिक ज्योतिष और ग्रहों की स्थिति के आधार पर करियर, रिश्तों और जीवन से जुड़े सवालों के लिए व्यक्तिगत मार्गदर्शन प्राप्त करें।",
       },
 
       kundali: {
         title: "कुंडली",
         description:
-          "अपनी जन्म कुंडली और ग्रहों के प्रभाव को समझें।",
+          "अपनी जन्म कुंडली, ग्रहों की स्थिति और ज्योतिषीय योगों को समझने के लिए कुंडली विश्लेषण और परामर्श प्राप्त करें।",
       },
 
       vastu: {
         title: "वास्तु",
         description:
-          "अपने स्थान में संतुलन और सकारात्मक ऊर्जा लाएँ।",
+          "घर, ऑफिस और कार्यस्थल के लिए वास्तु परामर्श प्राप्त करें और दिशाओं तथा स्थान की व्यवस्था से जुड़े सुझाव जानें।",
       },
 
       pooja: {
         title: "पूजा",
         description:
-          "पारंपरिक पूजा और आध्यात्मिक समारोह बुक करें।",
+          "पारंपरिक पूजा, धार्मिक अनुष्ठानों और आध्यात्मिक समारोहों के लिए पूजा सेवाओं और मार्गदर्शन की जानकारी प्राप्त करें।",
       },
 
       lagna: {
         title: "विवाह",
         description:
-          "विवाह और अनुकूलता के लिए मार्गदर्शन प्राप्त करें।",
+          "विवाह, कुंडली मिलान और वैवाहिक अनुकूलता से जुड़े सवालों के लिए ज्योतिषीय मार्गदर्शन प्राप्त करें।",
       },
 
       muhurat: {
         title: "मुहूर्त",
         description:
-          "महत्वपूर्ण अवसरों के लिए शुभ समय चुनें।",
+          "विवाह, गृह प्रवेश और अन्य महत्वपूर्ण कार्यों के लिए पारंपरिक शुभ मुहूर्त और समय संबंधी मार्गदर्शन प्राप्त करें।",
       },
 
       numerology: {
         title: "अंक ज्योतिष",
         description:
-          "अपने जीवन में अंकों के महत्व को समझें।",
+          "जन्मतिथि और अंकों के पारंपरिक महत्व के आधार पर अंक ज्योतिष तथा व्यक्तिगत मार्गदर्शन के बारे में जानें।",
       },
 
       tarot: {
         title: "टैरो",
         description:
-          "टैरो रीडिंग के माध्यम से नए दृष्टिकोण प्राप्त करें।",
+          "करियर, रिश्तों और व्यक्तिगत जीवन से जुड़े सवालों पर टैरो रीडिंग के माध्यम से नए दृष्टिकोण और मार्गदर्शन प्राप्त करें।",
       },
 
       explore: "जानें",
       lookingFor: "कुछ विशेष खोज रहे हैं?",
       viewAll: "सभी सेवाएँ देखें",
+    },
+
+
+    //=====================================================
+    // CONTACT
+    //=====================================================
+
+    contact: {
+      getInTouch: "संपर्क करें",
+      connectWith: "जुड़ें",
+      heroDescription:
+        "क्या आपका कोई सवाल है, मार्गदर्शन चाहिए या हमारी ज्योतिष सेवाओं के बारे में जानना चाहते हैं? हम आपकी सहायता के लिए यहाँ हैं।",
+      contactUs: "संपर्क करें",
+      heading: "हम आपसे सुनना पसंद करेंगे",
+      contactDescription:
+        "आचार्य परामर्श, कुंडली, पूजा, वास्तु, मुहूर्त या अन्य सेवाओं से जुड़े सवालों के लिए हमसे संपर्क करें।",
+      ourLocation: "हमारा स्थान",
+      openMaps: "Google Maps में खोलें →",
+      callUs: "हमें कॉल करें",
+      callNow: "अभी कॉल करें →",
+      whatsappUs: "WhatsApp करें",
+      chatTeam: "हमारी टीम से चैट करें",
+      chatWhatsapp: "WhatsApp पर चैट करें →",
+      emailUs: "हमें ईमेल करें",
+      sendEmail: "ईमेल भेजें →",
+      workingHours: "कार्य समय",
+      sendMessage: "हमें संदेश भेजें",
+      formDescription: "फॉर्म भरें, हमारी टीम आपसे जल्द संपर्क करेगी।",
+      fullName: "पूरा नाम",
+      enterName: "अपना नाम दर्ज करें",
+      emailAddress: "ईमेल पता",
+      enterEmail: "अपना ईमेल दर्ज करें",
+      phoneNumber: "फोन नंबर",
+      enterPhone: "अपना फोन नंबर दर्ज करें",
+      subject: "विषय",
+      query: "आपका सवाल क्या है?",
+      yourMessage: "आपका संदेश",
+      messagePlaceholder: "अपना संदेश यहाँ लिखें...",
+      send: "संदेश भेजें",
+      requiredError: "कृपया सभी जरूरी फ़ील्ड भरें।",
+      invalidEmail: "कृपया सही ईमेल पता दर्ज करें।",
+      submitError: "संदेश भेजा नहीं जा सका।",
+      success: "धन्यवाद! आपका संदेश सफलतापूर्वक भेज दिया गया है।",
+      generalError: "कुछ गलत हुआ। कृपया दोबारा प्रयास करें।",
+      locationName: "नई दिल्ली, भारत",
+      workingDays: "सोमवार – रविवार",
     },
 
     // =====================================================
@@ -1182,6 +1485,37 @@ const translations = {
       viewAll: "सभी आचार्य देखें",
       reviews: "रिव्यू",
       willBeAvailable: "जल्द ही उपलब्ध होंगे।",
+
+      loading: "आचार्यों की जानकारी लोड हो रही है...",
+      loadError: "आचार्यों की जानकारी लोड नहीं हो सकी। कृपया पुनः प्रयास करें।",
+      trustedGuidance: "विश्वसनीय ज्योतिष मार्गदर्शन",
+      meetOur: "मिलें हमारे",
+      acharyasTitle: "आचार्यों से",
+      heroDescription: "अनुभवी ज्योतिषी आपके सितारों को समझने, सही निर्णय लेने और जीवन में स्पष्टता पाने में आपकी सहायता के लिए समर्पित हैं।",
+      expertAcharyas: "विशेषज्ञ आचार्य",
+      astrologyServices: "ज्योतिष सेवाएं",
+      guidance: "मार्गदर्शन",
+      ourExperts: "हमारे विशेषज्ञ",
+      chooseYour: "अपने लिए चुनें",
+      sectionDescription: "अपने अनुभव, विशेषज्ञता और भाषाओं के आधार पर सही ज्योतिष विशेषज्ञ चुनें।",
+      acharyaSingular: "आचार्य",
+      acharyaPlural: "आचार्य",
+      findingAcharyas: "हमारे आचार्यों को खोजा जा रहा है...",
+      tryAgain: "पुनः प्रयास करें",
+      comingSoonTitle: "हमारे आचार्य जल्द आ रहे हैं",
+      comingSoonDescription: "हम अपने विशेषज्ञ ज्योतिषियों की प्रोफाइल तैयार कर रहे हैं। कृपया जल्द ही दोबारा देखें।",
+      backHome: "होम पर वापस जाएं",
+      available: "उपलब्ध",
+      experience: "अनुभव",
+      years: "वर्ष",
+      consultation: "परामर्श",
+      consultationFrom: "परामर्श शुल्क",
+      bookConsultation: "परामर्श बुक करें",
+      needGuidance: "मार्गदर्शन चाहिए?",
+      ctaTitle: "समझ नहीं आ रहा कि कौन-से आचार्य चुनें?",
+      ctaDescription: "AstroConnect आपकी आवश्यकता के अनुसार सही ज्योतिष सेवा चुनने में मदद करेगा।",
+      askAI: "AstroConnect AI से पूछें",
+
       loading: "आचार्यों की जानकारी लोड हो रही है...",
       noAvailable: "अभी कोई आचार्य उपलब्ध नहीं है।",
       loadError: "आचार्यों की जानकारी लोड नहीं हो सकी।",
@@ -1215,6 +1549,30 @@ const translations = {
         hindiKannada: "हिंदी · कन्नड़",
         all: "हिंदी · अंग्रेज़ी · कन्नड़",
       },
+    },
+
+    //=====================================================
+    //POOJA
+    //=====================================================
+
+    pooja: {
+      label: "पूजा",
+      title: "पवित्र पूजाएँ",
+      titleHighlight: "AstroConnect द्वारा संपन्न",
+      description: "हमारे आचार्यों द्वारा विभिन्न शहरों में संपन्न पवित्र पूजाओं और आध्यात्मिक समारोहों को देखें।",
+      ourWork: "हमारा कार्य",
+      performed: "हमारे द्वारा संपन्न पूजाएँ",
+      sectionDescription: "हमारे अनुभवी आचार्यों द्वारा संपन्न आध्यात्मिक समारोहों की एक झलक।",
+      loading: "पूजाओं की जानकारी लोड हो रही है...",
+      loadingDescription: "कृपया प्रतीक्षा करें।",
+      loadError: "पूजाओं की जानकारी लोड नहीं हो सकी।",
+      comingSoon: "पूजा रिकॉर्ड जल्द उपलब्ध होंगे",
+      comingSoonDescription: "हमारी संपन्न पूजाओं का विवरण यहाँ दिखाई देगा।",
+      completed: "संपन्न",
+      city: "शहर",
+      date: "तारीख",
+      acharya: "आचार्य",
+      yajman: "यजमान"
     },
 
     // =====================================================
@@ -1260,19 +1618,89 @@ const translations = {
     // REVIEWS
     // =====================================================
     reviews: {
-      label: "ग्राहकों के अनुभव",
-      title: "मार्गदर्शन पाने वाले लोगों का",
-      titleHighlight: "विश्वास",
-      description:
-        "AstroConnect विशेषज्ञों के साथ परामर्श लेने वाले हमारे ग्राहकों के अनुभव जानें।",
-
-      verified: "सत्यापित",
-      consultedFor: "परामर्श",
-      basedOn: "ग्राहकों के अनुभवों पर आधारित",
+      label: "प्रशंसापत्र",
+      heroTitle: "हजारों लोगों द्वारा",
+      heroHighlight: "पसंद किया गया",
+      heroDescription: "उन उपयोगकर्ताओं की वास्तविक प्रतिक्रिया पढ़ें जिन्होंने एस्ट्रोकनेक्ट के माध्यम से आध्यात्मिक स्पष्टता और सटीक मार्गदर्शन प्राप्त किया है।",
+      overallRating: "समग्र रेटिंग",
       consultations: "परामर्श",
       expertAcharyas: "विशेषज्ञ आचार्य",
-      bookConsultation: "अपना परामर्श बुक करें",
+      storiesLabel: "सफलता की कहानियाँ",
+      storiesTitle: "हमारे",
+      storiesHighlight: "उपयोगकर्ता क्या कहते हैं",
+      storiesDescription: "हमारे मार्गदर्शन पर भरोसा करने वाले लोगों के वास्तविक अनुभव।",
+      verified: "सत्यापित उपयोगकर्ता",
+      consultedFor: "परामर्श लिया:",
+      title: "ग्राहक",
+      titleHighlight: "प्रशंसापत्र",
+      description: "उन लोगों की वास्तविक कहानियाँ पढ़ें जिन्होंने गहन ज्योतिषीय मार्गदर्शन का अनुभव किया है।",
+      basedOn: "2,500+ समीक्षाओं के आधार पर",
+      trustedBy: "साधकों द्वारा विश्वसनीय",
+      trustedDescription: "दुनिया भर में प्रामाणिक मार्गदर्शन प्रदान करना।",
+      happyClients: "खुश ग्राहक",
+      verifiedExperts: "सत्यापित विशेषज्ञ",
+      languages: "समर्थित भाषाएँ",
+      ctaLabel: "अपनी यात्रा शुरू करें",
+      ctaTitle: "क्या आप अपने",
+      ctaHighlight: "परामर्श के लिए तैयार हैं?",
+      ctaDescription: "सत्यापित आचार्यों से जुड़ें और आज ही व्यक्तिगत मार्गदर्शन प्राप्त करें।",
+      ctaButton: "परामर्श बुक करें",
+      bookConsultation: "परामर्श बुक करें"
     },
+
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "राहुल शर्मा",
+        location: "दिल्ली",
+        service: "कुंडली परामर्श",
+        rating: 5,
+        text: "परामर्श विस्तृत और समझने में आसान था। आचार्य ने धैर्यपूर्वक सब कुछ समझाया और मेरे सभी सवालों के जवाब दिए।",
+      },
+      {
+        initials: "PK",
+        name: "प्रिया कपूर",
+        location: "नोएडा",
+        service: "वास्तु परामर्श",
+        rating: 5,
+        text: "मुझे अपने घर के लिए व्यावहारिक वास्तु मार्गदर्शन मिला। समग्र परामर्श अनुभव सहज और पेशेवर था।",
+      },
+      {
+        initials: "AM",
+        name: "अनन्या मिश्रा",
+        location: "बेंगलुरु",
+        service: "विवाह मार्गदर्शन",
+        rating: 5,
+        text: "परामर्श से मुझे अपनी कुंडली और अनुकूलता की बहुत स्पष्ट समझ मिली। बहुत ही उपयोगी अनुभव।",
+      },
+      {
+        initials: "VK",
+        name: "विकास कुमार",
+        location: "लखनऊ",
+        service: "पूजा सेवा",
+        rating: 4,
+        text: "बुकिंग प्रक्रिया सरल थी और सेवा अच्छी तरह से समन्वित थी। मुझे कुल मिलाकर अनुभव बहुत पसंद आया।",
+      }
+    ],
+
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "राहुल शर्मा",
+        location: "दिल्ली",
+        service: "कुंडली परामर्श",
+        rating: 5,
+        text: "परामर्श विस्तृत और समझने में आसान था। आचार्य ने धैर्यपूर्वक सब कुछ समझाया और मेरे सभी सवालों के जवाब दिए।",
+      },
+      {
+        initials: "PK",
+        name: "प्रिया कपूर",
+        location: "नोएडा",
+        service: "वास्तु परामर्श",
+        rating: 5,
+        text: "मुझे अपने घर के लिए व्यावहारिक वास्तु मार्गदर्शन मिला। समग्र परामर्श अनुभव सहज और पेशेवर था।",
+      }
+    ],
 
     // =====================================================
     // CITIES
@@ -1281,13 +1709,26 @@ const translations = {
       label: "हमारी उपस्थिति",
       title: "आध्यात्मिक मार्गदर्शन,",
       titleHighlight: "आप जहाँ भी हों",
-      description:
-        "अलग-अलग शहरों के अनुभवी आचार्यों से जुड़ें और ऑनलाइन ज्योतिष एवं आध्यात्मिक सेवाओं का लाभ लें।",
-
-      serving: "पूरे भारत में ग्राहकों की सेवा",
-      onlineAvailable:
-        "कहीं से भी ऑनलाइन परामर्श उपलब्ध है।",
-      findAcharya: "आचार्य खोजें",
+      description: "अनुभवी आचार्यों से जुड़ें और पूरे भारत के विभिन्न शहरों से ज्योतिष, वास्तु, कुंडली, पूजा और आध्यात्मिक सेवाओं का पता लगाएं।",
+      stat1: "प्रमुख शहर",
+      stat2: "आचार्य",
+      stat3: "परामर्श",
+      stat4: "ऑनलाइन पहुंच",
+      exploreBtn: "आचार्य देखें",
+      bottomLabel: "एस्ट्रोकनेक्ट इंडिया",
+      bottomTitle: "आपका शहर सूचीबद्ध नहीं है?",
+      bottomDesc: "कोई समस्या नहीं। भारत में कहीं से भी ऑनलाइन परामर्श उपलब्ध है।",
+      bottomBtn: "एक आचार्य खोजें",
+      citiesList: [
+        { icon: "🏛️", city: "दिल्ली", state: "दिल्ली", services: "ज्योतिष · कुंडली · पूजा" },
+        { icon: "🏙️", city: "नोएडा", state: "उत्तर प्रदेश", services: "वास्तु · ज्योतिष · मुहूर्त" },
+        { icon: "🌆", city: "बेंगलुरु", state: "कर्नाटक", services: "कुंडली · पूजा · ज्योतिष" },
+        { icon: "🌇", city: "मुंबई", state: "महाराष्ट्र", services: "ज्योतिष · वास्तु · विवाह" },
+        { icon: "🏰", city: "लखनऊ", state: "उत्तर प्रदेश", services: "पूजा · कुंडली · मुहूर्त" },
+        { icon: "🌃", city: "हैदराबाद", state: "तेलंगाना", services: "वास्तु · ज्योतिष · पूजा" },
+        { icon: "🏯", city: "जयपुर", state: "राजस्थान", services: "कुंडली · ज्योतिष · वास्तु" },
+        { icon: "🌉", city: "चंडीगढ़", state: "चंडीगढ़", services: "ज्योतिष · मुहूर्त · पूजा" }
+      ]
     },
 
     // =====================================================
@@ -1322,45 +1763,25 @@ const translations = {
     // AI HELP
     // =====================================================
     aiHelp: {
-      label: "ASTROCONNECT AI",
-      title: "आपका व्यक्तिगत",
-      titleHighlight: "आध्यात्मिक मार्गदर्शक",
-      description:
-        "हमारी सेवाओं, परामर्श, बुकिंग और आध्यात्मिक सहायता के बारे में तुरंत मार्गदर्शन प्राप्त करें।",
-
-      quickGuidance: "त्वरित मार्गदर्शन",
-      privateSecure: "निजी एवं सुरक्षित",
-      multilingual: "बहुभाषी",
-
-      online: "ऑनलाइन",
-      placeholder: "AstroConnect AI से पूछें...",
-
-      welcome:
-        "नमस्ते! 🙏 मैं AstroConnect AI Guide हूँ। आज मैं आपकी कैसे सहायता कर सकता हूँ?",
-
-      suggestions: {
-        service: "मेरे लिए कौन सी सेवा सही है?",
-        kundali: "मुझे कुंडली परामर्श चाहिए",
-        vastu: "मुझे वास्तु में सहायता चाहिए",
-        booking: "मैं आचार्य कैसे बुक कर सकता हूँ?",
-      },
-
-      responses: {
-        kundali:
-          "ज़रूर! 🔮 आप हमारे अनुभवी आचार्यों में से किसी के साथ कुंडली परामर्श बुक कर सकते हैं। मैं सही विशेषज्ञ खोजने में भी आपकी सहायता कर सकता हूँ।",
-
-        vastu:
-          "वास्तु मार्गदर्शन 🏠 के लिए आप हमारी वास्तु परामर्श सेवा चुन सकते हैं और अनुभवी आचार्य से जुड़ सकते हैं।",
-
-        booking:
-          "बिल्कुल! 📅 सेवा चुनें, आचार्य चुनें, उपलब्ध स्लॉट चुनें और अपनी बुकिंग की पुष्टि करें।",
-
-        service:
-          "AstroConnect ज्योतिष, कुंडली, वास्तु, पूजा, मुहूर्त और अन्य आध्यात्मिक मार्गदर्शन सेवाएँ प्रदान करता है। ✨",
-
-        default:
-          "मुझे आपकी सहायता करने में खुशी होगी। 🙏 आप कुंडली, ज्योतिष, वास्तु, पूजा, मुहूर्त या आचार्य बुकिंग के बारे में पूछ सकते हैं।",
-      },
+      label: "एआई सहायक",
+      title: "कुछ भी पूछें",
+      titleHighlight: "एस्ट्रोकनेक्ट एआई से",
+      description: "हमारी सेवाओं, परामर्श, बुकिंग और आध्यात्मिक सहायता के बारे में तुरंत मार्गदर्शन प्राप्त करें।",
+      quickGuidance: "त्वरित आध्यात्मिक मार्गदर्शन",
+      privateSecure: "निजी और सुरक्षित चैट",
+      multilingual: "बहु-भाषा समर्थन",
+      online: "ऑनलाइन और तैयार",
+      inputPlaceholder: "एस्ट्रोकनेक्ट एआई से पूछें...",
+      welcomeMessage: "नमस्ते! 🙏 मैं एस्ट्रोकनेक्ट एआई गाइड हूँ। आज मैं आपकी क्या सहायता कर सकता हूँ?",
+      suggestion1: "मेरे लिए कौन सी सेवा सही है?",
+      suggestion2: "मुझे कुंडली परामर्श चाहिए",
+      suggestion3: "मुझे वास्तु में सहायता चाहिए",
+      suggestion4: "मैं आचार्य कैसे बुक कर सकता हूँ?",
+      resKundali: "ज़रूर! 🔮 आप हमारे अनुभवी आचार्यों में से किसी एक के साथ कुंडली परामर्श बुक कर सकते हैं। मैं आपको सही विशेषज्ञ खोजने में भी मदद कर सकता हूँ।",
+      resVastu: "वास्तु मार्गदर्शन 🏠 के लिए, आप हमारी वास्तु परामर्श सेवा चुन सकते हैं और एक अनुभवी आचार्य से जुड़ सकते हैं।",
+      resBooking: "बिल्कुल! 📅 एक सेवा चुनें, एक आचार्य का चयन करें और उपलब्ध परामर्श समय चुनें। बुकिंग और भुगतान की सुविधा जल्द ही उपलब्ध होगी।",
+      resService: "एस्ट्रोकनेक्ट ज्योतिष, कुंडली, वास्तु, पूजा, मुहूर्त और अन्य आध्यात्मिक मार्गदर्शन सेवाएँ प्रदान करता है। ✨",
+      resDefault: "मुझे आपकी मदद करने में खुशी होगी। 🙏 आप मुझसे कुंडली, ज्योतिष, वास्तु, पूजा, मुहूर्त या आचार्य बुक करने के बारे में पूछ सकते हैं।"
     },
 
     // =====================================================
@@ -1442,12 +1863,64 @@ const translations = {
     // DASHBOARD
     // =====================================================
     dashboard: {
-      title: "डैशबोर्ड",
+      title: "आपका व्यक्तिगत एस्ट्रोकनेक्ट डैशबोर्ड",
       welcome: "स्वागत है",
-      profile: "प्रोफाइल",
+      profile: "मेरी प्रोफ़ाइल",
       bookings: "मेरी बुकिंग",
       history: "बुकिंग इतिहास",
-      logout: "लॉगआउट",
+      logout: "लॉग आउट",
+      manageProfile: "अपनी खाता जानकारी प्रबंधित करें",
+      email: "ईमेल",
+      phone: "फ़ोन",
+      accountType: "खाता प्रकार",
+      editProfile: "✏️ प्रोफ़ाइल संपादित करें",
+      cancel: "रद्द करें",
+      saveChanges: "बदलाव सहेजें",
+      saving: "सहेजा जा रहा है...",
+      emailCannotBeChanged: "प्रोफ़ाइल सेटिंग्स से ईमेल बदला नहीं जा सकता।",
+      nameLabel: "नाम",
+      emailLabel: "ईमेल",
+      phoneLabel: "फ़ोन",
+      enterName: "अपना नाम दर्ज करें",
+      enterPhone: "अपना फ़ोन नंबर दर्ज करें",
+      totalBookings: "कुल बुकिंग",
+      pending: "लंबित",
+      confirmed: "पुष्टि की गई",
+      completed: "पूर्ण",
+      quickActions: "त्वरित कार्य",
+      manageAstro: "अपने एस्ट्रोकनेक्ट को प्रबंधित करें",
+      myBookings: "मेरी बुकिंग",
+      myBookingsDesc: "अपनी परामर्श बुकिंग देखें और प्रबंधित करें।",
+      viewBookings: "बुकिंग देखें →",
+      bookConsultation: "परामर्श बुक करें",
+      bookConsultationDesc: "एक सेवा, आचार्य और अपना पसंदीदा समय चुनें।",
+      bookNow: "अभी बुक करें →",
+      aiHelp: "एआई सहायता",
+      aiHelpDesc: "एस्ट्रोकनेक्ट एआई से सहायता प्राप्त करें।",
+      openAIHelp: "एआई सहायता खोलें →",
+      recentActivity: "हाल की गतिविधियाँ",
+      recentBookings: "हाल की बुकिंग",
+      viewAll: "सभी देखें →",
+      loadingBookings: "बुकिंग लोड हो रही हैं...",
+      noBookingsYet: "अभी तक कोई बुकिंग नहीं",
+      noBookingsDesc: "आपकी परामर्श बुकिंग यहाँ दिखाई देगी।",
+      bookFirstConsultation: "अपनी पहली परामर्श बुक करें",
+      astrologyRecords: "ज्योतिष रिकॉर्ड",
+      myKundalis: "मेरी कुंडलियाँ",
+      createNew: "नया बनाएं →",
+      loadingKundalis: "आपकी कुंडलियाँ लोड हो रही हैं...",
+      noKundaliSaved: "अभी तक कोई कुंडली सहेजी नहीं गई",
+      noKundaliDesc: "अपनी कुंडली प्रोफ़ाइल बनाने के लिए अपने जन्म विवरण सहेजें।",
+      createYourKundali: "अपनी कुंडली बनाएं",
+      dateOfBirth: "जन्म तिथि",
+      birthTime: "जन्म समय",
+      birthPlace: "जन्म स्थान",
+      viewDetails: "विवरण देखें →",
+      pleaseLoginFirst: "कृपया पहले लॉगिन करें",
+      loginPrompt: "अपने एस्ट्रोकनेक्ट डैशबोर्ड तक पहुँचने के लिए आपको लॉगिन करना होगा।",
+      goToLogin: "लॉगिन पर जाएं",
+      loadingDashboard: "डैशबोर्ड लोड हो रहा है...",
+      pleaseWait: "कृपया थोड़ी देर प्रतीक्षा करें।"
     },
 
 
@@ -1456,6 +1929,7 @@ const translations = {
 
     about: {
       label: "एस्ट्रोकनेक्ट के बारे में",
+      knowMore: "और जानें",
 
       heroTitle: "प्राचीन ज्ञान।",
       heroTitleHighlight: "आधुनिक जुड़ाव।",
@@ -1921,9 +2395,78 @@ const translations = {
 
       occupiedHousePlural:
         "{planetNames} इस भाव में स्थित हैं। इससे जन्म कुंडली में यह भाव जीवन का एक महत्वपूर्ण क्षेत्र बन जाता है।",
+      createNewKundali: "नई कुंडली बनाएं",
+      dashboard: "डैशबोर्ड",
+
+      // translation.js -> hi -> kundaliDetails ke andar add karein:
+      heroTitle: "अपनी",
+      heroTitleHighlight: "कुंडली जानें",
+      enterName: "अपना पूरा नाम दर्ज करें",
+      placePlaceholder: "शहर, राज्य, देश",
+      savingKundali: "⏳ कुंडली सहेजी जा रही है...",
+      prepareKundali: "✦ कुंडली तैयार करें",
+
+      whyDetailsMatterTitle: "जन्म विवरण क्यों महत्वपूर्ण है",
+      whyDetailsMatterDesc: "वैदिक ज्योतिष में, सटीक जन्म कुंडली तैयार करने के लिए जन्म की सही तिथि, समय और स्थान महत्वपूर्ण हैं।",
+      birthDateCardTitle: "जन्म तिथि",
+      birthDateCardDesc: "ग्रहों की स्थिति निर्धारित करती है।",
+      birthTimeCardTitle: "जन्म समय",
+      birthTimeCardDesc: "लग्न और भावों को निर्धारित करने में मदद करता है।",
+      birthPlaceCardTitle: "जन्म स्थान",
+      birthPlaceCardDesc: "स्थानीय आकाश की स्थिति की गणना करने में मदद करता है।",
+
+      detailsSavedTitle: "जन्म विवरण सहेजा गया",
+      detailsSavedDesc: "आपकी जन्म जानकारी आपके AstroConnect खाते में सफलतापूर्वक सहेज ली गई है।",
+
+      yourRecordsLabel: "आपके रिकॉर्ड",
+      savedKundalisTitle: "सहेजी गई कुंडलियाँ",
+      savedKundalisDesc: "आपका सहेजा गया जन्म विवरण।",
+      loadingKundalisText: "आपकी कुंडलियाँ लोड हो रही हैं...",
+      noSavedKundaliText: "अभी तक कोई सहेजी गई कुंडली नहीं मिली है।",
+      savedOnText: "सहेजा गया:",
 
 
     },
+
+    //======================================================
+    // FOOTER
+    //======================================================
+
+
+    footer: {
+      description: "अनुभवी ज्योतिषियों से जुड़ें और अपने जीवन की यात्रा के लिए सही मार्गदर्शन प्राप्त करें। AstroConnect के साथ स्पष्टता, सकारात्मकता और सही दिशा पाएं।",
+      trust: "आपकी जीवन यात्रा के लिए मार्गदर्शन",
+      quickLinksTitle: "महत्वपूर्ण लिंक",
+      servicesTitle: "हमारी सेवाएं",
+      connectTitle: "हमसे जुड़ें",
+      connectDescription: "क्या आपके कोई सवाल हैं या सहायता चाहिए? हम आपकी मदद के लिए यहां हैं।",
+      contactTeam: "हमारी टीम से संपर्क करें",
+      rights: "सर्वाधिकार सुरक्षित।",
+      craftedWith: "बनाया गया",
+      by: "द्वारा",
+      backToTop: "ऊपर जाएं",
+
+      quickLinks: {
+        home: "होम",
+        aboutUs: "हमारे बारे में",
+        services: "सेवाएं",
+        ourAcharyas: "हमारे आचार्य",
+        gallery: "गैलरी",
+        contactUs: "संपर्क करें",
+        careers: "करियर"
+      },
+
+      services: {
+        kundali: "कुंडली",
+        pooja: "पूजा",
+        vastu: "वास्तु",
+        jyotish: "ज्योतिष",
+        muhurat: "मुहूर्त",
+        numerology: "अंक ज्योतिष",
+        tarotReading: "टैरो रीडिंग"
+      }
+    },
+
 
     // =====================================================
     // COMMON
@@ -1939,6 +2482,7 @@ const translations = {
       close: "बंद करें",
       submit: "सबमिट करें",
     },
+
   },
 
   // =====================================================
@@ -2017,64 +2561,111 @@ const translations = {
       clientExperience: "ಗ್ರಾಹಕರ ಅನುಭವ",
     },
 
+
     services: {
       label: "ನಮ್ಮ ಸೇವೆಗಳು",
-      title: "ಪ್ರತಿ ಪ್ರಮುಖ",
+      title: "ಪ್ರತಿಯೊಂದು ಪ್ರಮುಖ",
       titleHighlight: "ಕ್ಷಣಕ್ಕೂ ಮಾರ್ಗದರ್ಶನ",
       description:
-        "ನಮ್ಮ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳನ್ನು ನೋಡಿ ಮತ್ತು ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ.",
+        "ಜ್ಯೋತಿಷ್ಯ, ಕುಂಡಲಿ, ವಾಸ್ತು ಮತ್ತು ಇತರ ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ. ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಸಮಾಲೋಚನೆಗಾಗಿ ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
 
       jyotish: {
         title: "ಜ್ಯೋತಿಷ್ಯ",
         description:
-          "ವೇದಿಕ ಜ್ಯೋತಿಷ್ಯದ ಆಧಾರದ ಮೇಲೆ ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+          "ವೈದಿಕ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಗ್ರಹಗಳ ಸ್ಥಾನಗಳ ಆಧಾರದ ಮೇಲೆ ವೃತ್ತಿ, ಸಂಬಂಧಗಳು ಮತ್ತು ಜೀವನದ ಪ್ರಶ್ನೆಗಳಿಗೆ ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
       kundali: {
         title: "ಕುಂಡಲಿ",
         description:
-          "ನಿಮ್ಮ ಜನ್ಮ ಚಾರ್ಟ್ ಮತ್ತು ಗ್ರಹಗಳ ಪ್ರಭಾವವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+          "ವೈಯಕ್ತಿಕ ಕುಂಡಲಿ ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ಸಮಾಲೋಚನೆಯ ಮೂಲಕ ನಿಮ್ಮ ಜನ್ಮ ಕುಂಡಲಿ, ಗ್ರಹಗಳ ಸ್ಥಾನಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯ ಯೋಗಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
       },
 
       vastu: {
         title: "ವಾಸ್ತು",
         description:
-          "ನಿಮ್ಮ ಸ್ಥಳದಲ್ಲಿ ಸಮತೋಲನ ಮತ್ತು ಸಕಾರಾತ್ಮಕ ಶಕ್ತಿಯನ್ನು ತರಿರಿ.",
+          "ಮನೆ, ಕಚೇರಿ ಮತ್ತು ಕೆಲಸದ ಸ್ಥಳಗಳಿಗಾಗಿ ವಾಸ್ತು ಸಮಾಲೋಚನೆ ಹಾಗೂ ದಿಕ್ಕುಗಳು ಮತ್ತು ಸ್ಥಳ ವಿನ್ಯಾಸದ ಕುರಿತು ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
       pooja: {
         title: "ಪೂಜೆ",
         description:
-          "ಸಾಂಪ್ರದಾಯಿಕ ಪೂಜೆಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಬುಕ್ ಮಾಡಿ.",
+          "ಸಾಂಪ್ರದಾಯಿಕ ಪೂಜೆಗಳು, ಧಾರ್ಮಿಕ ವಿಧಿವಿಧಾನಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಮಾರಂಭಗಳ ಕುರಿತು ಮಾಹಿತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
       lagna: {
         title: "ವಿವಾಹ",
         description:
-          "ವಿವಾಹ ಮತ್ತು ಹೊಂದಾಣಿಕೆಗಾಗಿ ಸೂಕ್ತ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+          "ವಿವಾಹ, ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ವೈವಾಹಿಕ ಹೊಂದಾಣಿಕೆಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಶ್ನೆಗಳಿಗೆ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
       muhurat: {
         title: "ಮುಹೂರ್ತ",
         description:
-          "ಪ್ರಮುಖ ಸಂದರ್ಭಗಳಿಗಾಗಿ ಶುಭ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+          "ಮದುವೆ, ಗೃಹಪ್ರವೇಶ ಮತ್ತು ಇತರ ಪ್ರಮುಖ ಸಂದರ್ಭಗಳಿಗೆ ಸಾಂಪ್ರದಾಯಿಕ ಶುಭ ಸಮಯಗಳ ಕುರಿತು ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
       numerology: {
-        title: "ಅಂಕಶಾಸ್ತ್ರ",
+        title: "ಸಂಖ್ಯಾಶಾಸ್ತ್ರ",
         description:
-          "ನಿಮ್ಮ ಜೀವನದಲ್ಲಿ ಸಂಖ್ಯೆಗಳ ಅರ್ಥವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
+          "ನಿಮ್ಮ ಜನ್ಮ ದಿನಾಂಕದ ಆಧಾರದ ಮೇಲೆ ಸಂಖ್ಯೆಗಳ ಸಾಂಪ್ರದಾಯಿಕ ಮಹತ್ವ ಮತ್ತು ಸಂಖ್ಯಾಶಾಸ್ತ್ರದ ಬಗ್ಗೆ ತಿಳಿದುಕೊಳ್ಳಿ.",
       },
 
       tarot: {
         title: "ಟ್ಯಾರೋ",
         description:
-          "ಟ್ಯಾರೋ ರೀಡಿಂಗ್ ಮೂಲಕ ಹೊಸ ಒಳನೋಟಗಳನ್ನು ಪಡೆಯಿರಿ.",
+          "ವೃತ್ತಿ, ಸಂಬಂಧಗಳು ಮತ್ತು ವೈಯಕ್ತಿಕ ಜೀವನದ ಪ್ರಶ್ನೆಗಳಿಗೆ ಟ್ಯಾರೋ ರೀಡಿಂಗ್ ಮೂಲಕ ಹೊಸ ದೃಷ್ಟಿಕೋನ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
       },
 
-      explore: "ವಿವರವಾಗಿ ನೋಡಿ",
-      lookingFor: "ನಿರ್ದಿಷ್ಟವಾದದ್ದನ್ನು ಹುಡುಕುತ್ತಿದ್ದೀರಾ?",
+      explore: "ಅನ್ವೇಷಿಸಿ",
+      lookingFor: "ನೀವು ಯಾವುದಾದರೂ ವಿಶೇಷವಾದುದನ್ನು ಹುಡುಕುತ್ತಿದ್ದೀರಾ?",
       viewAll: "ಎಲ್ಲಾ ಸೇವೆಗಳನ್ನು ನೋಡಿ",
+    },
+
+
+    //=====================================================
+    // CONTACT
+    //=====================================================
+
+    contact: {
+      getInTouch: "ಸಂಪರ್ಕಿಸಿ",
+      connectWith: "ಸಂಪರ್ಕ ಬೆಳೆಸಿಕೊಳ್ಳಿ",
+      heroDescription:
+        "ನಿಮಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿವೆಯೇ, ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ ಅಥವಾ ನಮ್ಮ ಜ್ಯೋತಿಷ್ಯ ಸೇವೆಗಳ ಬಗ್ಗೆ ತಿಳಿಯಲು ಬಯಸುವಿರಾ? ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು ನಾವು ಇಲ್ಲಿದ್ದೇವೆ.",
+      contactUs: "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      heading: "ನಿಮ್ಮಿಂದ ಕೇಳಲು ನಾವು ಇಷ್ಟಪಡುತ್ತೇವೆ",
+      contactDescription:
+        "ಆಚಾರ್ಯ ಸಮಾಲೋಚನೆ, ಕುಂಡಲಿ, ಪೂಜೆ, ವಾಸ್ತು, ಮುಹೂರ್ತ ಅಥವಾ ಇತರ ಸೇವೆಗಳ ಕುರಿತು ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      ourLocation: "ನಮ್ಮ ಸ್ಥಳ",
+      openMaps: "Google Maps ನಲ್ಲಿ ತೆರೆಯಿರಿ →",
+      callUs: "ನಮಗೆ ಕರೆ ಮಾಡಿ",
+      callNow: "ಈಗ ಕರೆ ಮಾಡಿ →",
+      whatsappUs: "WhatsApp ಸಂಪರ್ಕಿಸಿ",
+      chatTeam: "ನಮ್ಮ ತಂಡದೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಿ",
+      chatWhatsapp: "WhatsApp ನಲ್ಲಿ ಚಾಟ್ ಮಾಡಿ →",
+      emailUs: "ನಮಗೆ ಇಮೇಲ್ ಮಾಡಿ",
+      sendEmail: "ಇಮೇಲ್ ಕಳುಹಿಸಿ →",
+      workingHours: "ಕಾರ್ಯ ಸಮಯ",
+      sendMessage: "ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ",
+      formDescription: "ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ, ನಮ್ಮ ತಂಡವು ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
+      fullName: "ಪೂರ್ಣ ಹೆಸರು",
+      enterName: "ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+      emailAddress: "ಇಮೇಲ್ ವಿಳಾಸ",
+      enterEmail: "ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ",
+      phoneNumber: "ಫೋನ್ ಸಂಖ್ಯೆ",
+      enterPhone: "ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+      subject: "ವಿಷಯ",
+      query: "ನಿಮ್ಮ ಪ್ರಶ್ನೆ ಏನು?",
+      yourMessage: "ನಿಮ್ಮ ಸಂದೇಶ",
+      messagePlaceholder: "ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ಬರೆಯಿರಿ...",
+      send: "ಸಂದೇಶ ಕಳುಹಿಸಿ",
+      requiredError: "ದಯವಿಟ್ಟು ಅಗತ್ಯವಿರುವ ಎಲ್ಲಾ ಕ್ಷೇತ್ರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.",
+      invalidEmail: "ದಯವಿಟ್ಟು ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸ ನಮೂದಿಸಿ.",
+      submitError: "ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+      success: "ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ.",
+      generalError: "ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+      locationName: "ನವದೆಹಲಿ, ಭಾರತ",
+      workingDays: "ಸೋಮವಾರ – ಭಾನುವಾರ",
     },
 
     // =====================================================
@@ -2095,6 +2686,36 @@ const translations = {
       viewAll: "ಎಲ್ಲಾ ಆಚಾರ್ಯರನ್ನು ನೋಡಿ",
       reviews: "ವಿಮರ್ಶೆಗಳು",
       willBeAvailable: "ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯವಿರುತ್ತಾರೆ.",
+
+      loading: "ಆಚಾರ್ಯರ ಮಾಹಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      loadError: "ಆಚಾರ್ಯರ ಮಾಹಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+      trustedGuidance: "ವಿಶ್ವಾಸಾರ್ಹ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನ",
+      meetOur: "ನಮ್ಮ",
+      acharyasTitle: "ಆಚಾರ್ಯರನ್ನು ಭೇಟಿ ಮಾಡಿ",
+      heroDescription: "ನಿಮ್ಮ ನಕ್ಷತ್ರಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು, ಸರಿಯಾದ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಮತ್ತು ಜೀವನದಲ್ಲಿ ಸ್ಪಷ್ಟತೆ ಪಡೆಯಲು ಅನುಭವಿ ಜ್ಯೋತಿಷಿಗಳು ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      expertAcharyas: "ತಜ್ಞ ಆಚಾರ್ಯರು",
+      astrologyServices: "ಜ್ಯೋತಿಷ್ಯ ಸೇವೆಗಳು",
+      guidance: "ಮಾರ್ಗದರ್ಶನ",
+      ourExperts: "ನಮ್ಮ ತಜ್ಞರು",
+      chooseYour: "ನಿಮ್ಮ ಆಯ್ಕೆಯ",
+      sectionDescription: "ಅನುಭವ, ಪರಿಣತಿ ಮತ್ತು ಭಾಷೆಗಳ ಆಧಾರದ ಮೇಲೆ ಸರಿಯಾದ ಜ್ಯೋತಿಷ್ಯ ತಜ್ಞರನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      acharyaSingular: "ಆಚಾರ್ಯ",
+      acharyaPlural: "ಆಚಾರ್ಯರು",
+      findingAcharyas: "ನಮ್ಮ ಆಚಾರ್ಯರನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ...",
+      tryAgain: "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+      comingSoonTitle: "ನಮ್ಮ ಆಚಾರ್ಯರು ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದ್ದಾರೆ",
+      comingSoonDescription: "ನಮ್ಮ ತಜ್ಞ ಜ್ಯೋತಿಷಿಗಳ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತಿದ್ದೇವೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಭೇಟಿ ನೀಡಿ.",
+      backHome: "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+      available: "ಲಭ್ಯವಿದ್ದಾರೆ",
+      experience: "ಅನುಭವ",
+      years: "ವರ್ಷಗಳು",
+      consultation: "ಸಮಾಲೋಚನೆ",
+      consultationFrom: "ಸಮಾಲೋಚನೆ ಶುಲ್ಕ",
+      bookConsultation: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      needGuidance: "ಮಾರ್ಗದರ್ಶನ ಬೇಕೇ?",
+      ctaTitle: "ಯಾವ ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆ ಮಾಡಬೇಕೆಂದು ತಿಳಿಯುತ್ತಿಲ್ಲವೇ?",
+      ctaDescription: "ನಿಮ್ಮ ಅಗತ್ಯಗಳಿಗೆ ಸರಿಯಾದ ಜ್ಯೋತಿಷ್ಯ ಸೇವೆಯನ್ನು ಹುಡುಕಲು AstroConnect ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+      askAI: "AstroConnect AI ಅನ್ನು ಕೇಳಿ",
 
       acharyaShiv: {
         name: "ಆಚಾರ್ಯ ಶಿವ",
@@ -2125,6 +2746,30 @@ const translations = {
         hindiKannada: "ಹಿಂದಿ · ಕನ್ನಡ",
         all: "ಹಿಂದಿ · ಇಂಗ್ಲಿಷ್ · ಕನ್ನಡ",
       },
+    },
+
+    //=====================================================
+    //POOJA
+    //=====================================================
+
+    pooja: {
+      label: "ಪೂಜೆ",
+      title: "ಪವಿತ್ರ ಪೂಜೆಗಳು",
+      titleHighlight: "AstroConnect ಮೂಲಕ ನೆರವೇರಿಸಲಾಗಿದೆ",
+      description: "ನಮ್ಮ ಆಚಾರ್ಯರು ವಿವಿಧ ನಗರಗಳಲ್ಲಿ ನೆರವೇರಿಸಿದ ಪವಿತ್ರ ಪೂಜೆಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಮಾರಂಭಗಳನ್ನು ವೀಕ್ಷಿಸಿ.",
+      ourWork: "ನಮ್ಮ ಕಾರ್ಯ",
+      performed: "ನಾವು ನೆರವೇರಿಸಿದ ಪೂಜೆಗಳು",
+      sectionDescription: "ನಮ್ಮ ಅನುಭವಿ ಆಚಾರ್ಯರು ನಡೆಸಿದ ಆಧ್ಯಾತ್ಮಿಕ ಸಮಾರಂಭಗಳ ಒಂದು ನೋಟ.",
+      loading: "ಪೂಜೆಗಳ ಮಾಹಿತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+      loadingDescription: "ದಯವಿಟ್ಟು ಕಾಯಿರಿ.",
+      loadError: "ಪೂಜೆಗಳ ಮಾಹಿತಿ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
+      comingSoon: "ಪೂಜೆಗಳ ದಾಖಲೆಗಳು ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯ",
+      comingSoonDescription: "ನಮ್ಮ ಪೂರ್ಣಗೊಂಡ ಪೂಜೆಗಳ ವಿವರಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
+      completed: "ಪೂರ್ಣಗೊಂಡಿದೆ",
+      city: "ನಗರ",
+      date: "ದಿನಾಂಕ",
+      acharya: "ಆಚಾರ್ಯರು",
+      yajman: "ಯಜಮಾನ"
     },
 
     // =====================================================
@@ -2170,19 +2815,89 @@ const translations = {
     // REVIEWS
     // =====================================================
     reviews: {
-      label: "ಗ್ರಾಹಕರ ಅನುಭವಗಳು",
-      title: "ಮಾರ್ಗದರ್ಶನ ಹುಡುಕುತ್ತಿರುವ ಜನರ",
-      titleHighlight: "ನಂಬಿಕೆ",
-      description:
-        "AstroConnect ತಜ್ಞರೊಂದಿಗೆ ಸಮಾಲೋಚನೆ ಪಡೆದ ನಮ್ಮ ಗ್ರಾಹಕರ ಅನುಭವಗಳನ್ನು ತಿಳಿಯಿರಿ.",
-
-      verified: "ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
-      consultedFor: "ಸಮಾಲೋಚನೆ",
-      basedOn: "ಗ್ರಾಹಕರ ಅನುಭವಗಳ ಆಧಾರದ ಮೇಲೆ",
+      label: "ಪ್ರಶಂಸಾಪತ್ರಗಳು",
+      heroTitle: "ಸಾವಿರಾರು ಜನರಿಂದ",
+      heroHighlight: "ಪ್ರೀತಿಸಲ್ಪಟ್ಟಿದೆ",
+      heroDescription: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಮೂಲಕ ಆಧ್ಯಾತ್ಮಿಕ ಸ್ಪಷ್ಟತೆ ಮತ್ತು ನಿಖರವಾದ ಮಾರ್ಗದರ್ಶನ ಪಡೆದ ಬಳಕೆದಾರರ ನಿಜವಾದ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಓದಿ.",
+      overallRating: "ಒಟ್ಟಾರೆ ರೇಟಿಂಗ್",
       consultations: "ಸಮಾಲೋಚನೆಗಳು",
       expertAcharyas: "ತಜ್ಞ ಆಚಾರ್ಯರು",
-      bookConsultation: "ನಿಮ್ಮ ಸಮಾಲೋಚನೆಯನ್ನು ಬುಕ್ ಮಾಡಿ",
+      storiesLabel: "ಯಶಸ್ಸಿನ ಕಥೆಗಳು",
+      storiesTitle: "ನಮ್ಮ",
+      storiesHighlight: "ಬಳಕೆದಾರರು ಏನು ಹೇಳುತ್ತಾರೆ",
+      storiesDescription: "ನಮ್ಮ ಮಾರ್ಗದರ್ಶನವನ್ನು ನಂಬಿದವರ ನೈಜ ಅನುಭವಗಳು.",
+      verified: "ಪರಿಶೀಲಿಸಿದ ಬಳಕೆದಾರ",
+      consultedFor: "ಸಮಾಲೋಚನೆಗಾಗಿ:",
+      title: "ಗ್ರಾಹಕರ",
+      titleHighlight: "ಪ್ರಶಂಸಾಪತ್ರಗಳು",
+      description: "ಆಳವಾದ ಜ್ಯೋತಿಷ್ಯ ಮಾರ್ಗದರ್ಶನವನ್ನು ಅನುಭವಿಸಿದವರ ನೈಜ ಕಥೆಗಳನ್ನು ಓದಿ.",
+      basedOn: "2,500+ ವಿಮರ್ಶೆಗಳ ಆಧಾರದ ಮೇಲೆ",
+      trustedBy: "ಸಾಧಕರಿಂದ ನಂಬಲ್ಪಟ್ಟಿದೆ",
+      trustedDescription: "ವಿಶ್ವಾದ್ಯಂತ ಅಧಿಕೃತ ಮಾರ್ಗದರ್ಶನವನ್ನು ಒದಗಿಸುವುದು.",
+      happyClients: "ಸಂತೋಷದ ಗ್ರಾಹಕರು",
+      verifiedExperts: "ಪರಿಶೀಲಿಸಿದ ತಜ್ಞರು",
+      languages: "ಬೆಂಬಲಿತ ಭಾಷೆಗಳು",
+      ctaLabel: "ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ",
+      ctaTitle: "ನಿಮ್ಮ",
+      ctaHighlight: "ಸಮಾಲೋಚನೆಗೆ ಸಿದ್ಧರಿದ್ದೀರಾ?",
+      ctaDescription: "ಪರಿಶೀಲಿಸಿದ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ ಮತ್ತು ಇಂದು ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      ctaButton: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      bookConsultation: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ"
     },
+
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "ರಾಹುಲ್ ಶರ್ಮಾ",
+        location: "ದೆಹಲಿ",
+        service: "ಕುಂಡಲಿ ಸಮಾಲೋಚನೆ",
+        rating: 5,
+        text: "ಸಮಾಲೋಚನೆಯು ವಿವರವಾಗಿತ್ತು ಮತ್ತು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸುಲಭವಾಗಿತ್ತು. ಆಚಾರ್ಯರು ಎಲ್ಲವನ್ನೂ ತಾಳ್ಮೆಯಿಂದ ವಿವರಿಸಿದರು.",
+      },
+      {
+        initials: "PK",
+        name: "ಪ್ರಿಯಾ ಕಪೂರ್",
+        location: "ನೊಯ್ಡಾ",
+        service: "ವಾಸ್ತು ಸಮಾಲೋಚನೆ",
+        rating: 5,
+        text: "ನನ್ನ ಮನೆಗೆ ಪ್ರಾಯೋಗಿಕ ವಾಸ್ತು ಮಾರ್ಗದರ್ಶನ ಸಿಕ್ಕಿತು. ಒಟ್ಟಾರೆ ಸಮಾಲೋಚನೆ ಅನುಭವವು ನಯವಾದ ಮತ್ತು ವೃತ್ತಿಪರವಾಗಿತ್ತು.",
+      },
+      {
+        initials: "AM",
+        name: "ಅನನ್ಯ ಮಿಶ್ರಾ",
+        location: "ಬೆಂಗಳೂರು",
+        service: "ಮದುವೆ ಮಾರ್ಗದರ್ಶನ",
+        rating: 5,
+        text: "ಈ ಸಮಾಲೋಚನೆಯು ನನ್ನ ಕುಂಡಲಿ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯ ಬಗ್ಗೆ ಸ್ಪಷ್ಟವಾದ ತಿಳುವಳಿಕೆಯನ್ನು ನೀಡಿತು. ಬಹಳ ಸಹಾಯಕವಾದ ಅನುಭವ.",
+      },
+      {
+        initials: "VK",
+        name: "ವಿಕಾಸ್ ಕುಮಾರ್",
+        location: "ಲಕ್ನೋ",
+        service: "ಪೂಜೆ ಸೇವೆ",
+        rating: 4,
+        text: "ಬುಕಿಂಗ್ ಪ್ರಕ್ರಿಯೆಯು ಸರಳವಾಗಿತ್ತು ಮತ್ತು ಸೇವೆಯನ್ನು ಉತ್ತಮವಾಗಿ ಸಂಘಟಿಸಲಾಗಿತ್ತು. ನನಗೆ ಅನುಭವ ತುಂಬಾ ಇಷ್ಟವಾಯಿತು.",
+      }
+    ],
+
+    reviewsList: [
+      {
+        initials: "RS",
+        name: "ರಾಹುಲ್ ಶರ್ಮಾ",
+        location: "ದೆಹಲಿ",
+        service: "ಕುಂಡಲಿ ಸಮಾಲೋಚನೆ",
+        rating: 5,
+        text: "ಸಮಾಲೋಚನೆಯು ವಿವರವಾಗಿತ್ತು ಮತ್ತು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸುಲಭವಾಗಿತ್ತು. ಆಚಾರ್ಯರು ಎಲ್ಲವನ್ನೂ ತಾಳ್ಮೆಯಿಂದ ವಿವರಿಸಿದರು.",
+      },
+      {
+        initials: "PK",
+        name: "ಪ್ರಿಯಾ ಕಪೂರ್",
+        location: "ನೊಯ್ಡಾ",
+        service: "ವಾಸ್ತು ಸಮಾಲೋಚನೆ",
+        rating: 5,
+        text: "ನನ್ನ ಮನೆಗೆ ಪ್ರಾಯೋಗಿಕ ವಾಸ್ತು ಮಾರ್ಗದರ್ಶನ ಸಿಕ್ಕಿತು. ಒಟ್ಟಾರೆ ಸಮಾಲೋಚನೆ ಅನುಭವವು ನಯವಾದ ಮತ್ತು ವೃತ್ತಿಪರವಾಗಿತ್ತು.",
+      }
+    ],
 
     // =====================================================
     // CITIES
@@ -2191,15 +2906,27 @@ const translations = {
       label: "ನಮ್ಮ ಉಪಸ್ಥಿತಿ",
       title: "ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನ,",
       titleHighlight: "ನೀವು ಎಲ್ಲಿದ್ದರೂ",
-      description:
-        "ವಿವಿಧ ನಗರಗಳ ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ಆನ್‌ಲೈನ್ ಜ್ಯೋತಿಷ್ಯ ಹಾಗೂ ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳನ್ನು ಪಡೆಯಿರಿ.",
-
-      serving: "ಭಾರತದಾದ್ಯಂತ ಗ್ರಾಹಕರಿಗೆ ಸೇವೆ",
-      onlineAvailable:
-        "ಯಾವುದೇ ಸ್ಥಳದಿಂದ ಆನ್‌ಲೈನ್ ಸಮಾಲೋಚನೆ ಲಭ್ಯವಿದೆ.",
-      findAcharya: "ಆಚಾರ್ಯರನ್ನು ಹುಡುಕಿ",
+      description: "ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ ಮತ್ತು ಭಾರತದ ವಿವಿಧ ನಗರಗಳಿಂದ ಜ್ಯೋತಿಷ್ಯ, ವಾಸ್ತು, ಕುಂಡಲಿ, ಪೂಜೆ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.",
+      stat1: "ಪ್ರಮುಖ ನಗರಗಳು",
+      stat2: "ಆಚಾರ್ಯರು",
+      stat3: "ಸಮಾಲೋಚನೆಗಳು",
+      stat4: "ಆನ್‌ಲೈನ್ ಪ್ರವೇಶ",
+      exploreBtn: "ಆಚಾರ್ಯರನ್ನು ಅನ್ವೇಷಿಸಿ",
+      bottomLabel: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಇಂಡಿಯಾ",
+      bottomTitle: "ನಿಮ್ಮ ನಗರ ಪಟ್ಟಿಯಲ್ಲಿಲ್ಲವೇ?",
+      bottomDesc: "ಯಾವುದೇ ಸಮಸ್ಯೆ ಇಲ್ಲ. ಭಾರತದಲ್ಲಿ ಎಡೆಯಿಂದಲೂ ಆನ್‌ಲೈನ್ ಸಮಾಲೋಚನೆ ಲಭ್ಯವಿದೆ.",
+      bottomBtn: "ಒಬ್ಬ ಆಚಾರ್ಯರನ್ನು ಹುಡುಕಿ",
+      citiesList: [
+        { icon: "🏛️", city: "ದೆಹಲಿ", state: "ದೆಹಲಿ", services: "ಜ್ಯೋತಿಷ್ಯ · ಕುಂಡಲಿ · ಪೂಜೆ" },
+        { icon: "🏙️", city: "ನೊಯ್ಡಾ", state: "ಉತ್ತರ ಪ್ರದೇಶ", services: "ವಾಸ್ತು · ಜ್ಯೋತಿಷ್ಯ · ಮುಹೂರ್ತ" },
+        { icon: "🌆", city: "ಬೆಂಗಳೂರು", state: "ಕರ್ನಾಟಕ", services: "ಕುಂಡಲಿ · ಪೂಜೆ · ಜ್ಯೋತಿಷ್ಯ" },
+        { icon: "🌇", city: "ಮುಂಬೈ", state: "ಮಹಾರಾಷ್ಟ್ರ", services: "ಜ್ಯೋತಿಷ್ಯ · ವಾಸ್ತು · ಮದುವೆ" },
+        { icon: "🏰", city: "ಲಕ್ನೋ", state: "ಉತ್ತರ ಪ್ರದೇಶ", services: "ಪೂಜೆ · ಕುಂಡಲಿ · ಮುಹೂರ್ತ" },
+        { icon: "🌃", city: "ಹೈದರಾಬಾದ್", state: "ತೆಲಂಗಾಣ", services: "ವಾಸ್ತು · ಜ್ಯೋತಿಷ್ಯ · ಪೂಜೆ" },
+        { icon: "🏯", city: "ಜೈಪುರ", state: "ರಾಜಸ್ಥಾನ", services: "ಕುಂಡಲಿ · ಜ್ಯೋತಿಷ್ಯ · ವಾಸ್ತು" },
+        { icon: "🌉", city: "ಚಂಡೀಗಢ", state: "ಚಂಡೀಗಢ", services: "ಜ್ಯೋತಿಷ್ಯ · ಮುಹೂರ್ತ · ಪೂಜೆ" }
+      ]
     },
-
     // =====================================================
     // GALLERY
     // =====================================================
@@ -2233,45 +2960,25 @@ const translations = {
     // AI HELP
     // =====================================================
     aiHelp: {
-      label: "ASTROCONNECT AI",
-      title: "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ",
-      titleHighlight: "ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶಿ",
-      description:
-        "ನಮ್ಮ ಸೇವೆಗಳು, ಸಮಾಲೋಚನೆಗಳು, ಬುಕಿಂಗ್ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಹಾಯದ ಕುರಿತು ತ್ವರಿತ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
-
-      quickGuidance: "ತ್ವರಿತ ಮಾರ್ಗದರ್ಶನ",
-      privateSecure: "ಖಾಸಗಿ ಮತ್ತು ಸುರಕ್ಷಿತ",
-      multilingual: "ಬಹುಭಾಷಾ",
-
-      online: "ಆನ್‌ಲೈನ್",
-      placeholder: "AstroConnect AI ಅನ್ನು ಕೇಳಿ...",
-
-      welcome:
-        "ನಮಸ್ಕಾರ! 🙏 ನಾನು AstroConnect AI Guide. ಇಂದು ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?",
-
-      suggestions: {
-        service: "ನನಗೆ ಯಾವ ಸೇವೆ ಸೂಕ್ತವಾಗಿದೆ?",
-        kundali: "ನನಗೆ ಕುಂಡಲಿ ಸಮಾಲೋಚನೆ ಬೇಕು",
-        vastu: "ವಾಸ್ತುವಿನಲ್ಲಿ ನನಗೆ ಸಹಾಯ ಬೇಕು",
-        booking: "ನಾನು ಆಚಾರ್ಯರನ್ನು ಹೇಗೆ ಬುಕ್ ಮಾಡಬಹುದು?",
-      },
-
-      responses: {
-        kundali:
-          "ಖಂಡಿತ! 🔮 ನಮ್ಮ ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಕುಂಡಲಿ ಸಮಾಲೋಚನೆಯನ್ನು ಬುಕ್ ಮಾಡಬಹುದು. ಸರಿಯಾದ ತಜ್ಞರನ್ನು ಹುಡುಕಲು ನಾನು ಸಹಾಯ ಮಾಡಬಹುದು.",
-
-        vastu:
-          "ವಾಸ್ತು ಮಾರ್ಗದರ್ಶನ 🏠ಕ್ಕಾಗಿ ನಮ್ಮ ವಾಸ್ತು ಸಮಾಲೋಚನೆ ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ.",
-
-        booking:
-          "ಖಂಡಿತ! 📅 ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಆಚಾರ್ಯರನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಲಭ್ಯವಿರುವ ಸಮಯವನ್ನು ಆರಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಬುಕಿಂಗ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ.",
-
-        service:
-          "AstroConnect ಜ್ಯೋತಿಷ್ಯ, ಕುಂಡಲಿ, ವಾಸ್ತು, ಪೂಜೆ, ಮುಹೂರ್ತ ಮತ್ತು ಇತರ ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ✨",
-
-        default:
-          "ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು ನನಗೆ ಸಂತೋಷವಾಗುತ್ತದೆ. 🙏 ಕುಂಡಲಿ, ಜ್ಯೋತಿಷ್ಯ, ವಾಸ್ತು, ಪೂಜೆ, ಮುಹೂರ್ತ ಅಥವಾ ಆಚಾರ್ಯ ಬುಕಿಂಗ್ ಕುರಿತು ಕೇಳಬಹುದು.",
-      },
+      label: "AI ಸಹಾಯಕ",
+      title: "ಏನನ್ನಾದರೂ ಕೇಳಿ",
+      titleHighlight: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ AI ಗೆ",
+      description: "ನಮ್ಮ ಸೇವೆಗಳು, ಸಮಾಲೋಚನೆಗಳು, ಬುಕಿಂಗ್‌ಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಹಾಯದ ಬಗ್ಗೆ ತ್ವರಿತ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಿರಿ.",
+      quickGuidance: "ತ್ವರಿತ ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನ",
+      privateSecure: "ಖಾಸಗಿ ಮತ್ತು ಸುರಕ್ಷಿತ ಚಾಟ್‌ಗಳು",
+      multilingual: "ಬಹು-ಭಾಷಾ ಬೆಂಬಲ",
+      online: "ಆನ್‌ಲೈನ್ ಮತ್ತು ಸಿದ್ಧ",
+      inputPlaceholder: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ AI ಅನ್ನು ಕೇಳಿ...",
+      welcomeMessage: "ನಮಸ್ತೆ! 🙏 ನಾನು ಆಸ್ಟ್ರോകನೆಕ್ಟ್ AI ಮಾರ್ಗದರ್ಶಿ. ಇಂದು ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?",
+      suggestion1: "ನನಗೆ ಯಾವ ಸೇವೆ ಸೂಕ್ತವಾಗಿದೆ?",
+      suggestion2: "ನನಗೆ ಕುಂಡಲಿ ಸಮಾಲೋಚನೆ ಬೇಕು",
+      suggestion3: "ನನಗೆ ವಾಸ್ತು ಬಗ್ಗೆ ಸಹಾಯ ಬೇಕು",
+      suggestion4: "ನಾನು ಆಚಾರ್ಯರನ್ನು ಹೇಗೆ ಬುಕ್ ಮಾಡಬಹುದು?",
+      resKundali: "ಖಂಡಿತ! 🔮 ನಮ್ಮ ಅನುಭವಿ ಆಚಾರ್ಯರಲ್ಲಿ ಒಬ್ಬರೊಂದಿಗೆ ನೀವು ಕುಂಡಲಿ ಸಮಾಲೋಚನೆಯನ್ನು ಬುಕ್ ಮಾಡಬಹುದು. ಸರಿಯಾದ ತಜ್ಞರನ್ನು ಹುಡುಕಲು ನಾನು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ.",
+      resVastu: "ವಾಸ್ತು ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ 🏠, ನೀವು ನಮ್ಮ ವಾಸ್ತು ಸಮಾಲೋಚನೆ ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಬಹುದು ಮತ್ತು ಅನುಭವಿ ಆಚಾರ್ಯರೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಬಹುದು.",
+      resBooking: "ಖಂಡಿತವಾಗಿಯೂ! 📅 ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಆಚಾರ್ಯರನ್ನು ಆರಿಸಿ ಮತ್ತು ಲಭ್ಯವಿರುವ ಸಮಾಲೋಚನೆ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಬುಕಿಂಗ್ ಮತ್ತು ಪಾವತಿ ಸೌಲಭ್ಯಗಳು ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯವಿರುತ್ತವೆ.",
+      resService: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಜ್ಯೋತಿಷ್ಯ, ಕುಂಡಲಿ, ವಾಸ್ತು, ಪೂಜೆ, ಮುಹೂರ್ತ ಮತ್ತು ಇತರ ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನ ಸೇವೆಗಳನ್ನು ನೀಡುತ್ತದೆ. ✨",
+      resDefault: "ಸಹಾಯ ಮಾಡಲು ನನಗೆ ಸಂತೋಷವಾಗುತ್ತದೆ. 🙏 ನೀವು ಕುಂಡಲಿ, ಜ್ಯೋತಿಷ್ಯ, ವಾಸ್ತು, ಪೂಜೆ, ಮುಹೂರ್ತ ಅಥವಾ ಆಚಾರ್ಯರನ್ನು ಬುಕ್ ಮಾಡುವ ಬಗ್ಗೆ ನನ್ನನ್ನು ಕೇಳಬಹುದು."
     },
 
     // =====================================================
@@ -2353,12 +3060,64 @@ const translations = {
     // DASHBOARD
     // =====================================================
     dashboard: {
-      title: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+      title: "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
       welcome: "ಸ್ವಾಗತ",
-      profile: "ಪ್ರೊಫೈಲ್",
+      profile: "ನನ್ನ ಪ್ರೊಫೈಲ್",
       bookings: "ನನ್ನ ಬುಕಿಂಗ್‌ಗಳು",
       history: "ಬುಕಿಂಗ್ ಇತಿಹಾಸ",
-      logout: "ಲಾಗ್‌ಔಟ್",
+      logout: "ಹೊರಬನ್ನಿ",
+      manageProfile: "ನಿಮ್ಮ ಖಾತೆ ಮಾಹಿತಿಯನ್ನು ನಿರ್ವಹಿಸಿ",
+      email: "ಇಮೇಲ್",
+      phone: "ಫೋನ್",
+      accountType: "ಖಾತೆ ಪ್ರಕಾರ",
+      editProfile: "✏️ ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ",
+      cancel: "ರದ್ದುಗೊಳಿಸಿ",
+      saveChanges: "ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ",
+      saving: "ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+      emailCannotBeChanged: "ಪ್ರೊಫೈಲ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಇಮೇಲ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+      nameLabel: "ಹೆಸರು",
+      emailLabel: "ಇಮೇಲ್",
+      phoneLabel: "ಫೋನ್",
+      enterName: "ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+      enterPhone: "ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+      totalBookings: "ಒಟ್ಟು ಬುಕಿಂಗ್‌ಗಳು",
+      pending: "ಬಾಕಿ ಉಳಿದಿದೆ",
+      confirmed: "ದೃಢೀಕರಿಸಲಾಗಿದೆ",
+      completed: "ಪೂರ್ಣಗೊಂಡಿದೆ",
+      quickActions: "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು",
+      manageAstro: "ನಿಮ್ಮ ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಅನ್ನು ನಿರ್ವಹಿಸಿ",
+      myBookings: "ನನ್ನ ಬುಕಿಂಗ್‌ಗಳು",
+      myBookingsDesc: "ನಿಮ್ಮ ಸಮಾಲೋಚನೆ ಬುಕಿಂಗ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ನಿರ್ವಹಿಸಿ.",
+      viewBookings: "ಬುಕಿಂಗ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ →",
+      bookConsultation: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      bookConsultationDesc: "ಸೇವೆ, ಆಚಾರ್ಯರು ಮತ್ತು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      bookNow: "ಈಗ ಬುಕ್ ಮಾಡಿ →",
+      aiHelp: "AI ಸಹಾಯ",
+      aiHelpDesc: "ಆಸ್ಟ್ರോകನೆಕ್ಟ್ AI ನಿಂದ ಸಹಾಯ ಪಡೆಯಿರಿ.",
+      openAIHelp: "AI ಸಹಾಯ ತೆರೆಯಿರಿ →",
+      recentActivity: "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ",
+      recentBookings: "ಇತ್ತೀಚಿನ ಬುಕಿಂಗ್‌ಗಳು",
+      viewAll: "ಎಲ್ಲವನ್ನು ವೀಕ್ಷಿಸಿ →",
+      loadingBookings: "ಬುಕಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      noBookingsYet: "ಯಾವುದೇ ಬುಕಿಂಗ್‌ಗಳಿಲ್ಲ",
+      noBookingsDesc: "ನಿಮ್ಮ ಸಮಾಲೋಚನೆ ಬುಕಿಂಗ್‌ಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
+      bookFirstConsultation: "ನಿಮ್ಮ ಮೊದಲ ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+      astrologyRecords: "ಜ್ಯೋತಿಷ್ಯ ದಾಖಲೆಗಳು",
+      myKundalis: "ನನ್ನ ಕುಂಡಲಿಗಳು",
+      createNew: "ಹೊಸದು ರಚಿಸಿ →",
+      loadingKundalis: "ನಿಮ್ಮ ಕುಂಡಲಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      noKundaliSaved: "ಯಾವುದೇ ಕುಂಡಲಿ ಉಳಿಸಲಾಗಿಲ್ಲ",
+      noKundaliDesc: "ನಿಮ್ಮ ಕುಂಡಲಿ ಪ್ರೊಫೈಲ್ ರಚಿಸಲು ನಿಮ್ಮ ಜನ್ಮ ವಿವರಗಳನ್ನು ಉಳಿಸಿ.",
+      createYourKundali: "ನಿಮ್ಮ ಕುಂಡಲಿ ರಚಿಸಿ",
+      dateOfBirth: "ಜನ್ಮ ದಿನಾಂಕ",
+      birthTime: "ಜನ್ಮ ಸಮಯ",
+      birthPlace: "ಜನ್ಮ ಸ್ಥಳ",
+      viewDetails: "ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ →",
+      pleaseLoginFirst: "ದಯವಿಟ್ಟು ಮೊದಲು ಲಾಗಿನ್ ಮಾಡಿ",
+      loginPrompt: "ನಿಮ್ಮ ಆಸ್ಟ್ರോകನೆಕ್ಟ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಪ್ರವೇಶಿಸಲು ನೀವು ಲಾಗಿನ್ ಆಗಬೇಕು.",
+      goToLogin: "ಲಾಗಿನ್‌ಗೆ ಹೋಗಿ",
+      loadingDashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+      pleaseWait: "ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯ ಕಾಯಿರಿ."
     },
 
     //about===============================================
@@ -2366,6 +3125,7 @@ const translations = {
 
     about: {
       label: "ASTROCONNECT ಬಗ್ಗೆ",
+      knowMore: "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
 
       heroTitle: "ಪ್ರಾಚೀನ ಜ್ಞಾನ.",
       heroTitleHighlight: "ಆಧುನಿಕ ಸಂಪರ್ಕ.",
@@ -2832,9 +3592,77 @@ const translations = {
 
       occupiedHousePlural:
         "{planetNames} ಈ ಭಾವದಲ್ಲಿ ಸ್ಥಿತರಾಗಿದ್ದಾರೆ. ಇದರಿಂದ ಜನ್ಮ ಕುಂಡಲಿಯಲ್ಲಿ ಈ ಭಾವವು ಜೀವನದ ಪ್ರಮುಖ ಕ್ಷೇತ್ರವಾಗುತ್ತದೆ.",
+      createNewKundali: "ಹೊಸ ಕುಂಡಲಿ ರಚಿಸಿ",
+      dashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
 
+      // translation.js -> kn -> kundaliDetails ke andar add karein:
+      heroTitle: "ನಿಮ್ಮ",
+      heroTitleHighlight: "ಕುಂಡಲಿಯನ್ನು ತಿಳಿಯಿರಿ",
+      enterName: "ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+      placePlaceholder: "ನಗರ, ರಾಜ್ಯ, ದೇಶ",
+      savingKundali: "⏳ ಕುಂಡಲಿ ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+      prepareKundali: "✦ ಕುಂಡಲಿ ಸಿದ್ಧಪಡಿಸಿ",
+
+      whyDetailsMatterTitle: "ಜನ್ಮ ವಿವರಗಳು ಯಾಕೆ ಮುಖ್ಯ?",
+      whyDetailsMatterDesc: "ವೈidic ಜ್ಯೋತಿಷ್ಯದಲ್ಲಿ, ನಿಖರವಾದ ಜಾತಕವನ್ನು ಸಿದ್ಧಪಡಿಸಲು ಜನ್ಮ ದಿನಾಂಕ, ಸಮಯ ಮತ್ತು ಸ್ಥಳ ಅತ್ಯಂತ ಮುಖ್ಯ.",
+      birthDateCardTitle: "ಜನ್ಮ ದಿನಾಂಕ",
+      birthDateCardDesc: "ಗ್ರಹಗಳ ಸ್ಥಿತಿಯನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ.",
+      birthTimeCardTitle: "ಜನ್ಮ ಸಮಯ",
+      birthTimeCardDesc: "ಲಗ್ನ ಮತ್ತು ಭಾವಗಳನ್ನು ನಿರ್ಧರಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+      birthPlaceCardTitle: "ಜನ್ಮ ಸ್ಥಳ",
+      birthPlaceCardDesc: "ಸ್ಥಳೀಯ ಆಕಾಶದ ಸ್ಥಿತಿಯನ್ನು ಲೆಕ್ಕಹಾಕಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+
+      detailsSavedTitle: "ಜನ್ಮ ವಿವರಗಳು ಉಳಿಸಲಾಗಿದೆ",
+      detailsSavedDesc: "ನಿಮ್ಮ ಜನ್ಮ ಮಾಹಿತಿಯನ್ನು ನಿಮ್ಮ AstroConnect ಖಾತೆಯಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ.",
+
+      yourRecordsLabel: "ನಿಮ್ಮ ದಾಖಲೆಗಳು",
+      savedKundalisTitle: "ಉಳಿಸಿದ ಕುಂಡಲಿಗಳು",
+      savedKundalisDesc: "MongoDB ಯಲ್ಲಿ ನಿಮ್ಮ ಉಳಿಸಿದ ಜನ್ಮ ವಿವರಗಳು.",
+      loadingKundalisText: "ನಿಮ್ಮ ಕುಂಡಲಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      noSavedKundaliText: "ಯಾವುದೇ ಉಳಿಸಿದ ಕುಂಡಲಿ ಕಂಡುಬಂದಿಲ್ಲ.",
+      savedOnText: "ಉಳಿಸಿದ ದಿನಾಂಕ:",
 
     },
+
+    //======================================================
+    // FOOTER
+    //======================================================
+
+
+    footer: {
+      description: "ಅನುಭವಿ ಜ್ಯೋತಿಷಿಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಜೀವನದ ಪ್ರಯಾಣಕ್ಕೆ ಅರ್ಥಪೂರ್ಣ ಮಾರ್ಗದರ್ಶನವನ್ನು ಪಡೆಯಿರಿ. AstroConnect ಮೂಲಕ ಸ್ಪಷ್ಟತೆ, ಸಕಾರಾತ್ಮಕತೆ ಮತ್ತು ಸರಿಯಾದ ದಿಕ್ಕನ್ನು ಕಂಡುಕೊಳ್ಳಿ.",
+      trust: "ನಿಮ್ಮ ಜೀವನದ ಪ್ರಯಾಣಕ್ಕೆ ಮಾರ್ಗದರ್ಶನ",
+      quickLinksTitle: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
+      servicesTitle: "ನಮ್ಮ ಸೇವೆಗಳು",
+      connectTitle: "ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ",
+      connectDescription: "ನಿಮಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿವೆಯೇ ಅಥವಾ ಸಹಾಯ ಬೇಕೇ? ನಾವು ಸಹಾಯ ಮಾಡಲು ಇಲ್ಲಿದ್ದೇವೆ.",
+      contactTeam: "ನಮ್ಮ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      rights: "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+      craftedWith: "ಪ್ರೀತಿಯಿಂದ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+      by: "ಇವರಿಂದ",
+      backToTop: "ಮೇಲಕ್ಕೆ ಹೋಗಿ",
+
+      quickLinks: {
+        home: "ಮುಖಪುಟ",
+        aboutUs: "ನಮ್ಮ ಬಗ್ಗೆ",
+        services: "ಸೇವೆಗಳು",
+        ourAcharyas: "ನಮ್ಮ ಆಚಾರ್ಯರು",
+        gallery: "ಗ್ಯಾಲರಿ",
+        contactUs: "ಸಂಪರ್ಕಿಸಿ",
+        careers: "ವೃತ್ತಿ ಅವಕಾಶಗಳು"
+      },
+
+      services: {
+        kundali: "ಕುಂಡಲಿ",
+        pooja: "ಪೂಜೆ",
+        vastu: "ವಾಸ್ತು",
+        jyotish: "ಜ್ಯೋತಿಷ್ಯ",
+        muhurat: "ಮುಹೂರ್ತ",
+        numerology: "ಸಂಖ್ಯಾಶಾಸ್ತ್ರ",
+        tarotReading: "ಟ್ಯಾರೋ ರೀಡಿಂಗ್"
+      }
+    },
+
 
 
     // =====================================================
@@ -2851,6 +3679,7 @@ const translations = {
       close: "ಮುಚ್ಚಿ",
       submit: "ಸಲ್ಲಿಸಿ",
     },
+
   },
 };
 

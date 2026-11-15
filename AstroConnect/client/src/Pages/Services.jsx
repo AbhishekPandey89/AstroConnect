@@ -47,6 +47,7 @@ const serviceData = [
 ];
 
 
+
 const SERVICES_TRANSLATIONS = {
   en: {
     eyebrow: "✦ BEGIN YOUR JOURNEY",
@@ -55,8 +56,16 @@ const SERVICES_TRANSLATIONS = {
     description:
       "Connect with an experienced Acharya for personalized astrology and spiritual guidance.",
     button: "Explore Acharyas →",
+
+    offerLabel: "WHAT WE OFFER",
+    offerTitle: "Traditional guidance,",
+    offerTitleHighlight: " made accessible.",
+    offerDescription:
+      "Explore our range of astrology and spiritual guidance services and connect with an experienced Acharya.",
+
+    exploreService: "Explore Service",
+
     howTitle: "Guidance in three simple steps.",
-    
     steps: [
       {
         title: "Choose a Service",
@@ -73,8 +82,14 @@ const SERVICES_TRANSLATIONS = {
         description:
           "Select your preferred date, time and consultation mode.",
       },
-      
     ],
+
+    ctaLabel: "✦ BEGIN YOUR JOURNEY",
+    ctaTitle: "Find the guidance",
+    ctaTitleHighlight: " you're looking for.",
+    ctaDescription:
+      "Connect with an experienced Acharya for personalized astrology and spiritual guidance.",
+    ctaButton: "Explore Acharyas →",
   },
 
   hi: {
@@ -84,6 +99,15 @@ const SERVICES_TRANSLATIONS = {
     description:
       "व्यक्तिगत ज्योतिष और आध्यात्मिक मार्गदर्शन के लिए अनुभवी आचार्य से जुड़ें।",
     button: "आचार्यों को देखें →",
+
+    offerLabel: "हम क्या प्रदान करते हैं",
+    offerTitle: "पारंपरिक मार्गदर्शन,",
+    offerTitleHighlight: " अब सभी के लिए सुलभ।",
+    offerDescription:
+      "ज्योतिष और आध्यात्मिक मार्गदर्शन की हमारी सेवाओं को जानें और अनुभवी आचार्य से जुड़ें।",
+
+    exploreService: "सेवा देखें",
+
     howTitle: "तीन आसान चरणों में मार्गदर्शन।",
     steps: [
       {
@@ -102,6 +126,13 @@ const SERVICES_TRANSLATIONS = {
           "अपनी पसंद की तारीख, समय और परामर्श का तरीका चुनें।",
       },
     ],
+
+    ctaLabel: "✦ अपनी यात्रा शुरू करें",
+    ctaTitle: "पाएं वह मार्गदर्शन",
+    ctaTitleHighlight: " जिसकी आप तलाश कर रहे हैं।",
+    ctaDescription:
+      "व्यक्तिगत ज्योतिष और आध्यात्मिक मार्गदर्शन के लिए अनुभवी आचार्य से जुड़ें।",
+    ctaButton: "आचार्यों को देखें →",
   },
 
   kn: {
@@ -111,6 +142,15 @@ const SERVICES_TRANSLATIONS = {
     description:
       "ವೈಯಕ್ತಿಕ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     button: "ಆಚಾರ್ಯರನ್ನು ನೋಡಿ →",
+
+    offerLabel: "ನಾವು ಏನನ್ನು ಒದಗಿಸುತ್ತೇವೆ",
+    offerTitle: "ಸಾಂಪ್ರದಾಯಿಕ ಮಾರ್ಗದರ್ಶನ,",
+    offerTitleHighlight: " ಈಗ ಎಲ್ಲರಿಗೂ ಸುಲಭವಾಗಿ ಲಭ್ಯ.",
+    offerDescription:
+      "ನಮ್ಮ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನ ಸೇವೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ ಹಾಗೂ ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+
+    exploreService: "ಸೇವೆಯನ್ನು ನೋಡಿ",
+
     howTitle: "ಮೂರು ಸರಳ ಹಂತಗಳಲ್ಲಿ ಮಾರ್ಗದರ್ಶನ.",
     steps: [
       {
@@ -124,23 +164,31 @@ const SERVICES_TRANSLATIONS = {
           "ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ನಿಮಗೆ ಬೇಕಾದ ತಜ್ಞರನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
       },
       {
-        title: "ಸಮಾಲೋಚನೆ ಬುಕ್ ಮಾಡಿ",
+        title: "ಸಮಾಲೋಚನೆಯನ್ನು ಬುಕ್ ಮಾಡಿ",
         description:
           "ನಿಮ್ಮ ಆಯ್ಕೆಯ ದಿನಾಂಕ, ಸಮಯ ಮತ್ತು ಸಮಾಲೋಚನೆಯ ವಿಧಾನವನ್ನು ಆರಿಸಿ.",
       },
     ],
+
+    ctaLabel: "✦ ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ",
+    ctaTitle: "ನಿಮಗೆ ಬೇಕಾದ",
+    ctaTitleHighlight: " ಮಾರ್ಗದರ್ಶನವನ್ನು ಕಂಡುಕೊಳ್ಳಿ.",
+    ctaDescription:
+      "ವೈಯಕ್ತಿಕ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಅನುಭವಿ ಆಚಾರ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    ctaButton: "ಆಚಾರ್ಯರನ್ನು ನೋಡಿ →",
   },
 };
 
+
 function ServicesPage() {
- const { language, t } = useLanguage();
-const navigate = useNavigate();
+  const { language, t } = useLanguage();
+  const navigate = useNavigate();
 
-const currentLanguage = SERVICES_TRANSLATIONS[language]
-  ? language
-  : "en";
+  const currentLanguage = SERVICES_TRANSLATIONS[language]
+    ? language
+    : "en";
 
-const text = SERVICES_TRANSLATIONS[currentLanguage];
+  const text = SERVICES_TRANSLATIONS[currentLanguage];
 
   return (
     <div className="services-page">
@@ -155,24 +203,24 @@ const text = SERVICES_TRANSLATIONS[currentLanguage];
 
           <div className="services-page-container">
 
-       <span className="services-page-label">
-  {text.eyebrow}
-</span>
+            <span className="services-page-label">
+              {text.eyebrow}
+            </span>
 
-<h1>
-  {text.title}
-  <span>{text.titleHighlight}</span>
-</h1>
+            <h1>
+              {text.title}
+              <span>{text.titleHighlight}</span>
+            </h1>
 
-<p>{text.description}</p>
+            <p>{text.description}</p>
 
-<button
-  className="services-page-hero-button"
-  type="button"
-  onClick={() => navigate("/acharyas")}
->
-  {text.button}
-</button>
+            <button
+              className="services-page-hero-button"
+              type="button"
+              onClick={() => navigate("/acharyas")}
+            >
+              {text.button}
+            </button>
 
           </div>
 
@@ -188,18 +236,16 @@ const text = SERVICES_TRANSLATIONS[currentLanguage];
             <div className="services-page-heading">
 
               <span>
-                WHAT WE OFFER
+                {text.offerLabel}
               </span>
 
               <h2>
-                Traditional guidance,
-                <strong> made accessible.</strong>
+                {text.offerTitle}
+                <strong>{text.offerTitleHighlight}</strong>
               </h2>
 
               <p>
-                Explore our range of astrology and spiritual
-                guidance services and connect with an
-                experienced Acharya.
+                {text.offerDescription}
               </p>
 
             </div>
@@ -253,7 +299,7 @@ const text = SERVICES_TRANSLATIONS[currentLanguage];
                         navigate(service.path)
                       }
                     >
-                      Explore Service
+                      {text.exploreService}
                       <span>→</span>
                     </button>
 
@@ -278,73 +324,32 @@ const text = SERVICES_TRANSLATIONS[currentLanguage];
 
               <h2>{text.howTitle}</h2>
 
-{text.steps.map((step, index) => (
-  <div className="step-card" key={step.title}>
-    <span>0{index + 1}</span>
-    <h3>{step.title}</h3>
-    <p>{step.description}</p>
-  </div>
-))}
-
             </div>
+
 
 
             <div className="services-process-grid">
 
-              <div className="services-process-card">
+              {text.steps.map((step, index) => (
+                <div className="services-process-card" key={step.title}>
 
-                <div className="process-number">
-                  01
+                  <div className="process-number">
+                    0{index + 1}
+                  </div>
+
+                  <h3>
+                    {step.title}
+                  </h3>
+
+                  <p>
+                    {step.description}
+                  </p>
+
                 </div>
-
-                <h3>
-                  Choose a Service
-                </h3>
-
-                <p>
-                  Select the astrology or spiritual
-                  service that matches your needs.
-                </p>
-
-              </div>
-
-
-              <div className="services-process-card">
-
-                <div className="process-number">
-                  02
-                </div>
-
-                <h3>
-                  Choose an Acharya
-                </h3>
-
-                <p>
-                  Explore experienced Acharyas and
-                  select the expert you want to consult.
-                </p>
-
-              </div>
-
-
-              <div className="services-process-card">
-
-                <div className="process-number">
-                  03
-                </div>
-
-                <h3>
-                  Book Your Consultation
-                </h3>
-
-                <p>
-                  Select your preferred date, time and
-                  consultation mode.
-                </p>
-
-              </div>
+              ))}
 
             </div>
+
 
           </div>
 
@@ -353,35 +358,35 @@ const text = SERVICES_TRANSLATIONS[currentLanguage];
 
         {/* ================= CTA ================= */}
 
+
         <section className="services-page-cta">
 
           <div className="services-page-container">
 
             <span>
-              ✦ BEGIN YOUR JOURNEY
+              {text.ctaLabel}
             </span>
 
             <h2>
-              Find the guidance
-              <strong> you're looking for.</strong>
+              {text.ctaTitle}
+              <strong>{text.ctaTitleHighlight}</strong>
             </h2>
 
             <p>
-              Connect with an experienced Acharya
-              for personalized astrology and spiritual
-              guidance.
+              {text.ctaDescription}
             </p>
 
             <button
               type="button"
               onClick={() => navigate("/acharyas")}
             >
-              Explore Acharyas →
+              {text.ctaButton}
             </button>
 
           </div>
 
         </section>
+
 
       </main>
 

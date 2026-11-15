@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
+import { transliterateName } from "../utils/transliterateName";
 import "./AcharyasPage.css";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -152,7 +153,10 @@ const AcharyasPage = () => {
                           {acharya.image ? (
                             <img
                               src={acharya.image}
-                              alt={acharya.name}
+                              alt={transliterateName(
+                                acharya.name,
+                                localStorage.getItem("astroconnect_language") || "en"
+                              )}
                               className="acharya-image"
                               onError={(e) => {
                                 e.currentTarget.style.display = "none";
@@ -164,9 +168,8 @@ const AcharyasPage = () => {
                           ) : null}
 
                           <div
-                            className={`acharya-image-placeholder ${
-                              acharya.image ? "" : "show-placeholder"
-                            }`}
+                            className={`acharya-image-placeholder ${acharya.image ? "" : "show-placeholder"
+                              }`}
                           >
                             🔮
                           </div>
@@ -183,7 +186,10 @@ const AcharyasPage = () => {
                         <div className="acharya-card-content">
                           <div className="acharya-card-top">
                             <div>
-                              <h3>{acharya.name}</h3>
+                              <h3>{transliterateName(
+                                acharya.name,
+                                localStorage.getItem("astroconnect_language") || "en"
+                              )}</h3>
                               <p className="acharya-specialty">
                                 {acharya.specialty}
                               </p>
@@ -217,11 +223,25 @@ const AcharyasPage = () => {
                           {Array.isArray(acharya.languages) &&
                             acharya.languages.length > 0 && (
                               <div className="acharya-languages">
-                                {acharya.languages.map((language, index) => (
-                                  <span key={`${language}-${index}`}>
-                                    {language}
-                                  </span>
-                                ))}
+                                {acharya.languages.map((language, index) => {
+                                  const languageTranslations = {
+                                    Hindi: { hi: "हिंदी", kn: "ಹಿಂದಿ" },
+                                    English: { hi: "अंग्रेज़ी", kn: "ಇಂಗ್ಲಿಷ್" },
+                                    Kannada: { hi: "कन्नड़", kn: "ಕನ್ನಡ" },
+                                  };
+
+                                  const currentLanguage =
+                                    localStorage.getItem("astroconnect_language") || "en";
+
+                                  const translatedLanguage =
+                                    languageTranslations[language]?.[currentLanguage] || language;
+
+                                  return (
+                                    <span key={`${language}-${index}`}>
+                                      {translatedLanguage}
+                                    </span>
+                                  );
+                                })}
                               </div>
                             )}
 

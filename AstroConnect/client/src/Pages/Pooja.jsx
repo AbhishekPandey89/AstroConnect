@@ -1,12 +1,45 @@
+
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import { getAllPoojas } from "../services/api";
+import { useLanguage } from "../context/LanguageContext";
+import { transliterateName } from "../utils/transliterateName";
 import "./Pooja.css";
 
 function Pooja() {
+  const { t } = useLanguage();
+
+  const language =
+    localStorage.getItem("astroconnect_language") || "en";
+
+  const tr = (key) => t("pooja", key);
+
   const [poojas, setPoojas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const localeMap = {
+    en: "en-IN",
+    hi: "hi-IN",
+    kn: "kn-IN",
+  };
+
+  const formatDate = (date) => {
+    if (!date) return "—";
+
+    const parsedDate = new Date(date);
+
+    if (Number.isNaN(parsedDate.getTime())) return "—";
+
+    return parsedDate.toLocaleDateString(
+      localeMap[language] || "en-IN",
+      {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }
+    );
+  };
 
   useEffect(() => {
     const loadPoojas = async () => {
@@ -21,15 +54,14 @@ function Pooja() {
         } else {
           setError(
             response.message ||
-              "Unable to load pooja records."
+            "Unable to load pooja records."
           );
         }
       } catch (err) {
         console.error("Pooja loading error:", err);
 
         setError(
-          err.message ||
-            "Unable to load pooja records."
+          "Unable to load pooja records."
         );
       } finally {
         setLoading(false);
@@ -51,23 +83,20 @@ function Pooja() {
           <div className="pooja-container">
 
             <span className="section-label">
-              ✦ POOJA
+              ✦ {tr("label")}
             </span>
 
             <h1>
-              Sacred Poojas
-              <span> Performed by AstroConnect</span>
+              {tr("title")}
+              <span> {tr("titleHighlight")}</span>
             </h1>
 
             <p>
-              Explore the sacred poojas and spiritual
-              ceremonies performed by our Acharyas
-              across different cities.
+              {tr("description")}
             </p>
 
           </div>
         </section>
-
 
         {/* COMPLETED POOJAS */}
 
@@ -77,21 +106,18 @@ function Pooja() {
             <div className="pooja-section-heading">
 
               <span className="section-label">
-                ✦ OUR WORK
+                ✦ {tr("ourWork")}
               </span>
 
               <h2>
-                Poojas We Have
-                <span> Performed</span>
+                {tr("performed")}
               </h2>
 
               <p>
-                A glimpse of the spiritual ceremonies
-                conducted by our experienced Acharyas.
+                {tr("sectionDescription")}
               </p>
 
             </div>
-
 
             {/* LOADING */}
 
@@ -102,16 +128,14 @@ function Pooja() {
                 </div>
 
                 <h3>
-                  Loading Poojas...
+                  {tr("loading")}
                 </h3>
 
                 <p>
-                  Please wait while we load our
-                  completed pooja records.
+                  {tr("loadingDescription")}
                 </p>
               </div>
             )}
-
 
             {/* ERROR */}
 
@@ -123,7 +147,7 @@ function Pooja() {
                 </div>
 
                 <h3>
-                  Unable to Load Poojas
+                  {tr("loadError")}
                 </h3>
 
                 <p>
@@ -132,7 +156,6 @@ function Pooja() {
 
               </div>
             )}
-
 
             {/* EMPTY */}
 
@@ -146,17 +169,15 @@ function Pooja() {
                   </div>
 
                   <h3>
-                    Pooja Records Coming Soon
+                    {tr("comingSoon")}
                   </h3>
 
                   <p>
-                    Our completed pooja ceremonies
-                    will appear here.
+                    {tr("comingSoonDescription")}
                   </p>
 
                 </div>
               )}
-
 
             {/* POOJA CARDS */}
 
@@ -178,10 +199,10 @@ function Pooja() {
                       <div className="pooja-card-image">
 
                         {pooja.images &&
-                        pooja.images.length > 0 ? (
+                          pooja.images.length > 0 ? (
                           <img
                             src={pooja.images[0]}
-                            alt={pooja.poojaName}
+                            alt={pooja.poojaName || tr("title")}
                           />
                         ) : (
                           <div className="pooja-image-placeholder">
@@ -190,11 +211,10 @@ function Pooja() {
                         )}
 
                         <span className="pooja-card-badge">
-                          ✦ Completed
+                          ✦ {tr("completed")}
                         </span>
 
                       </div>
-
 
                       {/* CONTENT */}
 
@@ -203,7 +223,6 @@ function Pooja() {
                         <h3>
                           {pooja.poojaName}
                         </h3>
-
 
                         {/* CITY */}
 
@@ -215,7 +234,7 @@ function Pooja() {
 
                           <div>
                             <small>
-                              City
+                              {tr("city")}
                             </small>
 
                             <strong>
@@ -224,7 +243,6 @@ function Pooja() {
                           </div>
 
                         </div>
-
 
                         {/* DATE */}
 
@@ -236,25 +254,15 @@ function Pooja() {
 
                           <div>
                             <small>
-                              Date
+                              {tr("date")}
                             </small>
 
                             <strong>
-                              {new Date(
-                                pooja.date
-                              ).toLocaleDateString(
-                                "en-IN",
-                                {
-                                  day: "2-digit",
-                                  month: "long",
-                                  year: "numeric",
-                                }
-                              )}
+                              {formatDate(pooja.date)}
                             </strong>
                           </div>
 
                         </div>
-
 
                         {/* ACHARYA */}
 
@@ -266,16 +274,18 @@ function Pooja() {
 
                           <div>
                             <small>
-                              Acharya
+                              {tr("acharya")}
                             </small>
 
                             <strong>
-                              {pooja.acharya}
+                              {transliterateName(
+                                pooja.acharya,
+                                language
+                              )}
                             </strong>
                           </div>
 
                         </div>
-
 
                         {/* YAJMAN */}
 
@@ -287,11 +297,14 @@ function Pooja() {
 
                           <div>
                             <small>
-                              Yajman
+                              {tr("yajman")}
                             </small>
 
                             <strong>
-                              {pooja.yajmanName}
+                              {transliterateName(
+                                pooja.yajmanName,
+                                language
+                              )}
                             </strong>
                           </div>
 

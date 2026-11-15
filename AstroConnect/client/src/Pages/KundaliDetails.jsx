@@ -646,52 +646,47 @@ const KundaliDetails = () => {
 
     const key = planetKeys[planet.trim()];
 
-    console.log("Translation Test:", {
-      planet,
-      key,
-      translated: key ? t("kundaliDetails", key) : planet,
-    });
 
     return key ? t("kundaliDetails", key) : planet;
   };
 
 
-  
-const translatePlanetAwastha = (awastha) => {
-  if (!awastha) return "—";
 
-  const language =
-    localStorage.getItem("astroconnect_language") || "en";
+  const translatePlanetAwastha = (awastha) => {
+    if (!awastha) return "—";
 
-  const translations = {
-    Kumara: {
-      hi: "कुमार",
-      kn: "ಕುಮಾರ",
-    },
-    Bala: {
-      hi: "बाल",
-      kn: "ಬಾಲ",
-    },
-    Yuva: {
-      hi: "युवा",
-      kn: "ಯುವ",
-    },
-    Vriddha: {
-      hi: "वृद्ध",
-      kn: "ವೃದ್ಧ",
-    },
-    Mrita: {
-      hi: "मृत",
-      kn: "ಮೃತ",
-    },
+    const language =
+      localStorage.getItem("astroconnect_language") || "en";
+
+    const translations = {
+      Kumara: {
+        hi: "कुमार",
+        kn: "ಕುಮಾರ",
+      },
+      Bala: {
+        hi: "बाल",
+        kn: "ಬಾಲ",
+      },
+      Yuva: {
+        hi: "युवा",
+        kn: "ಯುವ",
+      },
+      Vriddha: {
+        hi: "वृद्ध",
+        kn: "ವೃದ್ಧ",
+      },
+      Mrita: {
+        hi: "मृत",
+        kn: "ಮೃತ",
+      },
+    };
+
+    const key = Object.keys(translations).find(
+      (item) => item.toLowerCase() === awastha.trim().toLowerCase()
+    );
+
+    return key ? translations[key][language] || key : awastha;
   };
-
-  const key = Object.keys(translations).find(
-    (item) => item.toLowerCase() === awastha.trim().toLowerCase()
-  );
-
-  return key ? translations[key][language] || key : awastha;
-};
 
 
 
@@ -828,10 +823,7 @@ const translatePlanetAwastha = (awastha) => {
         );
         setLocation(data.location || null);
       } catch (err) {
-        console.error(
-          "Kundali details error:",
-          err
-        );
+
 
         setError(
           err.message ||
@@ -1337,7 +1329,7 @@ const translatePlanetAwastha = (awastha) => {
                   </span>
 
                   <strong>
-                   {translateNakshatra(ascendant?.nakshatra)}
+                    {translateNakshatra(ascendant?.nakshatra)}
                   </strong>
                 </div>
 
@@ -1467,7 +1459,7 @@ const translatePlanetAwastha = (awastha) => {
                     <div className="planet-awastha">
                       {t("kundaliDetails", "awasthaLabel")}:{" "}
                       <strong>
-                       {translatePlanetAwastha(planet.planet_awastha)}
+                        {translatePlanetAwastha(planet.planet_awastha)}
                       </strong>
                     </div>
                   )}
@@ -2087,22 +2079,20 @@ const translatePlanetAwastha = (awastha) => {
             <button
               type="button"
               onClick={() =>
-              (window.location.href =
-                "/kundali")
+                (window.location.href = "/kundali")
               }
             >
-              + Create New Kundali
+              + {t("kundaliDetails", "createNewKundali")}
             </button>
 
             <button
               type="button"
               className="secondary"
               onClick={() =>
-              (window.location.href =
-                "/dashboard")
+                (window.location.href = "/dashboard")
               }
             >
-              ← Dashboard
+              ← {t("kundaliDetails", "dashboard")}
             </button>
 
           </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import { createContactMessage } from "../services/api";
 import Navbar from "../Components/Navbar/Navbar";
 import "./Contact.css";
@@ -12,6 +13,8 @@ const CONTACT = {
 };
 
 const Contact = () => {
+  const { language, t } = useLanguage();
+ const ui = (key) => t("contact", key);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,68 +36,68 @@ const Contact = () => {
     setSuccess("");
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  setError("");
-  setSuccess("");
+    setError("");
+    setSuccess("");
 
-  if (
-    !formData.name.trim() ||
-    !formData.email.trim() ||
-    !formData.subject.trim() ||
-    !formData.message.trim()
-  ) {
-    setError("Please fill all required fields.");
-    return;
-  }
-
-  const emailRegex =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailRegex.test(formData.email)) {
-    setError("Please enter a valid email address.");
-    return;
-  }
-
-  try {
-    const data = await createContactMessage({
-      name: formData.name.trim(),
-      email: formData.email.trim().toLowerCase(),
-      phone: formData.phone.trim(),
-      subject: formData.subject.trim(),
-      message: formData.message.trim(),
-    });
-
-    if (!data.success) {
-      throw new Error(
-        data.message || "Unable to submit message."
-      );
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.subject.trim() ||
+      !formData.message.trim()
+    ) {
+      setError(ui("requiredError"));
+      return;
     }
 
-    setSuccess(
-      "Thank you! Your message has been submitted successfully."
-    );
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
-  } catch (error) {
-    console.error(
-      "❌ Contact form error:",
-      error
-    );
+    if (!emailRegex.test(formData.email)) {
+      setError(ui("invalidEmail"));
+      return;
+    }
 
-    setError(
-      error.message ||
-        "Something went wrong. Please try again."
-    );
-  }
-};
+    try {
+      const data = await createContactMessage({
+        name: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+      });
+
+      if (!data.success) {
+        throw new Error(
+          data.message || ui("submitError")
+        );
+      }
+
+      setSuccess(
+        ui("success")
+      );
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(
+        "❌ Contact form error:",
+        error
+      );
+
+      setError(
+        error.message ||
+        ui("generalError")
+      );
+    }
+  };
 
   const handleCall = () => {
     window.location.href = `tel:${CONTACT.phone}`;
@@ -133,18 +136,16 @@ const Contact = () => {
         <section className="contact-hero">
           <div className="contact-hero-content">
             <span className="contact-badge">
-              ✦ Get In Touch
+              ✦ {ui("getInTouch")}
             </span>
 
             <h1>
-              Connect With{" "}
+              {ui("connectWith")}{" "}
               <span>AstroConnect</span>
             </h1>
 
             <p>
-              Have a question, need guidance, or want to
-              know more about our astrology services?
-              We are here to help.
+              {ui("heroDescription")}
             </p>
           </div>
         </section>
@@ -156,16 +157,14 @@ const Contact = () => {
             {/* LEFT SIDE */}
             <div className="contact-info">
               <div className="contact-heading">
-                <span>CONTACT US</span>
+                <span>{ui("contactUs")}</span>
 
                 <h2>
-                  We'd Love To Hear From You
+                  {ui("heading")}
                 </h2>
 
                 <p>
-                  Reach out to us for any queries regarding
-                  Acharya consultations, Kundali, Pooja,
-                  Vastu, Muhurat or other services.
+                  {ui("contactDescription")}
                 </p>
               </div>
 
@@ -182,10 +181,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <h3>Our Location</h3>
-                    <p>New Delhi, India</p>
+                    <h3>{ui("ourLocation")}</h3>
+                    <p>{ui("locationName")}</p>
                     <span className="contact-action-text">
-                      Open in Google Maps →
+                      {ui("openMaps")}
                     </span>
                   </div>
                 </button>
@@ -201,10 +200,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <h3>Call Us</h3>
+                    <h3>{ui("callUs")}</h3>
                     <p>{CONTACT.phone}</p>
                     <span className="contact-action-text">
-                      Call Now →
+                      {ui("callNow")}
                     </span>
                   </div>
                 </button>
@@ -220,10 +219,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <h3>WhatsApp Us</h3>
-                    <p>Chat with our team</p>
+                    <h3>{ui("whatsappUs")}</h3>
+                    <p>{ui("chatTeam")}</p>
                     <span className="contact-action-text">
-                      Chat on WhatsApp →
+                      {ui("chatWhatsapp")}
                     </span>
                   </div>
                 </button>
@@ -239,10 +238,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <h3>Email Us</h3>
+                    <h3>{ui("emailUs")}</h3>
                     <p>{CONTACT.email}</p>
                     <span className="contact-action-text">
-                      Send Email →
+                      {ui("sendEmail")}
                     </span>
                   </div>
                 </button>
@@ -254,9 +253,9 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <h3>Working Hours</h3>
+                    <h3>{ui("workingHours")}</h3>
                     <p>
-                      Monday – Sunday
+                      {ui("workingDays")}
                       <br />
                       9:00 AM – 9:00 PM
                     </p>
@@ -269,11 +268,10 @@ const Contact = () => {
             {/* RIGHT SIDE FORM */}
             <div className="contact-form-card">
               <div className="contact-form-heading">
-                <h2>Send Us A Message</h2>
+                <h2>{ui("sendMessage")}</h2>
 
                 <p>
-                  Fill out the form and our team will get
-                  back to you.
+                  {ui("formDescription")}
                 </p>
               </div>
 
@@ -284,28 +282,24 @@ const Contact = () => {
                 <div className="contact-form-row">
 
                   <div className="contact-field">
-                    <label>
-                      Full Name *
-                    </label>
+                    <label>{ui("fullName")} *</label>
 
                     <input
                       type="text"
                       name="name"
-                      placeholder="Enter your name"
+                      placeholder={ui("enterName")}
                       value={formData.name}
                       onChange={handleChange}
                     />
                   </div>
 
                   <div className="contact-field">
-                    <label>
-                      Email Address *
-                    </label>
+                    <label>{ui("emailAddress")} *</label>
 
                     <input
                       type="email"
                       name="email"
-                      placeholder="Enter your email"
+                      placeholder={ui("enterEmail")}
                       value={formData.email}
                       onChange={handleChange}
                     />
@@ -316,28 +310,23 @@ const Contact = () => {
                 <div className="contact-form-row">
 
                   <div className="contact-field">
-                    <label>
-                      Phone Number
-                    </label>
+                    <label>{ui("phoneNumber")}</label>
 
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="Enter your phone number"
+                      placeholder={ui("enterPhone")}
                       value={formData.phone}
                       onChange={handleChange}
                     />
                   </div>
 
                   <div className="contact-field">
-                    <label>
-                      Subject *
-                    </label>
-
+                    <label>{ui("subject")} *</label>
                     <input
                       type="text"
                       name="subject"
-                      placeholder="What is your query?"
+                      placeholder={ui("query")}
                       value={formData.subject}
                       onChange={handleChange}
                     />
@@ -346,13 +335,11 @@ const Contact = () => {
                 </div>
 
                 <div className="contact-field">
-                  <label>
-                    Your Message *
-                  </label>
+                  <label>{ui("yourMessage")} *</label>
 
                   <textarea
                     name="message"
-                    placeholder="Write your message here..."
+                    placeholder={ui("messagePlaceholder")}
                     rows="6"
                     value={formData.message}
                     onChange={handleChange}
@@ -375,7 +362,7 @@ const Contact = () => {
                   type="submit"
                   className="contact-submit-btn"
                 >
-                  Send Message
+                  {ui("send")}
                   <span>→</span>
                 </button>
               </form>

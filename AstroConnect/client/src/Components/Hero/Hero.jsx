@@ -1,8 +1,9 @@
 import "./Hero.css";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 function Hero() {
   const { t } = useLanguage();
-
+  const navigate = useNavigate();
 
   return (
     <section className="hero" id="home">
@@ -26,12 +27,22 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <button className="hero-primary-btn">
+            <button
+              className="hero-primary-btn"
+              onClick={() => navigate("/booking")}
+            >
               {t("hero", "book")}
               <span>→</span>
             </button>
 
-            <button className="hero-secondary-btn">
+            <button
+              className="hero-secondary-btn"
+              onClick={() =>
+                document.getElementById("services")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               {t("hero", "explore")}
             </button>
           </div>

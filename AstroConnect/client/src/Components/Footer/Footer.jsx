@@ -1,27 +1,29 @@
 
 import "./Footer.css";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Our Acharyas", href: "/acharyas" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Careers", href: "/career" },
+    { key: "home", href: "/" },
+    { key: "aboutUs", href: "/about" },
+    { key: "services", href: "/services" },
+    { key: "ourAcharyas", href: "/acharyas" },
+    { key: "gallery", href: "/gallery" },
+    { key: "contactUs", href: "/contact" },
+    { key: "careers", href: "/career" },
   ];
 
   const services = [
-    { label: "Kundali", href: "/kundali" },
-    { label: "Pooja", href: "/pooja" },
-    { label: "Vastu", href: "/vastu" },
-    { label: "Jyotish", href: "/jyotish" },
-    { label: "Muhurat", href: "/muhurat" },
-    { label: "Numerology", href: "/numerology" },
-    { label: "Tarot Reading", href: "/tarot" },
+    { key: "kundali", href: "/kundali" },
+    { key: "pooja", href: "/pooja" },
+    { key: "vastu", href: "/vastu" },
+    { key: "jyotish", href: "/jyotish" },
+    { key: "muhurat", href: "/muhurat" },
+    { key: "numerology", href: "/numerology" },
+    { key: "tarotReading", href: "/tarot" },
   ];
 
   return (
@@ -48,50 +50,50 @@ const Footer = () => {
           </a>
 
           <p className="astro-footer-description">
-            Connect with trusted astrologers and discover meaningful
-            guidance for your life's journey. Find clarity, positivity,
-            and direction with AstroConnect.
+            {t("footer.description")}
           </p>
 
           <div className="astro-footer-trust">
             <span className="astro-footer-trust-icon" aria-hidden="true">
               ✦
             </span>
-            <span>Guidance for your journey</span>
+            <span>{t("footer.trust")}</span>
           </div>
         </div>
 
         {/* Quick Links */}
         <div className="astro-footer-column">
-          <h3>Quick Links</h3>
+          <h3>{t("footer.quickLinksTitle")}</h3>
+
           {quickLinks.map((link) => (
             <a href={link.href} key={link.href}>
-              {link.label}
+              {t(`footer.quickLinks.${link.key}`)}
             </a>
           ))}
         </div>
 
         {/* Services */}
         <div className="astro-footer-column">
-          <h3>Our Services</h3>
+          <h3>{t("footer.servicesTitle")}</h3>
+
           {services.map((service) => (
             <a href={service.href} key={service.href}>
-              {service.label}
+              {t(`footer.services.${service.key}`)}
             </a>
           ))}
         </div>
 
         {/* Connect */}
         <div className="astro-footer-column astro-footer-connect">
-          <h3>Connect With Us</h3>
+          <h3>{t("footer.connectTitle")}</h3>
 
           <p className="astro-footer-connect-text">
-            Have questions or need assistance? We are here to help.
+            {t("footer.connectDescription")}
           </p>
 
           <a className="astro-footer-contact-link" href="/contact">
             <span aria-hidden="true">✉</span>
-            Contact our team
+            {t("footer.contactTeam")}
             <span className="astro-footer-arrow" aria-hidden="true">
               ↗
             </span>
@@ -127,16 +129,19 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="astro-footer-bottom">
         <p>
-          © {currentYear} <strong>AstroConnect</strong>. All rights reserved.
+          © {currentYear} <strong>AstroConnect</strong>.{" "}
+          {t("footer.rights")}
         </p>
 
         <p className="astro-footer-credit">
-          Crafted with <span aria-label="love">♥</span> by{" "}
+          {t("footer.craftedWith")}{" "}
+          <span aria-label="love">♥</span> {t("footer.by")}{" "}
           <strong>Abhishek Pandey</strong>
         </p>
 
         <a className="astro-footer-back-top" href="#root">
-          Back to top <span aria-hidden="true">↑</span>
+          {t("footer.backToTop")}{" "}
+          <span aria-hidden="true">↑</span>
         </a>
       </div>
     </footer>

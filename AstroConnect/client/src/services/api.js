@@ -409,3 +409,22 @@ export const deleteContactMessage = async (
     }
   );
 };
+
+
+// add review
+
+export const createReview = async (token, reviewData) => {
+  try {
+    const response = await fetch("YOUR_BACKEND_API_URL/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(reviewData),
+    });
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+};

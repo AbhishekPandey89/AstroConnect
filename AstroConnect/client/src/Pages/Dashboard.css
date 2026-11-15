@@ -146,7 +146,7 @@
   box-shadow: 0 12px 30px rgba(70, 45, 20, 0.1);
 }
 
-.dashboard-feature-card > span {
+.dashboard-feature-card>span {
   font-size: 28px;
 }
 
@@ -382,7 +382,7 @@
   padding: 45px 20px;
 }
 
-.dashboard-no-bookings > div:first-child {
+.dashboard-no-bookings>div:first-child {
   font-size: 42px;
   margin-bottom: 12px;
 }
@@ -407,11 +407,9 @@
 .dashboard-no-bookings button {
   border: none;
   outline: none;
-  background: linear-gradient(
-    135deg,
-    #e28a00,
-    #f5a623
-  );
+  background: linear-gradient(135deg,
+      #e28a00,
+      #f5a623);
   color: #ffffff;
   padding: 13px 24px;
   border-radius: 10px;
@@ -455,10 +453,8 @@
 
 .dashboard-kundali-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(260px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit,
+      minmax(260px, 1fr));
   gap: 18px;
 }
 
@@ -502,7 +498,7 @@
   font-size: 18px;
 }
 
-.dashboard-kundali-info > div {
+.dashboard-kundali-info>div {
   display: flex;
   justify-content: space-between;
   gap: 15px;
@@ -510,7 +506,7 @@
   border-bottom: 1px solid #eee4d9;
 }
 
-.dashboard-kundali-info > div:last-child {
+.dashboard-kundali-info>div:last-child {
   border-bottom: none;
 }
 
@@ -840,7 +836,7 @@
     padding: 16px;
   }
 
-  .dashboard-kundali-info > div {
+  .dashboard-kundali-info>div {
     align-items: flex-start;
     flex-direction: column;
     gap: 3px;
@@ -918,10 +914,8 @@
 
 .dashboard-kundali-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit,
+      minmax(280px, 1fr));
   gap: 18px;
 }
 
@@ -931,11 +925,9 @@
   gap: 16px;
   align-items: flex-start;
   padding: 22px;
-  background: linear-gradient(
-    145deg,
-    #fffaf3,
-    #ffffff
-  );
+  background: linear-gradient(145deg,
+      #fffaf3,
+      #ffffff);
   border: 1px solid #eadfce;
   border-radius: 16px;
   transition:
@@ -962,11 +954,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    #fff0d5,
-    #ffe2b0
-  );
+  background: linear-gradient(135deg,
+      #fff0d5,
+      #ffe2b0);
   color: #d98200;
   font-size: 23px;
   box-shadow:
@@ -988,7 +978,7 @@
   font-weight: 700;
 }
 
-.dashboard-kundali-info > div {
+.dashboard-kundali-info>div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -997,7 +987,7 @@
   border-bottom: 1px solid #eee4d9;
 }
 
-.dashboard-kundali-info > div:last-child {
+.dashboard-kundali-info>div:last-child {
   border-bottom: none;
 }
 
@@ -1047,14 +1037,12 @@
     padding: 20px;
   }
 
-  .dashboard-kundali-section
-  .dashboard-section-header {
+  .dashboard-kundali-section .dashboard-section-header {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .dashboard-kundali-section
-  .dashboard-feature-link {
+  .dashboard-kundali-section .dashboard-feature-link {
     width: 100%;
     box-sizing: border-box;
   }
@@ -1067,7 +1055,7 @@
     padding: 18px;
   }
 
-  .dashboard-kundali-info > div {
+  .dashboard-kundali-info>div {
     align-items: flex-start;
     flex-direction: column;
     gap: 3px;
@@ -1180,4 +1168,325 @@
     width: 100%;
   }
 
+}
+
+
+
+/* =====================================================
+   DASHBOARD FINAL SPACING & ALIGNMENT FIX
+   Add this at the END of Dashboard.css
+===================================================== */
+
+/* Main page spacing */
+.dashboard-page {
+  box-sizing: border-box;
+  padding: 55px 24px;
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* Header */
+.dashboard-header {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.dashboard-header>div {
+  min-width: 0;
+}
+
+.dashboard-header h1 {
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-subtitle {
+  line-height: 1.7;
+}
+
+/* Main profile card */
+.dashboard-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.dashboard-card-heading {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.dashboard-card-heading>div:last-child {
+  min-width: 0;
+}
+
+/* Stats */
+.dashboard-stats {
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dashboard-stat-card {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dashboard-stat-card strong {
+  overflow-wrap: anywhere;
+}
+
+/* Quick action cards */
+.dashboard-features {
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.dashboard-feature-card {
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-feature-card h3 {
+  line-height: 1.4;
+}
+
+.dashboard-feature-card p {
+  line-height: 1.7;
+}
+
+/* Section spacing */
+.dashboard-bookings-section,
+.dashboard-kundali-section {
+  margin-top: 32px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+/* Section headings */
+.dashboard-section-header {
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.dashboard-section-header>div {
+  min-width: 0;
+}
+
+.dashboard-section-header h2 {
+  line-height: 1.4;
+}
+
+/* Booking cards */
+.dashboard-bookings-list {
+  gap: 18px;
+}
+
+.dashboard-booking-card {
+  min-width: 0;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.dashboard-booking-info {
+  min-width: 0;
+}
+
+.dashboard-booking-info p {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* Kundali cards */
+.dashboard-kundali-grid {
+  gap: 22px;
+}
+
+.dashboard-kundali-card {
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 22px;
+}
+
+.dashboard-kundali-info {
+  min-width: 0;
+}
+
+.dashboard-kundali-info h3 {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-kundali-info>div {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.dashboard-kundali-info span,
+.dashboard-kundali-info strong {
+  line-height: 1.5;
+}
+
+.dashboard-kundali-info strong {
+  overflow-wrap: anywhere;
+}
+
+/* Buttons */
+.dashboard-edit-btn,
+.dashboard-primary-btn,
+.dashboard-view-all,
+.dashboard-kundali-view-btn {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .dashboard-page {
+    padding: 40px 20px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 25px 14px;
+  }
+
+  .dashboard-header {
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+    margin-bottom: 22px;
+  }
+
+  .dashboard-stats {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .dashboard-stat-card {
+    padding: 14px;
+  }
+
+  .dashboard-stat-card strong {
+    font-size: 21px;
+  }
+
+  .dashboard-features {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .dashboard-feature-card {
+    padding: 20px;
+  }
+
+  .dashboard-booking-card {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .dashboard-kundali-section {
+    padding: 18px;
+    margin-top: 24px;
+  }
+
+  .dashboard-kundali-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .dashboard-kundali-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .dashboard-kundali-info>div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .dashboard-kundali-info strong {
+    text-align: left;
+  }
+
+  .dashboard-form-actions {
+    gap: 10px;
+  }
+}
+
+/* Kundali heading and button spacing fix */
+
+.dashboard-kundali-section .dashboard-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.dashboard-kundali-section .dashboard-section-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.dashboard-kundali-section .dashboard-label {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dashboard-kundali-section .dashboard-section-header h2 {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dashboard-kundali-section .dashboard-feature-link,
+.dashboard-kundali-section .dashboard-view-all {
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .dashboard-kundali-section .dashboard-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dashboard-kundali-section .dashboard-section-header > div {
+    gap: 8px;
+  }
+
+  .dashboard-kundali-section .dashboard-feature-link,
+  .dashboard-kundali-section .dashboard-view-all {
+    margin-top: 5px;
+    width: 100%;
+  }
 }

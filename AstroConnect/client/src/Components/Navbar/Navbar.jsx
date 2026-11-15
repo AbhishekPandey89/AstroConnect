@@ -274,7 +274,11 @@ function Navbar() {
               }
               type="button"
             >
-              🌐 {language.toUpperCase()} ▾
+               {language === "hi"
+                ? "हिन्दी"
+                : language === "kn"
+                  ? "ಕನ್ನಡ"
+                  : "English"} ▾
             </button>
 
 
@@ -295,7 +299,7 @@ function Navbar() {
                     selectLanguage("en")
                   }
                 >
-                  🇬🇧 English
+                  English
                 </button>
 
 
@@ -312,7 +316,7 @@ function Navbar() {
                     selectLanguage("hi")
                   }
                 >
-                  🇮🇳 हिन्दी
+                   हिन्दी
                 </button>
 
 
@@ -329,7 +333,7 @@ function Navbar() {
                     selectLanguage("kn")
                   }
                 >
-                  🇮🇳 ಕನ್ನಡ
+                   ಕನ್ನಡ
                 </button>
 
               </div>
@@ -394,7 +398,7 @@ function Navbar() {
                 onClick={handleMyBookings}
                 type="button"
               >
-                📅 My Bookings
+                Dharohar(Books)
               </button>
 
 
@@ -576,7 +580,7 @@ function Navbar() {
                   selectLanguage("en")
                 }
               >
-                🇬🇧 EN
+                 English
               </button>
 
 
@@ -593,7 +597,7 @@ function Navbar() {
                   selectLanguage("hi")
                 }
               >
-                🇮🇳 HI
+                हिन्दी
               </button>
 
 
@@ -610,7 +614,7 @@ function Navbar() {
                   selectLanguage("kn")
                 }
               >
-                🇮🇳 KN
+                ಕನ್ನಡ
               </button>
 
             </div>
@@ -670,7 +674,7 @@ function Navbar() {
                 type="button"
                 onClick={handleMyBookings}
               >
-                📅 My Bookings
+                📅  Dharohar(Books)
               </button>
 
 
