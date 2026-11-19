@@ -1545,3 +1545,43 @@
 }
 
 
+.bhav-section-label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b8860b;
+}
+
+.bhav-section-label + h2,
+.bhav-section-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #2b2110;
+}
+
+.bhav-section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background-color: #b8860b;
+}
+
+@media (max-width: 600px) {
+  .bhav-section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .bhav-section-label + h2,
+  .bhav-section-title {
+    font-size: 1.4rem;
+  }
+}
