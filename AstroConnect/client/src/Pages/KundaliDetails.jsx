@@ -5,8 +5,8 @@ import Navbar from "../Components/Navbar/Navbar";
 import { useLanguage } from "../context/LanguageContext";
 import "./KundaliDetails.css";
 
-const API_URL = "http://localhost:5000";
-
+const API_URL =
+  import.meta.env.VITE_API_URL || "https://astroconnect-backend-yig9.onrender.com";
 const planetIcons = {
   Sun: "☀️",
   Moon: "🌙",

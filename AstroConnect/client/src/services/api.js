@@ -117,6 +117,28 @@ export const cancelBooking = async (token, bookingId) => {
 
 
 // =====================================================
+// KUNDALI
+// =====================================================
+
+// Save / Create Kundali
+export const saveKundali = async (token, kundaliData) => {
+  return apiRequest("/kundali", {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: JSON.stringify(kundaliData),
+  });
+};
+
+// Get My Kundalis
+export const getMyKundalis = async (token) => {
+  return apiRequest("/kundali", {
+    method: "GET",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+  });
+};
+
+
+// =====================================================
 // ADMIN
 // =====================================================
 
@@ -411,20 +433,14 @@ export const deleteContactMessage = async (
 };
 
 
-// add review
+// =====================================================
+// REVIEWS
+// =====================================================
 
 export const createReview = async (token, reviewData) => {
-  try {
-    const response = await fetch("YOUR_BACKEND_API_URL/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(reviewData),
-    });
-    return await response.json();
-  } catch (error) {
-    throw error;
-  }
+  return apiRequest("/reviews", {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: JSON.stringify(reviewData),
+  });
 };
