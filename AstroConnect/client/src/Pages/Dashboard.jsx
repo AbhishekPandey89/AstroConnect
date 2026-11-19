@@ -83,8 +83,13 @@ const Dashboard = () => {
       try {
         setKundaliLoading(true);
 
+        const baseUrl = (
+          import.meta.env.VITE_API_URL ||
+          "https://astroconnect-backend-yig9.onrender.com"
+        ).replace(/\/$/, "");
+
         const response = await fetch(
-          "http://localhost:5000/api/kundali/my",
+          `${baseUrl}/api/kundali/my`,
           {
             method: "GET",
             headers: {
@@ -96,13 +101,12 @@ const Dashboard = () => {
         const data = await response.json();
 
         if (response.ok && data.success) {
-          setKundalis(data.data || []);
+          setKundalis(Array.isArray(data.data) ? data.data : []);
+        } else {
+          setKundalis([]);
         }
-      } catch (error) {
-        console.error(
-          "Dashboard Kundali error:",
-          error
-        );
+      } catch {
+        setKundalis([]);
       } finally {
         setKundaliLoading(false);
       }
