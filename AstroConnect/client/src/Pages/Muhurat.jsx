@@ -613,66 +613,46 @@ function Muhurat() {
 
 
 
-  const loadPanchang = async (date = selectedDate) => {
+ const loadPanchang = async (date = selectedDate) => {
+  try {
+    setPanchangLoading(true);
+    setPanchangError("");
 
+    const url =
+      `${PANCHANG_API_URL}?date=${encodeURIComponent(date)}` +
+      `&lat=${DEFAULT_LAT}` +
+      `&lon=${DEFAULT_LON}`;
+
+    const response = await fetch(url);
+    const text = await response.text();
+
+    let result = null;
     try {
-
-      setPanchangLoading(true);
-
-      setPanchangError("");
-
-
-
-      const url =
-
-        `${PANCHANG_API_URL}?date=${encodeURIComponent(date)}` +
-
-        `&lat=${DEFAULT_LAT}` +
-
-        `&lon=${DEFAULT_LON}`;
-
-
-
-      const response = await fetch(url);
-
-      const result = await response.json();
-
-
-
-      if (!response.ok || !result.success) {
-
-        throw new Error(
-
-          result.message || ui.unableFetchPanchang
-
-        );
-
-      }
-
-
-
-      setPanchang(result.data);
-
-    } catch (error) {
-
-      console.error("Panchang fetch error:", error);
-
-      setPanchang(null);
-
-      setPanchangError(
-
-        error.message || ui.unablePanchang
-
+      result = text ? JSON.parse(text) : null;
+    } catch {
+      throw new Error(
+        `Panchang API request failed (${response.status}): non-JSON response`
       );
-
-    } finally {
-
-      setPanchangLoading(false);
-
     }
 
-  };
+    if (!response.ok || !result?.success) {
+      throw new Error(
+        result?.message ||
+          `Panchang API request failed with status ${response.status}`
+      );
+    }
 
+    setPanchang(result.data);
+  } catch (error) {
+    console.error("Panchang fetch error:", error);
+    setPanchang(null);
+    setPanchangError(
+      error.message || ui.unablePanchang
+    );
+  } finally {
+    setPanchangLoading(false);
+  }
+};
 
 
   useEffect(() => {
