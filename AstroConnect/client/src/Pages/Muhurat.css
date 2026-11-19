@@ -719,3 +719,128 @@
     align-items: flex-start;
   }
 }
+
+
+/* =========================================
+   PANCHANG - SPECIAL MUHURAT FIX
+========================================= */
+
+.panchang-special-section {
+  margin-top: 38px;
+  padding-top: 28px;
+  border-top: 1px solid #ecd9c4;
+}
+
+.panchang-special-section h3 {
+  margin: 0 0 22px;
+  color: #35180b;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.panchang-special-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.panchang-special-card {
+  min-width: 0;
+  min-height: 105px;
+  padding: 18px 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: linear-gradient(145deg, #fffaf2, #fff3e4);
+  border: 1px solid #ecd9c4;
+  border-radius: 18px;
+
+  box-shadow: 0 5px 18px rgba(80, 40, 10, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.panchang-special-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(214, 106, 8, 0.10);
+  border-color: #e6b77e;
+}
+
+/* Icon */
+.panchang-special-card > span:first-child {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  background: #fff;
+  border: 1px solid #f0dfca;
+  border-radius: 14px;
+  font-size: 23px;
+}
+
+/* Title and subtitle */
+.panchang-special-card > div {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.panchang-special-card > div strong {
+  color: #35180b;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.panchang-special-card > div small {
+  color: #927b69;
+  font-size: 13px;
+}
+
+/* Time */
+.panchang-special-card > span:last-child {
+  flex-shrink: 0;
+  color: #c96300;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .panchang-special-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .panchang-special-section {
+    margin-top: 28px;
+    padding-top: 22px;
+  }
+
+  .panchang-special-section h3 {
+    font-size: 23px;
+  }
+
+  .panchang-special-card {
+    padding: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .panchang-special-card > span:last-child {
+    width: 100%;
+    padding-left: 60px;
+    text-align: left;
+    white-space: normal;
+  }
+}
