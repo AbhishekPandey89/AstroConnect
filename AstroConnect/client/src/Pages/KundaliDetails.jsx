@@ -5,10 +5,14 @@ import Navbar from "../Components/Navbar/Navbar";
 import { useLanguage } from "../context/LanguageContext";
 import "./KundaliDetails.css";
 
-const API_URL = (
+const RAW_BASE_URL = (
   import.meta.env.VITE_API_URL ||
   "https://astroconnect-backend-yig9.onrender.com"
 ).replace(/\/$/, "");
+
+const API_URL = RAW_BASE_URL.endsWith("/api")
+  ? RAW_BASE_URL
+  : `${RAW_BASE_URL}/api`;
 
 const planetIcons = {
   Sun: "☀️",
@@ -1989,7 +1993,7 @@ const KundaliDetails = () => {
 
 
 
-         {/* =====================================
+          {/* =====================================
               12 BHAV ANALYSIS
           ====================================== */}
 
