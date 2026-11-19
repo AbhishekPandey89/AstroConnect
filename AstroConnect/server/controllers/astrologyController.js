@@ -43,22 +43,98 @@ const calculateRashiHouse = (ascendantSign, planetSign) => {
 // GET COORDINATES FROM BIRTH PLACE
 // ==========================================
 
-const getCoordinates = async (place) => {
-  try {
-    const url =
-      `https://nominatim.openstreetmap.org/search?` +
-      `format=json&limit=1&countrycodes=in&q=${encodeURIComponent(
-        place
-      )}`;
+const coordinatesCache = new Map();
 
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent":
-          "AstroConnect/1.0 (astrology application)",
-      },
-    });
+// Fallback coordinates (lat, lon) for major Indian cities
+// Keyed by normalized lowercase city/state tokens
+const CITY_FALLBACKS = [
+  { match: ["new delhi", "delhi"], lat: 28.6139, lon: 77.209 },
+  { match: ["mumbai", "bombay"], lat: 19.076, lon: 72.8777 },
+  { match: ["bengaluru", "bangalore"], lat: 12.9716, lon: 77.5946 },
+  { match: ["kolkata", "calcutta"], lat: 22.5726, lon: 88.3639 },
+  { match: ["chennai", "madras"], lat: 13.0827, lon: 80.2707 },
+  { match: ["hyderabad"], lat: 17.385, lon: 78.4867 },
+  { match: ["pune"], lat: 18.5204, lon: 73.8567 },
+  { match: ["ahmedabad"], lat: 23.0225, lon: 72.5714 },
+  { match: ["jaipur"], lat: 26.9124, lon: 75.7873 },
+  { match: ["lucknow"], lat: 26.8467, lon: 80.9462 },
+  { match: ["kanpur"], lat: 26.4499, lon: 80.3319 },
+  { match: ["varanasi", "banaras", "kashi"], lat: 25.3176, lon: 82.9739 },
+  { match: ["prayagraj", "allahabad"], lat: 25.4358, lon: 81.8463 },
+  { match: ["patna"], lat: 25.5941, lon: 85.1376 },
+  { match: ["bhopal"], lat: 23.2599, lon: 77.4126 },
+  { match: ["indore"], lat: 22.7196, lon: 75.8577 },
+  { match: ["nagpur"], lat: 21.1458, lon: 79.0882 },
+  { match: ["chandigarh"], lat: 30.7333, lon: 76.7794 },
+  { match: ["surat"], lat: 21.1702, lon: 72.8311 },
+  { match: ["kochi", "cochin"], lat: 9.9312, lon: 76.2673 },
+];
+
+const normalizePlaceKey = (place) =>
+  String(place || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+
+const findCityFallback = (place) => {
+  const normalized = normalizePlaceKey(place);
+  if (!normalized) return null;
+
+  for (const entry of CITY_FALLBACKS) {
+    if (entry.match.some((token) => normalized.includes(token))) {
+      return { lat: entry.lat, lon: entry.lon, source: "fallback" };
+    }
+  }
+  return null;
+};
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const getCoordinates = async (place) => {
+  const key = normalizePlaceKey(place);
+
+  if (!key) {
+    throw new Error("Birth place is required for geocoding");
+  }
+
+  // 1. Return from in-memory cache if already resolved
+  if (coordinatesCache.has(key)) {
+    return coordinatesCache.get(key);
+  }
+
+  const url =
+    `https://nominatim.openstreetmap.org/search?` +
+    `format=json&limit=1&countrycodes=in&q=${encodeURIComponent(
+      String(place).trim()
+    )}`;
+
+  const headers = {
+    "User-Agent": "AstroConnect/1.0 (contact@astroconnect.app)",
+    "Accept-Language": "en",
+  };
+
+  try {
+    let response = await fetch(url, { headers });
+
+    // 2. Single short retry on 429 rate-limit
+    if (response.status === 429) {
+      await sleep(1200);
+      response = await fetch(url, { headers });
+    }
 
     if (!response.ok) {
+      // If still rate-limited (429) or temporarily blocked, try known city fallback
+      if (response.status === 429) {
+        const fallback = findCityFallback(place);
+        if (fallback) {
+          console.warn(
+            `⚠️ Geocoding 429 for "${place}", using fallback coordinates.`
+          );
+          coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
+          return { lat: fallback.lat, lon: fallback.lon };
+        }
+      }
+
       throw new Error(
         `Geocoding failed with status ${response.status}`
       );
@@ -66,22 +142,38 @@ const getCoordinates = async (place) => {
 
     const data = await response.json();
 
-    if (!data || data.length === 0) {
-      throw new Error(
-        `Birth place not found: ${place}`
-      );
+    if (!Array.isArray(data) || data.length === 0) {
+      const fallback = findCityFallback(place);
+      if (fallback) {
+        coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
+        return { lat: fallback.lat, lon: fallback.lon };
+      }
+
+      throw new Error(`Birth place not found: ${place}`);
     }
 
-    return {
+    const coords = {
       lat: Number(data[0].lat),
       lon: Number(data[0].lon),
     };
-  } catch (error) {
-    console.error(
-      "❌ Geocoding error:",
-      error.message
-    );
 
+    if (!Number.isFinite(coords.lat) || !Number.isFinite(coords.lon)) {
+      throw new Error(`Invalid coordinates returned for: ${place}`);
+    }
+
+    coordinatesCache.set(key, coords);
+    return coords;
+  } catch (error) {
+    const fallback = findCityFallback(place);
+    if (fallback) {
+      console.warn(
+        `⚠️ Geocoding error ("${error.message}") for "${place}", falling back to city preset.`
+      );
+      coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
+      return { lat: fallback.lat, lon: fallback.lon };
+    }
+
+    console.error("❌ Geocoding error:", error.message);
     throw error;
   }
 };
@@ -337,53 +429,53 @@ const getKundaliAstrology = async (req, res) => {
     const astrologyData =
       data?.data || data;
 
-      // ============================================
-// CALCULATE REAL RASHI HOUSES
-// ============================================
+    // ============================================
+    // CALCULATE REAL RASHI HOUSES
+    // ============================================
 
-const ascendant = astrologyData.find(
-  (planet) => planet.name === "Ascendant"
-);
+    const ascendant = astrologyData.find(
+      (planet) => planet.name === "Ascendant"
+    );
 
-if (!ascendant) {
-  throw new Error(
-    "Ascendant data not available from astrology API."
-  );
-}
-
-const ascendantSign = ascendant.sign;
-
-const astrologyWithHouses =
-  astrologyData.map((planet) => {
-    const calculatedHouse =
-      calculateRashiHouse(
-        ascendantSign,
-        planet.sign
+    if (!ascendant) {
+      throw new Error(
+        "Ascendant data not available from astrology API."
       );
+    }
 
-    return {
-      ...planet,
+    const ascendantSign = ascendant.sign;
 
-      // API ke incorrect/suspicious house ko
-      // directly use nahi kar rahe.
-      house: calculatedHouse,
+    const astrologyWithHouses =
+      astrologyData.map((planet) => {
+        const calculatedHouse =
+          calculateRashiHouse(
+            ascendantSign,
+            planet.sign
+          );
 
-      // Clear naming for frontend
-      rashiHouse: calculatedHouse,
+        return {
+          ...planet,
 
-      houseCalculation: "whole_sign_rashi",
-    };
-  });
+          // API ke incorrect/suspicious house ko
+          // directly use nahi kar rahe.
+          house: calculatedHouse,
 
-console.log(
-  "🏠 Calculated Rashi Houses:"
-);
+          // Clear naming for frontend
+          rashiHouse: calculatedHouse,
 
-astrologyWithHouses.forEach((planet) => {
-  console.log(
-    `${planet.name}: ${planet.sign} → House ${planet.house}`
-  );
-});
+          houseCalculation: "whole_sign_rashi",
+        };
+      });
+
+    console.log(
+      "🏠 Calculated Rashi Houses:"
+    );
+
+    astrologyWithHouses.forEach((planet) => {
+      console.log(
+        `${planet.name}: ${planet.sign} → House ${planet.house}`
+      );
+    });
 
     console.log(
       "✅ Astrology calculation successful"
@@ -418,11 +510,11 @@ astrologyWithHouses.forEach((planet) => {
           coordinates.lon,
       },
 
-     astrology:
-  astrologyWithHouses,
+      astrology:
+        astrologyWithHouses,
     });
-  } 
-  
+  }
+
   catch (error) {
     console.error(
       "\n================================="
