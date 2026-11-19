@@ -1988,87 +1988,70 @@ const KundaliDetails = () => {
           </section>
 
 
-          {/* =====================================
-    12 BHAV ANALYSIS
-====================================== */}
 
-
-
-          {/* =====================================
-              AI ASTROLOGY
+         {/* =====================================
+              12 BHAV ANALYSIS
           ====================================== */}
 
-          <section className="kundali-analysis-section">
+          <section className="bhav-analysis-section">
 
-            <div className="kundali-section-heading">
-
-              <span>
-                🏠 {t("kundaliDetails", "houseAnalysisLabel")}
+            <div className="bhav-section-header">
+              <span className="bhav-section-label">
+                {t("kundaliDetails", "twelveBhavLabel") || "ASTROLOGICAL HOUSES"}
               </span>
 
               <h2>
-                {t("kundaliDetails", "bhavAnalysisTitle")}
+                {t("kundaliDetails", "twelveBhavTitle") || "12 Bhav Analysis"}
               </h2>
-
-              <p>
-                {t("kundaliDetails", "bhavDescription")}
-              </p>
-
             </div>
 
-            <div className="kundali-analysis-grid">
+            <div className="bhav-grid">
+              {bhavAnalysis.map((item, index) => {
+                const houseNumber = index + 1;
+                const houseSign = getHouseSign(ascendantSign, houseNumber);
+                const housePlanets = getPlanetsForHouse(planets, houseNumber, ascendantSign);
+                const localizedHouseName = translateHouseName(houseNumber, t) || item.title;
+                const localizedTheme = translateHouseTheme(houseNumber, t) || item.theme;
 
-              {bhavAnalysis.map((bhav) => (
+                return (
+                  <div
+                    className="bhav-card"
+                    key={houseNumber}
+                  >
+                    <div className="bhav-card-top">
+                      <span className="bhav-badge">
+                        {t("kundaliDetails", "houseNumberLabel") || "Bhav"} {houseNumber}
+                      </span>
 
-                <div
-                  className="kundali-analysis-card"
-                  key={`bhav-${translateHouseName(bhavAnalysis.indexOf(bhav) + 1, t)}`}
-                >
+                      <span className="bhav-lord">
+                        {translateZodiacSign(houseSign)}
+                      </span>
+                    </div>
 
-                  <div className="kundali-analysis-result">
+                    <h3 className="bhav-card-title">
+                      {localizedHouseName}
+                    </h3>
 
-                    <strong>
-                      {translateHouseName(bhavAnalysis.indexOf(bhav) + 1, t)}
-                    </strong>
+                    {localizedTheme && (
+                      <p className="bhav-planets">
+                        {localizedTheme}
+                      </p>
+                    )}
 
-                    <small>
-                      {t("kundaliDetails", "houseLabel")}{" "}
-                      {bhavAnalysis.indexOf(bhav) + 1}
-                    </small>
+                    <p className="bhav-description">
+                      {item.interpretation}
+                    </p>
 
+                    {housePlanets.length > 0 && (
+                      <small className="bhav-planets">
+                        {housePlanets
+                          .map((planet) => translatePlanetName(planet.name))
+                          .join(", ")}
+                      </small>
+                    )}
                   </div>
-
-                  <p>
-                    {translateHouseTheme(bhavAnalysis.indexOf(bhav) + 1, t)}
-                  </p>
-
-                  <div className="kundali-analysis-result">
-
-                    <strong>
-                      {t("kundaliDetails", "planetsLabel")}
-                    </strong>
-
-                    <small>
-                      {bhav.planets?.length
-                        ? bhav.planets
-                          .map(
-                            (planet) =>
-                              `${planetIcons[planet.name] || "✦"} ${translatePlanetName(planet.name)}`
-                          )
-                          .join(" • ")
-                        : t("kundaliDetails", "noPlanetPlaced")}
-                    </small>
-
-                  </div>
-
-                  <p>
-                    {bhav.interpretation}
-                  </p>
-
-                </div>
-
-              ))}
-
+                );
+              })}
             </div>
 
           </section>
