@@ -1,4 +1,3 @@
-
 const express = require("express");
 
 const router = express.Router();
@@ -39,7 +38,24 @@ router.get("/", async (req, res) => {
       },
     });
 
-    const data = await response.json();
+    const rawText = await response.text();
+    let data = null;
+
+    try {
+      data = rawText ? JSON.parse(rawText) : null;
+    } catch {
+      console.error(
+        "Shubh Panchang API non-JSON response:",
+        response.status,
+        rawText.slice(0, 300)
+      );
+
+      return res.status(response.status || 502).json({
+        success: false,
+        message: "Invalid response from Panchang provider.",
+        details: rawText.slice(0, 300),
+      });
+    }
 
     if (!response.ok) {
       console.error("Shubh Panchang API error:", data);

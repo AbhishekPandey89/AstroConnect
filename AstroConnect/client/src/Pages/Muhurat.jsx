@@ -14,15 +14,8 @@ const API_BASE_URL = RAW_BASE_URL.endsWith("/api")
   ? RAW_BASE_URL
   : `${RAW_BASE_URL}/api`;
 
-const PANCHANG_ENDPOINTS = [
-  `${API_BASE_URL}/panchang`,
-  `${API_BASE_URL}/astrology/panchang`,
-];
-
-const MUHURAT_ENDPOINTS = [
-  `${API_BASE_URL}/muhurat`,
-  `${API_BASE_URL}/astrology/muhurat`,
-];
+const PANCHANG_API_URL = `${API_BASE_URL}/panchang`;
+const MUHURAT_API_URL = `${API_BASE_URL}/muhurat`;
 
 const DEFAULT_LAT = 28.6139;
 const DEFAULT_LON = 77.209;
@@ -450,49 +443,23 @@ function extractMuhuratArray(result) {
   return [];
 }
 
-async function parseApiResponse(response, fallbackMessage) {
+async function parseJsonResponse(response, fallbackMessage) {
   const rawText = await response.text();
-  let parsed = null;
+  let data = null;
 
   try {
-    parsed = rawText ? JSON.parse(rawText) : null;
+    data = rawText ? JSON.parse(rawText) : null;
   } catch {
+    throw new Error(`${fallbackMessage} (Status ${response.status})`);
+  }
+
+  if (!response.ok || data?.success === false) {
     throw new Error(
-      `${fallbackMessage} (${response.status}: invalid JSON response)`
+      data?.message || `${fallbackMessage} (Status ${response.status})`
     );
   }
 
-  if (!response.ok || parsed?.success === false) {
-    throw new Error(
-      parsed?.message || `${fallbackMessage} (Status ${response.status})`
-    );
-  }
-
-  return parsed;
-}
-
-async function fetchFromEndpoints(endpoints, queryString, fallbackMessage) {
-  let lastError = null;
-
-  for (let i = 0; i < endpoints.length; i += 1) {
-    const baseEndpoint = endpoints[i];
-    const url = `${baseEndpoint}?${queryString}`;
-
-    try {
-      const response = await fetch(url);
-      if (response.status === 404 && i < endpoints.length - 1) {
-        continue;
-      }
-      return await parseApiResponse(response, fallbackMessage);
-    } catch (error) {
-      lastError = error;
-      if (i === endpoints.length - 1) {
-        throw error;
-      }
-    }
-  }
-
-  throw lastError || new Error(fallbackMessage);
+  return data;
 }
 
 function Muhurat() {
@@ -527,16 +494,13 @@ function Muhurat() {
       setPanchangLoading(true);
       setPanchangError("");
 
-      const queryString =
-        `date=${encodeURIComponent(date)}` +
+      const url =
+        `${PANCHANG_API_URL}?date=${encodeURIComponent(date)}` +
         `&lat=${DEFAULT_LAT}` +
         `&lon=${DEFAULT_LON}`;
 
-      const result = await fetchFromEndpoints(
-        PANCHANG_ENDPOINTS,
-        queryString,
-        ui.unableFetchPanchang
-      );
+      const response = await fetch(url);
+      const result = await parseJsonResponse(response, ui.unableFetchPanchang);
 
       setPanchang(result.data ?? result);
     } catch (error) {
@@ -591,18 +555,15 @@ function Muhurat() {
       setHasSearched(true);
       setMuhuratResults([]);
 
-      const queryString =
-        `activity=${encodeURIComponent(activity)}` +
+      const url =
+        `${MUHURAT_API_URL}?activity=${encodeURIComponent(activity)}` +
         `&from=${encodeURIComponent(fromDate)}` +
         `&to=${encodeURIComponent(toDate)}` +
         `&lat=${DEFAULT_LAT}` +
         `&lon=${DEFAULT_LON}`;
 
-      const result = await fetchFromEndpoints(
-        MUHURAT_ENDPOINTS,
-        queryString,
-        ui.unableFetchMuhurat
-      );
+      const response = await fetch(url);
+      const result = await parseJsonResponse(response, ui.unableFetchMuhurat);
       const results = extractMuhuratArray(result);
 
       setMuhuratResults(results);
