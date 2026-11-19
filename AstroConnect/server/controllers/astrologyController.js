@@ -45,8 +45,8 @@ const calculateRashiHouse = (ascendantSign, planetSign) => {
 
 const coordinatesCache = new Map();
 
-// Fallback coordinates (lat, lon) for major Indian cities
-// Keyed by normalized lowercase city/state tokens
+const INDIA_CENTER_FALLBACK = { lat: 20.5937, lon: 78.9629 };
+
 const CITY_FALLBACKS = [
   { match: ["new delhi", "delhi"], lat: 28.6139, lon: 77.209 },
   { match: ["mumbai", "bombay"], lat: 19.076, lon: 72.8777 },
@@ -82,13 +82,33 @@ const findCityFallback = (place) => {
 
   for (const entry of CITY_FALLBACKS) {
     if (entry.match.some((token) => normalized.includes(token))) {
-      return { lat: entry.lat, lon: entry.lon, source: "fallback" };
+      return { lat: entry.lat, lon: entry.lon };
     }
   }
   return null;
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const fetchFromOpenMeteo = async (place) => {
+  const cleanQuery = encodeURIComponent(
+    String(place).split(",")[0].trim()
+  );
+  const url = `https://geocoding-api.open-meteo.com/v1/search?name=${cleanQuery}&count=1&language=en&format=json`;
+
+  const res = await fetch(url);
+  if (!res.ok) return null;
+
+  const json = await res.json();
+  const first = json?.results?.[0];
+  if (!first) return null;
+
+  const lat = Number(first.latitude);
+  const lon = Number(first.longitude);
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+
+  return { lat, lon };
+};
 
 const getCoordinates = async (place) => {
   const key = normalizePlaceKey(place);
@@ -97,10 +117,13 @@ const getCoordinates = async (place) => {
     throw new Error("Birth place is required for geocoding");
   }
 
-  // 1. Return from in-memory cache if already resolved
+  // 1. In-memory cache
   if (coordinatesCache.has(key)) {
     return coordinatesCache.get(key);
   }
+
+  // 2. Known city preset fallback
+  const cityFallback = findCityFallback(place);
 
   const url =
     `https://nominatim.openstreetmap.org/search?` +
@@ -116,68 +139,58 @@ const getCoordinates = async (place) => {
   try {
     let response = await fetch(url, { headers });
 
-    // 2. Single short retry on 429 rate-limit
     if (response.status === 429) {
       await sleep(1200);
       response = await fetch(url, { headers });
     }
 
-    if (!response.ok) {
-      // If still rate-limited (429) or temporarily blocked, try known city fallback
-      if (response.status === 429) {
-        const fallback = findCityFallback(place);
-        if (fallback) {
-          console.warn(
-            `⚠️ Geocoding 429 for "${place}", using fallback coordinates.`
-          );
-          coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
-          return { lat: fallback.lat, lon: fallback.lon };
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const coords = {
+          lat: Number(data[0].lat),
+          lon: Number(data[0].lon),
+        };
+        if (Number.isFinite(coords.lat) && Number.isFinite(coords.lon)) {
+          coordinatesCache.set(key, coords);
+          return coords;
         }
       }
-
-      throw new Error(
-        `Geocoding failed with status ${response.status}`
-      );
-    }
-
-    const data = await response.json();
-
-    if (!Array.isArray(data) || data.length === 0) {
-      const fallback = findCityFallback(place);
-      if (fallback) {
-        coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
-        return { lat: fallback.lat, lon: fallback.lon };
-      }
-
-      throw new Error(`Birth place not found: ${place}`);
-    }
-
-    const coords = {
-      lat: Number(data[0].lat),
-      lon: Number(data[0].lon),
-    };
-
-    if (!Number.isFinite(coords.lat) || !Number.isFinite(coords.lon)) {
-      throw new Error(`Invalid coordinates returned for: ${place}`);
-    }
-
-    coordinatesCache.set(key, coords);
-    return coords;
-  } catch (error) {
-    const fallback = findCityFallback(place);
-    if (fallback) {
+    } else {
       console.warn(
-        `⚠️ Geocoding error ("${error.message}") for "${place}", falling back to city preset.`
+        `⚠️ Nominatim returned status ${response.status} for "${place}"`
       );
-      coordinatesCache.set(key, { lat: fallback.lat, lon: fallback.lon });
-      return { lat: fallback.lat, lon: fallback.lon };
     }
 
-    console.error("❌ Geocoding error:", error.message);
-    throw error;
+    // 3. Try secondary geocoding provider (Open-Meteo) before falling back
+    const secondary = await fetchFromOpenMeteo(place).catch(() => null);
+    if (secondary) {
+      coordinatesCache.set(key, secondary);
+      return secondary;
+    }
+
+    // 4. Use matching city coordinates or India center fallback so Kundali never fails on 429
+    const resolvedFallback = cityFallback || INDIA_CENTER_FALLBACK;
+    console.warn(
+      `⚠️ Using ${cityFallback ? "city preset" : "India center"} fallback for "${place}"`
+    );
+    coordinatesCache.set(key, resolvedFallback);
+    return resolvedFallback;
+  } catch (error) {
+    const secondary = await fetchFromOpenMeteo(place).catch(() => null);
+    if (secondary) {
+      coordinatesCache.set(key, secondary);
+      return secondary;
+    }
+
+    const resolvedFallback = cityFallback || INDIA_CENTER_FALLBACK;
+    console.warn(
+      `⚠️ Geocoding fallback for "${place}" after error (${error.message})`
+    );
+    coordinatesCache.set(key, resolvedFallback);
+    return resolvedFallback;
   }
 };
-
 // ==========================================
 // GET REAL KUNDALI ASTROLOGY
 // ==========================================
