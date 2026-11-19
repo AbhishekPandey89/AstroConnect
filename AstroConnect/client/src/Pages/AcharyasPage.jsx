@@ -5,7 +5,10 @@ import { transliterateName } from "../utils/transliterateName";
 import "./AcharyasPage.css";
 import { useLanguage } from "../context/LanguageContext";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = (
+  import.meta.env.VITE_API_URL ||
+  "https://astroconnect-backend-yig9.onrender.com/api"
+).replace(/\/$/, "");
 
 const AcharyasPage = () => {
   const { t } = useLanguage();

@@ -53,9 +53,11 @@ function Acharyas() {
   // BOOK NOW
   // =====================================================
 
-  const handleBookNow = (acharya) => {
-    navigate("/booking");
-  };
+ const handleBookNow = (acharya) => {
+  navigate("/booking", {
+    state: { acharya },
+  });
+};
   // =====================================================
   // VIEW ALL
   // =====================================================
