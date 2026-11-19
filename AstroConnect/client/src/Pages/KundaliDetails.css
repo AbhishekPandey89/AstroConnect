@@ -1585,3 +1585,177 @@
     font-size: 1.4rem;
   }
 }
+
+
+
+/* =========================================
+   ASTROCONNECT — 12 BHAV ANALYSIS
+========================================= */
+
+.bhav-analysis-section {
+  width: 100%;
+  margin: 38px 0;
+}
+
+.bhav-section-header {
+  margin-bottom: 24px;
+}
+
+.bhav-section-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #b8860b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.bhav-section-header h2 {
+  margin: 0;
+  color: #2b2110;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* 12 Bhav Grid */
+
+.bhav-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Bhav Card */
+
+.bhav-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  padding: 23px;
+  box-sizing: border-box;
+  border: 1px solid #eadfce;
+  border-radius: 19px;
+  background: linear-gradient(145deg, #ffffff, #fffaf2);
+  box-shadow: 0 10px 28px rgba(74, 48, 21, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bhav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(74, 48, 21, 0.11);
+  border-color: #e4c18b;
+}
+
+/* Card Top */
+
+.bhav-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+
+.bhav-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #fff0d7;
+  color: #a65e15;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.bhav-lord {
+  color: #b47a30;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* Card Content */
+
+.bhav-card-title {
+  margin: 0 0 10px;
+  color: #352719;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.bhav-description {
+  margin: 10px 0 16px;
+  color: #786b5d;
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.bhav-card .bhav-planets {
+  display: block;
+  margin: 0 0 10px;
+  color: #a66b27;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.bhav-card .bhav-planets:last-child {
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 1px solid #f0e1c9;
+  border-radius: 10px;
+  background: #fff7eb;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .bhav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .bhav-analysis-section {
+    margin: 28px 0;
+  }
+
+  .bhav-section-header {
+    margin-bottom: 18px;
+  }
+
+  .bhav-section-header h2 {
+    font-size: 24px;
+  }
+
+  .bhav-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bhav-card {
+    padding: 19px;
+    border-radius: 16px;
+  }
+
+  .bhav-card-title {
+    font-size: 17px;
+  }
+
+  .bhav-description {
+    font-size: 13px;
+  }
+}
